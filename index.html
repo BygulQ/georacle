@@ -185,8 +185,11 @@
     .captureHeader{text-align:center;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--line2)}
     .captureTitle{font-size:24px;font-weight:1000;letter-spacing:.16em;margin-bottom:8px;color:var(--ink)}
     .captureMeta{font-size:13px;font-weight:800;color:var(--muted);letter-spacing:.04em;line-height:1.65;white-space:pre-wrap}
-    .captureChart{display:flex;justify-content:center;align-items:center;overflow:visible}
+    .captureChart{display:flex;justify-content:center;align-items:center;overflow:visible;width:100%;min-height:1px}
     .captureChart #chartRoot,.captureChart .shield{overflow:visible}
+    .captureChart .squareWrap{width:680px !important;height:680px !important;aspect-ratio:auto !important;flex:0 0 680px !important;max-width:none !important;margin:0 auto !important;overflow:hidden !important;background:white !important}
+    .captureChart .squareWrap svg{position:absolute !important;inset:0 !important;width:680px !important;height:680px !important}
+    .captureChart .sqLabel{visibility:visible !important;opacity:1 !important}
     .captureFooter{text-align:center;margin-top:14px;font-size:12px;color:var(--soft);font-weight:800;letter-spacing:.08em}
     .chartCard{position:relative}
 
@@ -1601,6 +1604,23 @@ function cleanCaptureClone(clone){
     el.style.animation='none';
     el.style.transition='none';
   });
+  const square=clone.querySelector('.squareWrap');
+  if(square){
+    square.style.width='680px';
+    square.style.height='680px';
+    square.style.aspectRatio='auto';
+    square.style.flex='0 0 680px';
+    square.style.maxWidth='none';
+    square.style.margin='0 auto';
+    square.style.overflow='hidden';
+    const svg=square.querySelector('svg');
+    if(svg){
+      svg.style.position='absolute';
+      svg.style.inset='0';
+      svg.style.width='680px';
+      svg.style.height='680px';
+    }
+  }
   return clone;
 }
 function captureTimestamp(){
