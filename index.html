@@ -3,8 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
-  <title>今天想要問什麼｜阿拉伯沙占盤 playable conditional intent</title>
+  <title>今天想要問什麼｜沙占起來</title>
   <style>
+
+    /* =========================================================
+       STYLE MAP
+       01 Theme / base layout
+       02 Tool drawer / controls
+       03 Chart containers: shield + square house chart
+       04 Side panels, four elements, four states, AI prompt, diary
+       05 Modals, motion overlay, long-press card, board toast
+       06 Light systems: timeline, flight, four states, intent, source, status
+       07 Responsive rules
+       ========================================================= */
     :root{
       --bg:#EAE8E3; --panel:#F7F6F2; --paper:#FDFBF7; --white:#fff;
       --ink:#5A534D; --muted:#827A73; --soft:#99928A; --line:#D0C9C0;
@@ -38,10 +49,13 @@
     .drawerHead h2{margin:0;font-size:20px;letter-spacing:.08em}
     .drawerClose{width:42px;height:42px;border-radius:14px;padding:0;font-size:20px}
     .toolSection{background:white;border:1px solid var(--line2);border-radius:22px;padding:14px;box-shadow:0 3px 12px #00000008}
-    .toolSectionTitle{font-size:12px;font-weight:1000;color:var(--soft);letter-spacing:.16em;margin:0 0 10px}
+    .toolSectionTitle{font-size:12px;font-weight:1000;color:var(--soft);letter-spacing:.16em;margin:0 0 8px}
+    .toolSectionHint{font-size:12px;color:var(--muted);font-weight:750;line-height:1.55;margin:-2px 0 10px}
     .toolGrid{display:grid;grid-template-columns:1fr;gap:10px}
     .toolGrid button{width:100%;text-align:left;display:flex;align-items:center;justify-content:flex-start;gap:8px;min-height:44px}
     @media(max-width:760px){.toolDrawer{width:min(340px,calc(100vw - 20px));padding:14px}.toolGrid button{min-height:48px}}
+
+    /* 03 Main chart layout */
     .layout{display:grid;grid-template-columns:1fr;gap:18px;align-items:start}
     .side{width:100%}
     @media(max-width:900px){h1{font-size:22px} main{padding:12px}}
@@ -49,6 +63,8 @@
     .card{background:white;border:1px solid var(--line2);border-radius:26px;padding:18px;box-shadow:0 3px 14px #00000008}
     .chartCard{background:var(--paper);min-height:540px;overflow:auto}
     .hint{text-align:center;color:var(--rose);font-size:12px;font-weight:800;letter-spacing:.12em;margin-bottom:18px}
+
+    /* 03A Shield chart */
     .shield{min-width:900px;display:flex;flex-direction:column;align-items:center;padding:22px 12px 30px}
     .row{display:flex;align-items:center;justify-content:center;gap:8px}
     .shieldTop{margin-bottom:26px}
@@ -64,14 +80,16 @@
     .fig.target{border-color:var(--green);box-shadow:0 0 0 4px #8a9a8644;transform:scale(1.08)}
     .fig.darbSel{border-color:var(--blue);box-shadow:0 0 0 2px #7c8f9944}
     .fig.darbTarget{border-color:var(--orange);box-shadow:0 0 0 4px #d9775744;transform:scale(1.08)}
-    .fig .house{font-size:13px;font-weight:900;margin-bottom:4px}
-    .fig .role{font-size:10px;color:var(--soft);font-weight:800;margin-top:5px;white-space:nowrap}
-    .fig .name{font-size:13px;font-weight:900;margin-top:2px;white-space:nowrap}
+    .fig .house{font-size:13px;font-weight:900;margin-bottom:4px;letter-spacing:.06em;line-height:1.18}
+    .fig .role{font-size:10px;color:var(--soft);font-weight:800;margin-top:5px;white-space:nowrap;letter-spacing:.045em;line-height:1.28}
+    .fig .name{font-size:13px;font-weight:900;margin-top:3px;white-space:nowrap;letter-spacing:.045em;line-height:1.2}
     .dots{display:flex;flex-direction:column;gap:8px;margin:4px 0}
     .line{height:12px;display:flex;align-items:center;justify-content:center;gap:13px}
     .dot{width:10px;height:10px;transform:rotate(45deg);border-radius:2px;background:currentColor}
     .fire{color:var(--rose)} .air{color:var(--gold)} .water{color:var(--blue)} .earth{color:var(--green)}
     .connector{height:1px;width:14px;background:var(--line)}
+
+    /* 03B Square house chart */
     .squareWrap{position:relative;width:min(680px,100%);aspect-ratio:1/1;margin:auto;background:white;border-radius:20px;overflow:hidden}
     svg{position:absolute;inset:0;width:100%;height:100%}
     polygon{fill:transparent;stroke:var(--line);stroke-width:.45;cursor:pointer;transition:.2s}
@@ -85,6 +103,8 @@
     .sqLabel .dots{gap:2px;margin:0}
     .sqLabel .line{height:16px;gap:8px}
     .sqLabel .dot{width:8px;height:8px}
+
+    /* 04 Side interpretation panels */
     .side h2,.panel h3{margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--line2)}
     .infoBox{background:var(--panel);border:1px solid var(--line2);border-radius:18px;padding:14px;margin-bottom:14px}
     .bigName{text-align:center;background:var(--panel);border:1px solid var(--line2);border-radius:20px;padding:24px 10px;margin-bottom:14px}
@@ -94,6 +114,8 @@
     .meta div{background:white;border:1px solid var(--line2);border-radius:16px;padding:12px;text-align:center}
     .meta small{display:block;color:var(--soft);font-weight:900}
     .meta b{font-size:20px}
+
+    /* 04A Dynamic analysis panels */
     .panels{display:flex;flex-direction:column;gap:18px;margin-top:18px}
     .misaaha{display:grid;grid-template-columns:1fr 2fr;gap:14px}
     @media(max-width:800px){.misaaha{grid-template-columns:1fr}}
@@ -109,8 +131,10 @@
     .houseChips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
     .houseChip{border:1px solid var(--line);background:white;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:900;color:var(--muted)}
     .houseChip.current{background:var(--rose);border-color:var(--rose);color:white}
+
+    /* 04B AI prompt and diary */
     .oracle{margin-top:18px}
-    .oracleRow{display:grid;grid-template-columns:170px 1fr auto auto;gap:10px}
+    .oracleRow{display:grid;grid-template-columns:170px 1fr auto;gap:10px}
     @media(max-width:760px){.oracleRow{grid-template-columns:1fr}}
     select,input{width:100%;border:1px solid var(--line2);border-radius:16px;padding:12px 14px;background:var(--panel);font-size:16px;color:var(--ink);font-weight:700}
     .result{margin-top:14px;background:var(--panel);border:1px solid var(--line2);border-radius:20px;padding:18px;white-space:pre-wrap;line-height:1.8;font-weight:600}
@@ -119,6 +143,8 @@
     .diaryList.open{display:block}
     .entry{background:white;border:1px solid var(--line2);border-radius:18px;padding:14px;margin-top:10px}
     .entry .date{font-size:12px;color:var(--soft);font-weight:900}
+
+    /* 05 Modals and overlays */
     .modal{position:fixed;inset:0;background:#5a534dcc;display:none;align-items:center;justify-content:center;z-index:99;padding:16px}
     .modal.open{display:flex}
     .modalBox{background:var(--panel);border:2px solid var(--line2);border-radius:26px;max-width:680px;width:100%;padding:18px;box-shadow:0 20px 60px #0005}
@@ -142,19 +168,32 @@
     .motionOp.plus{animation-delay:.34s}.motionOp.arrow{animation-delay:1.02s}
     .motionResultText{text-align:center;font-weight:900;color:var(--muted);margin-top:10px;line-height:1.65}
     .pulseGlow{animation:pulseGlow .9s ease-in-out 2}
-    .analysisModal{position:fixed;right:16px;bottom:16px;background:transparent;display:none;align-items:flex-end;justify-content:flex-end;z-index:130;padding:0;pointer-events:none}
-    .analysisModal.open{display:flex;animation:fadeIn .16s ease-out both}
+    .analysisModal{position:fixed;inset:0;background:transparent;display:none;align-items:flex-end;justify-content:flex-end;z-index:130;padding:16px;pointer-events:none}
+    .analysisModal.open{display:flex;pointer-events:auto;animation:fadeIn .16s ease-out both}
     .analysisCard{background:var(--panel);border:1px solid var(--line);border-radius:28px;max-width:460px;width:min(460px,calc(100vw - 32px));max-height:calc(100vh - 32px);overflow:auto;padding:18px;box-shadow:0 20px 60px #0005;pointer-events:auto}
-    @media(max-width:760px){.analysisModal{left:12px;right:12px;bottom:12px}.analysisCard{width:100%;max-width:none}}
+    @media(max-width:760px){.analysisModal{padding:12px}.analysisCard{width:100%;max-width:none}}
     .analysisTop{display:flex;gap:14px;align-items:center;margin-bottom:14px}
     .analysisFig{width:82px;flex:0 0 auto;background:white;border:1px solid var(--line2);border-radius:18px;padding:10px;text-align:center}
     .analysisTitle{flex:1}.analysisTitle small{display:block;color:var(--soft);font-weight:900;letter-spacing:.12em}.analysisTitle b{font-size:28px;letter-spacing:.08em}
     .analysisBody{background:white;border:1px solid var(--line2);border-radius:20px;padding:14px;line-height:1.75;color:var(--ink);font-weight:650}
     .analysisActions{display:flex;justify-content:flex-end;margin-top:14px}
 
+
+
+    /* 05A Board image export */
+    .captureCard{position:absolute;left:-12000px;top:0;width:960px;background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:none;color:var(--ink);overflow:hidden}
+    .captureHeader{text-align:center;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--line2)}
+    .captureTitle{font-size:24px;font-weight:1000;letter-spacing:.16em;margin-bottom:8px;color:var(--ink)}
+    .captureMeta{font-size:13px;font-weight:800;color:var(--muted);letter-spacing:.04em;line-height:1.65;white-space:pre-wrap}
+    .captureChart{display:flex;justify-content:center;align-items:center;overflow:visible}
+    .captureChart #chartRoot,.captureChart .shield{overflow:visible}
+    .captureFooter{text-align:center;margin-top:14px;font-size:12px;color:var(--soft);font-weight:800;letter-spacing:.08em}
     .chartCard{position:relative}
-    .boardToast{position:absolute;left:50%;top:14px;transform:translateX(-50%);z-index:30;pointer-events:none;background:#fdfbf7f2;border:1px solid var(--line);border-radius:999px;padding:12px 22px;box-shadow:0 8px 22px #0002;color:var(--ink);font-size:18px;line-height:1.25;font-weight:1000;letter-spacing:.08em;opacity:0;transition:.18s;white-space:nowrap}
-    .boardToast.open{opacity:1;transform:translateX(-50%) translateY(0)}
+
+    /* 05B Board toast */
+    .boardToast{position:absolute;left:50%;top:14px;transform:translateX(-50%);z-index:30;pointer-events:none;background:#fdfbf7f2;border:1px solid var(--line);border-radius:999px;padding:10px 16px;box-shadow:0 8px 22px #0002;color:var(--ink);font-size:13px;line-height:1.55;font-weight:900;letter-spacing:.04em;opacity:0;transition:.18s;white-space:normal;text-align:center;max-width:min(86vw,520px)}
+    .boardToast.open{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:auto;cursor:pointer}
+    @media(min-width:901px){.boardToast{font-size:15px;line-height:1.6;letter-spacing:.06em;padding:12px 20px;max-width:min(720px,calc(100% - 40px))}}
     .fig.timelineOrigin{border-color:var(--rose);background:#fff4f2;box-shadow:0 0 0 4px #b4766e35,0 0 22px #b4766e77;transform:scale(1.06)}
     .fig.timelineDevelop{border-color:var(--gold);background:#fffaf0;box-shadow:0 0 0 4px #c5a87c35,0 0 22px #c5a87c77;transform:scale(1.06)}
     .fig.timelineProcess{border-color:var(--blue);background:#f1f7fa;box-shadow:0 0 0 4px #7c8f9935,0 0 22px #7c8f9977;transform:scale(1.06)}
@@ -210,6 +249,21 @@
     polygon.fortuneNeutral{fill:#5a534d0d;stroke:#c4beb5;stroke-width:1;opacity:.62}
     polygon.fortuneBad{fill:#b4766e26;stroke:var(--rose);stroke-width:2.2;filter:drop-shadow(0 0 2px #b4766e)}
     polygon.fortuneGreatBad{fill:#8d4c4830;stroke:#8d4c48;stroke-width:2.8;filter:drop-shadow(0 0 4px #8d4c48)}
+
+    .fig.landingStrongGood{border-color:var(--gold);background:#fff7d9;box-shadow:0 0 0 5px #c5a87c55,0 0 32px #c5a87ca0;transform:scale(1.08)}
+    .fig.landingGood{border-color:var(--green);background:#f1f8ee;box-shadow:0 0 0 4px #8a9a8645,0 0 22px #8a9a8677;transform:scale(1.05)}
+    .fig.landingSmallGood{border-color:#d8bf8f;background:#fffaf0;box-shadow:0 0 0 3px #c5a87c34,0 0 15px #c5a87c5d;transform:scale(1.03)}
+    .fig.landingNeutral{background:#f7f6f2;border-color:var(--line);opacity:.72;filter:saturate(.72)}
+    .fig.landingSmallBad{border-color:#c4938d;background:#f8ece9;box-shadow:0 0 0 3px #b4766e26,inset 0 0 14px #5a534d14;filter:saturate(.86) brightness(.96)}
+    .fig.landingBad{border-color:var(--rose);background:#f3e2df;box-shadow:0 0 0 4px #b4766e35,inset 0 0 20px #5a534d1c;filter:saturate(.9) brightness(.93);transform:scale(1.03)}
+    .fig.landingStrongBad{border-color:#8d4c48;background:#e7d2cd;box-shadow:0 0 0 5px #8d4c4848,inset 0 0 28px #5a534d30,0 0 20px #8d4c4868;filter:saturate(.92) brightness(.86);transform:scale(1.06)}
+    polygon.landingStrongGood{fill:#c5a87c3a;stroke:var(--gold);stroke-width:3;filter:drop-shadow(0 0 4px #c5a87c)}
+    polygon.landingGood{fill:#8a9a8632;stroke:var(--green);stroke-width:2.6;filter:drop-shadow(0 0 3px #8a9a86)}
+    polygon.landingSmallGood{fill:#c5a87c24;stroke:#d8bf8f;stroke-width:2.1;filter:drop-shadow(0 0 2px #c5a87c)}
+    polygon.landingNeutral{fill:#5a534d0d;stroke:#c4beb5;stroke-width:1;opacity:.62}
+    polygon.landingSmallBad{fill:#b4766e1e;stroke:#c4938d;stroke-width:1.9;filter:drop-shadow(0 0 1px #b4766e)}
+    polygon.landingBad{fill:#b4766e29;stroke:var(--rose);stroke-width:2.3;filter:drop-shadow(0 0 2px #b4766e)}
+    polygon.landingStrongBad{fill:#8d4c4833;stroke:#8d4c48;stroke-width:2.9;filter:drop-shadow(0 0 4px #8d4c48)}
     @keyframes marqueeRun{0%{transform:translateX(0)}100%{transform:translateX(-145%)}}
     @keyframes birthPop{0%{transform:scale(.72);opacity:.25}65%{transform:scale(1.16);opacity:1}100%{transform:scale(1)}}
     @keyframes popIn{from{opacity:0;transform:translateY(10px) scale(.86)}to{opacity:1;transform:translateY(0) scale(1)}}
@@ -221,9 +275,10 @@
     @keyframes darbFlash{0%,100%{box-shadow:0 0 0 0 #d9775700}50%{box-shadow:0 0 0 7px #d9775742,0 0 26px #d9775780;transform:scale(1.12)}}
     @keyframes darbPolyFlash{0%,100%{filter:drop-shadow(0 0 0 #d9775700)}50%{filter:drop-shadow(0 0 5px #d97757);stroke:var(--orange);stroke-width:3}}
 
-    .promptTools{margin-top:12px;background:var(--panel);border:1px solid var(--line2);border-radius:20px;padding:14px;display:none}
+    .promptTools{margin-top:12px;background:var(--panel);border:1px solid var(--line2);border-radius:20px;padding:14px;display:block}
     .promptHead{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px}
     .promptHead b{color:var(--rose);letter-spacing:.08em}
+    .promptIntro{margin:0 0 12px;color:var(--soft);font-size:13px;font-weight:800;line-height:1.65}
     textarea.promptText{width:100%;min-height:260px;border:1px solid var(--line2);border-radius:16px;background:white;color:var(--ink);padding:14px;line-height:1.65;font-weight:650;resize:vertical;white-space:pre-wrap}
   </style>
 </head>
@@ -235,6 +290,8 @@
       <div class="sub">LET ME KNOW GEOMANTIC SHIELD</div>
     </header>
     <main>
+
+      <!-- APP CONTROLS: view switch,起卦, reset, tools -->
       <section class="controls">
         <div class="toggle">
           <button id="viewShield" class="active">盾盤</button>
@@ -248,6 +305,8 @@
         </div>
       </section>
 
+
+      <!-- MAIN READING AREA: chart + selected house interpretation -->
       <section class="layout">
         <div class="card chartCard">
           <div class="hint" id="hint">▲ 點擊「隨機起卦」或「手動起卦」開始 ▲</div>
@@ -261,6 +320,8 @@
         </aside>
       </section>
 
+
+      <!-- DYNAMIC PANELS: elements and four-state analysis -->
       <section class="panels" id="dynamicPanels" style="display:none">
         <div class="card panel misaaha">
           <div>
@@ -280,8 +341,11 @@
         </div>
       </section>
 
+
+      <!-- AI PROMPT AREA: question, prompt generator, diary -->
       <section class="card oracle">
-        <h2>AI 神諭區｜本地試玩版</h2>
+        <h2>AI神諭提示詞</h2>
+        <p class="promptIntro">此工具不會直接替你解答，而是把問題、取用宮位、核心裁決與已啟用工具整理成一版可複製給 AI 的讀盤提示詞。</p>
         <div id="modeBadges"></div>
         <div class="oracleRow" style="margin-top:12px">
           <select id="domain">
@@ -294,25 +358,26 @@
             <option value="time_quantity">⏳ 應期與數量</option>
           </select>
           <input id="question" placeholder="請輸入你的具體疑問..." />
-          <button id="intentBtn">👁️ 意圖提取</button>
-          <button class="primary" id="oracleBtn">祈求神諭</button>
+          <button class="primary" id="oracleBtn">生成提示詞</button>
         </div>
         <div class="result" id="reading" style="display:none"></div>
         <div class="promptTools" id="promptTools">
-          <div class="promptHead"><b>AI 神諭提示詞</b><button id="copyPromptBtn">複製提示詞</button></div>
-          <textarea class="promptText" id="oraclePrompt" readonly placeholder="先按意圖提取，再祈求神諭；完成後會在這裡生成可複製給其他 AI 的完整提示詞"></textarea>
+          <div class="promptHead"><b>給 AI 的整理版提示詞</b><button id="copyPromptBtn">複製提示詞</button></div>
+          <textarea class="promptText" id="oraclePrompt" readonly placeholder="起卦後輸入問題，按「生成提示詞」，這裡會產生可直接複製給 AI 的整理版占斷提示詞。"></textarea>
         </div>
         <div style="margin-top:12px;display:none" id="saveRow">
-          <button id="saveBtn">☁️ 存入本地日記</button>
+          <button id="saveBtn">☁️ 存入占卜日記</button>
         </div>
         <div class="diaryList" id="diaryList"></div>
       </section>
 
-      <div class="footerNote">本檔為可玩原型：資料儲存在你的瀏覽器 localStorage，未連接 Firebase / Gemini。</div>
+      <div class="footerNote">本檔為可玩原型：資料儲存在你的瀏覽器 localStorage；AI神諭提示詞需複製到外部 AI 使用。</div>
     </main>
   </div>
 </div>
 
+
+<!-- TOOL DRAWER -->
 <div class="drawerOverlay" id="toolDrawerOverlay"></div>
 <aside class="toolDrawer" id="toolDrawer" aria-label="沙盤工具">
   <div class="drawerHead">
@@ -322,30 +387,37 @@
 
   <section class="toolSection">
     <div class="toolSectionTitle">盤面顯示</div>
+    <div class="toolSectionHint">切換盤面的視覺層，不改變起卦結果。</div>
     <div class="toolGrid">
+      <button id="fortuneLightBtn">🌗 盤面狀態</button>
       <button id="timelineBtn">⏳ 四段時間軸</button>
       <button id="flightBtn">🪽 顯示飛宮</button>
       <button id="stateLightBtn">✦ 四態燈</button>
-      <button id="fortuneLightBtn">🌗 盤面狀態</button>
     </div>
   </section>
 
   <section class="toolSection">
     <div class="toolSectionTitle">推演工具</div>
+    <div class="toolSectionHint">用來追問意圖、來源、合相與盤中關聯。</div>
     <div class="toolGrid">
+      <button id="intentBtn">👁️ 意圖提取</button>
+      <button id="judgeSourceBtn">⚖️ 平衡宮尋源</button>
       <button id="darbBtn">💥 合卦</button>
-      <button id="judgeSourceBtn">⚖️平衡宮尋源</button>
     </div>
   </section>
 
   <section class="toolSection">
-    <div class="toolSectionTitle">紀錄</div>
+    <div class="toolSectionTitle">輸出保存</div>
+    <div class="toolSectionHint">保存盤面圖片或本次 AI 提示詞紀錄。</div>
     <div class="toolGrid">
-      <button id="diaryBtn">☁️ 日記</button>
+      <button id="captureBoardBtn">📸 下載盤面圖</button>
+      <button id="diaryBtn">☁️ 占卜日記</button>
     </div>
   </section>
 </aside>
 
+
+<!-- MANUAL CASTING MODAL -->
 <div class="modal" id="manualModal">
   <div class="modalBox">
     <h2 style="margin-top:0">自由起卦｜設定四母</h2>
@@ -359,6 +431,8 @@
 </div>
 
 
+
+<!-- MOTION / LONG-PRESS ANALYSIS OVERLAYS -->
 <div class="motionOverlay" id="motionOverlay" aria-live="polite">
   <div class="motionBox" id="motionBox"></div>
 </div>
@@ -371,6 +445,21 @@
 </div>
 
 <script>
+
+/* =========================================================
+   SINGLE-FILE SCRIPT MAP
+   01 Data tables: figures, houses, question domains, square regions
+   02 App state and shared helpers
+   03 Visual layers: timeline, board status, dignity scoring, four-state lights
+   04 Core geomancy calculation
+   05 Chart rendering: shield chart, square chart, side interpretation
+   06 Analysis tools: four states, intent extraction, judge-source tracing, darb
+   07 UI utilities: animations, toast, long-press card, tool drawer
+   08 AI prompt, diary, manual casting, board image export
+   09 Render cycle and event bindings
+   ========================================================= */
+
+/* 01A Figure data -------------------------------------------------- */
 const FIGURE_DATA = {
   "1111": { nameZh: "道路", nameLatin: "Via", nameAr: "Ṭarīq", element: "水", nature: "中性", meaning: "旅程、尋找、平穩、順其自然。表示事情正在發展中，能量流動不受限。" },
   "1112": { nameZh: "龍尾", nameLatin: "Cauda Draconis", nameAr: "'Atabah Khārijah", element: "水", nature: "凶", meaning: "結束、離開、流失、向下、放棄。不宜開始新事物，代表能量的逸散。" },
@@ -390,6 +479,41 @@ const FIGURE_DATA = {
   "2222": { nameZh: "群眾", nameLatin: "Populus", nameAr: "Jamā'ah", element: "火", nature: "中性", meaning: "群眾、穩定、聚集、不變、隨波逐流。維持現狀，結果取決於周遭環境與他人。" }
 };
 
+const FIGURE_PROFILE = {
+  "1111": { planet:"月亮", zodiac:"巨蟹", personality:"流動、尋找、順勢而行。它不急著固定答案，而是讓事件沿著路徑自然展開。", favorable:"旅行、搬動、尋找、轉換、順流而行、等待局勢自己打開。", unfavorable:"定案、承諾、長期固定、硬性決斷、要求立刻穩定。", shadow:"漂浮、反覆、沒有方向、被環境帶著走。" },
+  "1112": { planet:"南交點", zodiac:"天蠍", personality:"結束、排出、離開舊門檻。它擅長清理殘局，但不適合承接新開始。", favorable:"斷捨離、結束舊事、離開錯誤場域、清理消耗、放下執著。", unfavorable:"開新局、簽長約、累積資產、建立信任、保留關係。", shadow:"流失、耗損、逃避、退場過急、把仍有價值的東西一起丟掉。" },
+  "1121": { planet:"火星", zodiac:"白羊", personality:"直衝、好勝、行動快、耐性低。遇事先動手再思考，適合突破，不適合細膩經營。", favorable:"開局、競爭、突破、表態、短期衝刺、斬斷拖延。", unfavorable:"溫和談判、長期承諾、細膩修補、等待時機、照顧他人感受。", shadow:"衝動、逞強、攻擊性、沒有計畫、先破壞後收拾。" },
+  "1122": { planet:"太陽", zodiac:"獅子", personality:"外在助力、短期光亮、快速可見的成功。它帶來機會，但持久度需要後續維護。", favorable:"曝光、短期目標、面試演出、臨時支援、快速推進、把握當下。", unfavorable:"長期穩固、深層承諾、慢工細活、完全依賴他人保護。", shadow:"虛榮、曇花一現、過度樂觀、只看表面成果。" },
+  "1211": { planet:"金星", zodiac:"天秤", personality:"柔和、美感、關係修補與表面和諧。它擅長讓場面變好看，但不一定處理根本矛盾。", favorable:"感情、社交、和解、美感設計、禮物、交際、人際潤滑。", unfavorable:"強硬對抗、切斷關係、深挖真相、嚴格紀律、艱難決策。", shadow:"粉飾太平、討好、只重外表、逃避衝突。" },
+  "1212": { planet:"金星", zodiac:"金牛", personality:"失去、花費、釋放與交換。它讓東西離手，也可能讓沉重負擔被拿走。", favorable:"放下、出售、花費換取價值、清空、離職離場、割捨不需要的人事物。", unfavorable:"守財、存款、留住關係、追回失物、累積資源、要求穩固擁有。", shadow:"破財、浪費、價值感低落、留不住、越補越漏。" },
+  "1221": { planet:"土星", zodiac:"摩羯", personality:"封閉、限制、邊界與等待。它讓事情慢下來，但也能形成保護與秩序。", favorable:"設界線、守成、保密、止損、閉關、制度化、長期耐心。", unfavorable:"快速推進、自由流動、感情熱度、旅行變動、開放合作。", shadow:"卡死、孤立、恐懼、過度防衛、把自己鎖住。" },
+  "1222": { planet:"木星", zodiac:"雙魚", personality:"上升、喜悅、舒展與好消息。它讓沉重的事變輕，也讓信心重新打開。", favorable:"祝福、療癒、慶祝、好消息、創作、希望、提升士氣。", unfavorable:"嚴格控管、冷酷切割、悲傷停留、過度精算。", shadow:"樂觀過頭、逃避現實、只求開心、不看風險。" },
+  "2111": { planet:"北交點", zodiac:"處女", personality:"入口、門檻、開始與收穫。它把人帶入新的場域，也要求整理好細節才能承接。", favorable:"啟動計畫、進入新關係、招聘入場、開門、收成、建立新秩序。", unfavorable:"結束退場、拖延、逃避責任、維持舊局不動。", shadow:"急著進入、入口看似打開但準備不足、把新機會當成全部答案。" },
+  "2112": { planet:"水星", zodiac:"處女", personality:"交會、協商、連接與十字路口。它讓原本分散的事物找到接點。", favorable:"會面、合約、溝通、媒合、合作、尋回、修復連線。", unfavorable:"單打獨鬥、完全切斷、拒絕溝通、要求事情只有一條路。", shadow:"糾纏、猶豫、關係太複雜、資訊互相牽扯。" },
+  "2121": { planet:"木星", zodiac:"射手", personality:"獲得、擴張、累積與吸納。它把資源往自己這邊帶，適合追求實質成果。", favorable:"金錢、資源、升遷、擴張、投資、收款、建立庫存。", unfavorable:"放下、減重、斷捨離、縮小規模、停止佔有。", shadow:"貪多、佔有慾、膨脹、把所有東西都往自己身上攬。" },
+  "2122": { planet:"火星", zodiac:"天蠍", personality:"激情、衝突、爆裂與危險的釋放。它讓被壓住的力量突然冒出來。", favorable:"破局、揭露危機、手術切除、快速斷開、處理憤怒與禁忌。", unfavorable:"和平談判、穩定感情、低調保守、細膩修補、避免風險。", shadow:"暴怒、流血、失控、攻擊、把情緒變成破壞。" },
+  "2211": { planet:"太陽", zodiac:"獅子", personality:"持久光明、權威、中心力量與穩定勝利。它不像小幸運那樣短促，而是內在根基穩。", favorable:"長期成功、權威位置、事業名聲、穩定發展、重大勝利。", unfavorable:"隱藏行事、臨時小利、草率改變、放棄主導權。", shadow:"自負、權威壓迫、只相信自己的中心位置。" },
+  "2212": { planet:"水星", zodiac:"雙子", personality:"清明、理智、觀察與理解。它讓混亂變得可被說明，也讓真相浮出。", favorable:"學習、談判、寫作、諮詢、診斷、查明真相、理性判斷。", unfavorable:"衝動開戰、感情勒索、模糊拖延、拒絕溝通。", shadow:"過度分析、冷淡、只講道理不處理感受。" },
+  "2221": { planet:"土星", zodiac:"水瓶", personality:"下沉、失望、重壓與根基問題。它指出事情的低點，也提示需要重新打底。", favorable:"面對現實、修補根基、哀悼整理、保守防禦、長期承受。", unfavorable:"快速成功、喜慶場合、冒險擴張、期待立即好轉。", shadow:"悲觀、僵化、自我否定、把暫時低谷看成永久結局。" },
+  "2222": { planet:"月亮", zodiac:"巨蟹", personality:"群體、環境、聚集與維持現狀。它不主動開創，而是反映周遭氣候。", favorable:"團體、民意、家庭環境、群眾觀察、維持穩定、等待外部條件。", unfavorable:"個人主導、快速突破、清楚決斷、單點精準行動。", shadow:"隨波逐流、沒有主見、被人群淹沒、環境慣性太強。" }
+};
+function figureProfile(fig){return FIGURE_PROFILE[fig]||{planet:"—",zodiac:"—",personality:"尚未建立補充資料。",favorable:"—",unfavorable:"—",shadow:"—"};}
+function figureProfileMetaHTML(fig){
+  const p=figureProfile(fig);
+  return `<div class="meta"><div><small>星曜對應</small><b>${p.planet}</b></div><div><small>黃道輔助</small><b>${p.zodiac}</b></div></div>`;
+}
+function figureProfileBodyHTML(fig){
+  const p=figureProfile(fig);
+  return `<b>卦象性格：</b>${p.personality}<br><br><b>有利事項：</b>${p.favorable}<br><br><b>不利事項：</b>${p.unfavorable}<br><br><b>陰影面：</b>${p.shadow}`;
+}
+function figureProfilePromptLine(fig){
+  const p=figureProfile(fig);
+  return `星曜：${p.planet}｜黃道：${p.zodiac}｜性格：${p.personality}｜有利：${p.favorable}｜不利：${p.unfavorable}｜陰影：${p.shadow}`;
+}
+
+
+
+/* 01B House data --------------------------------------------------- */
 const HOUSE_DATA = [
   { name: "第一宮 命宮", meaning: "代表問卜者本人、當下狀態、生命、靈魂、意圖與事物開端。" },
   { name: "第二宮 財帛宮", meaning: "代表金錢、財富、流動資產、助手、得與失、買賣。" },
@@ -499,6 +623,8 @@ const DOMAIN_RULES = {
   }
 };
 
+
+/* 01D Square-chart geometry --------------------------------------- */
 const REGIONS = [
   {id:0,title:'一宮',pts:'0,50 25,25 25,75',cx:12,cy:50},{id:1,title:'二宮',pts:'0,100 0,50 25,75',cx:10,cy:75},
   {id:2,title:'三宮',pts:'0,100 50,100 25,75',cx:25,cy:88},{id:3,title:'四宮',pts:'50,100 25,75 75,75',cx:50,cy:85},
@@ -513,20 +639,24 @@ const REGIONS = [
 let state = {
   mothers:["1121","1222","2111","2212"], chart:[...BASE_CHART],
   isBase:true, view:"shield", selected:0, timeline:false, timelinePhase:null,
-  hiddenIntent:null, sourceIntent:null, intentTargetsRevealed:false, sourceTargetsRevealed:false, darbMode:false, flightMode:false, stateLightMode:false, fortuneLightMode:false, darbSelection:[], darbResult:null,
+  hiddenIntent:null, sourceIntent:null, intentTargetsRevealed:false, sourceTargetsRevealed:false, darbMode:false, flightMode:false, stateLightMode:false, fortuneLightMode:false, landingLightMode:false, darbSelection:[], darbResult:null,
   highlightedFigure:null, effectAnchor:null, reading:"", oraclePrompt:"", manual:["1121","1222","2111","2212"]
 };
 
+
+/* 02A Shared helpers ---------------------------------------------- */
 const $=id=>document.getElementById(id);
+function escapeHTML(value){return String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
 const addLine=(a,b)=>a===b?'2':'1';
 const addFigures=(a,b)=>a.split('').map((x,i)=>addLine(x,b[i])).join('');
 const figName=f=>FIGURE_DATA[f]?.nameZh||'';
 const FORTUNE_CLASS={"大吉":"fortuneGreat","吉":"fortuneGood","小吉":"fortuneSmall","中性":"fortuneNeutral","凶":"fortuneBad","大凶":"fortuneGreatBad"};
-function fortuneLightClass(fig){
+function fortuneLightClass(idx){
   if(!state.fortuneLightMode || state.isBase) return '';
-  const nature=FIGURE_DATA[fig]?.nature||'中性';
-  return ' '+(FORTUNE_CLASS[nature]||'fortuneNeutral');
+  return ' '+statusEvaluation(idx).band.cls;
 }
+
+/* 03A Timeline layer helpers -------------------------------------- */
 const TIMELINE_LAYERS=[
   {key:'origin', cls:'timelineOrigin', range:[0,1,2,3], label:'1–4宮｜起源層'},
   {key:'develop', cls:'timelineDevelop', range:[4,5,6,7], label:'5–8宮｜展開層'},
@@ -552,25 +682,160 @@ function timelineSummaryText(){
 }
 function resetTimeline(){state.timeline=false; state.timelinePhase=null;}
 function fortuneLightSummary(){
-  const counts={"大吉":0,"吉":0,"小吉":0,"中性":0,"凶":0,"大凶":0};
-  const good=[], bad=[];
-  state.chart.forEach((fig,i)=>{
-    const nature=FIGURE_DATA[fig]?.nature||'中性';
-    counts[nature]=(counts[nature]||0)+1;
-    if(nature.includes('吉')) good.push(i+1);
-    if(nature.includes('凶')) bad.push(i+1);
-  });
-  const balance=good.length>bad.length?'偏吉':bad.length>good.length?'偏凶':'吉凶相當';
-  return `盤面狀態：${balance}｜吉象 ${good.length} 處｜凶象 ${bad.length} 處｜中性 ${counts['中性']||0} 處`;
+  return '金亮=強吉、綠光=吉、淡金=微吉、灰=中性、淺紅=微凶、紅暗=凶、深紅=強凶';
 }
 function fortuneFocusForPrompt(){
-  const groups={"大吉":[],"吉":[],"小吉":[],"中性":[],"凶":[],"大凶":[]};
-  state.chart.forEach((fig,i)=>{
-    const nature=FIGURE_DATA[fig]?.nature||'中性';
-    if(groups[nature]) groups[nature].push(i+1);
-  });
-  return `盤面狀態燈：大吉第${groups['大吉'].join('、')||'無'}宮；吉第${groups['吉'].join('、')||'無'}宮；小吉第${groups['小吉'].join('、')||'無'}宮；凶第${groups['凶'].join('、')||'無'}宮；大凶第${groups['大凶'].join('、')||'無'}宮；中性第${groups['中性'].join('、')||'無'}宮。`;
+  const groups={"強吉":[],"吉":[],"微吉":[],"中性":[],"微凶":[],"凶":[],"強凶":[]};
+  state.chart.forEach((fig,i)=>{const ev=statusEvaluation(i); groups[ev.band.label].push(`${i+1}宮${figName(fig)}`);});
+  return `盤面狀態燈已啟用：此燈號已整合卦象本質、宮位強度、得失位、問題主題宮、核心宮、飛宮回聲與已啟用推演入局；提示詞只列力道層級，不顯示後台分數。強吉：${groups['強吉'].join('、')||'無'}；吉：${groups['吉'].concat(groups['微吉']).join('、')||'無'}；中性：${groups['中性'].join('、')||'無'}；凶：${groups['凶'].concat(groups['微凶']).join('、')||'無'}；強凶：${groups['強凶'].join('、')||'無'}。`;
 }
+
+
+/* 03B Board-status scoring, house strength, dignity --------------- */
+const NATURE_SCORE={"大吉":3,"吉":2,"小吉":1,"中性":0,"凶":-2,"大凶":-3};
+const HOUSE_STRENGTH={
+  strong:{label:"強宮",weight:1.35, note:"四角宮位，力量容易成形並外顯。"},
+  support:{label:"次強宮",weight:1.15, note:"能承接與推動事件，力量穩定但不如四角宮強烈。"},
+  weak:{label:"弱宮",weight:0.85, note:"力量較隱、較慢，容易被消耗、延遲或藏在背景中。"},
+  witness:{label:"證人宮",weight:1.20, note:"負責呈現背景、對方、環境與未來牽引，訊號具有裁決前的證詞重量。"},
+  judge:{label:"法官宮",weight:1.50, note:"核心裁決宮，會放大卦象的定調力量。"},
+  final:{label:"結果宮",weight:1.60, note:"最終收束宮，會放大卦象對結局的影響。"}
+};
+const HOUSE_ELEMENTS=["火","土","風","水","火","土","風","水","火","土","風","水",null,null,null,null];
+const FIGURE_DIGNITY={
+  "1111":{strong:[3,9],support:[1,7,16],challenge:[4,10],note:"道路適合旅行、變動、尋路與事情流動。"},
+  "1112":{strong:[8,12,16],support:[4],challenge:[1,2,10],note:"龍尾適合結束、退出、清除與斷尾。"},
+  "1121":{strong:[1,7],support:[3,10],challenge:[4,12],note:"男子適合主動、競爭、突破與立即行動。"},
+  "1122":{strong:[10,11],support:[1,5],challenge:[4,12],note:"小幸運適合短期成效、外在助力與見好就收。"},
+  "1211":{strong:[5,7],support:[2,11],challenge:[6,8],note:"女子適合和諧、吸引、修飾、感情與社交。"},
+  "1212":{strong:[8,12,16],support:[4],challenge:[2,10,11],note:"失去適合放下、捨棄、流出與終止執著。"},
+  "1221":{strong:[4,12],support:[6,8],challenge:[3,9,11],note:"限制適合封存、守成、固定、隔離與止損。"},
+  "1222":{strong:[5,11],support:[1,10],challenge:[6,12],note:"高興適合喜悅、好消息、恢復與上升發展。"},
+  "2111":{strong:[1,10],support:[2,11,16],challenge:[8,12],note:"龍頭適合開始、進入、開門、收穫與新門檻。"},
+  "2112":{strong:[3,7,11],support:[5,9],challenge:[12],note:"結合適合會面、協商、合作、連結與尋回。"},
+  "2121":{strong:[2,10,11],support:[1,16],challenge:[8,12],note:"獲得適合金錢、資源、積累、保留與世俗成就。"},
+  "2122":{strong:[7,8],support:[5,6],challenge:[4,11],note:"紅色適合衝突、激情、破局與危險外顯。"},
+  "2211":{strong:[4,10,16],support:[1,2,11],challenge:[12],note:"大幸運適合長期成功、權威、穩固與持久勝利。"},
+  "2212":{strong:[3,9],support:[4,11],challenge:[7,8],note:"白色適合理智、真相、和平、清晰與智慧判斷。"},
+  "2221":{strong:[8,12],support:[4,6],challenge:[5,11],note:"悲傷適合低落、損傷、恐懼、根基下沉與憂苦場域。"},
+  "2222":{strong:[7,11],support:[4,12],challenge:[1,10],note:"群眾適合集體、他人、環境、聚集與維持現狀。"}
+};
+function houseStrengthInfo(idx){
+  if([0,3,6,9].includes(idx)) return HOUSE_STRENGTH.strong;
+  if([1,4,7,10].includes(idx)) return HOUSE_STRENGTH.support;
+  if([2,5,8,11].includes(idx)) return HOUSE_STRENGTH.weak;
+  if([12,13].includes(idx)) return HOUSE_STRENGTH.witness;
+  if(idx===14) return HOUSE_STRENGTH.judge;
+  if(idx===15) return HOUSE_STRENGTH.final;
+  return HOUSE_STRENGTH.weak;
+}
+function formatScore(n){
+  const v=Math.round(n*100)/100;
+  const s=(v>=0?'+':'')+v.toFixed(2);
+  return s.replace(/\.00$/,'').replace(/(\.\d)0$/,'$1');
+}
+function natureDirection(fig){
+  const base=NATURE_SCORE[FIGURE_DATA[fig]?.nature||"中性"]??0;
+  return base>0?1:base<0?-1:0;
+}
+function applyByNature(amount, dir){
+  if(dir>0) return amount;
+  if(dir<0) return -amount;
+  return amount*0.65;
+}
+function repeatedFigureCount(fig){return state.chart.filter(f=>f===fig).length;}
+function elementRelationInfo(fig,idx){
+  const figEl=FIGURE_DATA[fig]?.element, houseEl=HOUSE_ELEMENTS[idx];
+  if(!houseEl) return {label:"特殊宮",impact:0,note:"證人、法官與結果宮不使用一般元素三方判定。"};
+  if(figEl===houseEl) return {label:"元素得位",impact:.25,note:`卦象${figEl}與本宮${houseEl}同元素。`};
+  const pair=[figEl,houseEl].sort().join('');
+  if(pair==='火風' || pair==='土水') return {label:"元素相助",impact:.15,note:`卦象${figEl}與本宮${houseEl}相助。`};
+  if(pair==='水火' || pair==='土風') return {label:"元素失位",impact:-.25,note:`卦象${figEl}與本宮${houseEl}相衝。`};
+  return {label:"元素中性",impact:0,note:`卦象${figEl}與本宮${houseEl}無明顯助剋。`};
+}
+function figureDignityInfo(fig,idx){
+  const n=idx+1, d=FIGURE_DIGNITY[fig];
+  if(!d) return {label:"宮義未定",impact:0,note:"此卦尚未建立宮義得失位資料。"};
+  if(d.strong.includes(n)) return {label:"宮義強得位",impact:.8,note:d.note};
+  if(d.support.includes(n)) return {label:"宮義得位",impact:.45,note:d.note};
+  if(d.challenge.includes(n)) return {label:"宮義失位",impact:-.55,note:d.note};
+  return {label:"宮義中性",impact:0,note:d.note};
+}
+function topicFocusInfo(idx){
+  const rule=selectedDomainRule();
+  const n=idx+1;
+  if(rule.focusHouses.includes(n)) return {label:"本題取用宮",impact:.35,note:`第${n}宮屬於「${rule.label}」的取用宮位。`};
+  return {label:"非本題主宮",impact:0,note:"此宮不是目前問題類型的主要取用宮。"};
+}
+function coreFocusInfo(idx){
+  if(idx===0) return {label:"一宮求問者",impact:.25,note:"第1宮代表問卜者當下，對整盤有基礎權重。"};
+  if(idx===12) return {label:"右證人",impact:.30,note:"第13宮代表求問者背景與已成因素。"};
+  if(idx===13) return {label:"左證人",impact:.30,note:"第14宮代表對方、環境與未來牽引。"};
+  if(idx===14) return {label:"法官",impact:.55,note:"第15宮為核心裁決，判斷權重最高。"};
+  if(idx===15) return {label:"最終判決",impact:.55,note:"第16宮為結果收束，對結局權重最高。"};
+  return {label:"一般宮",impact:0,note:"此宮不屬於1、13、14、15、16核心裁決軸。"};
+}
+function specialToolInfo(idx){
+  let impact=0, notes=[];
+  if(state.hiddenIntent){
+    if(state.hiddenIntent.sourceIndex===idx){impact+=.25; notes.push("意圖來源宮");}
+    if(!state.hiddenIntent.isKharij && state.hiddenIntent.targetHouses.includes(idx)){impact+=.35; notes.push("意圖入局宮");}
+  }
+  if(state.sourceIntent){
+    if(state.sourceIntent.sourceHouses.includes(idx)){impact+=.30; notes.push("平衡尋源源頭宮");}
+    if(!state.sourceIntent.isKharij && state.sourceIntent.targetHouses.includes(idx)){impact+=.35; notes.push("尋源意圖入局宮");}
+  }
+  if(state.darbResult && !state.darbResult.isKharij && state.darbResult.targetHouses.includes(idx)){impact+=.25; notes.push("合卦入局宮");}
+  return {label:notes.length?"推演入局":"未入進階推演",impact,note:notes.length?notes.join("、"):"尚未被意圖提取、平衡尋源或合卦標記。"};
+}
+function landingBand(score){
+  if(score>=4.15) return {key:"strongGood", label:"強吉", cls:"landingStrongGood", tone:"吉力強而成形，容易落到現實並產生明顯助力。"};
+  if(score>=2.25) return {key:"good", label:"吉", cls:"landingGood", tone:"吉力穩定，有助於此宮主題發展。"};
+  if(score>=.75) return {key:"smallGood", label:"微吉", cls:"landingSmallGood", tone:"有吉意或功能得位，但力量需要條件配合才容易發揮。"};
+  if(score<=-4.15) return {key:"strongBad", label:"強凶", cls:"landingStrongBad", tone:"凶力坐實，容易在此宮主題中形成明顯阻礙或壓力。"};
+  if(score<=-2.25) return {key:"bad", label:"凶", cls:"landingBad", tone:"凶象穩定，需要謹慎處理此宮相關事項。"};
+  if(score<=-.75) return {key:"smallBad", label:"微凶", cls:"landingSmallBad", tone:"有凶意或功能失位，但力道較弱，較像延遲、消耗或背景壓力。"};
+  return {key:"neutral", label:"中性", cls:"landingNeutral", tone:"力量不偏吉凶，需回到問題主宮、法官與結果宮判斷。"};
+}
+function statusEvaluation(idx){
+  const fig=state.chart[idx], data=FIGURE_DATA[fig], nature=data?.nature||"中性";
+  const base=NATURE_SCORE[nature]??0, dir=natureDirection(fig), strength=houseStrengthInfo(idx);
+  const dignity=figureDignityInfo(fig,idx), element=elementRelationInfo(fig,idx), topic=topicFocusInfo(idx), core=coreFocusInfo(idx), special=specialToolInfo(idx);
+  const repeats=repeatedFigureCount(fig), flightImpact=Math.min(Math.max(repeats-1,0)*.25,.75);
+  const basePart=base*strength.weight;
+  const dignityPart=applyByNature(dignity.impact+element.impact,dir);
+  const topicPart=applyByNature(topic.impact,dir);
+  const corePart=applyByNature(core.impact,dir);
+  const flightPart=applyByNature(flightImpact,dir);
+  const specialPart=applyByNature(special.impact,dir);
+  const score=basePart+dignityPart+topicPart+corePart+flightPart+specialPart;
+  const band=landingBand(score);
+  const components=[
+    {label:"卦象本質×宮位",value:basePart,text:`${nature} ${formatScore(base)} × ${strength.label} ${strength.weight}`},
+    {label:"得失位",value:dignityPart,text:`${dignity.label}；${element.label}`},
+    {label:"主題關聯",value:topicPart,text:topic.label},
+    {label:"核心權重",value:corePart,text:core.label},
+    {label:"飛宮回聲",value:flightPart,text:`同卦${repeats}處`},
+    {label:"推演入局",value:specialPart,text:special.label}
+  ];
+  const summary=`${data.nameZh}為${nature}卦，落在第${idx+1}宮「${HOUSE_DATA[idx].name}」，本宮屬${strength.label}。綜合評級為「${band.label}」，${band.tone}`;
+  return {score,band,components,fig,data,nature,strength,dignity,element,topic,core,special,repeats,summary};
+}
+function landingScore(idx){return statusEvaluation(idx).score;}
+function landingLightClass(idx){return '';}
+function landingInterpretation(idx){return statusInterpretation(idx);}
+function statusInterpretation(idx){
+  const ev=statusEvaluation(idx);
+  return `<b>${ev.band.label}</b><br>${ev.summary}<br><br><b>力道說明：</b>${ev.band.tone}<br><br><b>得失位說明：</b>${ev.dignity.note} ${ev.element.note} ${ev.strength.note}`;
+}
+function statusPlainLine(idx){
+  const ev=statusEvaluation(idx);
+  return `第${idx+1}宮 ${figName(ev.fig)}：${ev.band.label}｜${ev.dignity.label}／${ev.element.label}｜${ev.topic.label}｜${ev.core.label}`;
+}
+function landingLightSummary(){return fortuneLightSummary();}
+function landingFocusForPrompt(){return fortuneFocusForPrompt();}
+
+/* 03C Four-state light mapping ------------------------------------ */
 const STATE_LAMP_CLASS={nadhar:"stateLampNadhar",nutq:"stateLampNutq",ittisal:"stateLampIttisal",infisal:"stateLampInfisal"};
 function stateLightClassesForHouse(idx){
   if(!state.stateLightMode || state.isBase) return '';
@@ -608,6 +873,8 @@ function dotHTML(fig, mini=false){
   const cls=["fire","air","water","earth"];
   return `<div class="dots">${fig.split('').map((d,i)=>`<div class="line ${cls[i]}">${d==='1'?'<span class="dot"></span>':'<span class="dot"></span><span class="dot"></span>'}</div>`).join('')}</div>`;
 }
+
+/* 05A Figure cards and per-house CSS state ------------------------ */
 function figureBox(idx,label,role){
   const f=state.chart[idx];
   const showIntent=state.hiddenIntent&&state.intentTargetsRevealed;
@@ -623,7 +890,7 @@ function figureBox(idx,label,role){
   const isFigureMatch=state.flightMode&&state.highlightedFigure&&f===state.highlightedFigure;
   let cls='fig';
   if(state.selected===idx) cls+=' sel';
-  cls+=fortuneLightClass(f);
+  cls+=fortuneLightClass(idx);
   cls+=timelineLightClass(idx);
   if(isFigureMatch) cls+=' figureMatch';
   cls+=stateLightClassesForHouse(idx);
@@ -638,6 +905,8 @@ function figureBox(idx,label,role){
   return `<div class="${cls}" data-house="${idx}"><div class="house">${label}</div>${dotHTML(f)}<div class="role">${role}</div><div class="name">${figName(f)}</div></div>`;
 }
 
+
+/* 07A Motion, toast, animation queue ------------------------------ */
 function flashHouse(idx, cls="darbFlash"){
   const els=document.querySelectorAll(`[data-house="${idx}"]`);
   els.forEach(el=>{
@@ -659,12 +928,18 @@ function openMotion(html, timeout=3200){
   requestAnimationFrame(()=>overlay.classList.add("open"));
   openMotion.timer=setTimeout(()=>overlay.classList.remove("open"),timeout);
 }
+function hideBoardToast(){
+  const toast=$('boardToast');
+  if(!toast) return;
+  clearTimeout(boardToast.timer);
+  toast.classList.remove('open');
+  setTimeout(()=>{if(!toast.classList.contains('open')) toast.textContent='';},190);
+}
 function clearBoardMotion(){
   (clearBoardMotion.timers||[]).forEach(clearTimeout);
   clearBoardMotion.timers=[];
   document.querySelectorAll('.intentLamp,.intentSource,.intentJudge,.intentBirth,.intentResult,.sourceLamp,.sourceBridge,.sourceJudge,.sourceSource,.sourceBirth,.sourceResult,.timelinePulse').forEach(el=>el.classList.remove('intentLamp','intentSource','intentJudge','intentBirth','intentResult','sourceLamp','sourceBridge','sourceJudge','sourceSource','sourceBirth','sourceResult','timelinePulse'));
-  const toast=$('boardToast');
-  if(toast){toast.classList.remove('open'); toast.textContent='';}
+  hideBoardToast();
 }
 function queueBoardStep(fn,ms){
   clearBoardMotion.timers=clearBoardMotion.timers||[];
@@ -673,9 +948,16 @@ function queueBoardStep(fn,ms){
 function houseEls(idx){return Array.from(document.querySelectorAll(`[data-house="${idx}"]`));}
 function addHouseMotion(idx, cls){houseEls(idx).forEach(el=>el.classList.add(cls));}
 function removeHouseMotion(idx, cls){houseEls(idx).forEach(el=>el.classList.remove(cls));}
-function boardToast(text){
+function boardToast(text, timeout=0){
   const toast=$('boardToast'); if(!toast) return;
+  clearTimeout(boardToast.timer);
   toast.textContent=text; toast.classList.add('open');
+  if(timeout>0){
+    boardToast.timer=setTimeout(()=>{
+      toast.classList.remove('open');
+      setTimeout(()=>{if(!toast.classList.contains('open')) toast.textContent='';},190);
+    }, timeout);
+  }
 }
 function showTimelineAnimation(){
   if(state.isBase) return;
@@ -701,7 +983,7 @@ function toggleTimeline(){
   if(state.isBase){alert('請先隨機起卦或手動起卦。');return}
   const next=!state.timeline;
   clearBoardMotion();
-  state.darbMode=false; state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false;
+  state.darbMode=false; state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false; state.landingLightMode=false;
   state.highlightedFigure=null; state.effectAnchor=null; state.darbSelection=[]; state.darbResult=null;
   if(!next){resetTimeline(); render(); boardToast('四段時間軸已關閉'); return}
   state.timeline=true;
@@ -771,6 +1053,8 @@ function showDarbAnimation(result){
   // 出局時沒有結果宮位可亮，只提示狀態；入局結果仍由盤面橘色燈號呈現。
   showDarbAnimation.timer=setTimeout(()=>boardToast(`合卦完成：${figName(result.combinedFigure)}｜${targets}`),180+seq.length*260);
 }
+
+/* 07B Touch / long-press interactions ----------------------------- */
 function attachLongPress(el,{onTap,onLong,delay=620}={}){
   let timer=null, longPressed=false;
   const start=e=>{
@@ -802,14 +1086,16 @@ function showAnalysisCard(idx){
   const same=[]; state.chart.forEach((f,i)=>{if(f===fig && i!==idx) same.push(i+1)});
   openAnalysisCard(`<div class="analysisTop"><div class="analysisFig">${dotHTML(fig,true)}</div><div class="analysisTitle"><small>${house.name}</small><b>${data.nameZh}</b><small>${data.nameLatin}｜${data.nameAr}</small></div></div>
     <div class="meta"><div><small>吉凶判斷</small><b>${data.nature}</b></div><div><small>象徵元素</small><b>${data.element}</b></div></div>
-    <div class="analysisBody"><b>宮位作用：</b>${house.meaning}<br><br><b>卦象釋義：</b>${data.meaning}<br><br><b>盤中提示：</b>${same.length?`同卦也出現在第 ${same.join("、")} 宮，可視為此力量有回聲。`:"此卦在盤中沒有重複，訊號較集中於本宮。"}</div>`);
+    ${figureProfileMetaHTML(fig)}
+    <div class="analysisBody"><b>宮位作用：</b>${house.meaning}<br><br><b>盤面狀態判斷：</b>${statusInterpretation(idx)}<br><br><b>卦象釋義：</b>${data.meaning}<br><br><b>卦象補充：</b><br>${figureProfileBodyHTML(fig)}<br><br><b>盤中提示：</b>${same.length?`同卦也出現在第 ${same.join("、")} 宮，可視為此力量有回聲。`:"此卦在盤中沒有重複，訊號較集中於本宮。"}</div>`);
 }
 function showStateAnalysisCard(payload){
   const data=FIGURE_DATA[payload.figure];
   const before=payload.current[payload.lineIndex], after=payload.figure[payload.lineIndex];
   openAnalysisCard(`<div class="analysisTop"><div class="analysisFig">${dotHTML(payload.figure,true)}</div><div class="analysisTitle"><small>${payload.stateTitle}</small><b>${data.nameZh}</b><small>${data.nameLatin}｜${data.nameAr}</small></div></div>
     <div class="meta"><div><small>四態來源</small><b>${figName(payload.current)}</b></div><div><small>開合元素</small><b>${payload.element}位 ${before}→${after}</b></div></div>
-    <div class="analysisBody"><b>推演式：</b>${figName(payload.current)} 的 ${payload.element}位開合 → ${data.nameZh}<br><br><b>四態作用：</b>${payload.desc}<br><br><b>入局判斷：</b>${payload.houses.length?`此四態卦入局於第 ${payload.houses.join("、")} 宮，表示這股動態已落入盤面場域。`:"此四態卦出局，表示這股動態尚未落入盤面場域。"}<br><br><b>卦象釋義：</b>${data.meaning}</div>`);
+    ${figureProfileMetaHTML(payload.figure)}
+    <div class="analysisBody"><b>推演式：</b>${figName(payload.current)} 的 ${payload.element}位開合 → ${data.nameZh}<br><br><b>四態作用：</b>${payload.desc}<br><br><b>入局判斷：</b>${payload.houses.length?`此四態卦入局於第 ${payload.houses.join("、")} 宮，表示這股動態已落入盤面場域。`:"此四態卦出局，表示這股動態尚未落入盤面場域。"}<br><br><b>卦象釋義：</b>${data.meaning}<br><br><b>卦象補充：</b><br>${figureProfileBodyHTML(payload.figure)}</div>`);
 }
 function setHouse(idx, opts={}){
   state.selected=idx;
@@ -837,11 +1123,11 @@ function setHouse(idx, opts={}){
   if(!state.isBase && state.flightMode){
     const sameCount=state.chart.filter(f=>f===state.chart[idx]).length;
     boardToast(`顯示飛宮：第 ${idx+1} 宮 ${figName(state.chart[idx])}｜同卦 ${sameCount} 處亮起`);
-  }else if(!state.isBase && state.stateLightMode){
-    boardToast(`四態燈：${stateLightSummary()}`);
   }
 }
 
+
+/* 05B Chart rendering --------------------------------------------- */
 function renderShield(){
   const root=$("chartRoot");
   root.innerHTML=`<div class="shield">
@@ -876,7 +1162,7 @@ function renderSquare(){
     const showSource=state.sourceIntent&&state.sourceTargetsRevealed;
     const isFigureMatch=state.flightMode&&state.highlightedFigure&&state.chart[r.id]===state.highlightedFigure;
     if(state.selected===r.id) cls+=' sel';
-    cls+=fortuneLightClass(state.chart[r.id]);
+    cls+=fortuneLightClass(r.id);
     cls+=timelineLightClass(r.id);
     if(isFigureMatch) cls+=' figureMatch';
     cls+=stateLightClassesForHouse(r.id);
@@ -903,14 +1189,21 @@ function renderSquare(){
       </g>${polys}</svg>${labels}</div>`;
   document.querySelectorAll("polygon[data-house]").forEach(el=>attachHouseInteraction(el,+el.dataset.house));
 }
+
+/* 05C Side interpretation panel ----------------------------------- */
 function renderSide(){
   const f=state.chart[state.selected], data=FIGURE_DATA[f], house=HOUSE_DATA[state.selected];
   $("selectedHouseTitle").textContent=`｜第 ${state.selected+1} 宮`;
   $("sideRoot").innerHTML=`<div class="infoBox"><b>宮位領域：${house.name}</b><p>${house.meaning}</p></div>
     <div class="bigName"><div class="zh">${data.nameZh}</div><div class="latin">${data.nameLatin}</div></div>
     <div class="meta"><div><small>吉凶判斷</small><b>${data.nature}</b></div><div><small>象徵元素</small><b>${data.element}</b></div></div>
-    <div class="infoBox"><b style="color:var(--rose)">祕傳意涵</b><p>${data.meaning}</p></div>`;
+    ${figureProfileMetaHTML(f)}
+    <div class="infoBox"><b style="color:var(--rose)">盤面狀態判斷</b><p>${statusInterpretation(state.selected)}</p></div>
+    <div class="infoBox"><b style="color:var(--rose)">祕傳意涵</b><p>${data.meaning}</p></div>
+    <div class="infoBox"><b style="color:var(--rose)">卦象補充</b><p>${figureProfileBodyHTML(f)}</p></div>`;
 }
+
+/* 06A Four elements and four-state panel -------------------------- */
 function misaaha(){
   const totals={fire:0,air:0,water:0,earth:0}, singles={fire:0,air:0,water:0,earth:0};
   const keys=["fire","air","water","earth"], names={fire:"火 Fire",air:"風 Air",water:"水 Water",earth:"土 Earth"};
@@ -934,6 +1227,8 @@ function renderStates(){
     attachLongPress(el,{onTap:()=>{},onLong:()=>showStateAnalysisCard(payload)});
   });
 }
+
+/* 06B Conditional intent extraction ------------------------------- */
 function figureDotTotal(fig){return fig.split('').reduce((sum,d)=>sum+(+d),0)}
 function parityName(fig){return figureDotTotal(fig)%2===1?'單數':'雙數'}
 function intentExtractionRule(){
@@ -957,7 +1252,7 @@ function calculateHiddenIntentHouse(){
 }
 function extractIntent(){
   if(state.isBase){alert("請先隨機起卦或手動起卦。");return}
-  state.darbMode=false; state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false; resetTimeline(); state.highlightedFigure=null; state.effectAnchor=null; state.darbSelection=[]; state.darbResult=null; state.intentTargetsRevealed=false;
+  state.darbMode=false; state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false; state.landingLightMode=false; resetTimeline(); state.highlightedFigure=null; state.effectAnchor=null; state.darbSelection=[]; state.darbResult=null; state.intentTargetsRevealed=false;
   const intentCalc=calculateHiddenIntentHouse();
   if(!intentCalc){
     const rule=intentExtractionRule();
@@ -974,6 +1269,8 @@ function extractIntent(){
   render();
   setTimeout(()=>showIntentAnimation(state.hiddenIntent),80);
 }
+
+/* 06C Judge-source / balance-source tracing ----------------------- */
 const ELEMENT_NAMES=["火","風","水","土"];
 const JUDGE_SOURCE_PARENTS={14:[12,13],12:[8,9],13:[10,11],8:[0,1],9:[2,3],10:[4,5],11:[6,7]};
 function housePathText(path){return path.map(i=>`${i+1}宮`).join("→")}
@@ -1097,7 +1394,7 @@ function showJudgeSourceAnimation(src){
 
 function extractJudgeSourceIntent(){
   if(state.isBase){alert("請先隨機起卦或手動起卦。");return}
-  state.darbMode=false; state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false; resetTimeline(); state.highlightedFigure=null; state.effectAnchor=null; state.darbSelection=[]; state.darbResult=null; state.sourceTargetsRevealed=false;
+  state.darbMode=false; state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false; state.landingLightMode=false; resetTimeline(); state.highlightedFigure=null; state.effectAnchor=null; state.darbSelection=[]; state.darbResult=null; state.sourceTargetsRevealed=false;
   const src=calculateJudgeSourceIntent();
   if(src.disabled){
     state.sourceIntent=null;
@@ -1112,6 +1409,8 @@ function extractJudgeSourceIntent(){
   render();
   setTimeout(()=>showJudgeSourceAnimation(state.sourceIntent),80);
 }
+
+/* 06D Darb / combination tool ------------------------------------- */
 function calcDarb(){
   state.darbResult=null;
   if(state.darbSelection.length===2){
@@ -1120,8 +1419,17 @@ function calcDarb(){
     state.darbResult={idxA:a,idxB:b,figA:state.chart[a],figB:state.chart[b],combinedFigure:combined,targetHouses:houses,isKharij:houses.length===0};
   }
 }
+
+/* 07C Reset, badges, domain helpers ------------------------------- */
 function closeAnalysisCard(){const m=$("analysisModal"); if(m) m.classList.remove("open");}
-function resetReading(){state.reading=""; state.oraclePrompt=""; $("reading").style.display="none"; $("saveRow").style.display="none"; $("promptTools").style.display="none"; $("oraclePrompt").value=""; closeAnalysisCard()}
+function resetReading(){
+  state.reading=""; state.oraclePrompt="";
+  if($("reading")){ $("reading").textContent=""; $("reading").style.display="none"; }
+  $("saveRow").style.display="none";
+  $("promptTools").style.display="block";
+  $("oraclePrompt").value="";
+  closeAnalysisCard();
+}
 function renderBadges(){
   let html=state.isBase?'<span class="badge">目前是本位盤</span>':'<span class="badge">已起卦</span>';
   if(state.hiddenIntent) html+=`<span class="badge">${state.hiddenIntent.methodLabel||'意圖'}：${figName(state.hiddenIntent.combinedFigure)}｜${state.hiddenIntent.isKharij?'出局':'入局 第 '+state.hiddenIntent.targetHouses.map(i=>i+1).join('、')+' 宮'}</span>`;
@@ -1142,10 +1450,43 @@ function selectedDomainRule(){
 function houseShortName(i){return HOUSE_DATA[i]?.name.split(" ")[0]||`第 ${i+1} 宮`}
 function housesText(arr){return arr.map(n=>`${n}宮`).join("、")}
 function chartLinesForPrompt(){
+  const includeStatus=!!state.fortuneLightMode;
   return state.chart.map((fig,i)=>{
     const d=FIGURE_DATA[fig];
-    return `${i+1}. ${HOUSE_DATA[i].name}｜${d.nameZh}（${d.nameLatin} / ${d.nameAr}）｜${d.nature}｜${d.element}｜${d.meaning}`;
+    const status=includeStatus?`｜力道：${statusEvaluation(i).band.label}`:'';
+    return `第${i+1}宮 ${HOUSE_DATA[i].name}：${d.nameZh}（${d.nameLatin}）｜${d.nature}｜${d.element}${status}`;
   }).join("\n");
+}
+function coreLinesForPrompt(){
+  const items=[
+    [0,'第1宮／求問者當下'],
+    [12,'第13宮／右證人／背景與已成因素'],
+    [13,'第14宮／左證人／對方、環境與未來牽引'],
+    [14,'第15宮／法官／核心裁決'],
+    [15,'第16宮／最終判決／結果收束']
+  ];
+  return items.map(([idx,label])=>{
+    const fig=state.chart[idx], d=FIGURE_DATA[fig];
+    const status=state.fortuneLightMode?`｜力道：${statusEvaluation(idx).band.label}`:'';
+    return `${label}：${d.nameZh}｜${d.nature}｜${d.element}${status}`;
+  }).join("\n");
+}
+function selectedFocusForPrompt(){
+  const idx=state.selected, fig=state.chart[idx], d=FIGURE_DATA[fig], house=HOUSE_DATA[idx];
+  const p=figureProfile(fig);
+  const status=state.fortuneLightMode?`｜盤面力道：${statusEvaluation(idx).band.label}`:'';
+  return `第${idx+1}宮 ${house.name}：${d.nameZh}（${d.nameLatin}）｜${d.nature}｜${d.element}${status}\n宮位領域：${house.meaning}\n卦象補充：星曜 ${p.planet}；黃道 ${p.zodiac}；性格：${p.personality}\n有利：${p.favorable}\n不利：${p.unfavorable}\n陰影：${p.shadow}`;
+}
+function promptReadingMethod(){
+  const rule=selectedDomainRule();
+  const method=rule.method.map((m,i)=>`${i+1}. ${m}`).join("\n");
+  return `問題類型：${rule.label}\n本題取用宮位：${housesText(rule.focusHouses)}\n取用法：${rule.methodTitle}\n${method}`;
+}
+function statusGroupsForPrompt(){
+  const groups={"強吉":[],"吉":[],"微吉":[],"中性":[],"微凶":[],"凶":[],"強凶":[]};
+  state.chart.forEach((fig,i)=>{groups[statusEvaluation(i).band.label].push(`${i+1}宮${figName(fig)}`);});
+  const order=["強吉","吉","微吉","中性","微凶","凶","強凶"];
+  return order.map(k=>`${k}：${groups[k].join('、')||'無'}`).join("\n");
 }
 function elementLinesForPrompt(){
   const totals={fire:0,air:0,water:0,earth:0}, singles={fire:0,air:0,water:0,earth:0};
@@ -1163,43 +1504,44 @@ function stateLinesForPrompt(idx=state.selected){
 }
 function specialFocusForPrompt(){
   const parts=[];
-  if(state.hiddenIntent){
-    const h=state.hiddenIntent;
-    parts.push(`${h.methodLabel||'意圖提取'}：因${h.trigger||'條件觸發'}，取${h.lineNames?h.lineNames.join('＋'):'火＋土'}總點數 ${h.dots||''}，得到第${h.sourceIndex+1}宮${h.sourceTitle?`（${h.sourceTitle}）`:''} ${figName(h.sourceFigure)}；與第15宮法官 ${figName(h.judgeFigure)} 相擊 → ${figName(h.combinedFigure)}；${h.isKharij?'出局':`入局第${h.targetHouses.map(i=>i+1).join('、')}宮`}。`);
+  if(state.fortuneLightMode){
+    parts.push(`【盤面狀態】\n${statusGroupsForPrompt()}\n說明：盤面狀態已整合卦象本質、宮位強度、得失位、主題宮、核心宮、飛宮回聲與已啟用推演入局；不顯示後台分數。`);
   }
-  if(state.sourceIntent){
-    parts.push(sourceIntentText(state.sourceIntent));
-  }
-  if(state.darbResult){
-    const r=state.darbResult;
-    parts.push(`合卦：第${r.idxA+1}宮 ${figName(r.figA)} 與第${r.idxB+1}宮 ${figName(r.figB)} 相擊 → ${figName(r.combinedFigure)}；${r.isKharij?'出局':`入局第${r.targetHouses.map(i=>i+1).join('、')}宮`}。`);
+  if(state.timeline){
+    parts.push(`【四段時間軸】\n${timelinePromptText()}`);
   }
   if(state.flightMode && state.highlightedFigure){
     const houses=[]; state.chart.forEach((f,i)=>{if(f===state.highlightedFigure)houses.push(i+1)});
-    parts.push(`顯示飛宮：${figName(state.highlightedFigure)} 同卦出現在第${houses.join('、')}宮。`);
+    parts.push(`【飛宮】\n${figName(state.highlightedFigure)} 同卦出現在第${houses.join('、')}宮。`);
   }
   if(state.stateLightMode && state.effectAnchor!==null && state.effectAnchor!==undefined){
-    parts.push(`四態燈焦點：第${state.effectAnchor+1}宮 ${figName(state.chart[state.effectAnchor])}。`);
+    parts.push(`【四態燈】\n焦點：第${state.effectAnchor+1}宮 ${figName(state.chart[state.effectAnchor])}\n${stateLinesForPrompt(state.effectAnchor)}`);
   }
-  if(state.fortuneLightMode){
-    parts.push(fortuneFocusForPrompt());
+  if(state.hiddenIntent){
+    const h=state.hiddenIntent;
+    parts.push(`【${h.methodLabel||'意圖提取'}】\n因${h.trigger||'條件觸發'}，取${h.lineNames?h.lineNames.join('＋'):'火＋土'}總點數 ${h.dots||''}，得到第${h.sourceIndex+1}宮${h.sourceTitle?`（${h.sourceTitle}）`:''} ${figName(h.sourceFigure)}；與第15宮法官 ${figName(h.judgeFigure)} 相擊 → ${figName(h.combinedFigure)}；${h.isKharij?'出局':`入局第${h.targetHouses.map(i=>i+1).join('、')}宮`}。`);
   }
-  if(state.timeline){
-    parts.push(timelinePromptText());
+  if(state.sourceIntent){
+    parts.push(`【平衡宮尋源】\n${sourceIntentText(state.sourceIntent)}`);
   }
-  return parts.length?parts.join("\n"):"未啟用意圖提取、合卦或飛宮燈。請以主題宮、第15宮、第16宮為主。";
+  if(state.darbResult){
+    const r=state.darbResult;
+    parts.push(`【合卦】\n第${r.idxA+1}宮 ${figName(r.figA)} 與第${r.idxB+1}宮 ${figName(r.figB)} 相擊 → ${figName(r.combinedFigure)}；${r.isKharij?'出局':`入局第${r.targetHouses.map(i=>i+1).join('、')}宮`}。`);
+  }
+  return parts.length?parts.join("\n\n"):"未啟用特殊工具。請以本題取用宮、第1宮、第13至16宮為主。";
 }
+
+
+/* 08A AI prompt generation ---------------------------------------- */
 function buildOraclePrompt(question){
-  const rule=selectedDomainRule();
-  const selectedFig=state.chart[state.selected];
-  const selectedData=FIGURE_DATA[selectedFig];
-  const method = rule.method.map((m,i)=>`${i+1}. ${m}`).join("\n");
-  return `你是一位熟悉阿拉伯沙占（ʿIlm al-Raml）的解析者。請依照下列盤面資料與題型規則，用繁體中文做完整占斷。\n\n【問題類型】\n${rule.label}\n\n【求問】\n${question}\n\n【本題取用宮位】\n${housesText(rule.focusHouses)}\n\n【本題解析法】\n${rule.methodTitle}\n${method}\n\n【盤面資料：16宮】\n${chartLinesForPrompt()}\n\n【元素測量】\n${elementLinesForPrompt()}\n\n【目前選取宮位與四態動態】\n目前選取：第${state.selected+1}宮 ${HOUSE_DATA[state.selected].name}｜${selectedData.nameZh}｜${selectedData.nature}｜${selectedData.element}\n${stateLinesForPrompt(state.selected)}\n\n【特殊推演資料】\n${specialFocusForPrompt()}\n\n【回答格式】\n1. 先給一句明確結論。\n2. 用「組合」方式讀盤，不要逐卦單獨背牌義。\n3. 必須引用本題取用宮位，說明每個重點宮位如何互相支持或衝突。\n4. 說明第1宮、第15宮、第16宮在此題中的作用。\n5. 若有入局／出局，請說明力量是否落入現實場域。\n6. 若盤面矛盾，請明說矛盾點，不要硬判。\n7. 健康題不得替代醫療診斷；應期題請用區間與條件語氣。\n8. 最後給出可執行的提醒，但不要過度靈性化。`;
+  const special=specialFocusForPrompt();
+  return `你是一位熟悉阿拉伯沙占（ʿIlm al-Raml）、四元素、宮位、證人、法官、入局／出局與最終判決的占斷者。請根據以下沙占盤，用繁體中文完成占斷。\n\n此工具只負責起盤與整理資料；真正解讀請由你完成。行星與星座只作象徵輔助，不可取代宮位、法官與最終判決。\n\n【求問問題】\n${question}\n\n【讀盤取用】\n${promptReadingMethod()}\n\n【16宮盤面】\n${chartLinesForPrompt()}\n\n【核心裁決】\n${coreLinesForPrompt()}\n\n【元素測量】\n${elementLinesForPrompt()}\n\n【目前選取宮位】\n${selectedFocusForPrompt()}\n\n【已啟用工具】\n${special}\n\n【解讀要求】\n1. 先給一句明確結論，再說明理由。\n2. 先看整體盤勢，再看本題取用宮、第1宮、第13至16宮。\n3. 用「組合」方式讀盤，不要逐卦單獨背牌義。\n4. 必須說明取用宮、法官與最終判決之間是互相支持、牽制，還是矛盾。\n5. 已啟用工具只作為補充證據；若有入局／出局，請說明力量是否落入現實場域。\n6. 若盤面矛盾，請明說矛盾點，不要硬判。\n7. 健康題不得替代醫療診斷；應期題請用區間與條件語氣。\n8. 最後給出清楚、具體、可執行的建議。`;
 }
+
 function copyOraclePrompt(){
   const text=$("oraclePrompt").value;
-  if(!text){alert("目前還沒有提示詞。請先祈求神諭。");return}
-  const done=()=>boardToast("AI 神諭提示詞已複製");
+  if(!text){alert("目前還沒有提示詞。請先生成提示詞。");return}
+  const done=()=>boardToast("AI 神諭提示詞已複製", 1600);
   if(navigator.clipboard && navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done).catch(()=>{fallbackCopy(text);done()});}
   else {fallbackCopy(text);done()}
 }
@@ -1211,37 +1553,19 @@ function localOracle(){
   const q=$("question").value.trim();
   if(!q){alert("先輸入問題。");return}
   if(state.isBase){alert("請先隨機起卦或手動起卦。");return}
-  if(!state.hiddenIntent && !state.sourceIntent){alert("請先按「意圖提取」或「⚖️平衡宮尋源」，完成後才能祈求神諭。");return}
-  const domain=$("domain").selectedOptions[0].textContent;
-  const rule=selectedDomainRule();
-  const one=FIGURE_DATA[state.chart[0]], judge=FIGURE_DATA[state.chart[14]], outcome=FIGURE_DATA[state.chart[15]];
-  let focus="";
-  if(state.darbResult){
-    const r=state.darbResult, f=FIGURE_DATA[r.combinedFigure];
-    focus=`你選擇第 ${r.idxA+1} 宮「${figName(r.figA)}」與第 ${r.idxB+1} 宮「${figName(r.figB)}」相擊，繁衍出「${f.nameZh}」。${r.isKharij?'此卦出局，表示條件尚未落入現實場域。':'此卦入局於第 '+r.targetHouses.map(i=>i+1).join('、')+' 宮，表示力量已經找到具體場域。'}`;
-  } else if(state.hiddenIntent){
-    const h=state.hiddenIntent, f=FIGURE_DATA[h.combinedFigure];
-    focus=`${h.methodLabel||'意圖提取'}因「${h.trigger||'條件觸發'}」啟動，取 ${h.lineNames?h.lineNames.join('＋'):'火＋土'} 總點數 ${h.dots||''}，從第 ${h.sourceIndex+1} 宮「${figName(h.sourceFigure)}」出發，與法官「${figName(h.judgeFigure)}」相擊，得出「${f.nameZh}」。${h.isKharij?'它出局，代表這股隱藏力量尚未進入明面。':'它入局於第 '+h.targetHouses.map(i=>i+1).join('、')+' 宮，代表這股隱藏力量會透過這些宮位顯形。'}`;
-  } else {
-    focus=`本題先依「${rule.methodTitle}」判斷，若意圖提取出局，仍以主題宮、第十五宮法官與第十六宮結果輔助判斷。`;
-  }
-  if(state.sourceIntent){
-    focus += `
-
-${sourceIntentText(state.sourceIntent)}`;
-  }
-  const tone = outcome.nature.includes("吉") ? "整體結果偏向可成，但需要順著盤面節奏走。" : outcome.nature.includes("凶") ? "整體結果帶阻力，宜保守處理，不要急著硬推。" : "整體結果偏中性，成敗高度取決於你後續如何介入。";
-  const methodText=rule.method.map(x=>`・${x}`).join("\n");
-  const text=`【${domain}】\n你問：「${q}」\n\n卷首判斷：${tone}\n\n本題取用宮位：${housesText(rule.focusHouses)}\n解析法：${rule.methodTitle}\n${methodText}\n\n一宮為「${one.nameZh}」，顯示求問者當下的姿態是：${one.meaning}\n法官為「${judge.nameZh}」，盤面的核心裁決是：${judge.meaning}\n最終判決為「${outcome.nameZh}」，事情收束時呈現：${outcome.meaning}\n\n${focus}\n\n神諭指引：不要只看單一吉凶，這盤更像在問「力量有沒有進入場域」。若入局，事情會透過對應宮位顯化；若出局，先檢查條件是否不足、訊息是否缺口、或真正目的是否還沒有說清楚。`;
-  state.reading=text;
   state.oraclePrompt=buildOraclePrompt(q);
-  $("reading").textContent=text; $("reading").style.display="block";
-  $("oraclePrompt").value=state.oraclePrompt; $("promptTools").style.display="block";
+  state.reading=state.oraclePrompt;
+  $("oraclePrompt").value=state.oraclePrompt;
+  $("promptTools").style.display="block";
   $("saveRow").style.display="block";
+  if($("reading")){ $("reading").textContent=""; $("reading").style.display="none"; }
+  boardToast("AI神諭提示詞已生成", 1600);
 }
+
+/* 08B Diary and manual casting ------------------------------------ */
 function saveDiary(){
   const list=JSON.parse(localStorage.getItem("geomancyDiary")||"[]");
-  list.unshift({date:new Date().toLocaleString("zh-TW",{hour12:false}),question:$("question").value,reading:state.reading,prompt:state.oraclePrompt,chart:[...state.chart]});
+  list.unshift({date:new Date().toLocaleString("zh-TW",{hour12:false}),question:$("question").value,prompt:state.oraclePrompt,chart:[...state.chart]});
   localStorage.setItem("geomancyDiary",JSON.stringify(list));
   renderDiary(true);
 }
@@ -1250,7 +1574,7 @@ function renderDiary(forceOpen=false){
   if(forceOpen) box.classList.add("open");
   const list=JSON.parse(localStorage.getItem("geomancyDiary")||"[]");
   if(!list.length){box.innerHTML=`<div class="entry">日記目前是空的。</div>`;return}
-  box.innerHTML=list.map((e,i)=>`<div class="entry"><div class="date">${e.date}</div><b>${e.question}</b><p style="white-space:pre-wrap;line-height:1.7">${e.reading}</p><button data-del="${i}">刪除</button></div>`).join('');
+  box.innerHTML=list.map((e,i)=>`<div class="entry"><div class="date">${e.date}</div><b>${e.question}</b><p style="white-space:pre-wrap;line-height:1.7">${e.prompt||e.reading||""}</p><button data-del="${i}">刪除</button></div>`).join('');
   box.querySelectorAll("[data-del]").forEach(btn=>btn.onclick=()=>{const arr=JSON.parse(localStorage.getItem("geomancyDiary")||"[]"); arr.splice(+btn.dataset.del,1); localStorage.setItem("geomancyDiary",JSON.stringify(arr)); renderDiary(true)});
 }
 function renderManual(){
@@ -1260,12 +1584,101 @@ function renderManual(){
     box.querySelectorAll(".line").forEach((ln,lineIdx)=>ln.onclick=()=>{let arr=state.manual[i].split(""); arr[lineIdx]=arr[lineIdx]==='1'?'2':'1'; state.manual[i]=arr.join(''); renderManual()});
   });
 }
+
+/* 07D Tool drawer ------------------------------------------------- */
 function setToolDrawer(open){
   const drawer=$("toolDrawer"), overlay=$("toolDrawerOverlay");
   if(!drawer || !overlay) return;
   drawer.classList.toggle("open", open);
   overlay.classList.toggle("open", open);
 }
+
+
+/* 08C Board image export ------------------------------------------ */
+function cleanCaptureClone(clone){
+  clone.querySelectorAll('[id]').forEach(el=>el.removeAttribute('id'));
+  clone.querySelectorAll('*').forEach(el=>{
+    el.style.animation='none';
+    el.style.transition='none';
+  });
+  return clone;
+}
+function captureTimestamp(){
+  const d=new Date();
+  const pad=n=>String(n).padStart(2,'0');
+  return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}-${pad(d.getHours())}${pad(d.getMinutes())}`;
+}
+function captureReadableTime(){
+  const d=new Date();
+  const pad=n=>String(n).padStart(2,'0');
+  return `${d.getFullYear()}/${pad(d.getMonth()+1)}/${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+}
+function loadHtml2Canvas(){
+  if(window.html2canvas) return Promise.resolve(window.html2canvas);
+  if(loadHtml2Canvas.promise) return loadHtml2Canvas.promise;
+  loadHtml2Canvas.promise=new Promise((resolve,reject)=>{
+    const script=document.createElement('script');
+    script.src='https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js';
+    script.async=true;
+    script.onload=()=>window.html2canvas?resolve(window.html2canvas):reject(new Error('html2canvas not available'));
+    script.onerror=()=>reject(new Error('html2canvas load failed'));
+    document.head.appendChild(script);
+  });
+  return loadHtml2Canvas.promise;
+}
+async function downloadBoardImage(){
+  if(state.isBase){alert('請先起卦。');return}
+  closeDrawerForVisualTool();
+  hideBoardToast();
+  const source=$('chartRoot');
+  if(!source){alert('找不到盤面區。');return}
+  boardToast('正在生成盤面圖…',1600);
+  let wrap=null;
+  try{
+    await loadHtml2Canvas();
+    wrap=document.createElement('div');
+    wrap.className='captureCard';
+    const question=($('question')?.value||'未輸入問題').trim()||'未輸入問題';
+    const viewName=state.view==='shield'?'盾盤':'方形宮位盤';
+    const selected=HOUSE_DATA[state.selected];
+    const selectedFig=state.chart[state.selected];
+    wrap.innerHTML=`
+      <div class="captureHeader">
+        <div class="captureTitle">沙占起來｜盤面圖</div>
+        <div class="captureMeta">${escapeHTML(question)}
+${viewName}｜${captureReadableTime()}｜目前選取：第${state.selected+1}宮 ${escapeHTML(selected.name)}｜${escapeHTML(figName(selectedFig))}</div>
+      </div>
+      <div class="captureChart"></div>
+      <div class="captureFooter">@lmk_0w0</div>
+    `;
+    const clone=cleanCaptureClone(source.cloneNode(true));
+    wrap.querySelector('.captureChart').appendChild(clone);
+    document.body.appendChild(wrap);
+    await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+    const canvas=await window.html2canvas(wrap,{backgroundColor:null,scale:Math.min(2,window.devicePixelRatio||1),useCORS:true,logging:false});
+    await new Promise((resolve,reject)=>{
+      canvas.toBlob(blob=>{
+        if(!blob){reject(new Error('canvas blob failed'));return}
+        const url=URL.createObjectURL(blob);
+        const a=document.createElement('a');
+        a.href=url;
+        a.download=`georacle-${captureTimestamp()}.png`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(()=>URL.revokeObjectURL(url),1000);
+        resolve();
+      },'image/png');
+    });
+    boardToast('盤面圖已下載',1600);
+  }catch(err){
+    console.error(err);
+    boardToast('盤面圖生成失敗，請改用系統截圖',2600);
+  }finally{
+    if(wrap) wrap.remove();
+  }
+}
+
 function render(){
   $("viewShield").classList.toggle("active",state.view==="shield");
   $("viewSquare").classList.toggle("active",state.view==="square");
@@ -1274,18 +1687,20 @@ function render(){
   $("flightBtn").classList.toggle("blueActive",state.flightMode);
   $("stateLightBtn").classList.toggle("blueActive",state.stateLightMode);
   if($("fortuneLightBtn")) $("fortuneLightBtn").classList.toggle("blueActive",state.fortuneLightMode);
+  if($("landingLightBtn")) $("landingLightBtn").classList.toggle("blueActive",state.landingLightMode);
   if($("intentBtn")) $("intentBtn").classList.toggle("blueActive",!!state.hiddenIntent);
   if($("judgeSourceBtn")) $("judgeSourceBtn").classList.toggle("blueActive",!!state.sourceIntent);
-  $("hint").textContent=state.isBase?"▲ 點擊「隨機起卦」或「手動起卦」開始 ▲":state.timeline?"▲ 四段時間軸：1–4起源、5–8展開、9–12推演、13–16裁決 ▲":state.darbMode?"▲ 點擊任意兩宮以合出新卦象 ▲":state.flightMode?"▲ 點選宮位顯示同卦飛宮 ▲":state.stateLightMode?"▲ 點選宮位顯示四態入局燈 ▲":state.fortuneLightMode?"▲ 盤面狀態：吉象亮燈、凶象暗燈、中性淡化 ▲":(state.sourceIntent&&state.sourceTargetsRevealed)?"▲ ⚖️平衡宮尋源已啟動：亮起源頭宮與尋源意圖入局宮 ▲":"▲ 選擇宮位查看詳解；神諭區需先按意圖提取或⚖️平衡宮尋源 ▲";
+  $("hint").textContent=state.isBase?"▲ 點擊「隨機起卦」或「手動起卦」開始 ▲":state.timeline?"▲ 四段時間軸：1–4起源、5–8展開、9–12推演、13–16裁決 ▲":state.darbMode?"▲ 點擊任意兩宮以合出新卦象 ▲":state.flightMode?"▲ 點選宮位顯示同卦飛宮 ▲":state.stateLightMode?"▲ 四態燈：目前選取宮位已同步亮燈；點其他宮可切換焦點 ▲":state.fortuneLightMode?"▲ 盤面狀態：卦象、宮位、得失位、主題關聯與回聲已整合亮燈 ▲":(state.sourceIntent&&state.sourceTargetsRevealed)?"▲ ⚖️平衡宮尋源已啟動：亮起源頭宮與尋源意圖入局宮 ▲":"▲ 選擇宮位查看詳解；AI神諭提示詞可整理盤面給外部 AI 解讀 ▲";
   state.view==="shield"?renderShield():renderSquare();
   renderSide(); renderBadges();
   $("dynamicPanels").style.display=state.isBase?"none":"flex";
   if(!state.isBase){misaaha(); renderStates();}
 }
-$("randomBtn").onclick=()=>{state.mothers=Array.from({length:4},()=>Array.from({length:4},()=>Math.random()>.5?'1':'2').join('')); state.chart=calcChart(state.mothers); state.isBase=false; resetTimeline(); state.hiddenIntent=null; state.sourceIntent=null; state.intentTargetsRevealed=false; state.sourceTargetsRevealed=false; state.darbMode=false; state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false; state.highlightedFigure=null; state.effectAnchor=null; state.darbSelection=[]; state.darbResult=null; resetReading(); render()};
-$("resetBtn").onclick=()=>{state.mothers=["1121","1222","2111","2212"]; state.chart=[...BASE_CHART]; state.isBase=true; state.selected=0; resetTimeline(); state.hiddenIntent=null; state.sourceIntent=null; state.intentTargetsRevealed=false; state.sourceTargetsRevealed=false; state.highlightedFigure=null; state.effectAnchor=null; state.darbMode=false; state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false; state.darbSelection=[]; state.darbResult=null; resetReading(); render()};
+$("randomBtn").onclick=()=>{state.mothers=Array.from({length:4},()=>Array.from({length:4},()=>Math.random()>.5?'1':'2').join('')); state.chart=calcChart(state.mothers); state.isBase=false; resetTimeline(); state.hiddenIntent=null; state.sourceIntent=null; state.intentTargetsRevealed=false; state.sourceTargetsRevealed=false; state.darbMode=false; state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false; state.landingLightMode=false; state.highlightedFigure=null; state.effectAnchor=null; state.darbSelection=[]; state.darbResult=null; resetReading(); render()};
+$("resetBtn").onclick=()=>{state.mothers=["1121","1222","2111","2212"]; state.chart=[...BASE_CHART]; state.isBase=true; state.selected=0; resetTimeline(); state.hiddenIntent=null; state.sourceIntent=null; state.intentTargetsRevealed=false; state.sourceTargetsRevealed=false; state.highlightedFigure=null; state.effectAnchor=null; state.darbMode=false; state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false; state.landingLightMode=false; state.darbSelection=[]; state.darbResult=null; resetReading(); render()};
 $("viewShield").onclick=()=>{state.view="shield";render()};
 $("viewSquare").onclick=()=>{state.view="square";render()};
+$("domain").onchange=()=>{resetReading(); render()};
 $("toolDrawerBtn").onclick=()=>setToolDrawer(true);
 $("toolDrawerClose").onclick=()=>setToolDrawer(false);
 $("toolDrawerOverlay").onclick=()=>setToolDrawer(false);
@@ -1297,7 +1712,7 @@ $("darbBtn").onclick=()=>{
   if(state.isBase){alert("請先起卦。");return}
   closeDrawerForVisualTool();
   state.darbMode=!state.darbMode;
-  state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false; resetTimeline(); state.highlightedFigure=null; state.effectAnchor=null;
+  state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false; state.landingLightMode=false; resetTimeline(); state.highlightedFigure=null; state.effectAnchor=null;
   state.hiddenIntent=null; state.sourceIntent=null; state.intentTargetsRevealed=false; state.sourceTargetsRevealed=false; state.darbSelection=[]; state.darbResult=null;
   closeAnalysisCard(); clearBoardMotion(); render();
 };
@@ -1305,7 +1720,7 @@ $("flightBtn").onclick=()=>{
   if(state.isBase){alert("請先起卦。");return}
   closeDrawerForVisualTool();
   state.flightMode=!state.flightMode;
-  state.darbMode=false; state.stateLightMode=false; state.fortuneLightMode=false; resetTimeline(); state.darbSelection=[]; state.darbResult=null;
+  state.darbMode=false; state.stateLightMode=false; state.fortuneLightMode=false; state.landingLightMode=false; resetTimeline(); state.darbSelection=[]; state.darbResult=null;
   state.hiddenIntent=null; state.sourceIntent=null; state.intentTargetsRevealed=false; state.sourceTargetsRevealed=false;
   state.highlightedFigure=null; state.effectAnchor=null;
   closeAnalysisCard(); clearBoardMotion(); render();
@@ -1314,20 +1729,21 @@ $("flightBtn").onclick=()=>{
 $("stateLightBtn").onclick=()=>{
   if(state.isBase){alert("請先起卦。");return}
   closeDrawerForVisualTool();
-  state.stateLightMode=!state.stateLightMode;
-  state.darbMode=false; state.flightMode=false; state.fortuneLightMode=false; resetTimeline(); state.highlightedFigure=null; state.effectAnchor=null; state.darbSelection=[]; state.darbResult=null;
+  const next=!state.stateLightMode;
+  state.stateLightMode=next;
+  state.darbMode=false; state.flightMode=false; state.fortuneLightMode=false; state.landingLightMode=false; resetTimeline(); state.highlightedFigure=null; state.effectAnchor=next?state.selected:null; state.darbSelection=[]; state.darbResult=null;
   state.hiddenIntent=null; state.sourceIntent=null; state.intentTargetsRevealed=false; state.sourceTargetsRevealed=false;
   closeAnalysisCard(); clearBoardMotion(); render();
-  if(state.stateLightMode) boardToast(`四態燈：點選宮位後，觀望／發聲／連結／分離的入局宮位才會亮起`);
 };
 $("fortuneLightBtn").onclick=()=>{
   if(state.isBase){alert("請先起卦。");return}
   closeDrawerForVisualTool();
   state.fortuneLightMode=!state.fortuneLightMode;
-  state.darbMode=false; state.flightMode=false; state.stateLightMode=false; resetTimeline(); state.highlightedFigure=null; state.effectAnchor=null; state.darbSelection=[]; state.darbResult=null;
+  state.darbMode=false; state.flightMode=false; state.stateLightMode=false; state.landingLightMode=false; resetTimeline(); state.highlightedFigure=null; state.effectAnchor=null; state.darbSelection=[]; state.darbResult=null;
   closeAnalysisCard(); clearBoardMotion(); render();
   if(state.fortuneLightMode) boardToast(fortuneLightSummary());
 };
+if($("captureBoardBtn")) $("captureBoardBtn").onclick=downloadBoardImage;
 $("oracleBtn").onclick=localOracle;
 $("copyPromptBtn").onclick=copyOraclePrompt;
 $("saveBtn").onclick=saveDiary;
@@ -1335,10 +1751,23 @@ $("diaryBtn").onclick=()=>{$("diaryList").classList.toggle("open"); renderDiary(
 $("manualBtn").onclick=()=>{state.manual=[...state.mothers]; renderManual(); $("manualModal").classList.add("open")};
 $("cancelManual").onclick=()=>$("manualModal").classList.remove("open");
 $("manualModal").onclick=e=>{if(e.target.id==="manualModal")$("manualModal").classList.remove("open")};
-$("applyManual").onclick=()=>{state.mothers=[...state.manual]; state.chart=calcChart(state.mothers); state.isBase=false; resetTimeline(); state.hiddenIntent=null; state.sourceIntent=null; state.intentTargetsRevealed=false; state.sourceTargetsRevealed=false; state.darbMode=false; state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false; state.highlightedFigure=null; state.effectAnchor=null; state.darbSelection=[]; state.darbResult=null; $("manualModal").classList.remove("open"); resetReading(); render()};
+$("applyManual").onclick=()=>{state.mothers=[...state.manual]; state.chart=calcChart(state.mothers); state.isBase=false; resetTimeline(); state.hiddenIntent=null; state.sourceIntent=null; state.intentTargetsRevealed=false; state.sourceTargetsRevealed=false; state.darbMode=false; state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false; state.landingLightMode=false; state.highlightedFigure=null; state.effectAnchor=null; state.darbSelection=[]; state.darbResult=null; $("manualModal").classList.remove("open"); resetReading(); render()};
 $("motionOverlay").onclick=e=>{if(e.target.id==="motionOverlay")$("motionOverlay").classList.remove("open")};
 $("closeAnalysis").onclick=()=>$("analysisModal").classList.remove("open");
 $("analysisModal").onclick=e=>{if(e.target.id==="analysisModal")$("analysisModal").classList.remove("open")};
+if($("boardToast")) $("boardToast").onclick=hideBoardToast;
+function isToastBlankCloseTarget(target){
+  if(!target) return false;
+  if(target.closest('#boardToast')) return false;
+  if(target.closest('button,a,input,textarea,select,label,.toolDrawer,.toolDrawerOverlay,.manualBox,.analysisBox,.motionBox,.diaryList')) return false;
+  if(target.closest('[data-house],.sqLabel,.fig,.manualCell')) return false;
+  return true;
+}
+document.addEventListener('pointerdown', e=>{
+  const toast=$("boardToast");
+  if(!toast || !toast.classList.contains('open')) return;
+  if(isToastBlankCloseTarget(e.target)) hideBoardToast();
+});
 render();
 // 四態動態推演已修正為元素位開合：觀望=火、發聲=風、連結=水、分離=土。
 </script>
