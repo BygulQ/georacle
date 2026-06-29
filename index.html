@@ -191,6 +191,19 @@
     .captureChart .squareWrap svg{position:absolute !important;inset:0 !important;width:680px !important;height:680px !important}
     .captureChart .sqLabel{visibility:visible !important;opacity:1 !important}
     .captureFooter{text-align:center;margin-top:14px;font-size:12px;color:var(--soft);font-weight:800;letter-spacing:.08em}
+
+    /* Capture-only robust square chart fallback */
+    .captureSquareBoard{position:relative;width:680px;height:680px;margin:0 auto;background:white;border:1px solid var(--line2);border-radius:24px;overflow:hidden;box-sizing:border-box}
+    .captureSquareBoard .capSqGrid{position:absolute;inset:0;width:100%;height:100%;opacity:.72;z-index:1}
+    .captureSquareBoard .capSqGrid line,.captureSquareBoard .capSqGrid rect{stroke:#d0c9c0;stroke-width:.65;fill:none}
+    .captureSqPos{position:absolute;transform:translate(-50%,-50%);z-index:2}
+    .captureSqPos .fig{width:64px;min-height:104px;padding:7px 5px;border-radius:16px;cursor:default;box-sizing:border-box}
+    .captureSqPos .fig .house{font-size:12px;margin-bottom:3px;line-height:1.15}
+    .captureSqPos .fig .role{font-size:9px;margin-top:3px;letter-spacing:.03em;line-height:1.18}
+    .captureSqPos .fig .name{font-size:12px;margin-top:2px;line-height:1.15}
+    .captureSqPos .fig .dots{gap:5px;margin:2px 0}
+    .captureSqPos .fig .line{height:10px;gap:9px}
+    .captureSqPos .fig .dot{width:8px;height:8px;border-radius:2px}
     .chartCard{position:relative}
 
     /* 05B Board toast */
@@ -1623,6 +1636,56 @@ function cleanCaptureClone(clone){
   }
   return clone;
 }
+
+function captureSquareRole(idx){
+  const names=["命宮","財帛","兄弟","田宅","男女","奴僕","夫妻","疾厄","遷移","官祿","福德","相貌","右證人","左證人","法官","結果"];
+  return names[idx]||HOUSE_DATA[idx].name;
+}
+function captureFigureBox(idx,label,role){
+  const f=state.chart[idx];
+  const showIntent=state.hiddenIntent&&state.intentTargetsRevealed;
+  const showSource=state.sourceIntent&&state.sourceTargetsRevealed;
+  const isIntentSource=showIntent&&state.hiddenIntent.sourceIndex===idx;
+  const isIntentJudge=showIntent&&idx===14;
+  const isIntentResult=showIntent&&!state.hiddenIntent.isKharij&&state.hiddenIntent.targetHouses.includes(idx);
+  const isSourceJudge=showSource&&idx===14;
+  const isSourceSource=showSource&&state.sourceIntent.sourceHouses.includes(idx);
+  const isSourceResult=showSource&&!state.sourceIntent.isKharij&&state.sourceIntent.targetHouses.includes(idx);
+  const isDSel=state.darbMode&&state.darbSelection.includes(idx);
+  const isDTarget=state.darbMode&&state.darbResult&&!state.darbResult.isKharij&&state.darbResult.targetHouses.includes(idx);
+  const isFigureMatch=state.flightMode&&state.highlightedFigure&&f===state.highlightedFigure;
+  let cls='fig';
+  if(state.selected===idx) cls+=' sel';
+  cls+=fortuneLightClass(idx);
+  cls+=timelineLightClass(idx);
+  if(isFigureMatch) cls+=' figureMatch';
+  cls+=stateLightClassesForHouse(idx);
+  if(isIntentSource) cls+=' intentSource';
+  if(isIntentJudge) cls+=' intentJudge';
+  if(isIntentResult) cls+=' intentResult';
+  if(isSourceSource) cls+=' sourceSource';
+  if(isSourceJudge) cls+=' sourceJudge';
+  if(isSourceResult) cls+=' sourceResult';
+  if(isDSel) cls+=' darbSel';
+  if(isDTarget) cls+=' darbTarget';
+  return `<div class="${cls}" data-house="${idx}"><div class="house">${label}</div>${dotHTML(f)}<div class="role">${role}</div><div class="name">${figName(f)}</div></div>`;
+}
+function renderCaptureSquareBoard(){
+  const grid=`<svg class="capSqGrid" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+    <rect x="0" y="0" width="100" height="100"/><rect x="25" y="25" width="50" height="50"/>
+    <line x1="0" y1="0" x2="100" y2="100"/><line x1="100" y1="0" x2="0" y2="100"/>
+    <line x1="50" y1="0" x2="25" y2="25"/><line x1="50" y1="0" x2="75" y2="25"/>
+    <line x1="50" y1="100" x2="25" y2="75"/><line x1="50" y1="100" x2="75" y2="75"/>
+    <line x1="0" y1="50" x2="25" y2="25"/><line x1="100" y1="50" x2="75" y2="25"/>
+    <line x1="0" y1="50" x2="25" y2="75"/><line x1="100" y1="50" x2="75" y2="75"/>
+  </svg>`;
+  const cards=REGIONS.map(r=>`<div class="captureSqPos" style="left:${r.cx}%;top:${r.cy}%">${captureFigureBox(r.id,r.title,captureSquareRole(r.id))}</div>`).join('');
+  const board=document.createElement('div');
+  board.className='captureSquareBoard';
+  board.innerHTML=grid+cards;
+  return board;
+}
+
 function captureTimestamp(){
   const d=new Date();
   const pad=n=>String(n).padStart(2,'0');
@@ -1671,8 +1734,13 @@ ${viewName}｜${captureReadableTime()}｜目前選取：第${state.selected+1}�
       <div class="captureChart"></div>
       <div class="captureFooter">@lmk_0w0</div>
     `;
-    const clone=cleanCaptureClone(source.cloneNode(true));
-    wrap.querySelector('.captureChart').appendChild(clone);
+    const chartSlot=wrap.querySelector('.captureChart');
+    if(state.view==='square'){
+      chartSlot.appendChild(renderCaptureSquareBoard());
+    }else{
+      const clone=cleanCaptureClone(source.cloneNode(true));
+      chartSlot.appendChild(clone);
+    }
     document.body.appendChild(wrap);
     await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
     const canvas=await window.html2canvas(wrap,{backgroundColor:null,scale:Math.min(2,window.devicePixelRatio||1),useCORS:true,logging:false});
