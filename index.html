@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>今天想要問什麼｜沙占起來</title>
   <style>
 
@@ -21,6 +21,10 @@
       --ink:#5A534D; --muted:#827A73; --soft:#99928A; --line:#D0C9C0;
       --line2:#E6E3DC; --rose:#B4766E; --rose2:#9E6961;
       --gold:#C5A87C; --blue:#7C8F99; --green:#8A9A86; --orange:#D97757;
+      --lamp-strong:#F7E8AF; --lamp-good:#5FAE78; --lamp-small:#DEC78D;
+      --lamp-neutral:#B9B5AD; --lamp-smallbad:#E6A1AD; --lamp-bad:#9E444A; --lamp-strongbad:#4F1828;
+      --func-cyan:#48AFC4; --func-fire:#D65245; --func-air:#DDEFF2; --func-water:#4F90C8; --func-earth:#B8874A;
+      --func-intent:#A65391; --func-violet:#7D4BA8; --func-mint:#6DBE91; --toast-bg:#2C214F; --toast-text:#FFF7DF;
     }
     *{box-sizing:border-box}
     body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",Segoe UI,sans-serif;}
@@ -78,8 +82,8 @@
     .fig:hover{background:#F2EFE9}
     .fig.sel{border-color:var(--rose);box-shadow:0 0 0 2px #b4766e33;transform:scale(1.04)}
     .fig.target{border-color:var(--green);box-shadow:0 0 0 4px #8a9a8644;transform:scale(1.08)}
-    .fig.darbSel{border-color:var(--blue);box-shadow:0 0 0 2px #7c8f9944}
-    .fig.darbTarget{border-color:var(--orange);box-shadow:0 0 0 4px #d9775744;transform:scale(1.08)}
+    .fig.darbSel{border-color:var(--func-violet);box-shadow:0 0 0 3px #7d4ba840,0 0 18px #7d4ba860}
+    .fig.darbTarget{border-color:#B58A38;box-shadow:0 0 0 4px #7d4ba83c,0 0 24px #c9964e88;transform:scale(1.08)}
     .fig .house{font-size:13px;font-weight:900;margin-bottom:4px;letter-spacing:.06em;line-height:1.18}
     .fig .role{font-size:10px;color:var(--soft);font-weight:800;margin-top:5px;white-space:nowrap;letter-spacing:.045em;line-height:1.28}
     .fig .name{font-size:13px;font-weight:900;margin-top:3px;white-space:nowrap;letter-spacing:.045em;line-height:1.2}
@@ -96,8 +100,8 @@
     polygon:hover{fill:#f2efe980}
     polygon.sel{fill:#EDEAE1;stroke:var(--rose);stroke-width:1.5}
     polygon.target{fill:#8a9a8622;stroke:var(--green);stroke-width:2}
-    polygon.darbSel{fill:#7c8f9920;stroke:var(--blue);stroke-width:2}
-    polygon.darbTarget{fill:#d9775726;stroke:var(--orange);stroke-width:2}
+    polygon.darbSel{fill:#7d4ba824;stroke:var(--func-violet);stroke-width:2.4;filter:drop-shadow(0 0 2px #7D4BA8)}
+    polygon.darbTarget{fill:#c9964e2b;stroke:#B58A38;stroke-width:2.6;filter:drop-shadow(0 0 3px #C9964E)}
     .sqLabel{position:absolute;transform:translate(-50%,-50%);pointer-events:none;display:flex;flex-direction:column;align-items:center;justify-content:center}
     .sqLabel .sqTitle{font-size:11px;font-weight:900;color:var(--soft);margin-bottom:2px}
     .sqLabel .dots{gap:2px;margin:0}
@@ -152,8 +156,15 @@
     .manualMother{flex:1;background:white;border:1px solid var(--line2);border-radius:18px;padding:12px;text-align:center}
     .manualMother .line{height:28px;cursor:pointer}
     .footerNote{text-align:center;color:var(--soft);font-size:12px;margin:20px 0 4px;font-weight:700}
+    .helpBody{display:grid;gap:12px;max-height:min(70vh,640px);overflow:auto;padding-right:4px}
+    .helpBlock{background:white;border:1px solid var(--line2);border-radius:18px;padding:14px;line-height:1.7;color:var(--ink);font-weight:650}
+    .helpBlock h3{margin:0 0 8px;font-size:15px;letter-spacing:.06em;color:var(--rose2)}
+    .helpBlock h4{margin:12px 0 6px;font-size:13px;letter-spacing:.05em;color:var(--ink);font-weight:1000}
+    .helpBlock p{margin:0 0 8px}.helpBlock p:last-child{margin-bottom:0}
+    .helpList{margin:0;padding-left:1.25em}.helpList li{margin:4px 0}
+    .lampLegend{font-weight:900;color:var(--muted)}
 
-    /* --- Motion Layer：意圖提取 / 合卦 / 長按解析卡片 --- */
+    /* --- Motion Layer：意圖提取 / 長按解析卡片 --- */
     .motionOverlay{position:fixed;inset:0;z-index:120;display:none;align-items:center;justify-content:center;background:#5a534d66;backdrop-filter:blur(6px);padding:16px}
     .motionOverlay.open{display:flex;animation:fadeIn .18s ease-out both}
     .motionBox{width:min(720px,100%);background:var(--paper);border:1px solid var(--line);border-radius:28px;box-shadow:0 24px 70px #0005;padding:20px;overflow:hidden}
@@ -162,10 +173,12 @@
     .marqueeTrack{display:flex;gap:14px;white-space:nowrap;animation:marqueeRun 2.4s linear infinite;padding-left:100%}
     .marqueeChip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line2);background:var(--panel);border-radius:999px;padding:9px 14px;font-weight:1000;color:var(--ink)}
     .motionFormula{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin:14px 0 6px}
-    .motionFigure{min-width:96px;background:white;border:1px solid var(--line2);border-radius:20px;padding:10px;text-align:center;box-shadow:0 6px 16px #0000000d;opacity:0;animation:popIn .42s cubic-bezier(.2,1.4,.3,1) both}
-    .motionFigure.a{animation-delay:.08s}.motionFigure.b{animation-delay:.46s}.motionFigure.c{animation-delay:1.26s;border-color:var(--orange);box-shadow:0 0 0 4px #d9775733,0 10px 26px #00000012}
-    .motionOp{font-size:24px;font-weight:1000;color:var(--rose);opacity:0;animation:popIn .3s ease-out both}
-    .motionOp.plus{animation-delay:.34s}.motionOp.arrow{animation-delay:1.02s}
+    .motionFigure{min-width:96px;background:white;border:1px solid var(--line2);border-radius:20px;padding:10px;text-align:center;box-shadow:0 6px 16px #0000000d;opacity:0;animation:popIn .58s cubic-bezier(.2,1.4,.3,1) both}
+    .motionFigure.a{animation-delay:.12s}.motionFigure.b{animation-delay:.82s}.motionFigure.c{animation-delay:1.98s;border-color:var(--func-violet);background:#fbf7ff;box-shadow:0 0 0 4px #7d4ba833,0 0 24px #c5a87c66,0 10px 26px #00000012}
+    .motionFigure.fail{animation-delay:1.98s;border-color:#9b3f3f;background:#fff4f4;color:#7d2d2d;box-shadow:0 0 0 4px #9b3f3f2e,0 0 22px #9b3f3f55,0 10px 26px #00000012}
+    .motionFigure.fail .failMark{font-size:34px;line-height:1.15;font-weight:1000;letter-spacing:.08em}
+    .motionOp{font-size:24px;font-weight:1000;color:var(--rose);opacity:0;animation:popIn .42s ease-out both}
+    .motionOp.plus{animation-delay:.58s}.motionOp.arrow{animation-delay:1.56s}
     .motionResultText{text-align:center;font-weight:900;color:var(--muted);margin-top:10px;line-height:1.65}
     .pulseGlow{animation:pulseGlow .9s ease-in-out 2}
     .analysisModal{position:fixed;inset:0;background:transparent;display:none;align-items:flex-end;justify-content:flex-end;z-index:130;padding:16px;pointer-events:none}
@@ -210,76 +223,92 @@
     .boardToast{position:absolute;left:50%;top:14px;transform:translateX(-50%);z-index:30;pointer-events:none;background:#fdfbf7f2;border:1px solid var(--line);border-radius:999px;padding:10px 16px;box-shadow:0 8px 22px #0002;color:var(--ink);font-size:13px;line-height:1.55;font-weight:900;letter-spacing:.04em;opacity:0;transition:.18s;white-space:normal;text-align:center;max-width:min(86vw,520px)}
     .boardToast.open{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:auto;cursor:pointer}
     @media(min-width:901px){.boardToast{font-size:15px;line-height:1.6;letter-spacing:.06em;padding:12px 20px;max-width:min(720px,calc(100% - 40px))}}
-    .fig.timelineOrigin{border-color:var(--rose);background:#fff4f2;box-shadow:0 0 0 4px #b4766e35,0 0 22px #b4766e77;transform:scale(1.06)}
-    .fig.timelineDevelop{border-color:var(--gold);background:#fffaf0;box-shadow:0 0 0 4px #c5a87c35,0 0 22px #c5a87c77;transform:scale(1.06)}
-    .fig.timelineProcess{border-color:var(--blue);background:#f1f7fa;box-shadow:0 0 0 4px #7c8f9935,0 0 22px #7c8f9977;transform:scale(1.06)}
-    .fig.timelineVerdict{border-color:var(--green);background:#f4f8f2;box-shadow:0 0 0 4px #8a9a8635,0 0 22px #8a9a8677;transform:scale(1.06)}
-    polygon.timelineOrigin{fill:#b4766e28;stroke:var(--rose);stroke-width:2.4;filter:drop-shadow(0 0 2px #b4766e)}
-    polygon.timelineDevelop{fill:#c5a87c28;stroke:var(--gold);stroke-width:2.4;filter:drop-shadow(0 0 2px #c5a87c)}
-    polygon.timelineProcess{fill:#7c8f9928;stroke:var(--blue);stroke-width:2.4;filter:drop-shadow(0 0 2px #7c8f99)}
-    polygon.timelineVerdict{fill:#8a9a8628;stroke:var(--green);stroke-width:2.4;filter:drop-shadow(0 0 2px #8a9a86)}
-    .fig.timelinePulse, polygon.timelinePulse{animation:birthPop .55s cubic-bezier(.2,1.45,.28,1) both}
-    .fig.figureMatch{border-color:var(--gold);background:#fffaf0;box-shadow:0 0 0 3px #c5a87c35,0 0 18px #c5a87c77;transform:scale(1.06)}
-    .fig.figureMatch.sel{border-color:var(--rose);box-shadow:0 0 0 3px #b4766e45,0 0 22px #c5a87c88;transform:scale(1.1)}
-    polygon.figureMatch{fill:#c5a87c26;stroke:var(--gold);stroke-width:2.2;filter:drop-shadow(0 0 2px #c5a87c)}
-    polygon.figureMatch.sel{fill:#b4766e22;stroke:var(--rose);stroke-width:2.7;filter:drop-shadow(0 0 3px #b4766e)}
-    .fig.stateLampNadhar{border-color:var(--rose);background:#fff4f2;box-shadow:0 0 0 3px #b4766e30,0 0 18px #b4766e66;transform:scale(1.04)}
-    .fig.stateLampNutq{border-color:var(--gold);background:#fffaf0;box-shadow:0 0 0 3px #c5a87c30,0 0 18px #c5a87c66;transform:scale(1.04)}
-    .fig.stateLampIttisal{border-color:var(--blue);background:#f1f7fa;box-shadow:0 0 0 3px #7c8f9930,0 0 18px #7c8f9966;transform:scale(1.04)}
-    .fig.stateLampInfisal{border-color:var(--green);background:#f4f8f2;box-shadow:0 0 0 3px #8a9a8630,0 0 18px #8a9a8666;transform:scale(1.04)}
-    polygon.stateLampNadhar{fill:#b4766e26;stroke:var(--rose);stroke-width:2.2;filter:drop-shadow(0 0 2px #b4766e)}
-    polygon.stateLampNutq{fill:#c5a87c26;stroke:var(--gold);stroke-width:2.2;filter:drop-shadow(0 0 2px #c5a87c)}
-    polygon.stateLampIttisal{fill:#7c8f9926;stroke:var(--blue);stroke-width:2.2;filter:drop-shadow(0 0 2px #7c8f99)}
-    polygon.stateLampInfisal{fill:#8a9a8626;stroke:var(--green);stroke-width:2.2;filter:drop-shadow(0 0 2px #8a9a86)}
-    .fig.intentLamp{border-color:var(--gold);background:#fff8e7;box-shadow:0 0 0 4px #c5a87c40,0 0 22px #c5a87c88;transform:scale(1.08)}
-    .fig.intentSource{border-color:var(--rose);background:#fff3f1;box-shadow:0 0 0 4px #b4766e44,0 0 24px #b4766e88;transform:scale(1.1)}
-    .fig.intentJudge{border-color:var(--blue);background:#eef4f6;box-shadow:0 0 0 4px #7c8f9944,0 0 24px #7c8f9988;transform:scale(1.1)}
-    .fig.intentBirth{animation:birthPop .55s cubic-bezier(.2,1.45,.28,1) both}
-    .fig.intentResult{border-color:var(--green);background:#f0f6ee;box-shadow:0 0 0 5px #8a9a8648,0 0 30px #8a9a8688;transform:scale(1.12)}
-    polygon.intentLamp{fill:#c5a87c30;stroke:var(--gold);stroke-width:2.4;filter:drop-shadow(0 0 2px #c5a87c)}
-    polygon.intentSource{fill:#b4766e30;stroke:var(--rose);stroke-width:2.7;filter:drop-shadow(0 0 2px #b4766e)}
-    polygon.intentJudge{fill:#7c8f9930;stroke:var(--blue);stroke-width:2.7;filter:drop-shadow(0 0 2px #7c8f99)}
-    polygon.intentBirth{animation:birthPop .55s cubic-bezier(.2,1.45,.28,1) both}
-    polygon.intentResult{fill:#8a9a8635;stroke:var(--green);stroke-width:3;filter:drop-shadow(0 0 3px #8a9a86)}
-    .fig.sourceLamp{border-color:var(--gold);background:#fff8e7;box-shadow:0 0 0 4px #c5a87c40,0 0 22px #c5a87c88;transform:scale(1.08)}
-    .fig.sourceBridge{border-color:var(--orange);background:#fff4ee;box-shadow:0 0 0 4px #d9775740,0 0 22px #d9775788;transform:scale(1.08)}
-    .fig.sourceJudge{border-color:var(--blue);background:#eef4f6;box-shadow:0 0 0 4px #7c8f9944,0 0 24px #7c8f9988;transform:scale(1.1)}
-    .fig.sourceSource{border-color:var(--rose);background:#fff3f1;box-shadow:0 0 0 4px #b4766e44,0 0 24px #b4766e88;transform:scale(1.1)}
-    .fig.sourceBirth{animation:birthPop .55s cubic-bezier(.2,1.45,.28,1) both}
-    .fig.sourceResult{border-color:var(--green);background:#f0f6ee;box-shadow:0 0 0 5px #8a9a8648,0 0 30px #8a9a8688;transform:scale(1.12)}
-    polygon.sourceLamp{fill:#c5a87c30;stroke:var(--gold);stroke-width:2.4;filter:drop-shadow(0 0 2px #c5a87c)}
-    polygon.sourceBridge{fill:#d9775728;stroke:var(--orange);stroke-width:2.4;filter:drop-shadow(0 0 2px #d97757)}
-    polygon.sourceJudge{fill:#7c8f9930;stroke:var(--blue);stroke-width:2.7;filter:drop-shadow(0 0 2px #7c8f99)}
-    polygon.sourceSource{fill:#b4766e30;stroke:var(--rose);stroke-width:2.7;filter:drop-shadow(0 0 2px #b4766e)}
-    polygon.sourceBirth{animation:birthPop .55s cubic-bezier(.2,1.45,.28,1) both}
-    polygon.sourceResult{fill:#8a9a8635;stroke:var(--green);stroke-width:3;filter:drop-shadow(0 0 3px #8a9a86)}
-    .fig.fortuneGreat{border-color:var(--gold);background:#fff8dc;box-shadow:0 0 0 5px #c5a87c55,0 0 30px #c5a87c99;transform:scale(1.08)}
-    .fig.fortuneGood{border-color:var(--green);background:#f1f8ee;box-shadow:0 0 0 4px #8a9a8645,0 0 22px #8a9a8677;transform:scale(1.05)}
-    .fig.fortuneSmall{border-color:#d8bf8f;background:#fffaf0;box-shadow:0 0 0 3px #c5a87c38,0 0 16px #c5a87c66;transform:scale(1.03)}
-    .fig.fortuneNeutral{background:#f7f6f2;border-color:var(--line);opacity:.72;filter:saturate(.72)}
-    .fig.fortuneBad{border-color:var(--rose);background:#f4e5e2;box-shadow:0 0 0 3px #b4766e30,inset 0 0 18px #5a534d18;filter:saturate(.86) brightness(.94)}
-    .fig.fortuneGreatBad{border-color:#8d4c48;background:#e9d8d4;box-shadow:0 0 0 4px #8d4c4844,inset 0 0 26px #5a534d2a,0 0 18px #8d4c4866;filter:saturate(.9) brightness(.88);transform:scale(1.04)}
-    polygon.fortuneGreat{fill:#c5a87c36;stroke:var(--gold);stroke-width:3;filter:drop-shadow(0 0 4px #c5a87c)}
-    polygon.fortuneGood{fill:#8a9a8632;stroke:var(--green);stroke-width:2.6;filter:drop-shadow(0 0 3px #8a9a86)}
-    polygon.fortuneSmall{fill:#c5a87c24;stroke:#d8bf8f;stroke-width:2.1;filter:drop-shadow(0 0 2px #c5a87c)}
-    polygon.fortuneNeutral{fill:#5a534d0d;stroke:#c4beb5;stroke-width:1;opacity:.62}
-    polygon.fortuneBad{fill:#b4766e26;stroke:var(--rose);stroke-width:2.2;filter:drop-shadow(0 0 2px #b4766e)}
-    polygon.fortuneGreatBad{fill:#8d4c4830;stroke:#8d4c48;stroke-width:2.8;filter:drop-shadow(0 0 4px #8d4c48)}
 
-    .fig.landingStrongGood{border-color:var(--gold);background:#fff7d9;box-shadow:0 0 0 5px #c5a87c55,0 0 32px #c5a87ca0;transform:scale(1.08)}
-    .fig.landingGood{border-color:var(--green);background:#f1f8ee;box-shadow:0 0 0 4px #8a9a8645,0 0 22px #8a9a8677;transform:scale(1.05)}
-    .fig.landingSmallGood{border-color:#d8bf8f;background:#fffaf0;box-shadow:0 0 0 3px #c5a87c34,0 0 15px #c5a87c5d;transform:scale(1.03)}
-    .fig.landingNeutral{background:#f7f6f2;border-color:var(--line);opacity:.72;filter:saturate(.72)}
-    .fig.landingSmallBad{border-color:#c4938d;background:#f8ece9;box-shadow:0 0 0 3px #b4766e26,inset 0 0 14px #5a534d14;filter:saturate(.86) brightness(.96)}
-    .fig.landingBad{border-color:var(--rose);background:#f3e2df;box-shadow:0 0 0 4px #b4766e35,inset 0 0 20px #5a534d1c;filter:saturate(.9) brightness(.93);transform:scale(1.03)}
-    .fig.landingStrongBad{border-color:#8d4c48;background:#e7d2cd;box-shadow:0 0 0 5px #8d4c4848,inset 0 0 28px #5a534d30,0 0 20px #8d4c4868;filter:saturate(.92) brightness(.86);transform:scale(1.06)}
-    polygon.landingStrongGood{fill:#c5a87c3a;stroke:var(--gold);stroke-width:3;filter:drop-shadow(0 0 4px #c5a87c)}
-    polygon.landingGood{fill:#8a9a8632;stroke:var(--green);stroke-width:2.6;filter:drop-shadow(0 0 3px #8a9a86)}
-    polygon.landingSmallGood{fill:#c5a87c24;stroke:#d8bf8f;stroke-width:2.1;filter:drop-shadow(0 0 2px #c5a87c)}
-    polygon.landingNeutral{fill:#5a534d0d;stroke:#c4beb5;stroke-width:1;opacity:.62}
-    polygon.landingSmallBad{fill:#b4766e1e;stroke:#c4938d;stroke-width:1.9;filter:drop-shadow(0 0 1px #b4766e)}
-    polygon.landingBad{fill:#b4766e29;stroke:var(--rose);stroke-width:2.3;filter:drop-shadow(0 0 2px #b4766e)}
-    polygon.landingStrongBad{fill:#8d4c4833;stroke:#8d4c48;stroke-width:2.9;filter:drop-shadow(0 0 4px #8d4c48)}
+    /* 06A Timeline lamps：時間層，不代表吉凶 */
+    .fig.timelineOrigin{border-color:#314A7E;background:#eef3ff;box-shadow:0 0 0 4px #314a7e35,0 0 22px #314a7e72;transform:scale(1.06)}
+    .fig.timelineDevelop{border-color:#3F9D94;background:#edfafa;box-shadow:0 0 0 4px #3f9d9435,0 0 22px #3f9d9472;transform:scale(1.06)}
+    .fig.timelineProcess{border-color:#7D4BA8;background:#f6effc;box-shadow:0 0 0 4px #7d4ba835,0 0 22px #7d4ba872;transform:scale(1.06)}
+    .fig.timelineVerdict{border-color:#E8D9A3;background:#fffdf2;box-shadow:0 0 0 4px #e8d9a342,0 0 22px #e8d9a385;transform:scale(1.06)}
+    polygon.timelineOrigin{fill:#314a7e25;stroke:#314A7E;stroke-width:2.4;filter:drop-shadow(0 0 2px #314A7E)}
+    polygon.timelineDevelop{fill:#3f9d9425;stroke:#3F9D94;stroke-width:2.4;filter:drop-shadow(0 0 2px #3F9D94)}
+    polygon.timelineProcess{fill:#7d4ba825;stroke:#7D4BA8;stroke-width:2.4;filter:drop-shadow(0 0 2px #7D4BA8)}
+    polygon.timelineVerdict{fill:#e8d9a333;stroke:#D8C77C;stroke-width:2.4;filter:drop-shadow(0 0 2px #D8C77C)}
+    .fig.timelinePulse, polygon.timelinePulse{animation:birthPop .55s cubic-bezier(.2,1.45,.28,1) both}
+
+    /* 06B Flight lamps：青藍＝同卦回聲 */
+    .fig.figureMatch{border-color:var(--func-cyan);background:#eefbfe;box-shadow:0 0 0 3px #48afc440,0 0 20px #48afc488;transform:scale(1.06)}
+    .fig.figureMatch.sel{border-color:#2F8FA6;box-shadow:0 0 0 4px #48afc450,0 0 26px #48afc4a0;transform:scale(1.1)}
+    polygon.figureMatch{fill:#48afc426;stroke:var(--func-cyan);stroke-width:2.4;filter:drop-shadow(0 0 3px #48afc4)}
+    polygon.figureMatch.sel{fill:#48afc432;stroke:#2F8FA6;stroke-width:2.8;filter:drop-shadow(0 0 4px #48afc4)}
+
+    /* 06C Four-state lamps：火／風／水／土 */
+    .fig.stateLampNadhar{border-color:var(--func-fire);background:#fff0ed;box-shadow:0 0 0 3px #d6524538,0 0 18px #d6524577;transform:scale(1.04)}
+    .fig.stateLampNutq{border-color:#9DC4CD;background:#f4fdff;box-shadow:0 0 0 3px #9dc4cd42,0 0 18px #ddecf2aa;transform:scale(1.04)}
+    .fig.stateLampIttisal{border-color:var(--func-water);background:#eef7ff;box-shadow:0 0 0 3px #4f90c83a,0 0 18px #4f90c877;transform:scale(1.04)}
+    .fig.stateLampInfisal{border-color:var(--func-earth);background:#fff6e8;box-shadow:0 0 0 3px #b8874a38,0 0 18px #b8874a77;transform:scale(1.04)}
+    polygon.stateLampNadhar{fill:#d6524526;stroke:var(--func-fire);stroke-width:2.3;filter:drop-shadow(0 0 2px #d65245)}
+    polygon.stateLampNutq{fill:#ddecf236;stroke:#9DC4CD;stroke-width:2.3;filter:drop-shadow(0 0 2px #9DC4CD)}
+    polygon.stateLampIttisal{fill:#4f90c826;stroke:var(--func-water);stroke-width:2.3;filter:drop-shadow(0 0 2px #4f90c8)}
+    polygon.stateLampInfisal{fill:#b8874a26;stroke:var(--func-earth);stroke-width:2.3;filter:drop-shadow(0 0 2px #b8874a)}
+
+    /* 06D Intent lamps：玫瑰紫＝%12意圖宮；翡翠紫暈＝意圖卦入局宮 */
+    .fig.intentLamp{border-color:#B86AA7;background:#fff0fb;box-shadow:0 0 0 4px #a6539140,0 0 22px #a6539188;transform:scale(1.08)}
+    .fig.intentSource{border-color:#A65391;background:#fff0fb;box-shadow:0 0 0 4px #a653914c, inset 0 0 20px #ffffffa8,0 0 28px #a65391a8;transform:scale(1.1)}
+    .fig.intentJudge{border-color:#5D4A91;background:#f3f0ff;box-shadow:0 0 0 4px #5d4a9144,0 0 24px #5d4a9188;transform:scale(1.1)}
+    .fig.intentBirth{animation:birthPop .55s cubic-bezier(.2,1.45,.28,1) both}
+    .fig.intentResult{border-color:#4FA475;background:#effaf4;box-shadow:0 0 0 5px #4fa4754c, inset 0 0 18px #a6539138,0 0 30px #4fa4758e;transform:scale(1.12)}
+    .fig.intentSource.intentResult{border-color:#4FA475;background:linear-gradient(135deg,#fff0fb 0%,#effaf4 72%);box-shadow:0 0 0 4px #a6539148,0 0 0 8px #4fa47538,inset 0 0 22px #a6539140,0 0 34px #4fa47590;transform:scale(1.14)}
+    polygon.intentLamp{fill:#a6539130;stroke:#B86AA7;stroke-width:2.4;filter:drop-shadow(0 0 2px #a65391)}
+    polygon.intentSource{fill:#a6539134;stroke:#A65391;stroke-width:2.7;filter:drop-shadow(0 0 3px #a65391)}
+    polygon.intentJudge{fill:#5d4a9130;stroke:#5D4A91;stroke-width:2.7;filter:drop-shadow(0 0 2px #5D4A91)}
+    polygon.intentBirth{animation:birthPop .55s cubic-bezier(.2,1.45,.28,1) both}
+    polygon.intentResult{fill:#4fa47532;stroke:#4FA475;stroke-width:3;filter:drop-shadow(0 0 4px #4FA475)}
+    polygon.intentSource.intentResult{fill:#7dbf8640;stroke:#4FA475;stroke-width:3.4;filter:drop-shadow(0 0 4px #A65391) drop-shadow(0 0 3px #4FA475)}
+
+    /* 06E Judge-source lamps：深藍起點 → 琥珀路徑 → 玫瑰源頭 → 翡翠入局 */
+    .fig.sourceLamp{border-color:#C9964E;background:#fff6e8;box-shadow:0 0 0 4px #c9964e40,0 0 22px #c9964e88;transform:scale(1.08)}
+    .fig.sourceBridge{border-color:#E0764F;background:#fff1ea;box-shadow:0 0 0 4px #e0764f40,0 0 22px #e0764f88;transform:scale(1.08)}
+    .fig.sourceJudge{border-color:#314A7E;background:#eef3ff;box-shadow:0 0 0 4px #314a7e44,0 0 24px #314a7e88;transform:scale(1.1)}
+    .fig.sourceSource{border-color:#C05B92;background:#fff0f8;box-shadow:0 0 0 4px #c05b9244,0 0 24px #c05b9288;transform:scale(1.1)}
+    .fig.sourceBirth{animation:birthPop .55s cubic-bezier(.2,1.45,.28,1) both}
+    .fig.sourceResult{border-color:#4FA475;background:#effaf4;box-shadow:0 0 0 5px #4fa47548,0 0 30px #4fa47588;transform:scale(1.12)}
+    polygon.sourceLamp{fill:#c9964e30;stroke:#C9964E;stroke-width:2.4;filter:drop-shadow(0 0 2px #C9964E)}
+    polygon.sourceBridge{fill:#e0764f2d;stroke:#E0764F;stroke-width:2.4;filter:drop-shadow(0 0 2px #E0764F)}
+    polygon.sourceJudge{fill:#314a7e30;stroke:#314A7E;stroke-width:2.7;filter:drop-shadow(0 0 2px #314A7E)}
+    polygon.sourceSource{fill:#c05b9230;stroke:#C05B92;stroke-width:2.7;filter:drop-shadow(0 0 2px #C05B92)}
+    polygon.sourceBirth{animation:birthPop .55s cubic-bezier(.2,1.45,.28,1) both}
+    polygon.sourceResult{fill:#4fa47535;stroke:#4FA475;stroke-width:3;filter:drop-shadow(0 0 3px #4FA475)}
+
+    /* 06F Board-status lamps：七階吉凶力道，只給盤面狀態使用 */
+    .fig.fortuneGreat,.fig.landingStrongGood{border-color:#F2DA85;background:#fffbea;box-shadow:0 0 0 5px #f7e8af66,0 0 34px #f7e8afb0;transform:scale(1.08)}
+    .fig.fortuneGood,.fig.landingGood{border-color:var(--lamp-good);background:#effaf2;box-shadow:0 0 0 4px #5fae7848,0 0 24px #5fae7885;transform:scale(1.05)}
+    .fig.fortuneSmall,.fig.landingSmallGood{border-color:var(--lamp-small);background:#fffaf0;box-shadow:0 0 0 3px #dec78d40,0 0 17px #dec78d70;transform:scale(1.03)}
+    .fig.fortuneNeutral,.fig.landingNeutral{background:#f3f2ee;border-color:var(--lamp-neutral);opacity:.70;filter:saturate(.62)}
+    .fig.landingSmallBad{border-color:var(--lamp-smallbad);background:#fff0f3;box-shadow:0 0 0 3px #e6a1ad35,inset 0 0 14px #5a534d14;filter:saturate(.92) brightness(.98)}
+    .fig.fortuneBad,.fig.landingBad{border-color:var(--lamp-bad);background:#f4dfe2;box-shadow:0 0 0 4px #9e444a40,inset 0 0 20px #5a534d20,0 0 18px #9e444a55;filter:saturate(.96) brightness(.94);transform:scale(1.03)}
+    .fig.fortuneGreatBad,.fig.landingStrongBad{border-color:var(--lamp-strongbad);background:#dfcbd2;box-shadow:0 0 0 5px #4f18284f,inset 0 0 30px #4f182842,0 0 24px #4f182870;filter:saturate(.96) brightness(.84);transform:scale(1.06)}
+    polygon.fortuneGreat,polygon.landingStrongGood{fill:#f7e8af3e;stroke:#F2DA85;stroke-width:3.1;filter:drop-shadow(0 0 5px #F2DA85)}
+    polygon.fortuneGood,polygon.landingGood{fill:#5fae7830;stroke:var(--lamp-good);stroke-width:2.7;filter:drop-shadow(0 0 3px #5fae78)}
+    polygon.fortuneSmall,polygon.landingSmallGood{fill:#dec78d28;stroke:var(--lamp-small);stroke-width:2.2;filter:drop-shadow(0 0 2px #dec78d)}
+    polygon.fortuneNeutral,polygon.landingNeutral{fill:#5a534d0c;stroke:var(--lamp-neutral);stroke-width:1.15;opacity:.58}
+    polygon.landingSmallBad{fill:#e6a1ad22;stroke:var(--lamp-smallbad);stroke-width:2;filter:drop-shadow(0 0 2px #e6a1ad)}
+    polygon.fortuneBad,polygon.landingBad{fill:#9e444a2d;stroke:var(--lamp-bad);stroke-width:2.5;filter:drop-shadow(0 0 3px #9e444a)}
+    polygon.fortuneGreatBad,polygon.landingStrongBad{fill:#4f182835;stroke:var(--lamp-strongbad);stroke-width:3.1;filter:drop-shadow(0 0 5px #4f1828)}
+
+    /* 06G Aspect lamps：視線關係，不直接等於吉凶 */
+    .fig.aspectOrigin{border-color:#EFEFE8;background:#fffffb;box-shadow:0 0 0 4px #ffffffaa,0 0 26px #e9e5d8cc;transform:scale(1.08)}
+    .fig.aspectTrine{border-color:#DCC77C;background:#fff9df;box-shadow:0 0 0 4px #dcc77c44,0 0 24px #dcc77c88;transform:scale(1.06)}
+    .fig.aspectSextile{border-color:#7FC89B;background:#f1fff7;box-shadow:0 0 0 4px #7fc89b40,0 0 21px #7fc89b75;transform:scale(1.04)}
+    .fig.aspectSquare{border-color:#E36D48;background:#fff0e8;box-shadow:0 0 0 4px #e36d483d,0 0 21px #e36d4875;transform:scale(1.04)}
+    .fig.aspectOpposition{border-color:#7A2432;background:#ead4d9;box-shadow:0 0 0 5px #7a24324c,inset 0 0 24px #4f18282f,0 0 22px #7a243270;transform:scale(1.06)}
+    .fig.aspectNoView{background:#efeeea;border-color:#b9b5ad;opacity:.46;filter:saturate(.5) grayscale(.16)}
+    polygon.aspectOrigin{fill:#ffffff48;stroke:#D9D7CE;stroke-width:2.9;filter:drop-shadow(0 0 4px #ffffff)}
+    polygon.aspectTrine{fill:#dcc77c32;stroke:#DCC77C;stroke-width:2.8;filter:drop-shadow(0 0 3px #DCC77C)}
+    polygon.aspectSextile{fill:#7fc89b2d;stroke:#7FC89B;stroke-width:2.5;filter:drop-shadow(0 0 2px #7FC89B)}
+    polygon.aspectSquare{fill:#e36d482d;stroke:#E36D48;stroke-width:2.6;filter:drop-shadow(0 0 2px #E36D48)}
+    polygon.aspectOpposition{fill:#7a243235;stroke:#7A2432;stroke-width:3.1;filter:drop-shadow(0 0 5px #7A2432)}
+    polygon.aspectNoView{fill:#5a534d0b;stroke:#b9b5ad;stroke-width:1.1;opacity:.45;stroke-dasharray:1.8 1.2}
+
     @keyframes marqueeRun{0%{transform:translateX(0)}100%{transform:translateX(-145%)}}
     @keyframes birthPop{0%{transform:scale(.72);opacity:.25}65%{transform:scale(1.16);opacity:1}100%{transform:scale(1)}}
     @keyframes popIn{from{opacity:0;transform:translateY(10px) scale(.86)}to{opacity:1;transform:translateY(0) scale(1)}}
@@ -288,14 +317,87 @@
     polygon.darbFlash{animation:darbPolyFlash .9s ease-in-out 2}
     .state.stateFocus{border-color:var(--rose);box-shadow:0 0 0 3px #b4766e2d;background:#fff7f5}
     @keyframes pulseGlow{0%,100%{box-shadow:0 0 0 0 #b4766e00}50%{box-shadow:0 0 0 7px #b4766e38}}
-    @keyframes darbFlash{0%,100%{box-shadow:0 0 0 0 #d9775700}50%{box-shadow:0 0 0 7px #d9775742,0 0 26px #d9775780;transform:scale(1.12)}}
-    @keyframes darbPolyFlash{0%,100%{filter:drop-shadow(0 0 0 #d9775700)}50%{filter:drop-shadow(0 0 5px #d97757);stroke:var(--orange);stroke-width:3}}
+    @keyframes darbFlash{0%,100%{box-shadow:0 0 0 0 #7d4ba800}50%{box-shadow:0 0 0 7px #7d4ba842,0 0 26px #c9964e85;transform:scale(1.12)}}
+    @keyframes darbPolyFlash{0%,100%{filter:drop-shadow(0 0 0 #7d4ba800)}50%{filter:drop-shadow(0 0 5px #C9964E);stroke:#B58A38;stroke-width:3}}
 
     .promptTools{margin-top:12px;background:var(--panel);border:1px solid var(--line2);border-radius:20px;padding:14px;display:block}
     .promptHead{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px}
     .promptHead b{color:var(--rose);letter-spacing:.08em}
     .promptIntro{margin:0 0 12px;color:var(--soft);font-size:13px;font-weight:800;line-height:1.65}
     textarea.promptText{width:100%;min-height:260px;border:1px solid var(--line2);border-radius:16px;background:white;color:var(--ink);padding:14px;line-height:1.65;font-weight:650;resize:vertical;white-space:pre-wrap}
+
+
+    /* 07A Desktop reading refinement：桌面版閱讀比例與雙欄工作區 */
+    @media(min-width:1180px){
+      .wrap{max-width:1440px;margin:18px auto;padding:0 18px;}
+      .app{border-radius:32px;}
+      main{padding:22px;}
+      .layout{grid-template-columns:minmax(0,1fr) 390px;gap:22px;align-items:start;}
+      .chartCard{min-height:650px;overflow:auto;}
+      .side{position:sticky;top:18px;max-height:calc(100vh - 36px);overflow:auto;}
+      .side h2,.panel h3{font-size:22px;line-height:1.35;}
+      .infoBox{font-size:15px;line-height:1.78;}
+      .bigName .zh{font-size:40px;}
+      .meta b{font-size:22px;}
+      .shield{min-width:960px;padding:26px 14px 34px;}
+      .shieldTop{margin-bottom:30px;}
+      .shieldNephews{width:800px;margin-bottom:46px;}
+      .shieldWitnesses{width:510px;margin-bottom:42px;}
+      .shieldJudge{margin-bottom:34px;}
+      .fig{width:88px;min-height:140px;border-radius:19px;padding:9px 7px;}
+      .fig .house{font-size:14px;}
+      .fig .role{font-size:10.5px;}
+      .fig .name{font-size:14px;}
+      .dots{gap:8px;}
+      .line{height:13px;gap:14px;}
+      .dot{width:10.5px;height:10.5px;}
+      .squareWrap{width:min(760px,100%);}
+      .sqLabel .sqTitle{font-size:12px;}
+      .oracleRow{grid-template-columns:190px 1fr auto;}
+      .oracleRow select,.oracleRow input{font-size:16px;}
+      textarea.promptText{font-size:15px;line-height:1.75;}
+    }
+
+    @media(min-width:1500px){
+      .wrap{max-width:1520px;}
+      .layout{grid-template-columns:minmax(0,1fr) 420px;gap:24px;}
+      .chartCard{min-height:680px;}
+      .shield{min-width:1000px;}
+      .shieldNephews{width:830px;}
+      .shieldWitnesses{width:530px;}
+    }
+
+    /* Medium desktop / tablet：維持單欄，但盤面可橫向閱讀，不壓縮整頁 */
+    @media(min-width:761px) and (max-width:1179px){
+      .wrap{max-width:1040px;margin:14px auto;padding:0 14px;}
+      main{padding:16px;}
+      .chartCard{overflow:auto;}
+      .side h2,.panel h3{font-size:21px;line-height:1.35;}
+      .infoBox{font-size:15px;line-height:1.75;}
+    }
+
+    /* Phone width：只做安全可讀與盤面橫向滑動，不把 app 壓成窄柱 */
+    @media(max-width:760px){
+      .wrap{max-width:none;margin:0;padding:8px;}
+      .app{border-radius:22px;}
+      header{padding:24px 12px 18px;}
+      h1{font-size:clamp(27px,8vw,36px);letter-spacing:.14em;line-height:1.2;}
+      .sub{font-size:12px;letter-spacing:.24em;}
+      main{padding:10px;}
+      button{font-size:15px;padding:11px 14px;min-height:44px;}
+      .card{border-radius:20px;padding:12px;}
+      .chartCard{min-height:0;overflow-x:auto;overflow-y:visible;-webkit-overflow-scrolling:touch;}
+      .hint{font-size:13px;line-height:1.55;letter-spacing:.08em;margin-bottom:14px;}
+      .shield{min-width:820px;padding:18px 10px 24px;}
+      .shieldNephews{width:700px;margin-bottom:34px;}
+      .shieldWitnesses{width:430px;margin-bottom:32px;}
+      .fig{width:78px;min-height:126px;}
+      .side h2,.panel h3{font-size:20px;line-height:1.35;}
+      .infoBox{font-size:15px;line-height:1.75;}
+      .bigName .zh{font-size:36px;}
+      .boardToast{font-size:14px;line-height:1.6;max-width:min(92vw,560px);}
+    }
+
   </style>
 </head>
 <body>
@@ -402,6 +504,14 @@
   </div>
 
   <section class="toolSection">
+    <div class="toolSectionTitle">使用說明</div>
+    <div class="toolSectionHint">第一次使用可先看快速流程與燈光規則。</div>
+    <div class="toolGrid">
+      <button id="helpBtn">？ 使用說明</button>
+    </div>
+  </section>
+
+  <section class="toolSection">
     <div class="toolSectionTitle">盤面顯示</div>
     <div class="toolSectionHint">切換盤面的視覺層，不改變起卦結果。</div>
     <div class="toolGrid">
@@ -409,6 +519,7 @@
       <button id="timelineBtn">⏳ 四段時間軸</button>
       <button id="flightBtn">🪽 顯示飛宮</button>
       <button id="stateLightBtn">✦ 四態燈</button>
+      <button id="lightsMuteBtn">🕯️ 關閉燈光效果</button>
     </div>
   </section>
 
@@ -419,6 +530,8 @@
       <button id="intentBtn">👁️ 意圖提取</button>
       <button id="judgeSourceBtn">⚖️ 平衡宮尋源</button>
       <button id="darbBtn">💥 合卦</button>
+      <button id="multiDarbBtn">🧬 多步合卦</button>
+      <button id="aspectBtn">☍ 相位視線</button>
     </div>
   </section>
 
@@ -460,7 +573,66 @@
   </div>
 </div>
 
+<div class="modal" id="helpModal">
+  <div class="modalBox helpBox">
+    <h2>？ 使用說明</h2>
+    <div class="helpBody">
+      <section class="helpBlock">
+        <h3>這是什麼？</h3>
+        <p>這是一個沙占起盤與讀盤輔助工具。它負責生成沙盤、顯示宮位、亮燈提示、整理典籍資料，並產出可複製給 AI 的神諭提示詞。</p>
+        <p>工具本身不直接完成 AI 解讀；請將提示詞複製到外部 AI 中進行完整占斷。</p>
+      </section>
+      <section class="helpBlock">
+        <h3>基本流程</h3>
+        <ol class="helpList">
+          <li>輸入你想問的問題，並選擇問題類型。</li>
+          <li>使用「隨機起卦」或「手動起卦」生成沙盤。</li>
+          <li>點擊任一宮位，查看典籍釋義、卦象資料與盤面狀態。</li>
+          <li>依需要開啟盤面狀態、飛宮、四態燈、意圖提取、平衡宮尋源、合卦或相位視線。</li>
+          <li>按「生成提示詞」，複製到 AI 進行完整解讀；也可下載盤面圖保存。</li>
+        </ol>
+      </section>
+      <section class="helpBlock">
+        <h3>燈光怎麼看？</h3>
+        <p>本工具的燈光分為三類：<b>狀態燈</b>、<b>路徑燈</b>、<b>關係燈</b>。</p>
+
+        <h4>一、狀態燈：看吉凶力道</h4>
+        <p>狀態燈主要出現在「盤面狀態」中，用來判斷每一宮的綜合力道。</p>
+        <p class="lampLegend">白金＝強吉：吉力強，事情容易成形。<br>翠綠＝吉：有利、順勢，可推進。<br>淡金＝微吉：有小助力，但力量較弱。<br>霧灰＝中性：不偏吉凶，需看主宮、法官與結果。<br>粉紅＝微凶：有小阻礙、延遲或背景壓力。<br>暗紅＝凶：明顯阻力、消耗、衝突。<br>黑紅＝強凶：阻滯嚴重，可能破局或形成高壓。</p>
+
+        <h4>二、路徑燈：看推演如何移動</h4>
+        <p><b>飛宮青藍：</b>同一卦象在多宮回聲。</p>
+        <p><b>四段時間軸：</b>顯示事件從起源、展開、推演到裁決的層次。</p>
+        <p><b>四態燈：</b>火紅＝觀望，銀青＝發聲，水藍＝連結，琥珀＝分離。</p>
+        <p><b>意圖提取：</b>玫瑰紫＝意圖宮，翡翠綠＋紫暈＝意圖卦入局。</p>
+        <p><b>平衡宮尋源：</b>深藍＝法官起點，琥珀＝回溯路徑，玫瑰＝源頭，翡翠＝入局。</p>
+        <p><b>合卦紫金：</b>兩宮合出的新卦落回盤中。</p>
+
+        <h4>三、關係燈：看宮位之間的視線</h4>
+        <p>相位視線用來看目前選取宮與其他宮的古典相位關係。</p>
+        <p class="lampLegend">珍珠白＝合相：共振、綁定、聚焦。<br>柔金＝三分相：完整友誼，順利流通。<br>薄荷綠＝六分相：半友誼，可協調。<br>橘紅＝四分相：半敵意，摩擦與阻礙。<br>深紅＝對分相：完全敵意，正面對立。<br>霧灰＝無相位：無視線，連結薄弱。</p>
+
+        <p>燈光只是讀盤線索，不是單獨結論。真正判斷仍需結合問題主宮、第1宮、13宮、14宮、15宮法官與16宮結果。</p>
+      </section>
+      <section class="helpBlock">
+        <h3>工具簡介</h3>
+        <p><b>盤面狀態：</b>顯示整盤吉凶與落宮力道。</p>
+        <p><b>四段時間軸：</b>顯示事件從起源、展開、推演到裁決的層次。</p>
+        <p><b>飛宮：</b>顯示同一卦象出現在哪些宮位。</p>
+        <p><b>四態燈：</b>觀察某宮位的觀望、發聲、連結與分離。</p>
+        <p><b>意圖提取：</b>依證人卦條件提取隱藏意圖。</p>
+        <p><b>平衡宮尋源：</b>從法官卦回溯源頭宮位。</p>
+        <p><b>合卦：</b>將兩宮卦象相加，觀察合出的新卦是否入局。</p>
+        <p><b>相位視線：</b>查看兩宮之間的古典沙占相位關係。</p>
+      </section>
+    </div>
+    <div style="display:flex;justify-content:flex-end;margin-top:14px"><button id="closeHelp">知道了</button></div>
+  </div>
+</div>
+
 <script>
+
+
 
 /* =========================================================
    SINGLE-FILE SCRIPT MAP
@@ -655,8 +827,8 @@ const REGIONS = [
 let state = {
   mothers:["1121","1222","2111","2212"], chart:[...BASE_CHART],
   isBase:true, view:"shield", selected:0, timeline:false, timelinePhase:null,
-  hiddenIntent:null, sourceIntent:null, intentTargetsRevealed:false, sourceTargetsRevealed:false, darbMode:false, flightMode:false, stateLightMode:false, fortuneLightMode:false, landingLightMode:false, darbSelection:[], darbResult:null,
-  highlightedFigure:null, effectAnchor:null, reading:"", oraclePrompt:"", manual:["1121","1222","2111","2212"]
+  hiddenIntent:null, sourceIntent:null, intentTargetsRevealed:false, sourceTargetsRevealed:false, activeTraceTool:null, darbMode:false, flightMode:false, stateLightMode:false, fortuneLightMode:false, landingLightMode:false, aspectMode:false, aspectAnchor:null, darbSelection:[], darbResult:null, multiDarbMode:false, multiDarbSelection:[], multiDarbResult:null,
+  highlightedFigure:null, effectAnchor:null, lightsMuted:false, reading:"", oraclePrompt:"", manual:["1121","1222","2111","2212"]
 };
 
 
@@ -667,9 +839,21 @@ const addLine=(a,b)=>a===b?'2':'1';
 const addFigures=(a,b)=>a.split('').map((x,i)=>addLine(x,b[i])).join('');
 const figName=f=>FIGURE_DATA[f]?.nameZh||'';
 const FORTUNE_CLASS={"大吉":"fortuneGreat","吉":"fortuneGood","小吉":"fortuneSmall","中性":"fortuneNeutral","凶":"fortuneBad","大凶":"fortuneGreatBad"};
+function lightsAreMuted(){return !!state.lightsMuted;}
 function fortuneLightClass(idx){
-  if(!state.fortuneLightMode || state.isBase) return '';
+  if(lightsAreMuted() || !state.fortuneLightMode || state.isBase) return '';
   return ' '+statusEvaluation(idx).band.cls;
+}
+function isDarbSelectedHouse(idx){
+  return (state.darbMode && state.darbSelection.includes(idx)) || (state.multiDarbMode && state.multiDarbSelection.includes(idx));
+}
+function isDarbTargetHouse(idx){
+  const simple=state.darbMode && state.darbResult && !state.darbResult.isKharij && state.darbResult.targetHouses.includes(idx);
+  const multi=state.multiDarbMode && state.multiDarbResult && !state.multiDarbResult.isKharij && state.multiDarbResult.targetHouses.includes(idx);
+  return simple || multi;
+}
+function clearDarbSelections(){
+  state.darbSelection=[]; state.darbResult=null; state.multiDarbSelection=[]; state.multiDarbResult=null;
 }
 
 /* 03A Timeline layer helpers -------------------------------------- */
@@ -683,7 +867,7 @@ function timelineLayerForHouse(idx){
   return TIMELINE_LAYERS.find(layer=>layer.range.includes(idx));
 }
 function timelineLightClass(idx){
-  if(!state.timeline || state.isBase) return '';
+  if(lightsAreMuted() || !state.timeline || state.isBase) return '';
   const layer=timelineLayerForHouse(idx);
   if(!layer) return '';
   const order=TIMELINE_LAYERS.indexOf(layer);
@@ -698,7 +882,21 @@ function timelineSummaryText(){
 }
 function resetTimeline(){state.timeline=false; state.timelinePhase=null;}
 function fortuneLightSummary(){
-  return '金亮=強吉、綠光=吉、淡金=微吉、灰=中性、淺紅=微凶、紅暗=凶、深紅=強凶';
+  const counts={good:0, neutral:0, bad:0, strongGood:0, strongBad:0};
+  state.chart.forEach((fig,i)=>{
+    const label=statusEvaluation(i).band.label;
+    if(label==='強吉'){counts.good++; counts.strongGood++; return;}
+    if(label==='吉' || label==='微吉'){counts.good++; return;}
+    if(label==='中性'){counts.neutral++; return;}
+    if(label==='微凶' || label==='凶'){counts.bad++; return;}
+    if(label==='強凶'){counts.bad++; counts.strongBad++; return;}
+  });
+  let text=`吉宮 ${counts.good}｜中性 ${counts.neutral}｜凶宮 ${counts.bad}`;
+  const detail=[];
+  if(counts.strongGood) detail.push(`強吉 ${counts.strongGood}`);
+  if(counts.strongBad) detail.push(`強凶 ${counts.strongBad}`);
+  if(detail.length) text+=`｜${detail.join('、')}`;
+  return text;
 }
 function fortuneFocusForPrompt(){
   const groups={"強吉":[],"吉":[],"微吉":[],"中性":[],"微凶":[],"凶":[],"強凶":[]};
@@ -707,7 +905,65 @@ function fortuneFocusForPrompt(){
 }
 
 
-/* 03B Board-status scoring, house strength, dignity --------------- */
+/* 03B Classical geomantic aspect / munāẓarāt layer --------------- */
+const ASPECT_DEFS={
+  conjunction:{label:"合相", cls:"aspectOrigin", tone:"絕對共振，兩者狀態緊密綁定；吉凶取決於參與卦象本質。", short:"共振綁定"},
+  trine:{label:"三分相", cls:"aspectTrine", tone:"完整友誼，能量順流，事情容易無阻推進。", short:"完整友誼"},
+  sextile:{label:"六分相", cls:"aspectSextile", tone:"半個友誼，帶來善意與協調，但仍需要人為努力。", short:"半個友誼"},
+  square:{label:"四分相", cls:"aspectSquare", tone:"半個敵意，表示現實阻礙、摩擦、壓力與需要處理的衝突。", short:"半個敵意"},
+  opposition:{label:"對分相", cls:"aspectOpposition", tone:"完全敵意，兩者正面對立、拉扯或難以妥協。", short:"完全敵意"},
+  noView:{label:"無相位", cls:"aspectNoView", tone:"無視線交集，兩者連結薄弱，對此事未必形成實質好壞。", short:"無視線"},
+  unlisted:{label:"未列相位", cls:"", tone:"此距離未列入五大核心相位與衰落距離，暫不作亮燈判斷。", short:"未列"}
+};
+function aspectInclusiveDistance(a,b){return Math.abs(a-b)+1;}
+function aspectInfoBetween(anchor,idx){
+  if(anchor===idx) return {...ASPECT_DEFS.conjunction,key:"conjunction",distance:1};
+  if((anchor===12&&idx===13)||(anchor===13&&idx===12)) return {...ASPECT_DEFS.conjunction,key:"conjunction",distance:2,special:"第13宮與第14宮為證人緊密連接。"};
+  const d=aspectInclusiveDistance(anchor,idx);
+  if([5,9].includes(d)) return {...ASPECT_DEFS.trine,key:"trine",distance:d};
+  if([3,11,15].includes(d)) return {...ASPECT_DEFS.sextile,key:"sextile",distance:d};
+  if([4,10,16].includes(d)) return {...ASPECT_DEFS.square,key:"square",distance:d};
+  if([7,14].includes(d)) return {...ASPECT_DEFS.opposition,key:"opposition",distance:d};
+  if([2,6,8,12].includes(d)) return {...ASPECT_DEFS.noView,key:"noView",distance:d};
+  return {...ASPECT_DEFS.unlisted,key:"unlisted",distance:d};
+}
+function aspectLightClass(idx){
+  if(lightsAreMuted() || !state.aspectMode || state.isBase) return '';
+  const anchor=state.aspectAnchor??state.selected;
+  const info=aspectInfoBetween(anchor,idx);
+  return info.cls?' '+info.cls:'';
+}
+function aspectGroups(anchor=state.aspectAnchor??state.selected){
+  const groups={conjunction:[],trine:[],sextile:[],square:[],opposition:[],noView:[],unlisted:[]};
+  state.chart.forEach((fig,i)=>{groups[aspectInfoBetween(anchor,i).key].push(i);});
+  return groups;
+}
+function aspectHouseList(arr){return arr.length?arr.map(i=>`第${i+1}宮`).join('、'):'無';}
+function aspectPanelHTML(anchor=state.aspectAnchor??state.selected){
+  const g=aspectGroups(anchor);
+  const anchorFig=state.chart[anchor];
+  const line=(key,desc)=>`<p style="margin:.55em 0"><b>${ASPECT_DEFS[key].label}：</b>${aspectHouseList(g[key])}<br><span style="color:var(--muted)">${desc}</span></p>`;
+  return `<div class="infoBox"><b style="color:var(--rose)">☍ 相位視線</b><p>以第${anchor+1}宮「${HOUSE_DATA[anchor].name}」｜${figName(anchorFig)} 為原點，依古典沙占視線距離觀察兩宮互動。</p>
+    ${line('trine','完整友誼，最順利的協助與流通。')}
+    ${line('sextile','半個友誼，可協調，但需要溝通或人為推動。')}
+    ${line('square','半個敵意，表示摩擦、阻礙與現實壓力。')}
+    ${line('opposition','完全敵意，表示正面對立、拉扯或拒絕妥協。')}
+    ${line('noView','無視線，連結薄弱，未必形成實質好壞。')}
+  </div>`;
+}
+function aspectLinesForPrompt(anchor=state.aspectAnchor??state.selected){
+  const g=aspectGroups(anchor);
+  return `焦點：第${anchor+1}宮 ${HOUSE_DATA[anchor].name}｜${figName(state.chart[anchor])}
+三分相（完整友誼）：${aspectHouseList(g.trine)}
+六分相（半個友誼）：${aspectHouseList(g.sextile)}
+四分相（半個敵意）：${aspectHouseList(g.square)}
+對分相（完全敵意）：${aspectHouseList(g.opposition)}
+無相位（無視線）：${aspectHouseList(g.noView)}
+說明：相位視線只用於衡量兩宮互動關係，不取代卦象本質、取用宮、法官與最終判決。`;
+}
+
+
+/* 03C Board-status scoring, house strength, dignity --------------- */
 const NATURE_SCORE={"大吉":3,"吉":2,"小吉":1,"中性":0,"凶":-2,"大凶":-3};
 const HOUSE_STRENGTH={
   strong:{label:"強宮",weight:1.35, note:"四角宮位，力量容易成形並外顯。"},
@@ -794,15 +1050,16 @@ function coreFocusInfo(idx){
 function specialToolInfo(idx){
   let impact=0, notes=[];
   if(state.hiddenIntent){
-    if(state.hiddenIntent.sourceIndex===idx){impact+=.25; notes.push("意圖來源宮");}
-    if(!state.hiddenIntent.isKharij && state.hiddenIntent.targetHouses.includes(idx)){impact+=.35; notes.push("意圖入局宮");}
+    if(state.hiddenIntent.sourceIndex===idx){impact+=.25; notes.push("意圖宮");}
+    if(!state.hiddenIntent.isKharij && state.hiddenIntent.targetHouses.includes(idx)){impact+=.35; notes.push("意圖卦入局宮");}
   }
   if(state.sourceIntent){
     if(state.sourceIntent.sourceHouses.includes(idx)){impact+=.30; notes.push("平衡尋源源頭宮");}
     if(!state.sourceIntent.isKharij && state.sourceIntent.targetHouses.includes(idx)){impact+=.35; notes.push("尋源意圖入局宮");}
   }
   if(state.darbResult && !state.darbResult.isKharij && state.darbResult.targetHouses.includes(idx)){impact+=.25; notes.push("合卦入局宮");}
-  return {label:notes.length?"推演入局":"未入進階推演",impact,note:notes.length?notes.join("、"):"尚未被意圖提取、平衡尋源或合卦標記。"};
+  if(state.multiDarbResult && !state.multiDarbResult.isKharij && state.multiDarbResult.targetHouses.includes(idx)){impact+=.25; notes.push("多步合卦入局宮");}
+  return {label:notes.length?"推演入局":"未入進階推演",impact,note:notes.length?notes.join("、"):"尚未被意圖宮、意圖卦入局、平衡尋源或合卦標記。"};
 }
 function landingBand(score){
   if(score>=4.15) return {key:"strongGood", label:"強吉", cls:"landingStrongGood", tone:"吉力強而成形，容易落到現實並產生明顯助力。"};
@@ -854,7 +1111,7 @@ function landingFocusForPrompt(){return fortuneFocusForPrompt();}
 /* 03C Four-state light mapping ------------------------------------ */
 const STATE_LAMP_CLASS={nadhar:"stateLampNadhar",nutq:"stateLampNutq",ittisal:"stateLampIttisal",infisal:"stateLampInfisal"};
 function stateLightClassesForHouse(idx){
-  if(!state.stateLightMode || state.isBase) return '';
+  if(lightsAreMuted() || !state.stateLightMode || state.isBase) return '';
   if(state.effectAnchor===null || state.effectAnchor===undefined) return '';
   const cur=state.chart[state.effectAnchor];
   if(!cur) return '';
@@ -893,23 +1150,25 @@ function dotHTML(fig, mini=false){
 /* 05A Figure cards and per-house CSS state ------------------------ */
 function figureBox(idx,label,role){
   const f=state.chart[idx];
-  const showIntent=state.hiddenIntent&&state.intentTargetsRevealed;
-  const showSource=state.sourceIntent&&state.sourceTargetsRevealed;
+  const muted=lightsAreMuted();
+  const showIntent=!muted&&state.hiddenIntent&&state.intentTargetsRevealed&&state.activeTraceTool==='intent';
+  const showSource=!muted&&state.sourceIntent&&state.sourceTargetsRevealed&&state.activeTraceTool==='source';
   const isIntentSource=showIntent&&state.hiddenIntent.sourceIndex===idx;
   const isIntentJudge=showIntent&&idx===14;
   const isIntentResult=showIntent&&!state.hiddenIntent.isKharij&&state.hiddenIntent.targetHouses.includes(idx);
   const isSourceJudge=showSource&&idx===14;
   const isSourceSource=showSource&&state.sourceIntent.sourceHouses.includes(idx);
   const isSourceResult=showSource&&!state.sourceIntent.isKharij&&state.sourceIntent.targetHouses.includes(idx);
-  const isDSel=state.darbMode&&state.darbSelection.includes(idx);
-  const isDTarget=state.darbMode&&state.darbResult&&!state.darbResult.isKharij&&state.darbResult.targetHouses.includes(idx);
-  const isFigureMatch=state.flightMode&&state.highlightedFigure&&f===state.highlightedFigure;
+  const isDSel=!muted&&isDarbSelectedHouse(idx);
+  const isDTarget=!muted&&isDarbTargetHouse(idx);
+  const isFigureMatch=!muted&&state.flightMode&&state.highlightedFigure&&f===state.highlightedFigure;
   let cls='fig';
   if(state.selected===idx) cls+=' sel';
   cls+=fortuneLightClass(idx);
   cls+=timelineLightClass(idx);
   if(isFigureMatch) cls+=' figureMatch';
   cls+=stateLightClassesForHouse(idx);
+  cls+=aspectLightClass(idx);
   if(isIntentSource) cls+=' intentSource';
   if(isIntentJudge) cls+=' intentJudge';
   if(isIntentResult) cls+=' intentResult';
@@ -923,7 +1182,38 @@ function figureBox(idx,label,role){
 
 
 /* 07A Motion, toast, animation queue ------------------------------ */
+let boardMotionTimers=[];
+let motionCloseTimer=null;
+function houseEls(idx){return document.querySelectorAll(`[data-house="${idx}"]`);}
+function queueBoardStep(fn, delay=0){
+  const timer=setTimeout(()=>{
+    boardMotionTimers=boardMotionTimers.filter(t=>t!==timer);
+    fn();
+  }, delay);
+  boardMotionTimers.push(timer);
+  return timer;
+}
+function clearLightClassesOnly(){
+  document.querySelectorAll('.timelinePulse,.intentLamp,.intentSource,.intentJudge,.intentBirth,.intentResult,.sourceLamp,.sourceBridge,.sourceJudge,.sourceSource,.sourceBirth,.sourceResult,.darbFlash').forEach(el=>{
+    el.classList.remove('timelinePulse','intentLamp','intentSource','intentJudge','intentBirth','intentResult','sourceLamp','sourceBridge','sourceJudge','sourceSource','sourceBirth','sourceResult','darbFlash');
+  });
+}
+function clearBoardMotion(){
+  boardMotionTimers.forEach(t=>clearTimeout(t));
+  boardMotionTimers=[];
+  if(motionCloseTimer){clearTimeout(motionCloseTimer); motionCloseTimer=null;}
+  const motion=$('motionOverlay');
+  if(motion) motion.classList.remove('open');
+  clearLightClassesOnly();
+}
+function hideBoardToast(){
+  const toast=$('boardToast'); if(!toast) return;
+  clearTimeout(boardToast.timer);
+  toast.classList.remove('open');
+  setTimeout(()=>{if(!toast.classList.contains('open')) toast.textContent='';},190);
+}
 function flashHouse(idx, cls="darbFlash"){
+  if(lightsAreMuted()) return;
   const els=document.querySelectorAll(`[data-house="${idx}"]`);
   els.forEach(el=>{
     el.classList.remove(cls);
@@ -932,37 +1222,7 @@ function flashHouse(idx, cls="darbFlash"){
     setTimeout(()=>el.classList.remove(cls),1900);
   });
 }
-function motionFigureHTML(fig,label,cls=""){
-  return `<div class="motionFigure ${cls}"><b>${label}</b>${dotHTML(fig,true)}<div class="name">${figName(fig)}</div></div>`;
-}
-function openMotion(html, timeout=3200){
-  const overlay=$("motionOverlay"), box=$("motionBox");
-  clearTimeout(openMotion.timer);
-  overlay.classList.remove("open");
-  box.innerHTML=html;
-  void overlay.offsetWidth;
-  requestAnimationFrame(()=>overlay.classList.add("open"));
-  openMotion.timer=setTimeout(()=>overlay.classList.remove("open"),timeout);
-}
-function hideBoardToast(){
-  const toast=$('boardToast');
-  if(!toast) return;
-  clearTimeout(boardToast.timer);
-  toast.classList.remove('open');
-  setTimeout(()=>{if(!toast.classList.contains('open')) toast.textContent='';},190);
-}
-function clearBoardMotion(){
-  (clearBoardMotion.timers||[]).forEach(clearTimeout);
-  clearBoardMotion.timers=[];
-  document.querySelectorAll('.intentLamp,.intentSource,.intentJudge,.intentBirth,.intentResult,.sourceLamp,.sourceBridge,.sourceJudge,.sourceSource,.sourceBirth,.sourceResult,.timelinePulse').forEach(el=>el.classList.remove('intentLamp','intentSource','intentJudge','intentBirth','intentResult','sourceLamp','sourceBridge','sourceJudge','sourceSource','sourceBirth','sourceResult','timelinePulse'));
-  hideBoardToast();
-}
-function queueBoardStep(fn,ms){
-  clearBoardMotion.timers=clearBoardMotion.timers||[];
-  clearBoardMotion.timers.push(setTimeout(fn,ms));
-}
-function houseEls(idx){return Array.from(document.querySelectorAll(`[data-house="${idx}"]`));}
-function addHouseMotion(idx, cls){houseEls(idx).forEach(el=>el.classList.add(cls));}
+function addHouseMotion(idx, cls){if(lightsAreMuted()) return; houseEls(idx).forEach(el=>el.classList.add(cls));}
 function removeHouseMotion(idx, cls){houseEls(idx).forEach(el=>el.classList.remove(cls));}
 function boardToast(text, timeout=0){
   const toast=$('boardToast'); if(!toast) return;
@@ -999,14 +1259,16 @@ function toggleTimeline(){
   if(state.isBase){alert('請先隨機起卦或手動起卦。');return}
   const next=!state.timeline;
   clearBoardMotion();
-  state.darbMode=false; state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false; state.landingLightMode=false;
-  state.highlightedFigure=null; state.effectAnchor=null; state.darbSelection=[]; state.darbResult=null;
+  state.darbMode=false; state.multiDarbMode=false; state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false; state.landingLightMode=false; state.aspectMode=false; state.aspectAnchor=null; state.activeTraceTool=null;
+  state.highlightedFigure=null; state.effectAnchor=null; state.darbSelection=[]; state.darbResult=null; state.multiDarbSelection=[]; state.multiDarbResult=null;
   if(!next){resetTimeline(); render(); boardToast('四段時間軸已關閉'); return}
   state.timeline=true;
   showTimelineAnimation();
 }
 function showIntentAnimation(intent){
   clearBoardMotion();
+  state.activeTraceTool='intent';
+  state.sourceTargetsRevealed=false;
   const sourceNo=intent.sourceIndex+1;
   const resultName=figName(intent.combinedFigure);
   const targets=intent.targetHouses.map(i=>i+1);
@@ -1025,11 +1287,11 @@ function showIntentAnimation(intent){
   queueBoardStep(()=>{
     document.querySelectorAll('.intentLamp').forEach(el=>el.classList.remove('intentLamp'));
     addHouseMotion(intent.sourceIndex,'intentSource');
-    boardToast(`意圖停在第 ${sourceNo} 宮：${figName(intent.sourceFigure)}`);
+    boardToast(`意圖宮定位：第 ${sourceNo} 宮｜${figName(intent.sourceFigure)}`);
   },t+80);
   queueBoardStep(()=>{
     addHouseMotion(14,'intentJudge');
-    boardToast(`第 ${sourceNo} 宮 + 第 15 宮法官，相擊合卦中`);
+    boardToast(`意圖宮第 ${sourceNo} 宮 + 第 15 宮法官，相擊合卦中`);
   },t+760);
   queueBoardStep(()=>{
     addHouseMotion(intent.sourceIndex,'intentBirth');
@@ -1046,30 +1308,18 @@ function showIntentAnimation(intent){
       queueBoardStep(()=>{
         addHouseMotion(idx,'intentResult');
         addHouseMotion(idx,'intentBirth');
-        boardToast(`${resultName} 跑出新宮位：第 ${idx+1} 宮`);
+        boardToast(`意圖卦入局：${resultName}｜第 ${idx+1} 宮`);
       },t+1900+n*260);
     });
   }
   queueBoardStep(()=>{
     document.querySelectorAll('.intentBirth').forEach(el=>el.classList.remove('intentBirth'));
     state.intentTargetsRevealed=true;
+    state.activeTraceTool='intent';
     render();
-    boardToast(`${intent.methodLabel||'意圖提取'}完成：${resultName}｜${targetText}`);
+    boardToast(`${intent.methodLabel||'意圖提取'}完成：意圖宮第 ${sourceNo} 宮｜${resultName}｜${targetText}`);
   },t+2600+Math.max(0,targets.length-1)*260);
 }
-function showDarbAnimation(result){
-  // 只保留盤面上的合卦燈號，不再開啟 A+B=C 動畫視窗。
-  const targets=result.isKharij?"出局":`入局：第 ${result.targetHouses.map(i=>i+1).join("、")} 宮`;
-  clearTimeout(showDarbAnimation.timer);
-
-  // 先亮兩個來源宮，再亮合卦結果入局宮位。
-  const seq=[result.idxA,result.idxB,...result.targetHouses];
-  seq.forEach((i,n)=>setTimeout(()=>flashHouse(i),120+n*260));
-
-  // 出局時沒有結果宮位可亮，只提示狀態；入局結果仍由盤面橘色燈號呈現。
-  showDarbAnimation.timer=setTimeout(()=>boardToast(`合卦完成：${figName(result.combinedFigure)}｜${targets}`),180+seq.length*260);
-}
-
 /* 07B Touch / long-press interactions ----------------------------- */
 function attachLongPress(el,{onTap,onLong,delay=620}={}){
   let timer=null, longPressed=false;
@@ -1103,7 +1353,7 @@ function showAnalysisCard(idx){
   openAnalysisCard(`<div class="analysisTop"><div class="analysisFig">${dotHTML(fig,true)}</div><div class="analysisTitle"><small>${house.name}</small><b>${data.nameZh}</b><small>${data.nameLatin}｜${data.nameAr}</small></div></div>
     <div class="meta"><div><small>吉凶判斷</small><b>${data.nature}</b></div><div><small>象徵元素</small><b>${data.element}</b></div></div>
     ${figureProfileMetaHTML(fig)}
-    <div class="analysisBody"><b>宮位作用：</b>${house.meaning}<br><br><b>盤面狀態判斷：</b>${statusInterpretation(idx)}<br><br><b>卦象釋義：</b>${data.meaning}<br><br><b>卦象補充：</b><br>${figureProfileBodyHTML(fig)}<br><br><b>盤中提示：</b>${same.length?`同卦也出現在第 ${same.join("、")} 宮，可視為此力量有回聲。`:"此卦在盤中沒有重複，訊號較集中於本宮。"}</div>`);
+    <div class="analysisBody"><b>宮位作用：</b>${house.meaning}<br><br>${state.aspectMode?`<b>相位視線：</b>${aspectInfoBetween(state.aspectAnchor??state.selected,idx).label}｜${aspectInfoBetween(state.aspectAnchor??state.selected,idx).tone}<br><br>`:''}<b>盤面狀態判斷：</b>${statusInterpretation(idx)}<br><br><b>卦象釋義：</b>${data.meaning}<br><br><b>卦象補充：</b><br>${figureProfileBodyHTML(fig)}<br><br><b>盤中提示：</b>${same.length?`同卦也出現在第 ${same.join("、")} 宮，可視為此力量有回聲。`:"此卦在盤中沒有重複，訊號較集中於本宮。"}</div>`);
 }
 function showStateAnalysisCard(payload){
   const data=FIGURE_DATA[payload.figure];
@@ -1115,27 +1365,44 @@ function showStateAnalysisCard(payload){
 }
 function setHouse(idx, opts={}){
   state.selected=idx;
-  if(state.darbMode && !state.isBase){
+  let shouldAnimateDarb=false;
+  let shouldAnimateMultiDarb=false;
+  if(state.multiDarbMode && !state.isBase){
+    state.highlightedFigure=null;
+    state.effectAnchor=null;
+    if(state.multiDarbSelection.includes(idx)) state.multiDarbSelection=state.multiDarbSelection.filter(x=>x!==idx);
+    else state.multiDarbSelection.push(idx);
+    calcMultiDarb();
+    shouldAnimateMultiDarb=true;
+  }else if(state.darbMode && !state.isBase){
     state.highlightedFigure=null;
     state.effectAnchor=null;
     if(state.darbSelection.includes(idx)) state.darbSelection=state.darbSelection.filter(x=>x!==idx);
     else if(state.darbSelection.length>=2) state.darbSelection=[state.darbSelection[1],idx];
     else state.darbSelection.push(idx);
-    const before=state.darbResult?state.darbResult.idxA+":"+state.darbResult.idxB+":"+state.darbResult.combinedFigure:"";
     calcDarb();
-    const after=state.darbResult?state.darbResult.idxA+":"+state.darbResult.idxB+":"+state.darbResult.combinedFigure:"";
-    if(state.darbResult && before!==after) setTimeout(()=>showDarbAnimation(state.darbResult),80);
+    shouldAnimateDarb=!!state.darbResult;
   }else if(state.flightMode && !state.isBase){
     state.highlightedFigure=state.chart[idx];
     state.effectAnchor=idx;
   }else if(state.stateLightMode && !state.isBase){
     state.highlightedFigure=null;
     state.effectAnchor=idx;
+  }else if(state.aspectMode && !state.isBase){
+    state.highlightedFigure=null;
+    state.aspectAnchor=idx;
+    state.effectAnchor=null;
   }else{
     state.highlightedFigure=null;
     state.effectAnchor=null;
   }
   render();
+  if(shouldAnimateDarb && state.darbResult){
+    setTimeout(()=>showDarbAnimation(state.darbResult),80);
+  }
+  if(shouldAnimateMultiDarb){
+    setTimeout(()=>showMultiDarbAnimation(),80);
+  }
   if(!state.isBase && state.flightMode){
     const sameCount=state.chart.filter(f=>f===state.chart[idx]).length;
     boardToast(`顯示飛宮：第 ${idx+1} 宮 ${figName(state.chart[idx])}｜同卦 ${sameCount} 處亮起`);
@@ -1174,22 +1441,24 @@ function renderSquare(){
   const show=[0,3,6,9,12,13,14,15];
   const polys=REGIONS.map(r=>{
     let cls=''; 
-    const showIntent=state.hiddenIntent&&state.intentTargetsRevealed;
-    const showSource=state.sourceIntent&&state.sourceTargetsRevealed;
-    const isFigureMatch=state.flightMode&&state.highlightedFigure&&state.chart[r.id]===state.highlightedFigure;
+    const muted=lightsAreMuted();
+    const showIntent=!muted&&state.hiddenIntent&&state.intentTargetsRevealed&&state.activeTraceTool==='intent';
+    const showSource=!muted&&state.sourceIntent&&state.sourceTargetsRevealed&&state.activeTraceTool==='source';
+    const isFigureMatch=!muted&&state.flightMode&&state.highlightedFigure&&state.chart[r.id]===state.highlightedFigure;
     if(state.selected===r.id) cls+=' sel';
     cls+=fortuneLightClass(r.id);
     cls+=timelineLightClass(r.id);
     if(isFigureMatch) cls+=' figureMatch';
     cls+=stateLightClassesForHouse(r.id);
+    cls+=aspectLightClass(r.id);
     if(showIntent&&state.hiddenIntent.sourceIndex===r.id) cls+=' intentSource';
     if(showIntent&&r.id===14) cls+=' intentJudge';
     if(showIntent&&!state.hiddenIntent.isKharij&&state.hiddenIntent.targetHouses.includes(r.id)) cls+=' intentResult';
     if(showSource&&state.sourceIntent.sourceHouses.includes(r.id)) cls+=' sourceSource';
     if(showSource&&r.id===14) cls+=' sourceJudge';
     if(showSource&&!state.sourceIntent.isKharij&&state.sourceIntent.targetHouses.includes(r.id)) cls+=' sourceResult';
-    if(state.darbMode&&state.darbSelection.includes(r.id)) cls+=' darbSel';
-    if(state.darbMode&&state.darbResult&&!state.darbResult.isKharij&&state.darbResult.targetHouses.includes(r.id)) cls+=' darbTarget';
+    if(!muted&&isDarbSelectedHouse(r.id)) cls+=' darbSel';
+    if(!muted&&isDarbTargetHouse(r.id)) cls+=' darbTarget';
     return `<polygon class="${cls}" data-house="${r.id}" points="${r.pts}"></polygon>`;
   }).join('');
   const labels=REGIONS.map(r=>`<div class="sqLabel" style="left:${r.cx}%;top:${r.cy}%">${show.includes(r.id)?`<div class="sqTitle">${r.title}</div>`:''}${dotHTML(state.chart[r.id],true)}</div>`).join('');
@@ -1214,6 +1483,7 @@ function renderSide(){
     <div class="bigName"><div class="zh">${data.nameZh}</div><div class="latin">${data.nameLatin}</div></div>
     <div class="meta"><div><small>吉凶判斷</small><b>${data.nature}</b></div><div><small>象徵元素</small><b>${data.element}</b></div></div>
     ${figureProfileMetaHTML(f)}
+    ${state.aspectMode?aspectPanelHTML(state.aspectAnchor??state.selected):''}
     <div class="infoBox"><b style="color:var(--rose)">盤面狀態判斷</b><p>${statusInterpretation(state.selected)}</p></div>
     <div class="infoBox"><b style="color:var(--rose)">祕傳意涵</b><p>${data.meaning}</p></div>
     <div class="infoBox"><b style="color:var(--rose)">卦象補充</b><p>${figureProfileBodyHTML(f)}</p></div>`;
@@ -1268,11 +1538,12 @@ function calculateHiddenIntentHouse(){
 }
 function extractIntent(){
   if(state.isBase){alert("請先隨機起卦或手動起卦。");return}
-  state.darbMode=false; state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false; state.landingLightMode=false; resetTimeline(); state.highlightedFigure=null; state.effectAnchor=null; state.darbSelection=[]; state.darbResult=null; state.intentTargetsRevealed=false;
+  state.darbMode=false; state.multiDarbMode=false; state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false; state.landingLightMode=false; state.aspectMode=false; state.aspectAnchor=null; resetTimeline(); state.highlightedFigure=null; state.effectAnchor=null; state.darbSelection=[]; state.darbResult=null; state.multiDarbSelection=[]; state.multiDarbResult=null; state.activeTraceTool='intent'; state.intentTargetsRevealed=false; state.sourceTargetsRevealed=false;
   const intentCalc=calculateHiddenIntentHouse();
   if(!intentCalc){
     const rule=intentExtractionRule();
     state.hiddenIntent=null;
+    state.activeTraceTool=null;
     render();
     boardToast(`${rule.label}：${rule.trigger}，不啟動自動提取`);
     alert(`${rule.label}：${rule.trigger}，不啟動自動意圖提取。`);
@@ -1328,6 +1599,8 @@ function sourceIntentText(src){
 }
 function showJudgeSourceAnimation(src){
   clearBoardMotion();
+  state.activeTraceTool='source';
+  state.intentTargetsRevealed=false;
   state.sourceTargetsRevealed=false;
   const resultName=figName(src.combinedFigure);
   const targets=src.targetHouses.map(i=>i+1);
@@ -1394,7 +1667,7 @@ function showJudgeSourceAnimation(src){
       queueBoardStep(()=>{
         addHouseMotion(idx,'sourceResult');
         addHouseMotion(idx,'sourceBirth');
-        boardToast(`${resultName} 跑出新宮位：第 ${idx+1} 宮`);
+        boardToast(`${resultName} 跑出尋源入局宮：第 ${idx+1} 宮`);
       },t+n*280);
     });
     t+=Math.max(1,src.targetHouses.length)*280+520;
@@ -1403,6 +1676,7 @@ function showJudgeSourceAnimation(src){
   queueBoardStep(()=>{
     document.querySelectorAll('.sourceBirth').forEach(el=>el.classList.remove('sourceBirth'));
     state.sourceTargetsRevealed=true;
+    state.activeTraceTool='source';
     render();
     boardToast(`⚖️平衡宮尋源完成：${resultName}｜${targetText}`);
   },t);
@@ -1410,11 +1684,12 @@ function showJudgeSourceAnimation(src){
 
 function extractJudgeSourceIntent(){
   if(state.isBase){alert("請先隨機起卦或手動起卦。");return}
-  state.darbMode=false; state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false; state.landingLightMode=false; resetTimeline(); state.highlightedFigure=null; state.effectAnchor=null; state.darbSelection=[]; state.darbResult=null; state.sourceTargetsRevealed=false;
+  state.darbMode=false; state.multiDarbMode=false; state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false; state.landingLightMode=false; state.aspectMode=false; state.aspectAnchor=null; resetTimeline(); state.highlightedFigure=null; state.effectAnchor=null; state.darbSelection=[]; state.darbResult=null; state.multiDarbSelection=[]; state.multiDarbResult=null; state.activeTraceTool='source'; state.sourceTargetsRevealed=false; state.intentTargetsRevealed=false;
   const src=calculateJudgeSourceIntent();
   if(src.disabled){
     state.sourceIntent=null;
     state.sourceTargetsRevealed=false;
+    state.activeTraceTool=null;
     render();
     boardToast(src.reason);
     alert(src.reason);
@@ -1435,6 +1710,69 @@ function calcDarb(){
     state.darbResult={idxA:a,idxB:b,figA:state.chart[a],figB:state.chart[b],combinedFigure:combined,targetHouses:houses,isKharij:houses.length===0};
   }
 }
+function calcMultiDarb(){
+  state.multiDarbResult=null;
+  const sel=state.multiDarbSelection;
+  if(sel.length<2) return;
+  let currentFig=state.chart[sel[0]];
+  const steps=[];
+  for(let i=1;i<sel.length;i++){
+    const leftFig=currentFig;
+    const rightIdx=sel[i];
+    const rightFig=state.chart[rightIdx];
+    currentFig=addFigures(leftFig,rightFig);
+    steps.push({step:i,leftFigure:leftFig,rightIndex:rightIdx,rightFigure:rightFig,resultFigure:currentFig});
+  }
+  const houses=[];
+  state.chart.forEach((f,i)=>{if(f===currentFig) houses.push(i)});
+  state.multiDarbResult={sourceHouses:[...sel],sourceFigures:sel.map(i=>state.chart[i]),steps,combinedFigure:currentFig,targetHouses:houses,isKharij:houses.length===0};
+}
+function darbResultTargetText(result){
+  if(!result) return '';
+  return result.isKharij?'出局，沒有落回盤中宮位':`入局第 ${result.targetHouses.map(i=>i+1).join('、')} 宮`;
+}
+function multiDarbSequenceText(){
+  return state.multiDarbSelection.map(i=>`第${i+1}宮${figName(state.chart[i])}`).join(' → ');
+}
+function multiDarbStepText(step,idx){
+  const leftName=idx===0?`第${state.multiDarbSelection[0]+1}宮${figName(step.leftFigure)}`:`前步結果${figName(step.leftFigure)}`;
+  return `多步合卦第 ${step.step} 步：${leftName} + 第${step.rightIndex+1}宮${figName(step.rightFigure)} → ${figName(step.resultFigure)}`;
+}
+function showDarbAnimation(result){
+  if(!result) return;
+  clearBoardMotion();
+  const aName=figName(result.figA), bName=figName(result.figB), cName=figName(result.combinedFigure);
+  const targetText=darbResultTargetText(result);
+  const steps=[
+    `合卦來源一：第 ${result.idxA+1} 宮｜${aName}`,
+    `合卦來源二：第 ${result.idxB+1} 宮｜${bName}`,
+    `相擊合卦：${aName} + ${bName}`,
+    `形成合卦：${cName}`,
+    `${cName}｜${targetText}`
+  ];
+  steps.forEach((text,idx)=>{
+    queueBoardStep(()=>boardToast(text), idx*850);
+  });
+  queueBoardStep(()=>{
+    boardToast(`合卦完成：${aName} + ${bName} → ${cName}｜${targetText}`, 2600);
+  }, steps.length*850+160);
+}
+function showMultiDarbAnimation(){
+  clearBoardMotion();
+  const count=state.multiDarbSelection.length;
+  if(count===0){boardToast('多步合卦：請依序點選兩宮以上'); return;}
+  if(count===1){boardToast(`多步合卦：已選 ${multiDarbSequenceText()}，請繼續點選下一宮`, 2200); return;}
+  const result=state.multiDarbResult;
+  if(!result) return;
+  boardToast(`多步合卦序列：${multiDarbSequenceText()}`);
+  result.steps.forEach((step,idx)=>{
+    queueBoardStep(()=>boardToast(multiDarbStepText(step,idx)), 850*(idx+1));
+  });
+  queueBoardStep(()=>{
+    const targetText=darbResultTargetText(result);
+    boardToast(`多步合卦完成：${multiDarbSequenceText()} → ${figName(result.combinedFigure)}｜${targetText}`, 3200);
+  }, 850*(result.steps.length+1)+160);
+}
 
 /* 07C Reset, badges, domain helpers ------------------------------- */
 function closeAnalysisCard(){const m=$("analysisModal"); if(m) m.classList.remove("open");}
@@ -1448,14 +1786,18 @@ function resetReading(){
 }
 function renderBadges(){
   let html=state.isBase?'<span class="badge">目前是本位盤</span>':'<span class="badge">已起卦</span>';
+  if(state.lightsMuted) html+=`<span class="badge">🕯️ 燈光效果已關閉</span>`;
   if(state.hiddenIntent) html+=`<span class="badge">${state.hiddenIntent.methodLabel||'意圖'}：${figName(state.hiddenIntent.combinedFigure)}｜${state.hiddenIntent.isKharij?'出局':'入局 第 '+state.hiddenIntent.targetHouses.map(i=>i+1).join('、')+' 宮'}</span>`;
   if(state.sourceIntent) html+=`<span class="badge">⚖️平衡宮尋源：${figName(state.sourceIntent.combinedFigure)}｜${state.sourceIntent.isKharij?'出局':'入局 第 '+state.sourceIntent.targetHouses.map(i=>i+1).join('、')+' 宮'}</span>`;
   if(state.darbMode) html+=`<span class="badge">合卦模式 ${state.darbSelection.length}/2</span>`;
+  if(state.multiDarbMode) html+=`<span class="badge">多步合卦模式 ${state.multiDarbSelection.length}宮</span>`;
   if(state.flightMode) html+=`<span class="badge">顯示飛宮模式</span>`;
   if(state.stateLightMode) html+=`<span class="badge">四態燈模式</span>`;
   if(state.fortuneLightMode) html+=`<span class="badge">🌗 盤面狀態燈</span>`;
+  if(state.aspectMode) html+=`<span class="badge">☍ 相位視線：第${(state.aspectAnchor??state.selected)+1}宮</span>`;
   if(state.timeline) html+=`<span class="badge">⏳ 四段時間軸</span>`;
   if(state.darbResult) html+=`<span class="badge">合卦：${figName(state.darbResult.combinedFigure)}｜${state.darbResult.isKharij?'出局':'入局 第 '+state.darbResult.targetHouses.map(i=>i+1).join('、')+' 宮'}</span>`;
+  if(state.multiDarbResult) html+=`<span class="badge">多步合卦：${figName(state.multiDarbResult.combinedFigure)}｜${state.multiDarbResult.isKharij?'出局':'入局 第 '+state.multiDarbResult.targetHouses.map(i=>i+1).join('、')+' 宮'}</span>`;
   $("modeBadges").innerHTML=html;
 }
 
@@ -1535,7 +1877,7 @@ function specialFocusForPrompt(){
   }
   if(state.hiddenIntent){
     const h=state.hiddenIntent;
-    parts.push(`【${h.methodLabel||'意圖提取'}】\n因${h.trigger||'條件觸發'}，取${h.lineNames?h.lineNames.join('＋'):'火＋土'}總點數 ${h.dots||''}，得到第${h.sourceIndex+1}宮${h.sourceTitle?`（${h.sourceTitle}）`:''} ${figName(h.sourceFigure)}；與第15宮法官 ${figName(h.judgeFigure)} 相擊 → ${figName(h.combinedFigure)}；${h.isKharij?'出局':`入局第${h.targetHouses.map(i=>i+1).join('、')}宮`}。`);
+    parts.push(`【${h.methodLabel||'意圖提取'}】\n因${h.trigger||'條件觸發'}，取${h.lineNames?h.lineNames.join('＋'):'火＋土'}總點數 ${h.dots||''}，得到第${h.sourceIndex+1}宮${h.sourceTitle?`（${h.sourceTitle}）`:''} ${figName(h.sourceFigure)}，此為「意圖宮」；再與第15宮法官 ${figName(h.judgeFigure)} 相擊 → ${figName(h.combinedFigure)}；${h.isKharij?'意圖卦出局，未落回盤中。':`意圖卦入局第${h.targetHouses.map(i=>i+1).join('、')}宮。`}。`);
   }
   if(state.sourceIntent){
     parts.push(`【平衡宮尋源】\n${sourceIntentText(state.sourceIntent)}`);
@@ -1543,6 +1885,12 @@ function specialFocusForPrompt(){
   if(state.darbResult){
     const r=state.darbResult;
     parts.push(`【合卦】\n第${r.idxA+1}宮 ${figName(r.figA)} 與第${r.idxB+1}宮 ${figName(r.figB)} 相擊 → ${figName(r.combinedFigure)}；${r.isKharij?'出局':`入局第${r.targetHouses.map(i=>i+1).join('、')}宮`}。`);
+  }
+  if(state.multiDarbResult){
+    const r=state.multiDarbResult;
+    const seq=r.sourceHouses.map(i=>`第${i+1}宮 ${figName(state.chart[i])}`).join(' → ');
+    const lines=r.steps.map((step,idx)=>multiDarbStepText(step,idx)).join('；');
+    parts.push(`【多步合卦】\n合卦序列：${seq}。推演步驟：${lines}。最終形成 ${figName(r.combinedFigure)}；${r.isKharij?'出局':`入局第${r.targetHouses.map(i=>i+1).join('、')}宮`}。`);
   }
   return parts.length?parts.join("\n\n"):"未啟用特殊工具。請以本題取用宮、第1宮、第13至16宮為主。";
 }
@@ -1643,23 +1991,25 @@ function captureSquareRole(idx){
 }
 function captureFigureBox(idx,label,role){
   const f=state.chart[idx];
-  const showIntent=state.hiddenIntent&&state.intentTargetsRevealed;
-  const showSource=state.sourceIntent&&state.sourceTargetsRevealed;
+  const muted=lightsAreMuted();
+  const showIntent=!muted&&state.hiddenIntent&&state.intentTargetsRevealed&&state.activeTraceTool==='intent';
+  const showSource=!muted&&state.sourceIntent&&state.sourceTargetsRevealed&&state.activeTraceTool==='source';
   const isIntentSource=showIntent&&state.hiddenIntent.sourceIndex===idx;
   const isIntentJudge=showIntent&&idx===14;
   const isIntentResult=showIntent&&!state.hiddenIntent.isKharij&&state.hiddenIntent.targetHouses.includes(idx);
   const isSourceJudge=showSource&&idx===14;
   const isSourceSource=showSource&&state.sourceIntent.sourceHouses.includes(idx);
   const isSourceResult=showSource&&!state.sourceIntent.isKharij&&state.sourceIntent.targetHouses.includes(idx);
-  const isDSel=state.darbMode&&state.darbSelection.includes(idx);
-  const isDTarget=state.darbMode&&state.darbResult&&!state.darbResult.isKharij&&state.darbResult.targetHouses.includes(idx);
-  const isFigureMatch=state.flightMode&&state.highlightedFigure&&f===state.highlightedFigure;
+  const isDSel=!muted&&isDarbSelectedHouse(idx);
+  const isDTarget=!muted&&isDarbTargetHouse(idx);
+  const isFigureMatch=!muted&&state.flightMode&&state.highlightedFigure&&f===state.highlightedFigure;
   let cls='fig';
   if(state.selected===idx) cls+=' sel';
   cls+=fortuneLightClass(idx);
   cls+=timelineLightClass(idx);
   if(isFigureMatch) cls+=' figureMatch';
   cls+=stateLightClassesForHouse(idx);
+  cls+=aspectLightClass(idx);
   if(isIntentSource) cls+=' intentSource';
   if(isIntentJudge) cls+=' intentJudge';
   if(isIntentResult) cls+=' intentResult';
@@ -1727,7 +2077,7 @@ async function downloadBoardImage(){
     const selectedFig=state.chart[state.selected];
     wrap.innerHTML=`
       <div class="captureHeader">
-        <div class="captureTitle">沙占起來｜盤面圖</div>
+        <div class="captureTitle">今天想要問什麼｜占卜盤</div>
         <div class="captureMeta">${escapeHTML(question)}
 ${viewName}｜${captureReadableTime()}｜目前選取：第${state.selected+1}宮 ${escapeHTML(selected.name)}｜${escapeHTML(figName(selectedFig))}</div>
       </div>
@@ -1775,17 +2125,23 @@ function render(){
   $("flightBtn").classList.toggle("blueActive",state.flightMode);
   $("stateLightBtn").classList.toggle("blueActive",state.stateLightMode);
   if($("fortuneLightBtn")) $("fortuneLightBtn").classList.toggle("blueActive",state.fortuneLightMode);
+  if($("aspectBtn")) $("aspectBtn").classList.toggle("blueActive",state.aspectMode);
   if($("landingLightBtn")) $("landingLightBtn").classList.toggle("blueActive",state.landingLightMode);
-  if($("intentBtn")) $("intentBtn").classList.toggle("blueActive",!!state.hiddenIntent);
-  if($("judgeSourceBtn")) $("judgeSourceBtn").classList.toggle("blueActive",!!state.sourceIntent);
-  $("hint").textContent=state.isBase?"▲ 點擊「隨機起卦」或「手動起卦」開始 ▲":state.timeline?"▲ 四段時間軸：1–4起源、5–8展開、9–12推演、13–16裁決 ▲":state.darbMode?"▲ 點擊任意兩宮以合出新卦象 ▲":state.flightMode?"▲ 點選宮位顯示同卦飛宮 ▲":state.stateLightMode?"▲ 四態燈：目前選取宮位已同步亮燈；點其他宮可切換焦點 ▲":state.fortuneLightMode?"▲ 盤面狀態：卦象、宮位、得失位、主題關聯與回聲已整合亮燈 ▲":(state.sourceIntent&&state.sourceTargetsRevealed)?"▲ ⚖️平衡宮尋源已啟動：亮起源頭宮與尋源意圖入局宮 ▲":"▲ 選擇宮位查看詳解；AI神諭提示詞可整理盤面給外部 AI 解讀 ▲";
+  if($("multiDarbBtn")) $("multiDarbBtn").classList.toggle("blueActive",state.multiDarbMode);
+  if($("intentBtn")) $("intentBtn").classList.toggle("blueActive",!!state.hiddenIntent&&state.activeTraceTool==='intent');
+  if($("judgeSourceBtn")) $("judgeSourceBtn").classList.toggle("blueActive",!!state.sourceIntent&&state.activeTraceTool==='source');
+  if($("lightsMuteBtn")){
+    $("lightsMuteBtn").classList.toggle("blueActive",state.lightsMuted);
+    $("lightsMuteBtn").textContent=state.lightsMuted?"💡 開啟燈光效果":"🕯️ 關閉燈光效果";
+  }
+  $("hint").textContent=state.isBase?"▲ 點擊「隨機起卦」或「手動起卦」開始 ▲":state.timeline?"▲ 四段時間軸：1–4起源、5–8展開、9–12推演、13–16裁決 ▲":state.multiDarbMode?"▲ 多步合卦：依序點選兩宮以上；再點已選宮可移除 ▲":state.darbMode?"▲ 點擊任意兩宮以合出新卦象 ▲":state.flightMode?"▲ 點選宮位顯示同卦飛宮 ▲":state.stateLightMode?"▲ 四態燈：目前選取宮位已同步亮燈；點其他宮可切換焦點 ▲":state.fortuneLightMode?"▲ 盤面狀態：卦象、宮位、得失位、主題關聯與回聲已整合亮燈 ▲":state.aspectMode?"▲ 相位視線：以目前選取宮位為原點；點其他宮可切換焦點 ▲":(state.activeTraceTool==='intent'&&state.hiddenIntent&&state.intentTargetsRevealed)?"▲ 👁️意圖提取已啟動：只顯示意圖宮與意圖卦入局宮 ▲":(state.activeTraceTool==='source'&&state.sourceIntent&&state.sourceTargetsRevealed)?"▲ ⚖️平衡宮尋源已啟動：只顯示源頭宮與尋源意圖入局宮 ▲":"▲ 選擇宮位查看詳解；AI神諭提示詞可整理盤面給外部 AI 解讀 ▲";
   state.view==="shield"?renderShield():renderSquare();
   renderSide(); renderBadges();
   $("dynamicPanels").style.display=state.isBase?"none":"flex";
   if(!state.isBase){misaaha(); renderStates();}
 }
-$("randomBtn").onclick=()=>{state.mothers=Array.from({length:4},()=>Array.from({length:4},()=>Math.random()>.5?'1':'2').join('')); state.chart=calcChart(state.mothers); state.isBase=false; resetTimeline(); state.hiddenIntent=null; state.sourceIntent=null; state.intentTargetsRevealed=false; state.sourceTargetsRevealed=false; state.darbMode=false; state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false; state.landingLightMode=false; state.highlightedFigure=null; state.effectAnchor=null; state.darbSelection=[]; state.darbResult=null; resetReading(); render()};
-$("resetBtn").onclick=()=>{state.mothers=["1121","1222","2111","2212"]; state.chart=[...BASE_CHART]; state.isBase=true; state.selected=0; resetTimeline(); state.hiddenIntent=null; state.sourceIntent=null; state.intentTargetsRevealed=false; state.sourceTargetsRevealed=false; state.highlightedFigure=null; state.effectAnchor=null; state.darbMode=false; state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false; state.landingLightMode=false; state.darbSelection=[]; state.darbResult=null; resetReading(); render()};
+$("randomBtn").onclick=()=>{state.mothers=Array.from({length:4},()=>Array.from({length:4},()=>Math.random()>.5?'1':'2').join('')); state.chart=calcChart(state.mothers); state.isBase=false; resetTimeline(); state.hiddenIntent=null; state.sourceIntent=null; state.intentTargetsRevealed=false; state.sourceTargetsRevealed=false; state.activeTraceTool=null; state.darbMode=false; state.multiDarbMode=false; state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false; state.landingLightMode=false; state.aspectMode=false; state.aspectAnchor=null; state.highlightedFigure=null; state.effectAnchor=null; state.darbSelection=[]; state.darbResult=null; state.multiDarbSelection=[]; state.multiDarbResult=null; resetReading(); render()};
+$("resetBtn").onclick=()=>{state.mothers=["1121","1222","2111","2212"]; state.chart=[...BASE_CHART]; state.isBase=true; state.selected=0; resetTimeline(); state.hiddenIntent=null; state.sourceIntent=null; state.intentTargetsRevealed=false; state.sourceTargetsRevealed=false; state.activeTraceTool=null; state.highlightedFigure=null; state.effectAnchor=null; state.darbMode=false; state.multiDarbMode=false; state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false; state.landingLightMode=false; state.aspectMode=false; state.aspectAnchor=null; state.darbSelection=[]; state.darbResult=null; state.multiDarbSelection=[]; state.multiDarbResult=null; resetReading(); render()};
 $("viewShield").onclick=()=>{state.view="shield";render()};
 $("viewSquare").onclick=()=>{state.view="square";render()};
 $("domain").onchange=()=>{resetReading(); render()};
@@ -1800,16 +2156,27 @@ $("darbBtn").onclick=()=>{
   if(state.isBase){alert("請先起卦。");return}
   closeDrawerForVisualTool();
   state.darbMode=!state.darbMode;
-  state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false; state.landingLightMode=false; resetTimeline(); state.highlightedFigure=null; state.effectAnchor=null;
-  state.hiddenIntent=null; state.sourceIntent=null; state.intentTargetsRevealed=false; state.sourceTargetsRevealed=false; state.darbSelection=[]; state.darbResult=null;
+  state.multiDarbMode=false;
+  state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false; state.landingLightMode=false; state.aspectMode=false; state.aspectAnchor=null; resetTimeline(); state.highlightedFigure=null; state.effectAnchor=null;
+  state.hiddenIntent=null; state.sourceIntent=null; state.intentTargetsRevealed=false; state.sourceTargetsRevealed=false; state.activeTraceTool=null; clearDarbSelections();
   closeAnalysisCard(); clearBoardMotion(); render();
+};
+$("multiDarbBtn").onclick=()=>{
+  if(state.isBase){alert("請先起卦。");return}
+  closeDrawerForVisualTool();
+  state.multiDarbMode=!state.multiDarbMode;
+  state.darbMode=false;
+  state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false; state.landingLightMode=false; state.aspectMode=false; state.aspectAnchor=null; resetTimeline(); state.highlightedFigure=null; state.effectAnchor=null;
+  state.hiddenIntent=null; state.sourceIntent=null; state.intentTargetsRevealed=false; state.sourceTargetsRevealed=false; state.activeTraceTool=null; clearDarbSelections();
+  closeAnalysisCard(); clearBoardMotion(); render();
+  if(state.multiDarbMode) boardToast("多步合卦：依序點選兩宮以上；可連續 A+B=C，再用 C 與下一宮相擊",2600);
 };
 $("flightBtn").onclick=()=>{
   if(state.isBase){alert("請先起卦。");return}
   closeDrawerForVisualTool();
   state.flightMode=!state.flightMode;
-  state.darbMode=false; state.stateLightMode=false; state.fortuneLightMode=false; state.landingLightMode=false; resetTimeline(); state.darbSelection=[]; state.darbResult=null;
-  state.hiddenIntent=null; state.sourceIntent=null; state.intentTargetsRevealed=false; state.sourceTargetsRevealed=false;
+  state.darbMode=false; state.multiDarbMode=false; state.stateLightMode=false; state.fortuneLightMode=false; state.landingLightMode=false; state.aspectMode=false; state.aspectAnchor=null; resetTimeline(); state.darbSelection=[]; state.darbResult=null; state.multiDarbSelection=[]; state.multiDarbResult=null;
+  state.hiddenIntent=null; state.sourceIntent=null; state.intentTargetsRevealed=false; state.sourceTargetsRevealed=false; state.activeTraceTool=null;
   state.highlightedFigure=null; state.effectAnchor=null;
   closeAnalysisCard(); clearBoardMotion(); render();
   if(state.flightMode) boardToast(`顯示飛宮：點選宮位後，同卦才會亮起`);
@@ -1819,17 +2186,35 @@ $("stateLightBtn").onclick=()=>{
   closeDrawerForVisualTool();
   const next=!state.stateLightMode;
   state.stateLightMode=next;
-  state.darbMode=false; state.flightMode=false; state.fortuneLightMode=false; state.landingLightMode=false; resetTimeline(); state.highlightedFigure=null; state.effectAnchor=next?state.selected:null; state.darbSelection=[]; state.darbResult=null;
-  state.hiddenIntent=null; state.sourceIntent=null; state.intentTargetsRevealed=false; state.sourceTargetsRevealed=false;
+  state.darbMode=false; state.multiDarbMode=false; state.flightMode=false; state.fortuneLightMode=false; state.landingLightMode=false; state.aspectMode=false; state.aspectAnchor=null; resetTimeline(); state.highlightedFigure=null; state.effectAnchor=next?state.selected:null; state.darbSelection=[]; state.darbResult=null; state.multiDarbSelection=[]; state.multiDarbResult=null;
+  state.hiddenIntent=null; state.sourceIntent=null; state.intentTargetsRevealed=false; state.sourceTargetsRevealed=false; state.activeTraceTool=null;
   closeAnalysisCard(); clearBoardMotion(); render();
 };
 $("fortuneLightBtn").onclick=()=>{
   if(state.isBase){alert("請先起卦。");return}
   closeDrawerForVisualTool();
   state.fortuneLightMode=!state.fortuneLightMode;
-  state.darbMode=false; state.flightMode=false; state.stateLightMode=false; state.landingLightMode=false; resetTimeline(); state.highlightedFigure=null; state.effectAnchor=null; state.darbSelection=[]; state.darbResult=null;
+  state.darbMode=false; state.multiDarbMode=false; state.flightMode=false; state.stateLightMode=false; state.landingLightMode=false; state.aspectMode=false; state.aspectAnchor=null; resetTimeline(); state.highlightedFigure=null; state.effectAnchor=null; state.darbSelection=[]; state.darbResult=null; state.multiDarbSelection=[]; state.multiDarbResult=null;
   closeAnalysisCard(); clearBoardMotion(); render();
   if(state.fortuneLightMode) boardToast(fortuneLightSummary());
+};
+
+$("aspectBtn").onclick=()=>{
+  if(state.isBase){alert("請先起卦。");return}
+  closeDrawerForVisualTool();
+  const next=!state.aspectMode;
+  state.aspectMode=next;
+  state.aspectAnchor=next?state.selected:null;
+  state.darbMode=false; state.multiDarbMode=false; state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false; state.landingLightMode=false; state.activeTraceTool=null; resetTimeline();
+  state.highlightedFigure=null; state.effectAnchor=null; state.darbSelection=[]; state.darbResult=null; state.multiDarbSelection=[]; state.multiDarbResult=null;
+  closeAnalysisCard(); clearBoardMotion(); render();
+};
+if($("lightsMuteBtn")) $("lightsMuteBtn").onclick=()=>{
+  state.lightsMuted=!state.lightsMuted;
+  closeDrawerForVisualTool();
+  if(state.lightsMuted) clearLightClassesOnly();
+  render();
+  boardToast(state.lightsMuted?'燈光效果已關閉，文字提示仍保留':'燈光效果已開啟',1800);
 };
 if($("captureBoardBtn")) $("captureBoardBtn").onclick=downloadBoardImage;
 $("oracleBtn").onclick=localOracle;
@@ -1839,8 +2224,11 @@ $("diaryBtn").onclick=()=>{$("diaryList").classList.toggle("open"); renderDiary(
 $("manualBtn").onclick=()=>{state.manual=[...state.mothers]; renderManual(); $("manualModal").classList.add("open")};
 $("cancelManual").onclick=()=>$("manualModal").classList.remove("open");
 $("manualModal").onclick=e=>{if(e.target.id==="manualModal")$("manualModal").classList.remove("open")};
-$("applyManual").onclick=()=>{state.mothers=[...state.manual]; state.chart=calcChart(state.mothers); state.isBase=false; resetTimeline(); state.hiddenIntent=null; state.sourceIntent=null; state.intentTargetsRevealed=false; state.sourceTargetsRevealed=false; state.darbMode=false; state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false; state.landingLightMode=false; state.highlightedFigure=null; state.effectAnchor=null; state.darbSelection=[]; state.darbResult=null; $("manualModal").classList.remove("open"); resetReading(); render()};
-$("motionOverlay").onclick=e=>{if(e.target.id==="motionOverlay")$("motionOverlay").classList.remove("open")};
+$("applyManual").onclick=()=>{state.mothers=[...state.manual]; state.chart=calcChart(state.mothers); state.isBase=false; resetTimeline(); state.hiddenIntent=null; state.sourceIntent=null; state.intentTargetsRevealed=false; state.sourceTargetsRevealed=false; state.activeTraceTool=null; state.darbMode=false; state.multiDarbMode=false; state.flightMode=false; state.stateLightMode=false; state.fortuneLightMode=false; state.landingLightMode=false; state.aspectMode=false; state.aspectAnchor=null; state.highlightedFigure=null; state.effectAnchor=null; state.darbSelection=[]; state.darbResult=null; state.multiDarbSelection=[]; state.multiDarbResult=null; $("manualModal").classList.remove("open"); resetReading(); render()};
+if($("helpBtn")) $("helpBtn").onclick=()=>{setToolDrawer(false); $("helpModal").classList.add("open")};
+$("closeHelp").onclick=()=>$("helpModal").classList.remove("open");
+$("helpModal").onclick=e=>{if(e.target.id==="helpModal")$("helpModal").classList.remove("open")};
+$("motionOverlay").onclick=e=>{if(e.target.id==="motionOverlay"){if(motionCloseTimer){clearTimeout(motionCloseTimer); motionCloseTimer=null;} $("motionOverlay").classList.remove("open")}};
 $("closeAnalysis").onclick=()=>$("analysisModal").classList.remove("open");
 $("analysisModal").onclick=e=>{if(e.target.id==="analysisModal")$("analysisModal").classList.remove("open")};
 if($("boardToast")) $("boardToast").onclick=hideBoardToast;
