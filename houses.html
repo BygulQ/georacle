@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>沙占字典｜沙占起來</title>
+  <title>宮位之書｜沙占起來</title>
   <style>
 :root{
       --bg:#EAE8E3; --panel:#F7F6F2; --paper:#FDFBF7; --white:#fff;
@@ -280,43 +280,40 @@
 <div class="wrap">
   <div class="app">
     <div class="topbar">
-      <div class="brand">沙占字典</div>
+      <div class="brand">宮位之書</div>
       <div class="nav">
+        <a class="pill" href="./dictionary.html">字典首頁</a>
         <a class="pill" href="./figures.html">卦象之書</a>
         <a class="pill" href="./houses.html">宮位之書</a>
         <a class="pill" href="./placements.html">落宮之書</a>
         <a class="pill primary" href="./index.html">返回主盤</a>
       </div>
     </div>
-
-    <section id="homeView" class="view active">
-      <div class="homeHero">
-        <div class="homeInner">
-          <h1>沙占字典</h1>
-          <p class="homeSub">這裡現在只作為字典主頁。三本書各自進入獨立 HTML 空間，之後資料量變大時，不會全部塞在同一頁裡。</p>
-          <div class="gateGrid">
-            <a class="gate bookLink" href="./figures.html">
-              <div class="gateIcon">◈</div><small>FIGURES</small><h2>卦象之書</h2>
-              <p>進入 16 個基本卦象：點陣、中文卦名、拉丁文卦名，以及後續可擴充的卦象本體資料。</p>
-              <div class="gateAction">進入卦象之書 →</div>
-            </a>
-            <a class="gate bookLink" href="./houses.html">
-              <div class="gateIcon">□</div><small>HOUSES</small><h2>宮位之書</h2>
-              <p>進入 16 宮位：命宮、財帛、夫妻、官祿、證人、法官與最終判決等讀盤場域。</p>
-              <div class="gateAction">進入宮位之書 →</div>
-            </a>
-            <a class="gate bookLink" href="./placements.html">
-              <div class="gateIcon">✦</div><small>PLACEMENTS</small><h2>落宮之書</h2>
-              <p>進入卦象 × 宮位的合讀空間。之後可逐步擴充為 256 組落宮解讀。</p>
-              <div class="gateAction">進入落宮之書 →</div>
-            </a>
-          </div>
-          <div class="pageNote">GitHub Pages 上傳時，四個檔案放同一層：<b>dictionary.html</b>、<b>figures.html</b>、<b>houses.html</b>、<b>placements.html</b>。</div>
-        </div>
-      </div>
+    <section id="housesView" class="view active">
+      <main>
+        <div class="viewHead"><div><h2>宮位之書</h2><p class="viewLead">16 宮位場域。本頁已從字典主頁分離成獨立 HTML 空間。</p></div><a class="pill" href="./dictionary.html">← 返回字典首頁</a></div>
+        <div class="toolbar"><div class="searchBox"><input id="houseSearch" placeholder="搜尋宮位：第七宮、夫妻、法官、失物…" oninput="renderHouses()"></div></div>
+        <div id="houseGrid" class="houseGrid"></div>
+      </main>
     </section>
   </div>
 </div>
-
+<script>
+const HOUSES = [{"id": 1, "name": "第一宮 命宮", "short": "命宮", "keywords": ["求問者", "當下狀態", "生命", "意圖", "開端"], "meaning": "代表問卜者本人、當下狀態、生命、靈魂、意圖與事物開端。", "use": "所有問題都要回頭看第一宮，因為它是求問者在盤中的承載點。"}, {"id": 2, "name": "第二宮 財帛宮", "short": "財帛宮", "keywords": ["金錢", "資源", "所有物", "買賣", "得失"], "meaning": "代表金錢、財富、流動資產、助手、得與失、買賣。", "use": "財務、收入、物品歸屬、失物所有權常從此宮切入。"}, {"id": 3, "name": "第三宮 兄弟宮", "short": "兄弟宮", "keywords": ["消息", "兄弟姊妹", "鄰居", "短途", "夢境"], "meaning": "代表兄弟姊妹、親戚、鄰居、短途旅行、消息、信件與夢境。", "use": "訊息、聯絡、短程移動、夢境碎片可看此宮。"}, {"id": 4, "name": "第四宮 田宅宮", "short": "田宅宮", "keywords": ["家庭", "父親", "房地產", "根基", "結局"], "meaning": "代表父親、家庭、房地產、隱藏之物、事物根基與結局。", "use": "房屋、根本原因、事物基礎與失物藏處常取此宮。"}, {"id": 5, "name": "第五宮 男女宮", "short": "男女宮", "keywords": ["戀愛", "子女", "歡樂", "禮物", "懷孕"], "meaning": "代表子女、愛情、歡樂、宴會、禮物、衣物與懷孕。", "use": "戀愛感、吸引力、愉悅、子女與創作可看此宮。"}, {"id": 6, "name": "第六宮 奴僕宮", "short": "奴僕宮", "keywords": ["疾病", "下屬", "消耗", "恐懼", "小動物"], "meaning": "代表疾病、僕人、下屬、小動物、消耗、恐懼與憂慮。", "use": "健康消耗、工作下層結構、雜務與焦慮常落此宮。"}, {"id": 7, "name": "第七宮 夫妻宮", "short": "夫妻宮", "keywords": ["伴侶", "合夥", "公開敵人", "婚姻", "尋物"], "meaning": "代表伴侶、合夥人、公開敵人、爭執、婚姻、尋物。", "use": "感情對象、合作方、對手、公開互動與拿走者可看此宮。"}, {"id": 8, "name": "第八宮 疾厄宮", "short": "疾厄宮", "keywords": ["死亡", "恐懼", "遺產", "危險", "痛苦"], "meaning": "代表死亡、恐懼、遺產、危險、痛苦、憂慮與毒藥。", "use": "危機、終結、遺產、重度壓力與不可控風險可看此宮。"}, {"id": 9, "name": "第九宮 遷移宮", "short": "遷移宮", "keywords": ["長途", "信仰", "哲學", "學問", "夢兆"], "meaning": "代表長途旅行、宗教、哲學、學問、信仰、星象。", "use": "遠行、宗教、夢兆、學習與更高意義可看此宮。"}, {"id": 10, "name": "第十宮 官祿宮", "short": "官祿宮", "keywords": ["事業", "權威", "名聲", "政府", "母親"], "meaning": "代表母親、國王、權威、職業、地位、榮譽與政府。", "use": "事業、上司、權威、名聲、職位與外在成就常取此宮。"}, {"id": 11, "name": "第十一宮 福德宮", "short": "福德宮", "keywords": ["朋友", "希望", "願望", "貴人", "支持"], "meaning": "代表朋友、希望、願望、幸運、支持者與喜悅的場所。", "use": "願望能否被支持、朋友與貴人是否幫忙，可看此宮。"}, {"id": 12, "name": "第十二宮 相貌宮", "short": "相貌宮", "keywords": ["隱敵", "秘密", "孤立", "監禁", "大型動物"], "meaning": "代表隱藏敵人、監獄、秘密、悲傷、孤立與大型動物。", "use": "隱藏阻力、秘密、孤立、長期困住的背景可看此宮。"}, {"id": 13, "name": "第十三宮 右證人", "short": "右證人", "keywords": ["過去", "求問者背景", "已成因素", "真實背景"], "meaning": "代表過去的影響、求問者的真實背景或已經發生的事。", "use": "用來看求問者一側的證詞與已成背景。"}, {"id": 14, "name": "第十四宮 左證人", "short": "左證人", "keywords": ["未來", "對方", "環境", "阻隔", "牽引"], "meaning": "代表未來的影響、環境、對方或周遭人士的意圖。", "use": "用來看對方、環境與未來牽引的證詞。"}, {"id": 15, "name": "第十五宮 法官", "short": "法官", "keywords": ["核心裁決", "綜合判斷", "定調", "中心"], "meaning": "代表事情的核心裁決、綜合判斷。", "use": "整盤核心裁決點；法官卦會定調事件主軸。"}, {"id": 16, "name": "第十六宮 最終判決", "short": "最終判決", "keywords": ["最終結果", "收束", "結果的結果", "結局"], "meaning": "代表事情的最終結局，由法官與第一宮能量結合而來。", "use": "觀察事情最後如何收束，需與第15宮法官一起看。"}];
+function houseCard(h){
+  return `<article class="houseCard" id="house-${h.id}"><div class="num">${h.id}</div><h3>${h.name}</h3><div class="metaLine">${h.keywords.map(k=>`<span class="badge">${k}</span>`).join('')}</div><div class="one">${h.meaning}</div><details open><summary>讀盤用途</summary><div class="body">${h.use}</div></details></article>`;
+}
+function renderHouses(){
+  const q=document.getElementById('houseSearch')?.value.trim().toLowerCase()||'';
+  const rows=HOUSES.filter(h=>!q||[h.id,h.name,h.short,h.meaning,h.use,...h.keywords].join(' ').toLowerCase().includes(q));
+  document.getElementById('houseGrid').innerHTML=rows.length?rows.map(houseCard).join(''):'<div class="empty">找不到符合條件的宮位。</div>';
+}
+function initialRoute(){
+  renderHouses();
+  const hash=(location.hash||'').replace('#','');
+  if(hash.startsWith('house-')) setTimeout(()=>document.getElementById(hash)?.scrollIntoView({block:'center'}),80);
+}
+initialRoute();
+</script>
 </body>
 </html>

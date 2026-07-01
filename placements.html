@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>沙占字典｜沙占起來</title>
+  <title>落宮之書｜沙占起來</title>
   <style>
 :root{
       --bg:#EAE8E3; --panel:#F7F6F2; --paper:#FDFBF7; --white:#fff;
@@ -280,43 +280,54 @@
 <div class="wrap">
   <div class="app">
     <div class="topbar">
-      <div class="brand">沙占字典</div>
+      <div class="brand">落宮之書</div>
       <div class="nav">
+        <a class="pill" href="./dictionary.html">字典首頁</a>
         <a class="pill" href="./figures.html">卦象之書</a>
         <a class="pill" href="./houses.html">宮位之書</a>
         <a class="pill" href="./placements.html">落宮之書</a>
         <a class="pill primary" href="./index.html">返回主盤</a>
       </div>
     </div>
-
-    <section id="homeView" class="view active">
-      <div class="homeHero">
-        <div class="homeInner">
-          <h1>沙占字典</h1>
-          <p class="homeSub">這裡現在只作為字典主頁。三本書各自進入獨立 HTML 空間，之後資料量變大時，不會全部塞在同一頁裡。</p>
-          <div class="gateGrid">
-            <a class="gate bookLink" href="./figures.html">
-              <div class="gateIcon">◈</div><small>FIGURES</small><h2>卦象之書</h2>
-              <p>進入 16 個基本卦象：點陣、中文卦名、拉丁文卦名，以及後續可擴充的卦象本體資料。</p>
-              <div class="gateAction">進入卦象之書 →</div>
-            </a>
-            <a class="gate bookLink" href="./houses.html">
-              <div class="gateIcon">□</div><small>HOUSES</small><h2>宮位之書</h2>
-              <p>進入 16 宮位：命宮、財帛、夫妻、官祿、證人、法官與最終判決等讀盤場域。</p>
-              <div class="gateAction">進入宮位之書 →</div>
-            </a>
-            <a class="gate bookLink" href="./placements.html">
-              <div class="gateIcon">✦</div><small>PLACEMENTS</small><h2>落宮之書</h2>
-              <p>進入卦象 × 宮位的合讀空間。之後可逐步擴充為 256 組落宮解讀。</p>
-              <div class="gateAction">進入落宮之書 →</div>
-            </a>
+    <section id="placementsView" class="view active">
+      <main>
+        <div class="viewHead"><div><h2>落宮之書</h2><p class="viewLead">卦象 × 宮位的合讀空間。本頁已從字典主頁分離成獨立 HTML 空間。</p></div><a class="pill" href="./dictionary.html">← 返回字典首頁</a></div>
+        <div class="comboPanel">
+          <div class="comboControls">
+            <label>選擇卦象</label><select id="comboFigure" onchange="renderCombination()"></select>
+            <label>選擇宮位</label><select id="comboHouse" onchange="renderCombination()"></select>
+            <div class="comboFormula" id="comboFormula"></div>
           </div>
-          <div class="pageNote">GitHub Pages 上傳時，四個檔案放同一層：<b>dictionary.html</b>、<b>figures.html</b>、<b>houses.html</b>、<b>placements.html</b>。</div>
+          <div id="comboResult"></div>
         </div>
-      </div>
+      </main>
     </section>
   </div>
 </div>
-
+<script>
+const FIGURES = {"1111": {"nameZh": "道路", "nameLatin": "Via", "nameAr": "Ṭarīq", "element": "水", "nature": "中性", "one": "事情正在流動，答案不在固定，而在路徑與過程。", "keywords": {"good": ["開路", "尋找", "轉換"], "neutral": ["流動", "旅程", "未定"], "shadow": ["漂浮", "反覆", "無方向"]}, "meaning": "旅程、尋找、平穩、順其自然。表示事情正在發展中，能量流動不受限。", "planet": "月亮", "zodiac": "巨蟹", "personality": "流動、尋找、順勢而行。它不急著固定答案，而是讓事件沿著路徑自然展開。", "favorable": "旅行、搬動、尋找、轉換、順流而行、等待局勢自己打開。", "unfavorable": "定案、承諾、長期固定、硬性決斷、要求立刻穩定。", "shadow": "漂浮、反覆、沒有方向、被環境帶著走。", "strong": "第3宮、第9宮", "weak": "第4宮、第10宮", "tool": "作為意圖或合卦結果時，多表示隱藏力量仍在移動，尚未固定落點。"}, "1112": {"nameZh": "龍尾", "nameLatin": "Cauda Draconis", "nameAr": "'Atabah Khārijah", "element": "水", "nature": "凶", "one": "某股能量正在退場、流失，或需要被清理出去。", "keywords": {"good": ["清理", "結束", "排出"], "neutral": ["退場", "離開", "放下"], "shadow": ["流失", "耗損", "逃避"]}, "meaning": "結束、離開、流失、向下、放棄。不宜開始新事物，代表能量的逸散。", "planet": "南交點", "zodiac": "天蠍", "personality": "結束、排出、離開舊門檻。它擅長清理殘局，但不適合承接新開始。", "favorable": "斷捨離、結束舊事、離開錯誤場域、清理消耗、放下執著。", "unfavorable": "開新局、簽長約、累積資產、建立信任、保留關係。", "shadow": "流失、耗損、逃避、退場過急、把仍有價值的東西一起丟掉。", "strong": "第8宮、第12宮、第16宮", "weak": "第1宮、第2宮、第10宮", "tool": "作為結果卦時，要看是否代表必要結束；作為入局卦則顯示某宮正在流出或退場。"}, "1121": {"nameZh": "男子", "nameLatin": "Puer", "nameAr": "Jawdalah", "element": "火", "nature": "中性", "one": "事情帶有衝動、突破與直接行動，但穩定度不足。", "keywords": {"good": ["突破", "行動", "競爭"], "neutral": ["衝動", "年輕", "爆發"], "shadow": ["魯莽", "攻擊", "無計畫"]}, "meaning": "年輕、活力、衝動、輕率、戰鬥。缺乏經驗但充滿爆發力與動力。", "planet": "火星", "zodiac": "白羊", "personality": "直衝、好勝、行動快、耐性低。遇事先動手再思考，適合突破，不適合細膩經營。", "favorable": "開局、競爭、突破、表態、短期衝刺、斬斷拖延。", "unfavorable": "溫和談判、長期承諾、細膩修補、等待時機、照顧他人感受。", "shadow": "衝動、逞強、攻擊性、沒有計畫、先破壞後收拾。", "strong": "第1宮、第7宮", "weak": "第4宮、第12宮", "tool": "作為合卦結果時，代表兩股力量相擊後形成主動、衝撞或急迫的第三狀態。"}, "1122": {"nameZh": "小幸運", "nameLatin": "Fortuna Minor", "nameAr": "Naṣr Khārij", "element": "火", "nature": "小吉", "one": "短期有光、有助力，但需要把握時機，不能久拖。", "keywords": {"good": ["短利", "曝光", "支援"], "neutral": ["機會", "外援", "快速"], "shadow": ["短暫", "虛榮", "不持久"]}, "meaning": "短暫的成功、外在的保護。適合短期目標，情況變化迅速，需見好就收。", "planet": "太陽", "zodiac": "獅子", "personality": "外在助力、短期光亮、快速可見的成功。它帶來機會，但持久度需要後續維護。", "favorable": "曝光、短期目標、面試演出、臨時支援、快速推進、把握當下。", "unfavorable": "長期穩固、深層承諾、慢工細活、完全依賴他人保護。", "shadow": "虛榮、曇花一現、過度樂觀、只看表面成果。", "strong": "第10宮、第11宮", "weak": "第4宮、第12宮", "tool": "作為入局卦時，多指短期助力落入該宮，宜速用不宜拖延。"}, "1211": {"nameZh": "女子", "nameLatin": "Puella", "nameAr": "Naqī al-Khadd", "element": "土", "nature": "吉", "one": "表面和諧、美感與關係潤滑出現，但未必處理根本問題。", "keywords": {"good": ["和諧", "吸引", "修補"], "neutral": ["美感", "社交", "柔和"], "shadow": ["粉飾", "討好", "逃避衝突"]}, "meaning": "美麗、和平、和諧、表面現象、短暫的快樂。事情看似美好，利於感情與交際。", "planet": "金星", "zodiac": "天秤", "personality": "柔和、美感、關係修補與表面和諧。它擅長讓場面變好看，但不一定處理根本矛盾。", "favorable": "感情、社交、和解、美感設計、禮物、交際、人際潤滑。", "unfavorable": "強硬對抗、切斷關係、深挖真相、嚴格紀律、艱難決策。", "shadow": "粉飾太平、討好、只重外表、逃避衝突。", "strong": "第5宮、第7宮", "weak": "第6宮、第8宮", "tool": "作為意圖卦時，常顯示想維持和諧、好看或關係表面的動機。"}, "1212": {"nameZh": "失去", "nameLatin": "Amissio", "nameAr": "Qabḍ Khārij", "element": "水", "nature": "凶", "one": "資源、關係或力量正在離手，也可能代表必要的釋放。", "keywords": {"good": ["放下", "出售", "清空"], "neutral": ["花費", "交換", "釋放"], "shadow": ["破財", "流失", "留不住"]}, "meaning": "損失、花費、失去、流失。不利於財務與擁有權，但利於割捨與放棄事物。", "planet": "金星", "zodiac": "金牛", "personality": "失去、花費、釋放與交換。它讓東西離手，也可能讓沉重負擔被拿走。", "favorable": "放下、出售、花費換取價值、清空、離職離場、割捨不需要的人事物。", "unfavorable": "守財、存款、留住關係、追回失物、累積資源、要求穩固擁有。", "shadow": "破財、浪費、價值感低落、留不住、越補越漏。", "strong": "第8宮、第12宮、第16宮", "weak": "第2宮、第10宮、第11宮", "tool": "作為合卦結果時，表示兩股力量相擊後造成釋放、流出或損耗。"}, "1221": {"nameZh": "限制", "nameLatin": "Carcer", "nameAr": "'Uqlah", "element": "土", "nature": "大凶", "one": "事情被框住、卡住或封閉，需要等待、設界線或止損。", "keywords": {"good": ["封存", "守成", "止損"], "neutral": ["邊界", "等待", "固定"], "shadow": ["卡死", "孤立", "恐懼"]}, "meaning": "延遲、監禁、阻礙、停滯、封閉。行動受限，需耐心等待，不宜躁進。", "planet": "土星", "zodiac": "摩羯", "personality": "封閉、限制、邊界與等待。它讓事情慢下來，但也能形成保護與秩序。", "favorable": "設界線、守成、保密、止損、閉關、制度化、長期耐心。", "unfavorable": "快速推進、自由流動、感情熱度、旅行變動、開放合作。", "shadow": "卡死、孤立、恐懼、過度防衛、把自己鎖住。", "strong": "第4宮、第12宮", "weak": "第3宮、第9宮、第11宮", "tool": "作為法官或最終判決時，常代表整件事被封住、延後或需要現實邊界。"}, "1222": {"nameZh": "高興", "nameLatin": "Laetitia", "nameAr": "Aḥyān", "element": "火", "nature": "大吉", "one": "事情有上升、舒展與好消息，沉重感開始變輕。", "keywords": {"good": ["喜悅", "恢復", "祝福"], "neutral": ["上升", "好消息", "舒展"], "shadow": ["樂觀過頭", "逃避現實", "只求開心"]}, "meaning": "好消息、快樂、成功、健康。帶來正面的轉變與向上的能量，適合發展。", "planet": "木星", "zodiac": "雙魚", "personality": "上升、喜悅、舒展與好消息。它讓沉重的事變輕，也讓信心重新打開。", "favorable": "祝福、療癒、慶祝、好消息、創作、希望、提升士氣。", "unfavorable": "嚴格控管、冷酷切割、悲傷停留、過度精算。", "shadow": "樂觀過頭、逃避現實、只求開心、不看風險。", "strong": "第5宮、第11宮", "weak": "第6宮、第12宮", "tool": "作為入局結果時，代表該宮得到上升與開展；作為合卦結果則顯示衝突後轉為舒展。"}, "2111": {"nameZh": "龍頭", "nameLatin": "Caput Draconis", "nameAr": "'Atabah Dākhilah", "element": "風", "nature": "吉", "one": "新的入口正在打開，適合開始、進入與承接機會。", "keywords": {"good": ["開始", "進入", "收穫"], "neutral": ["門檻", "新局", "入口"], "shadow": ["準備不足", "急著進入", "誤認機會"]}, "meaning": "開始、進入、收穫、向上、新門檻。非常適合啟動新計畫與迎來新契機。", "planet": "北交點", "zodiac": "處女", "personality": "入口、門檻、開始與收穫。它把人帶入新的場域，也要求整理好細節才能承接。", "favorable": "啟動計畫、進入新關係、招聘入場、開門、收成、建立新秩序。", "unfavorable": "結束退場、拖延、逃避責任、維持舊局不動。", "shadow": "急著進入、入口看似打開但準備不足、把新機會當成全部答案。", "strong": "第1宮、第10宮", "weak": "第8宮、第12宮", "tool": "作為意圖卦時，多指真正動機是進入、開始或取得新位置。"}, "2112": {"nameZh": "結合", "nameLatin": "Conjunctio", "nameAr": "Ijtimā'", "element": "風", "nature": "中性", "one": "分散的線索正在交會，事情需要透過連接與協商成形。", "keywords": {"good": ["會面", "合作", "媒合"], "neutral": ["交會", "連接", "十字路口"], "shadow": ["糾纏", "猶豫", "複雜牽扯"]}, "meaning": "結合、會面、恢復、合約、十字路口。有利於合作、溝通與婚姻，尋回失物。", "planet": "水星", "zodiac": "處女", "personality": "交會、協商、連接與十字路口。它讓原本分散的事物找到接點。", "favorable": "會面、合約、溝通、媒合、合作、尋回、修復連線。", "unfavorable": "單打獨鬥、完全切斷、拒絕溝通、要求事情只有一條路。", "shadow": "糾纏、猶豫、關係太複雜、資訊互相牽扯。", "strong": "第3宮、第7宮、第11宮", "weak": "第12宮", "tool": "作為合卦結果時尤其重要，表示相擊後形成連接點或新的交會。"}, "2121": {"nameZh": "獲得", "nameLatin": "Acquisitio", "nameAr": "Qabḍ Dākhil", "element": "風", "nature": "大吉", "one": "資源正在累積，有利於收成、取得與實質掌握。", "keywords": {"good": ["獲利", "累積", "收成"], "neutral": ["擴張", "吸納", "掌握"], "shadow": ["貪多", "佔有", "膨脹"]}, "meaning": "獲得、財富、積累、保留、吸納。極度有利於金錢、物資、擴張與世俗成功。", "planet": "木星", "zodiac": "射手", "personality": "獲得、擴張、累積與吸納。它把資源往自己這邊帶，適合追求實質成果。", "favorable": "金錢、資源、升遷、擴張、投資、收款、建立庫存。", "unfavorable": "放下、減重、斷捨離、縮小規模、停止佔有。", "shadow": "貪多、佔有慾、膨脹、把所有東西都往自己身上攬。", "strong": "第2宮、第10宮、第11宮", "weak": "第8宮、第12宮", "tool": "作為結果卦時，多指事情朝向取得、擴張或資源累積。"}, "2122": {"nameZh": "紅色", "nameLatin": "Rubeus", "nameAr": "Ḥumrah", "element": "風", "nature": "凶", "one": "壓抑的激情或衝突冒出，事情有失控、破局或危險性。", "keywords": {"good": ["破局", "揭露", "切除"], "neutral": ["激情", "衝突", "爆裂"], "shadow": ["暴怒", "流血", "失控"]}, "meaning": "憤怒、衝突、激情、流血、暴力。需小心衝動與爭執，隱含危險與不穩。", "planet": "火星", "zodiac": "天蠍", "personality": "激情、衝突、爆裂與危險的釋放。它讓被壓住的力量突然冒出來。", "favorable": "破局、揭露危機、手術切除、快速斷開、處理憤怒與禁忌。", "unfavorable": "和平談判、穩定感情、低調保守、細膩修補、避免風險。", "shadow": "暴怒、流血、失控、攻擊、把情緒變成破壞。", "strong": "第7宮、第8宮", "weak": "第4宮、第11宮", "tool": "作為入局卦時，要留意該宮是否成為衝突、失控或禁忌爆發處。"}, "2211": {"nameZh": "大幸運", "nameLatin": "Fortuna Major", "nameAr": "Naṣr Dākhil", "element": "土", "nature": "大吉", "one": "事情具有持久勝利與內在根基，適合長期穩固發展。", "keywords": {"good": ["勝利", "權威", "穩固"], "neutral": ["中心", "長期", "根基"], "shadow": ["自負", "壓迫", "固執"]}, "meaning": "持久的成功、內在的力量、權威。穩固且長遠的利益，極大的好運與勝利。", "planet": "太陽", "zodiac": "獅子", "personality": "持久光明、權威、中心力量與穩定勝利。它不像小幸運那樣短促，而是內在根基穩。", "favorable": "長期成功、權威位置、事業名聲、穩定發展、重大勝利。", "unfavorable": "隱藏行事、臨時小利、草率改變、放棄主導權。", "shadow": "自負、權威壓迫、只相信自己的中心位置。", "strong": "第4宮、第10宮、第16宮", "weak": "第12宮", "tool": "作為法官或第16宮時，通常是強力正向收束，但仍需看是否過度中心化。"}, "2212": {"nameZh": "白色", "nameLatin": "Albus", "nameAr": "Biyāḍ", "element": "水", "nature": "吉", "one": "事情需要理性、清明與觀察，真相會透過理解浮出。", "keywords": {"good": ["清晰", "真相", "智慧"], "neutral": ["理智", "觀察", "說明"], "shadow": ["冷淡", "過度分析", "不處理感受"]}, "meaning": "和平、純潔、清晰、真理、智慧。事情將會水落石出，適合深思熟慮與理智決策。", "planet": "水星", "zodiac": "雙子", "personality": "清明、理智、觀察與理解。它讓混亂變得可被說明，也讓真相浮出。", "favorable": "學習、談判、寫作、諮詢、診斷、查明真相、理性判斷。", "unfavorable": "衝動開戰、感情勒索、模糊拖延、拒絕溝通。", "shadow": "過度分析、冷淡、只講道理不處理感受。", "strong": "第3宮、第9宮", "weak": "第7宮、第8宮", "tool": "作為尋源卦時，常代表根源在資訊、理智、訊息或需要被說清楚的事。"}, "2221": {"nameZh": "悲傷", "nameLatin": "Tristitia", "nameAr": "Inkīs", "element": "土", "nature": "大凶", "one": "事情下沉到低點，必須面對失望、根基問題或長期壓力。", "keywords": {"good": ["面對現實", "修補根基", "保守"], "neutral": ["低落", "下沉", "重壓"], "shadow": ["悲觀", "僵化", "自我否定"]}, "meaning": "悲傷、損失、向下、失望、根基動搖。計畫可能會失敗，情緒低落，需保守防禦。", "planet": "土星", "zodiac": "水瓶", "personality": "下沉、失望、重壓與根基問題。它指出事情的低點，也提示需要重新打底。", "favorable": "面對現實、修補根基、哀悼整理、保守防禦、長期承受。", "unfavorable": "快速成功、喜慶場合、冒險擴張、期待立即好轉。", "shadow": "悲觀、僵化、自我否定、把暫時低谷看成永久結局。", "strong": "第8宮、第12宮", "weak": "第5宮、第11宮", "tool": "作為結果卦時，要保守看待；作為入局卦則指出該宮承受下沉與壓力。"}, "2222": {"nameZh": "群眾", "nameLatin": "Populus", "nameAr": "Jamā'ah", "element": "火", "nature": "中性", "one": "事情受群體與環境牽動，本身不主動，會反映周遭氣候。", "keywords": {"good": ["聚集", "群體", "穩定"], "neutral": ["環境", "民意", "現狀"], "shadow": ["隨波逐流", "無主見", "被淹沒"]}, "meaning": "群眾、穩定、聚集、不變、隨波逐流。維持現狀，結果取決於周遭環境與他人。", "planet": "月亮", "zodiac": "巨蟹", "personality": "群體、環境、聚集與維持現狀。它不主動開創，而是反映周遭氣候。", "favorable": "團體、民意、家庭環境、群眾觀察、維持穩定、等待外部條件。", "unfavorable": "個人主導、快速突破、清楚決斷、單點精準行動。", "shadow": "隨波逐流、沒有主見、被人群淹沒、環境慣性太強。", "strong": "第7宮、第11宮", "weak": "第1宮、第10宮", "tool": "作為法官時若要尋源，因四線全閉，源頭不明或分散於環境。"}};
+const FIGURE_ORDER = ["1121","1222","2111","2212","1211","1112","2122","2221","1122","1221","2112","2211","1111","1212","2222","2121"];
+const HOUSES = [{"id": 1, "name": "第一宮 命宮", "short": "命宮", "keywords": ["求問者", "當下狀態", "生命", "意圖", "開端"], "meaning": "代表問卜者本人、當下狀態、生命、靈魂、意圖與事物開端。", "use": "所有問題都要回頭看第一宮，因為它是求問者在盤中的承載點。"}, {"id": 2, "name": "第二宮 財帛宮", "short": "財帛宮", "keywords": ["金錢", "資源", "所有物", "買賣", "得失"], "meaning": "代表金錢、財富、流動資產、助手、得與失、買賣。", "use": "財務、收入、物品歸屬、失物所有權常從此宮切入。"}, {"id": 3, "name": "第三宮 兄弟宮", "short": "兄弟宮", "keywords": ["消息", "兄弟姊妹", "鄰居", "短途", "夢境"], "meaning": "代表兄弟姊妹、親戚、鄰居、短途旅行、消息、信件與夢境。", "use": "訊息、聯絡、短程移動、夢境碎片可看此宮。"}, {"id": 4, "name": "第四宮 田宅宮", "short": "田宅宮", "keywords": ["家庭", "父親", "房地產", "根基", "結局"], "meaning": "代表父親、家庭、房地產、隱藏之物、事物根基與結局。", "use": "房屋、根本原因、事物基礎與失物藏處常取此宮。"}, {"id": 5, "name": "第五宮 男女宮", "short": "男女宮", "keywords": ["戀愛", "子女", "歡樂", "禮物", "懷孕"], "meaning": "代表子女、愛情、歡樂、宴會、禮物、衣物與懷孕。", "use": "戀愛感、吸引力、愉悅、子女與創作可看此宮。"}, {"id": 6, "name": "第六宮 奴僕宮", "short": "奴僕宮", "keywords": ["疾病", "下屬", "消耗", "恐懼", "小動物"], "meaning": "代表疾病、僕人、下屬、小動物、消耗、恐懼與憂慮。", "use": "健康消耗、工作下層結構、雜務與焦慮常落此宮。"}, {"id": 7, "name": "第七宮 夫妻宮", "short": "夫妻宮", "keywords": ["伴侶", "合夥", "公開敵人", "婚姻", "尋物"], "meaning": "代表伴侶、合夥人、公開敵人、爭執、婚姻、尋物。", "use": "感情對象、合作方、對手、公開互動與拿走者可看此宮。"}, {"id": 8, "name": "第八宮 疾厄宮", "short": "疾厄宮", "keywords": ["死亡", "恐懼", "遺產", "危險", "痛苦"], "meaning": "代表死亡、恐懼、遺產、危險、痛苦、憂慮與毒藥。", "use": "危機、終結、遺產、重度壓力與不可控風險可看此宮。"}, {"id": 9, "name": "第九宮 遷移宮", "short": "遷移宮", "keywords": ["長途", "信仰", "哲學", "學問", "夢兆"], "meaning": "代表長途旅行、宗教、哲學、學問、信仰、星象。", "use": "遠行、宗教、夢兆、學習與更高意義可看此宮。"}, {"id": 10, "name": "第十宮 官祿宮", "short": "官祿宮", "keywords": ["事業", "權威", "名聲", "政府", "母親"], "meaning": "代表母親、國王、權威、職業、地位、榮譽與政府。", "use": "事業、上司、權威、名聲、職位與外在成就常取此宮。"}, {"id": 11, "name": "第十一宮 福德宮", "short": "福德宮", "keywords": ["朋友", "希望", "願望", "貴人", "支持"], "meaning": "代表朋友、希望、願望、幸運、支持者與喜悅的場所。", "use": "願望能否被支持、朋友與貴人是否幫忙，可看此宮。"}, {"id": 12, "name": "第十二宮 相貌宮", "short": "相貌宮", "keywords": ["隱敵", "秘密", "孤立", "監禁", "大型動物"], "meaning": "代表隱藏敵人、監獄、秘密、悲傷、孤立與大型動物。", "use": "隱藏阻力、秘密、孤立、長期困住的背景可看此宮。"}, {"id": 13, "name": "第十三宮 右證人", "short": "右證人", "keywords": ["過去", "求問者背景", "已成因素", "真實背景"], "meaning": "代表過去的影響、求問者的真實背景或已經發生的事。", "use": "用來看求問者一側的證詞與已成背景。"}, {"id": 14, "name": "第十四宮 左證人", "short": "左證人", "keywords": ["未來", "對方", "環境", "阻隔", "牽引"], "meaning": "代表未來的影響、環境、對方或周遭人士的意圖。", "use": "用來看對方、環境與未來牽引的證詞。"}, {"id": 15, "name": "第十五宮 法官", "short": "法官", "keywords": ["核心裁決", "綜合判斷", "定調", "中心"], "meaning": "代表事情的核心裁決、綜合判斷。", "use": "整盤核心裁決點；法官卦會定調事件主軸。"}, {"id": 16, "name": "第十六宮 最終判決", "short": "最終判決", "keywords": ["最終結果", "收束", "結果的結果", "結局"], "meaning": "代表事情的最終結局，由法官與第一宮能量結合而來。", "use": "觀察事情最後如何收束，需與第15宮法官一起看。"}];
+const ELEMENT_CLASS = {"火":"fire","風":"air","水":"water","土":"earth"};
+function dotHTML(code){
+  const cls=['fire','air','water','earth'];
+  return '<div class="dots">'+code.split('').map((d,i)=>'<div class="line '+cls[i]+'">'+(d==='1'?'<span class="dot"></span>':'<span class="dot"></span><span class="dot"></span>')+'</div>').join('')+'</div>';
+}
+function initComboSelects(){
+  document.getElementById('comboFigure').innerHTML=FIGURE_ORDER.map(code=>{const f=FIGURES[code];return `<option value="${code}">${f.nameZh}｜${f.nameLatin}｜${code}</option>`}).join('');
+  document.getElementById('comboHouse').innerHTML=HOUSES.map(h=>`<option value="${h.id}">第${h.id}宮｜${h.short}</option>`).join('');
+}
+function renderCombination(){
+  const code=document.getElementById('comboFigure').value;
+  const houseId=Number(document.getElementById('comboHouse').value);
+  const f=FIGURES[code], h=HOUSES.find(x=>x.id===houseId);
+  document.getElementById('comboFormula').textContent=`${f.nameZh} × 第${h.id}宮 ${h.short}`;
+  const synthesis=`${f.nameZh}落在${h.name}，代表「${f.one}」這股卦象力量進入「${h.meaning}」的場域。讀盤時要先看此宮是否為問題主宮，再與第1宮、第13宮、第14宮、第15宮法官與第16宮結果互相校正。`;
+  const advice=`有利時，可順著「${f.keywords.good.join('、')}」來使用此宮；不利時，需留意「${f.keywords.shadow.join('、')}」如何在${h.short}中呈現。`;
+  document.getElementById('comboResult').innerHTML=`<article class="resultCard"><div class="cardTop"><div class="figBox">${dotHTML(code)}</div><div><h3>${f.nameZh}落第${h.id}宮</h3><div class="latin">${f.nameLatin} × ${h.short}</div><div class="metaLine"><span class="badge ${ELEMENT_CLASS[f.element]}">${f.element}</span><span class="badge">${f.nature}</span><span class="badge">${h.name}</span></div></div></div><div class="one">${synthesis}</div><details open><summary>組合拆解</summary><div class="body"><b>卦象本質：</b>${f.personality}<br><br><b>宮位場域：</b>${h.use}</div></details><details open><summary>讀盤提醒</summary><div class="body">${advice}<br><br><b>主盤校正：</b>如果此組合來自意圖、尋源、合卦或多步合卦，請先判斷它是否入局；入局才表示這股力量落回盤面現實場域。</div></details></article>`;
+}
+initComboSelects();
+renderCombination();
+</script>
 </body>
 </html>
