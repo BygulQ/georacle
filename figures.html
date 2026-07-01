@@ -269,7 +269,8 @@
       .figureMiniCard .latin{font-size:10px;letter-spacing:.1em}
     }
 
-    .bookLink{display:block;height:100%}
+    .bookLink{display:block;height:100%;text-decoration:none}
+    .bookLink .figureMiniCard{height:100%}
     .bookStatus{display:inline-flex;align-items:center;gap:6px;margin-top:auto;border:1px solid #d7c6a5;background:#fff8e8;color:#8f744d;border-radius:999px;padding:7px 12px;font-weight:1000;font-size:13px;letter-spacing:.1em}
     .pageNote{margin:18px 0 0;background:#fff8e8;border:1px solid #d7c6a5;border-radius:22px;padding:14px 16px;color:#7d6849;font-weight:850}
     .subtleLink{color:var(--rose2);font-weight:1000;text-decoration:none}
@@ -339,14 +340,19 @@ function runFigureBookTransition(done){
     setTimeout(()=>{overlay.className='transitionOverlay';overlay.innerHTML='';},340);
   },1780);
 }
+
+const FIGURE_SLUGS = {"1111":"via","1112":"cauda-draconis","1121":"puer","1122":"fortuna-minor","1211":"puella","1212":"amissio","1221":"carcer","1222":"laetitia","2111":"caput-draconis","2112":"conjunctio","2121":"acquisitio","2122":"rubeus","2211":"fortuna-major","2212":"albus","2221":"tristitia","2222":"populus"};
 function figureCard(code,f){
-  return `<article class="figureMiniCard" id="figure-${code}" data-figure="${code}" title="${f.nameZh}｜${f.nameLatin}">
-    <div class="figBox">${dotHTML(code)}</div>
-    <div class="figureNameBlock">
-      <h3>${f.nameZh}</h3>
-      <div class="latin">${f.nameLatin}</div>
-    </div>
-  </article>`;
+  const slug = FIGURE_SLUGS[code];
+  return `<a class="bookLink" href="./figure.html?id=${slug}" aria-label="查看${f.nameZh}卦詳情">
+    <article class="figureMiniCard" id="figure-${code}" data-figure="${code}" title="${f.nameZh}｜${f.nameLatin}">
+      <div class="figBox">${dotHTML(code)}</div>
+      <div class="figureNameBlock">
+        <h3>${f.nameZh}</h3>
+        <div class="latin">${f.nameLatin}</div>
+      </div>
+    </article>
+  </a>`;
 }
 function renderFigures(){
   const rows=FIGURE_ORDER.map(code=>[code,FIGURES[code]]);
