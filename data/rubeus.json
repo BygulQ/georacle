@@ -1,0 +1,34 @@
+{
+  "id": "rubeus",
+  "dotCode": "2122",
+  "zhName": "紅色",
+  "latinName": "Rubeus",
+  "arabicName": "Ḥumrah",
+  "element": "風元素",
+  "coreSymbol": "待整理。",
+  "judgement": "紅色卦內容待整理。",
+  "basic": {
+    "one": "待整理。",
+    "meaning": "待整理。",
+    "favorable": "待整理。",
+    "unfavorable": "待整理。",
+    "shadow": "待整理。",
+    "tool": "待整理。"
+  },
+  "astro": {
+    "星曜": "待整理",
+    "黃道": "待整理",
+    "元素": "風元素",
+    "吉凶": "凶"
+  },
+  "houses": {
+    "強宮": "待整理",
+    "弱宮": "待整理"
+  },
+  "advanced": [
+    {
+      "title": "狀態",
+      "text": "內容待整理。"
+    }
+  ]
+}

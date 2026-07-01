@@ -1,0 +1,130 @@
+[
+  {
+    "id": "puer",
+    "dotCode": "1121",
+    "zhName": "男子",
+    "latinName": "Puer",
+    "arabicName": "الجودلة Al-Jawdalah",
+    "element": "火元素"
+  },
+  {
+    "id": "laetitia",
+    "dotCode": "1222",
+    "zhName": "高興",
+    "latinName": "Laetitia",
+    "arabicName": "الأحيان Al-Ahyān",
+    "element": "火元素"
+  },
+  {
+    "id": "caput-draconis",
+    "dotCode": "2111",
+    "zhName": "龍頭",
+    "latinName": "Caput Draconis",
+    "arabicName": "العتبة الداخلة ʿAtabah Dākhilah",
+    "element": "風元素"
+  },
+  {
+    "id": "albus",
+    "dotCode": "2212",
+    "zhName": "白色",
+    "latinName": "Albus",
+    "arabicName": "البياض Al-Bayāḍ",
+    "element": "水元素"
+  },
+  {
+    "id": "puella",
+    "dotCode": "1211",
+    "zhName": "女子",
+    "latinName": "Puella",
+    "arabicName": "نقي الخد Naqī al-Khad",
+    "element": "土元素"
+  },
+  {
+    "id": "cauda-draconis",
+    "dotCode": "1112",
+    "zhName": "龍尾",
+    "latinName": "Cauda Draconis",
+    "arabicName": "'Atabah Khārijah",
+    "element": "水元素"
+  },
+  {
+    "id": "rubeus",
+    "dotCode": "2122",
+    "zhName": "紅色",
+    "latinName": "Rubeus",
+    "arabicName": "Ḥumrah",
+    "element": "風元素"
+  },
+  {
+    "id": "tristitia",
+    "dotCode": "2221",
+    "zhName": "悲傷",
+    "latinName": "Tristitia",
+    "arabicName": "Inkīs",
+    "element": "土元素"
+  },
+  {
+    "id": "fortuna-minor",
+    "dotCode": "1122",
+    "zhName": "小幸運",
+    "latinName": "Fortuna Minor",
+    "arabicName": "Naṣr Khārij",
+    "element": "火元素"
+  },
+  {
+    "id": "carcer",
+    "dotCode": "1221",
+    "zhName": "限制",
+    "latinName": "Carcer",
+    "arabicName": "'Uqlah",
+    "element": "土元素"
+  },
+  {
+    "id": "conjunctio",
+    "dotCode": "2112",
+    "zhName": "結合",
+    "latinName": "Conjunctio",
+    "arabicName": "Ijtimā'",
+    "element": "風元素"
+  },
+  {
+    "id": "fortuna-major",
+    "dotCode": "2211",
+    "zhName": "大幸運",
+    "latinName": "Fortuna Major",
+    "arabicName": "Naṣr Dākhil",
+    "element": "土元素"
+  },
+  {
+    "id": "via",
+    "dotCode": "1111",
+    "zhName": "道路",
+    "latinName": "Via",
+    "arabicName": "Ṭarīq",
+    "element": "水元素"
+  },
+  {
+    "id": "amissio",
+    "dotCode": "1212",
+    "zhName": "失去",
+    "latinName": "Amissio",
+    "arabicName": "Qabḍ Khārij",
+    "element": "水元素"
+  },
+  {
+    "id": "populus",
+    "dotCode": "2222",
+    "zhName": "群眾",
+    "latinName": "Populus",
+    "arabicName": "Jamā'ah",
+    "element": "火元素"
+  },
+  {
+    "id": "acquisitio",
+    "dotCode": "2121",
+    "zhName": "獲得",
+    "latinName": "Acquisitio",
+    "arabicName": "Qabḍ Dākhil",
+    "element": "風元素"
+  }
+]
