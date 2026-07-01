@@ -401,6 +401,84 @@
       .boardToast{font-size:14px;line-height:1.6;max-width:min(92vw,560px);}
     }
 
+
+    /* 02B Edge toolbar：主占卜盤工具列固定在畫面右側工作邊欄 */
+    main{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 142px;
+      gap:18px;
+      align-items:start;
+    }
+    main > :not(.controls){grid-column:1;min-width:0;}
+    .controls{
+      grid-column:2;
+      grid-row:1 / span 20;
+      position:sticky;
+      top:18px;
+      z-index:24;
+      align-self:start;
+      display:flex;
+      flex-direction:column;
+      align-items:stretch;
+      gap:12px;
+      margin:0;
+      padding:12px;
+      border:1px solid var(--line2);
+      border-radius:24px;
+      background:#fdfbf7e8;
+      box-shadow:0 12px 28px #00000012;
+      backdrop-filter:blur(10px);
+    }
+    .controls .toggle,
+    .controls .buttons{
+      width:100%;
+      display:flex;
+      flex-direction:column;
+      align-items:stretch;
+      justify-content:flex-start;
+      flex-wrap:nowrap;
+      gap:8px;
+    }
+    .controls .toggle{padding:6px;border-radius:18px;}
+    .controls button,
+    .controls .navButton{
+      width:100%;
+      min-height:42px;
+      padding:9px 8px;
+      font-size:13px;
+      line-height:1.2;
+      text-align:center;
+      white-space:normal;
+    }
+    .controls .toolDrawerBtn{min-width:0;}
+
+    @media(min-width:1180px){
+      main{grid-template-columns:minmax(0,1fr) 148px;}
+    }
+    @media(min-width:1500px){
+      main{grid-template-columns:minmax(0,1fr) 154px;}
+    }
+    @media(min-width:761px) and (max-width:1179px){
+      main{grid-template-columns:minmax(0,1fr) 132px;gap:14px;}
+      .controls{top:14px;padding:10px;border-radius:22px;}
+      .controls button,.controls .navButton{font-size:12.5px;padding:9px 6px;}
+    }
+    @media(max-width:760px){
+      main{display:grid;grid-template-columns:minmax(0,1fr) 58px;gap:8px;align-items:start;}
+      main > :not(.controls){grid-column:1;min-width:0;}
+      .controls{grid-column:2;grid-row:1 / span 20;position:sticky;top:8px;padding:6px;border-radius:18px;gap:7px;}
+      .controls .toggle,.controls .buttons{gap:6px;}
+      .controls button,.controls .navButton{font-size:0;width:100%;min-height:46px;padding:0;border-radius:15px;line-height:1;overflow:hidden;}
+      .controls button::before,.controls .navButton::before{font-size:18px;line-height:1;display:block;}
+      #viewShield::before{content:"盾";}
+      #viewSquare::before{content:"方";}
+      #randomBtn::before{content:"🎲";}
+      #manualBtn::before{content:"✍️";}
+      #resetBtn::before{content:"↻";}
+      #toolDrawerBtn::before{content:"☰";}
+      .dictionaryNavBtn::before{content:"📖";}
+    }
+
   </style>
 </head>
 <body>
@@ -422,8 +500,8 @@
           <button class="primary" id="randomBtn">🎲 隨機起卦</button>
           <button id="manualBtn">✍️ 手動起卦</button>
           <button id="resetBtn">↻ 重置</button>
-          <a class="navButton dictionaryNavBtn" href="./dictionary.html" aria-label="前往沙盤字典主頁">📖 沙盤字典</a>
           <button id="toolDrawerBtn" class="toolDrawerBtn">☰ 工具</button>
+          <a class="navButton dictionaryNavBtn" href="./dictionary.html" aria-label="前往沙盤字典主頁">📖 沙盤字典</a>
         </div>
       </section>
 
