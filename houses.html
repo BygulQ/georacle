@@ -3,127 +3,41 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>宮位之書｜城市配置｜沙占起來</title>
+  <title>宮位之書｜Taskin al-Mudun｜沙占起來</title>
   <style>
     :root{
-      --bg:#EAE8E3; --panel:#F7F6F2; --paper:#FDFBF7; --white:#fff;
-      --ink:#4f473f; --muted:#827A73; --soft:#9a9186; --line:#D0C9C0; --line2:#E6E3DC;
-      --rose:#B4766E; --rose2:#9E6961; --gold:#C5A87C; --gold2:#9f7f49;
-      --sand:#eadcc0; --sand2:#d8c6a5; --night:#2f2a27; --blue:#657984;
+      --bg:#EAE8E3; --paper:#FDFBF7; --panel:#F8F3EA; --ink:#4f473f; --muted:#827A73;
+      --line:#D0C9C0; --line2:#E6E3DC; --rose:#B4766E; --rose2:#9E6961;
+      --gold:#C5A87C; --gold2:#9f7f49; --sand:#eadcc0; --night:#2f2a27;
       --inner:#b88652; --suburb:#a87866; --admin:#6f8792; --outer:#857055;
-      --shadow:0 8px 26px #00000012; --shadow2:0 18px 50px #0000001a;
+      --shadow:0 12px 34px #00000016; --shadow2:0 22px 70px #00000024;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;background:radial-gradient(circle at 50% -10%,#fff7e6 0,#EAE8E3 46%,#d9d3c7 100%);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",Segoe UI,sans-serif;line-height:1.75}
-    a{color:inherit;text-decoration:none}
-    button,input{font:inherit}
-    .wrap{max-width:1480px;margin:0 auto;padding:28px 28px 84px}
+    body{margin:0;background:radial-gradient(circle at 50% -15%,#fff7e8 0,#eee8dd 48%,#d9d2c4 100%);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",Segoe UI,sans-serif;line-height:1.75}
+    a{color:inherit;text-decoration:none} button{font:inherit}
+    .wrap{max-width:1500px;margin:0 auto;padding:26px 26px 78px}
     .app{background:#f7f3eb;border:1px solid var(--line);border-radius:34px;overflow:hidden;box-shadow:0 18px 52px #4a332117}
-    .topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px 24px;background:#fdfbf7eb;border-bottom:1px solid var(--line2);backdrop-filter:blur(10px)}
-    .brand{font-weight:1000;letter-spacing:.18em;color:var(--rose2);white-space:nowrap}
-    .nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
-    .pill,button.pill{border:1px solid var(--line);background:white;border-radius:999px;padding:8px 12px;font-weight:900;font-size:13px;color:var(--muted);cursor:pointer;box-shadow:0 2px 8px #00000008}
-    .pill.primary{background:var(--rose);border-color:var(--rose);color:white}
-    .pill:hover{transform:translateY(-1px);border-color:var(--gold)}
-    .hero{position:relative;min-height:520px;display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center;padding:58px;background:radial-gradient(circle at 78% 18%,#fff2cc 0,#f7efe0 28%,#ede3d0 64%,#ded4c4 100%);overflow:hidden}
-    .hero:before{content:"";position:absolute;inset:-28%;background:linear-gradient(120deg,transparent 0 42%,#fff8 43%,transparent 45% 100%),radial-gradient(circle at 18% 28%,#c5a87c24 0 1px,transparent 2px);background-size:320px 100%,42px 42px;opacity:.55;pointer-events:none}
-    .heroText,.cityDiagram{position:relative;z-index:1}
-    .overline{display:inline-flex;align-items:center;gap:10px;border:1px solid #d7c6a5;background:#fff8e8;color:#8f744d;border-radius:999px;padding:7px 13px;font-size:12px;font-weight:1000;letter-spacing:.2em;text-transform:uppercase}
-    h1{margin:18px 0 0;font-size:64px;line-height:1.08;letter-spacing:.22em;color:#4f473f}
-    .heroLead{max-width:720px;margin:20px 0 0;color:#6c6157;font-weight:820;font-size:18px;line-height:2;letter-spacing:.06em}
-    .heroNote{margin-top:24px;background:#fffaf0cc;border:1px solid #d8c6a5;border-radius:24px;padding:16px 18px;color:#77644a;font-weight:850}
-    .heroActions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
-    .cityDiagram{min-height:410px;border:1px solid #d6c6ab;border-radius:34px;background:linear-gradient(145deg,#fffaf0,#eadcc0);box-shadow:var(--shadow2), inset 0 1px 0 #fff8;padding:26px;display:grid;place-items:center;overflow:hidden}
-    .cityDiagram:before{content:"";position:absolute;inset:34px;border:2px solid #b99b663d;border-radius:50%;box-shadow:0 0 0 42px #c5a87c12,0 0 0 86px #b4766e0d,0 0 0 130px #6f87920c}
-    .cityDiagram:after{content:"";position:absolute;left:50%;top:50%;width:74%;height:74%;transform:translate(-50%,-50%) rotate(45deg);border:1px solid #9f7f4935;border-radius:28px;opacity:.8}
-    .medinaCore{position:relative;z-index:1;width:min(100%,430px);aspect-ratio:1;border-radius:36px;padding:20px;background:#fff8e8d8;border:1px solid #d8c6a5;box-shadow:0 14px 40px #7b5b2d18;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;transform:rotate(0deg)}
-    .mapCell{position:relative;min-height:78px;border:1px solid #dbc9a6;border-radius:16px;background:linear-gradient(145deg,#fffdf8,#f2e3c8);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:2px;font-weight:1000;color:#6b5740;box-shadow:inset 0 1px 0 #fff8;transition:.18s}
-    .mapCell:hover{transform:translateY(-2px);border-color:#b8955f;box-shadow:0 10px 22px #7b5b2d17}
-    .mapCell small{font-size:11px;color:#9a7d51;letter-spacing:.08em}
-    .mapCell b{font-size:14px;line-height:1.25}
-    .mapCell.inner{background:linear-gradient(145deg,#fff7e8,#efd5ad)}
-    .mapCell.suburb{background:linear-gradient(145deg,#fff1e8,#e8c6b7)}
-    .mapCell.admin{background:linear-gradient(145deg,#eef4f5,#cad8dc)}
-    .mapCell.outer{background:linear-gradient(145deg,#f5edda,#d8c9a8)}
-    main{padding:38px}
-    .section{margin-top:34px}
-    .sectionHead{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:18px;border-bottom:1px solid var(--line2);padding-bottom:15px}
-    .sectionHead h2{margin:0;font-size:38px;letter-spacing:.16em;line-height:1.25}
-    .sectionHead p{margin:8px 0 0;color:var(--muted);font-weight:780}
-    .structureGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-    .structureCard,.zoneCard,.districtCard,.readingCard{position:relative;background:#fffdf7;border:1px solid var(--line2);border-radius:28px;padding:20px;box-shadow:var(--shadow);overflow:hidden}
-    .structureCard:before,.zoneCard:before,.districtCard:before{content:"";position:absolute;right:-60px;top:-80px;width:180px;height:180px;border-radius:50%;background:#c5a87c18}
-    .structureCard h3,.zoneCard h3{position:relative;margin:0;font-size:22px;letter-spacing:.08em;color:#5e4f3b}
-    .structureCard .houses{position:relative;margin:10px 0;color:#9E6961;font-weight:1000}
-    .structureCard p,.zoneCard p,.readingCard p{position:relative;margin:0;color:var(--muted);font-weight:760}
-    .zoneGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-    .zoneCard{min-height:230px}
-    .zoneCard .range{position:relative;display:inline-flex;margin-bottom:12px;border:1px solid #d8c6a5;border-radius:999px;padding:5px 10px;color:#8f744d;background:#fff8e8;font-size:13px;font-weight:1000}
-    .zoneCard .subtitle{position:relative;color:#9E6961;font-weight:1000;margin:8px 0 10px}
-    .zoneCard.inner{border-color:#d6b888}.zoneCard.suburb{border-color:#d8aa99}.zoneCard.admin{border-color:#a8bcc3}.zoneCard.outer{border-color:#c4ae78}
-    .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:18px 0 22px}
-    .searchBox{flex:1;min-width:260px;display:flex;align-items:center;background:white;border:1px solid var(--line);border-radius:18px;padding:4px 8px}
-    .searchBox input{width:100%;border:0;background:transparent;outline:0;padding:11px 10px;font-weight:850;color:var(--ink)}
-    .chip{border:1px solid var(--line);background:white;color:var(--muted);border-radius:999px;padding:7px 12px;font-size:13px;font-weight:900;cursor:pointer}
-    .chip.active{background:#5A534D;border-color:#5A534D;color:white}
-    .districtGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-    .districtCard{scroll-margin-top:100px;padding:22px}
-    .districtTop{position:relative;display:grid;grid-template-columns:74px 1fr;gap:16px;align-items:center}
-    .num{width:74px;height:74px;border-radius:24px;background:linear-gradient(145deg,#fff8e8,#e6d1ac);border:1px solid #d4bd91;display:grid;place-items:center;color:#876a3d;font-weight:1000;font-size:26px;box-shadow:inset 0 1px 0 #fff8}
-    .districtCard h3{margin:0;font-size:28px;letter-spacing:.08em;line-height:1.25}
-    .cityRole{margin-top:6px;color:#9E6961;font-weight:1000;line-height:1.45}
-    .badgeLine{position:relative;display:flex;gap:7px;flex-wrap:wrap;margin:14px 0}
-    .badge{display:inline-flex;border:1px solid #d8c6a5;background:#fff8e8;border-radius:999px;padding:5px 10px;font-size:13px;font-weight:900;color:#8f744d}
-    .contentCols{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
-    .infoBox{background:#f7f3eb;border:1px solid #e1d6c6;border-radius:18px;padding:13px 14px}
-    .infoBox b{display:block;color:#5e4f3b;margin-bottom:5px;letter-spacing:.08em}
-    .infoBox p{margin:0;color:#766c63;font-weight:740}
-    .locating{position:relative;margin-top:12px;background:#fff8e8;border:1px solid #d8c6a5;border-radius:20px;padding:13px 14px;color:#7d6849;font-weight:850}
-    .empty{padding:28px;background:white;border:1px solid var(--line2);border-radius:24px;color:var(--muted);font-weight:900;text-align:center}
-    .readingGrid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
-    .readingCard{background:linear-gradient(145deg,#fffdf8,#f1e6d5)}
-    .readingCard h3{margin:0 0 12px;font-size:26px;letter-spacing:.1em;color:#5e4f3b}
-    .ruleList{display:grid;gap:10px;margin:0;padding:0;list-style:none}
-    .ruleList li{background:#fffaf0;border:1px solid #e0d1b4;border-radius:16px;padding:11px 12px;color:#75664e;font-weight:800}
-    .ruleList b{color:#9E6961}
-    .cityPath{display:grid;gap:10px}
-    .pathItem{display:grid;grid-template-columns:42px 1fr;gap:10px;align-items:start;background:white;border:1px solid #e6dccb;border-radius:18px;padding:12px}
-    .pathItem span{width:42px;height:42px;border-radius:14px;background:#fff0d1;border:1px solid #d7be88;display:grid;place-items:center;font-weight:1000;color:#8f744d}
-    .pathItem b{display:block;color:#5e4f3b}
-    .pathItem p{margin:2px 0 0}
+    .topbar{position:sticky;top:0;z-index:80;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px 24px;background:#fdfbf7ed;border-bottom:1px solid var(--line2);backdrop-filter:blur(10px)}
+    .brand{font-weight:1000;letter-spacing:.18em;color:var(--rose2);white-space:nowrap}.nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+    .pill,button.pill{border:1px solid var(--line);background:white;border-radius:999px;padding:8px 13px;font-weight:950;font-size:13px;color:var(--muted);cursor:pointer;box-shadow:0 2px 8px #00000008;transition:.18s}.pill.primary{background:var(--rose);border-color:var(--rose);color:white}.pill:hover{transform:translateY(-1px);border-color:var(--gold)}
 
-    .mapSection{scroll-margin-top:100px}
-    .interactiveMapShell{display:grid;grid-template-columns:minmax(0,1.72fr) minmax(330px,.78fr);gap:18px;align-items:stretch}
-    .mapStage{position:relative;min-height:620px;aspect-ratio:16/9;border-radius:32px;overflow:hidden;background:#251b12;border:1px solid #d6c6ab;box-shadow:var(--shadow2)}
-    .mapStage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9) contrast(.98) brightness(.84)}
-    .mapStage:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(34,22,12,.55),rgba(34,22,12,.12) 44%,rgba(34,22,12,.42)),radial-gradient(circle at 52% 48%,transparent 0 38%,rgba(32,20,10,.34) 100%);z-index:1;pointer-events:none}
-    .mapStage:after{content:"";position:absolute;inset:14px;border:1px solid rgba(255,231,181,.38);border-radius:24px;z-index:3;pointer-events:none;box-shadow:inset 0 0 34px rgba(255,232,180,.12)}
-    .mapCaption{position:absolute;left:22px;bottom:20px;right:22px;z-index:4;display:flex;justify-content:space-between;gap:10px;align-items:flex-end;pointer-events:none;color:#fff4d6;text-shadow:0 2px 12px #000}
-    .mapCaption b{display:block;font-size:18px;letter-spacing:.12em}.mapCaption span{font-size:12px;font-weight:850;opacity:.86;line-height:1.55}
-    .mapHotspots{position:absolute;inset:0;z-index:5}
-    .cityHotspot{--x:50;--y:50;position:absolute;left:calc(var(--x)*1%);top:calc(var(--y)*1%);transform:translate(-50%,-50%);width:46px;min-width:46px;height:46px;border-radius:999px;border:1px solid rgba(255,235,178,.75);background:rgba(52,35,16,.62);color:#fff7d6;display:grid;place-items:center;cursor:pointer;font-weight:1000;font-size:14px;box-shadow:0 0 0 5px rgba(214,174,94,.12),0 0 22px rgba(226,187,100,.35),inset 0 1px 0 rgba(255,255,255,.24);transition:transform .18s ease, background .18s ease, box-shadow .18s ease, opacity .18s ease;touch-action:manipulation}
-    .cityHotspot:before{content:"";position:absolute;inset:-13px;border-radius:999px;background:radial-gradient(circle,rgba(245,206,118,.22),transparent 68%);opacity:0;transition:.18s}
-    .cityHotspot span{position:relative;z-index:1}
-    .cityHotspot em{position:absolute;left:50%;top:calc(100% + 7px);transform:translateX(-50%);white-space:nowrap;font-style:normal;font-size:10px;letter-spacing:.08em;line-height:1;background:rgba(38,25,12,.76);border:1px solid rgba(255,226,164,.42);border-radius:999px;padding:5px 7px;color:#fff4d6;box-shadow:0 4px 14px rgba(0,0,0,.24);opacity:0;pointer-events:none;transition:opacity .18s ease, transform .18s ease;z-index:3}
-    .cityHotspot:hover em,.cityHotspot:focus-visible em,.cityHotspot.active em{opacity:1;transform:translateX(-50%) translateY(2px)}
-    .cityHotspot:hover,.cityHotspot:focus-visible,.cityHotspot.active{transform:translate(-50%,-50%) scale(1.18);background:rgba(162,116,43,.9);box-shadow:0 0 0 8px rgba(242,205,126,.16),0 0 36px rgba(255,212,118,.62),inset 0 1px 0 rgba(255,255,255,.32);outline:0}
-    .cityHotspot:hover:before,.cityHotspot:focus-visible:before,.cityHotspot.active:before{opacity:1}
-    .cityHotspot.is-dim{opacity:.26;filter:grayscale(.35)}
-    .cityHotspot.inner{border-color:rgba(255,214,150,.82)}.cityHotspot.suburb{border-color:rgba(255,193,169,.82)}.cityHotspot.admin{border-color:rgba(190,223,230,.86)}.cityHotspot.outer{border-color:rgba(238,220,154,.86)}
-    .mapPanel{position:relative;background:linear-gradient(145deg,#fffdf8,#efe2cc);border:1px solid #d8c6a5;border-radius:32px;padding:24px;box-shadow:var(--shadow2);overflow:hidden;min-height:620px;display:flex;flex-direction:column}
-    .mapPanel:before{content:"";position:absolute;right:-110px;top:-120px;width:260px;height:260px;border-radius:50%;background:#c5a87c22}.mapPanel:after{content:"";position:absolute;left:18px;right:18px;bottom:18px;height:1px;background:linear-gradient(90deg,transparent,#c5a87c88,transparent)}
-    .panelKicker{position:relative;display:inline-flex;width:max-content;border:1px solid #d8c6a5;background:#fff8e8;border-radius:999px;padding:5px 10px;color:#8f744d;font-size:12px;font-weight:1000;letter-spacing:.12em}
-    .mapPanel h3{position:relative;margin:16px 0 6px;font-size:31px;line-height:1.25;letter-spacing:.08em;color:#4f473f}.mapPanel .role{position:relative;color:#9E6961;font-weight:1000;line-height:1.55;margin-bottom:14px}.panelMeta{position:relative;display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 16px}.panelMeta .badge{background:#fffaf0}
-    .panelBlock{position:relative;background:#fffaf0;border:1px solid #e0d1b4;border-radius:20px;padding:13px 14px;margin-top:10px}.panelBlock b{display:block;color:#5e4f3b;letter-spacing:.08em;margin-bottom:4px}.panelBlock p{margin:0;color:#76664f;font-weight:800;line-height:1.72}.panelActions{position:relative;margin-top:auto;padding-top:18px;display:flex;gap:8px;flex-wrap:wrap}.panelHint{position:relative;margin-top:12px;color:#9a9186;font-weight:800;font-size:13px;line-height:1.6}
-    .mapLegend{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.legendItem{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line2);background:#fffdf7;border-radius:999px;padding:6px 10px;color:var(--muted);font-weight:900;font-size:13px}.legendDot{width:10px;height:10px;border-radius:999px;background:var(--gold)}.legendDot.inner{background:var(--inner)}.legendDot.suburb{background:var(--suburb)}.legendDot.admin{background:var(--admin)}.legendDot.outer{background:var(--outer)}
-    footer{padding:28px 38px 42px;color:var(--soft);font-weight:800;text-align:center;border-top:1px solid var(--line2)}
-    @media(max-width:1180px){.hero{grid-template-columns:1fr;padding:42px}.structureGrid,.zoneGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.cityDiagram{min-height:360px}.interactiveMapShell{grid-template-columns:1fr}.mapPanel{min-height:auto}.mapStage{min-height:520px}}
-    @media(max-width:860px){.wrap{padding:18px 14px 70px}.topbar{align-items:flex-start}main{padding:24px}h1{font-size:44px}.hero{padding:34px 24px}.districtGrid,.readingGrid,.contentCols{grid-template-columns:1fr}.sectionHead{display:block}.sectionHead h2{font-size:30px}.medinaCore{gap:6px;padding:14px}.mapCell{min-height:66px}.mapStage{min-height:auto}.cityHotspot{width:36px;min-width:36px;height:36px;font-size:12px}.mapPanel h3{font-size:26px}}
-    @media(max-width:560px){.wrap{padding:0}.app{border-radius:0;border-left:0;border-right:0}.topbar{padding:14px;gap:10px}.brand{letter-spacing:.08em}.nav{gap:6px}.pill{font-size:12px;padding:7px 9px}.hero{padding:30px 16px;min-height:auto}h1{font-size:32px;letter-spacing:.15em}.heroLead{font-size:14px}.cityDiagram{padding:14px;min-height:310px;border-radius:24px}.medinaCore{width:100%;grid-template-columns:repeat(4,1fr)}.mapCell{min-height:54px;border-radius:12px}.mapCell b{font-size:11px}.mapCell small{font-size:9px}.structureGrid,.zoneGrid{grid-template-columns:1fr}.districtTop{grid-template-columns:56px 1fr}.num{width:56px;height:56px;border-radius:18px;font-size:22px}.districtCard h3{font-size:23px}.mapPanel{border-radius:24px;padding:18px}.mapCaption{display:none}.cityHotspot{width:34px;min-width:34px;height:34px;font-size:11px}}
+    .mode{padding:42px}.mapMode{display:block}.streetMode{display:none}body[data-mode="street"] .mapMode{display:none}body[data-mode="street"] .streetMode{display:block}
+    .pageIntro{display:grid;grid-template-columns:1fr auto;align-items:end;gap:28px;border-bottom:1px solid var(--line2);padding-bottom:24px;margin-bottom:26px}.overline{display:inline-flex;align-items:center;gap:10px;border:1px solid #d7c6a5;background:#fff8e8;color:#8f744d;border-radius:999px;padding:7px 13px;font-size:12px;font-weight:1000;letter-spacing:.2em;text-transform:uppercase}.pageIntro h1{margin:18px 0 0;font-size:54px;line-height:1.08;letter-spacing:.2em}.pageIntro p{max-width:880px;margin:16px 0 0;color:#6c6157;font-weight:850;font-size:17px;letter-spacing:.04em}.introCard{max-width:260px;background:#fffdf7;border:1px solid var(--line);border-radius:24px;padding:16px 18px;color:#7a6a56;font-weight:900;box-shadow:var(--shadow)}
+
+    .mapOnlyLayout{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:18px;align-items:stretch}.mapStage{position:relative;border-radius:30px;border:1px solid #ccb58c;background:#241c16;box-shadow:var(--shadow2);overflow:hidden;min-height:680px}.mapStage img{display:block;width:100%;height:100%;min-height:680px;object-fit:cover;filter:saturate(.9) contrast(.96) brightness(.72)}.mapStage:before{content:"";position:absolute;inset:0;z-index:2;background:radial-gradient(circle at 52% 46%,transparent 0 32%,#150f0a2b 70%,#100c0882 100%),linear-gradient(90deg,#150f0a85,transparent 24% 76%,#150f0a76);pointer-events:none}.mapStage:after{content:"";position:absolute;inset:18px;border:1px solid #f0d9a961;border-radius:22px;z-index:4;pointer-events:none}
+    .mapHotspots{position:absolute;inset:0;z-index:5}.cityHotspot{position:absolute;left:calc(var(--x) * 1%);top:calc(var(--y) * 1%);transform:translate(-50%,-50%);width:50px;height:50px;border-radius:999px;border:2px solid #f5dba1cc;background:#23180fcf;color:#fff8e8;display:grid;place-items:center;font-weight:1000;font-size:18px;cursor:pointer;box-shadow:0 0 0 6px #21160c33,0 12px 32px #00000040;transition:transform .16s, box-shadow .16s, background .16s, opacity .16s;touch-action:manipulation}.cityHotspot.inner{border-color:#f2cc8b}.cityHotspot.suburb{border-color:#e7b2a4}.cityHotspot.admin{border-color:#b8d3dc}.cityHotspot.outer{border-color:#d6bf82}.cityHotspot:hover,.cityHotspot:focus,.cityHotspot.active{z-index:10;transform:translate(-50%,-50%) scale(1.16);background:#b88742;color:white;box-shadow:0 0 0 9px #e7be6f33,0 0 42px #f0d28b91,0 15px 36px #00000055;outline:none}.cityHotspot em{position:absolute;left:50%;top:calc(100% + 8px);transform:translateX(-50%) translateY(-4px);opacity:0;pointer-events:none;white-space:nowrap;background:#fffaf0;color:#5b4731;border:1px solid #d7c6a5;border-radius:999px;padding:5px 9px;font-style:normal;font-size:12px;font-weight:1000;box-shadow:0 10px 22px #00000025}.cityHotspot:hover em,.cityHotspot:focus em,.cityHotspot.active em{opacity:1;transform:translateX(-50%) translateY(0)}
+    .mapCaption{position:absolute;left:26px;bottom:22px;z-index:6;color:#fff8e8;text-shadow:0 2px 12px #000;font-weight:950;letter-spacing:.08em}.mapCaption b{display:block;font-size:26px;letter-spacing:.14em}.mapCaption span{display:block;color:#eadcc0;font-size:14px;line-height:1.8;margin-top:4px}
+    .mapSide{display:flex;flex-direction:column;gap:14px}.previewPanel,.legendPanel{background:#fffdf7;border:1px solid var(--line);border-radius:28px;padding:20px;box-shadow:var(--shadow)}.previewPanel{min-height:280px;display:flex;flex-direction:column}.previewPanel .kicker,.streetPanel .kicker{display:inline-flex;width:max-content;max-width:100%;border:1px solid #d8c6a5;background:#fff8e8;border-radius:999px;padding:5px 10px;color:#8f744d;font-size:12px;font-weight:1000;letter-spacing:.12em}.previewPanel h2{font-size:28px;line-height:1.25;margin:18px 0 8px;letter-spacing:.08em}.previewPanel p{margin:0;color:#76664f;font-weight:850}.previewPanel .hint{margin-top:auto;color:#9a9186;font-size:13px;font-weight:850}.legendItem{display:flex;align-items:center;gap:9px;padding:9px 0;border-bottom:1px solid var(--line2);color:#6f655a;font-weight:900}.legendItem:last-child{border-bottom:0}.legendDot{width:12px;height:12px;border-radius:999px;background:var(--gold)}.legendDot.inner{background:var(--inner)}.legendDot.suburb{background:var(--suburb)}.legendDot.admin{background:var(--admin)}.legendDot.outer{background:var(--outer)}
+
+    .streetHeader{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:20px}.streetHeader h1{margin:8px 0 0;font-size:42px;letter-spacing:.13em;line-height:1.2}.streetHeader p{margin:6px 0 0;color:#7a6a56;font-weight:900}.streetLayout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(390px,.95fr);gap:22px;align-items:stretch}.streetVista{position:relative;min-height:620px;border:1px solid #d0bc95;border-radius:34px;overflow:hidden;box-shadow:var(--shadow2);background:#1d1713}.streetVista:before{content:"";position:absolute;inset:0;background-image:linear-gradient(180deg,#2b1f17c8,#1a1108dd),url('./city-medina-map.png');background-size:cover;background-position:var(--focus,50% 50%);filter:saturate(.9) contrast(1.05);transform:scale(1.18);opacity:.82}.streetVista:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 34%,#f0d28b33,transparent 33%),linear-gradient(0deg,#0e0a07d6 0,#0000 45%),repeating-linear-gradient(90deg,#ffffff08 0 1px,transparent 1px 90px);pointer-events:none}.streetVista.inner{--glow:#d7a85f;--focus:45% 50%}.streetVista.suburb{--glow:#c58676;--focus:46% 62%}.streetVista.admin{--glow:#8eaeb9;--focus:67% 42%}.streetVista.outer{--glow:#d0b875;--focus:72% 22%}.arch{position:absolute;left:50%;bottom:-105px;width:58%;height:72%;transform:translateX(-50%);border:18px solid color-mix(in srgb,var(--glow) 58%,#fff2cc);border-bottom:0;border-radius:50% 50% 0 0/62% 62% 0 0;opacity:.6;box-shadow:0 0 70px color-mix(in srgb,var(--glow) 55%,transparent),inset 0 0 38px #00000050;z-index:2}.streetPlaque{position:absolute;left:28px;right:28px;bottom:28px;z-index:4;background:#fffaf0e8;border:1px solid #ead7ac;border-radius:26px;padding:22px 24px;backdrop-filter:blur(8px);box-shadow:0 18px 44px #00000038}.streetPlaque small{display:block;color:#9a7d51;font-weight:1000;letter-spacing:.18em;text-transform:uppercase}.streetPlaque b{display:block;margin-top:6px;color:#4f3e2c;font-size:34px;letter-spacing:.12em;line-height:1.15}.sceneTags{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.sceneTags span,.badge{display:inline-flex;border:1px solid #d8c6a5;background:#fff8e8;border-radius:999px;padding:5px 9px;color:#7d684a;font-size:12px;font-weight:1000}.streetNumber{position:absolute;right:34px;top:30px;z-index:4;width:88px;height:88px;border-radius:28px;background:#fff8e8e6;border:1px solid #e6cf9e;display:grid;place-items:center;color:#7f5d2b;font-size:42px;font-weight:1000;box-shadow:0 18px 44px #00000035}.streetPanel{background:#fffdf7;border:1px solid var(--line);border-radius:34px;padding:28px;box-shadow:var(--shadow2);display:flex;flex-direction:column;gap:13px}.streetPanel h2{font-size:34px;margin:10px 0 0;letter-spacing:.1em;line-height:1.25}.streetRole{font-size:18px;color:#9E6961;font-weight:1000;line-height:1.6}.panelMeta{display:flex;gap:7px;flex-wrap:wrap}.infoBox{background:#fffaf0;border:1px solid #e0d1b4;border-radius:20px;padding:14px 15px}.infoBox b{display:block;color:#5e4f3b;letter-spacing:.08em;margin-bottom:4px}.infoBox p{margin:0;color:#76664f;font-weight:820;line-height:1.78}.streetActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.streetNote{margin-top:auto;color:#9a9186;font-weight:820;font-size:13px;line-height:1.7;border-top:1px solid var(--line2);padding-top:13px}
+    footer{padding:26px 38px 42px;color:#9a9186;font-weight:850;text-align:center;border-top:1px solid var(--line2)}
+    @media(max-width:1180px){.mapOnlyLayout,.streetLayout{grid-template-columns:1fr}.mapStage,.mapStage img{min-height:560px}.streetVista{min-height:520px}.pageIntro{grid-template-columns:1fr}.introCard{max-width:none}.mapSide{display:grid;grid-template-columns:1fr 1fr}.previewPanel{min-height:auto}}
+    @media(max-width:760px){.wrap{padding:14px}.app{border-radius:26px}.topbar{align-items:flex-start;padding:14px}.brand{letter-spacing:.08em}.mode{padding:24px}.pageIntro h1{font-size:34px;letter-spacing:.14em}.pageIntro p{font-size:14px}.mapStage,.mapStage img{min-height:470px}.cityHotspot{width:38px;height:38px;font-size:14px}.cityHotspot em{display:none}.mapCaption b{font-size:18px}.mapSide{display:block}.previewPanel,.legendPanel{margin-top:12px}.streetHeader{display:block}.streetHeader h1{font-size:30px}.streetLayout{display:block}.streetVista{min-height:440px}.streetPanel{margin-top:16px;padding:20px;border-radius:26px}.streetPanel h2{font-size:27px}.streetNumber{width:64px;height:64px;font-size:30px;border-radius:20px}.streetPlaque{left:16px;right:16px;bottom:16px}.streetPlaque b{font-size:25px}.pill{font-size:12px;padding:7px 10px}}
+    @media(max-width:500px){.wrap{padding:0}.app{border-radius:0;border-left:0;border-right:0}.nav{gap:6px}.mode{padding:18px 14px}.mapStage,.mapStage img{min-height:400px}.mapCaption{left:16px;bottom:14px}.cityHotspot{width:34px;height:34px;font-size:12px}.streetVista{min-height:390px}.arch{width:78%}.streetPlaque b{font-size:22px}}
   </style>
 </head>
-<body>
+<body data-mode="map">
   <div class="wrap">
     <div class="app">
       <div class="topbar">
@@ -131,126 +45,69 @@
         <div class="nav">
           <a class="pill" href="./dictionary.html">字典首頁</a>
           <a class="pill" href="./figures.html">卦象之書</a>
-          <a class="pill" href="./houses.html">宮位之書</a>
           <a class="pill" href="./placements.html">落宮之書</a>
           <a class="pill primary" href="./index.html">返回主盤</a>
         </div>
       </div>
 
-      <section class="hero" id="top">
-        <div class="heroText">
-          <span class="overline">Taskin al-Mudun・城市配置</span>
-          <h1>宮位之書</h1>
-          <p class="heroLead">沙盤不是一張抽象的表，而是一座被稱為 Medina 的微觀城市。十六宮位構成城門、城牆、市場、宗教中心、行政核心、墓地、外部道路與王國宮殿。</p>
-          <div class="heroNote">本頁依照你提供的古典阿拉伯沙占城市配置資料，將十六宮轉寫成可閱讀、可尋物、可定位的城市地理模型。</div>
-          <div class="heroActions">
-            <a class="pill primary" href="#city-map">查看城市總圖</a>
-            <a class="pill" href="#districts">進入十六宮地點</a>
-            <a class="pill" href="#method">尋物定位法</a>
+      <main class="mode mapMode" id="mapMode">
+        <header class="pageIntro">
+          <div>
+            <span class="overline">Taskin al-Mudun・城市配置</span>
+            <h1>宮位之書</h1>
+            <p>本頁只保留一個入口：互動城市地圖。十六宮被放置為十六個獨立城市地點；點擊任一地點，才進入該宮的街景與解釋。</p>
           </div>
-        </div>
-        <div class="cityDiagram" id="city-overview" aria-label="十六宮城市配置總圖">
-          <div class="medinaCore">
-            <a class="mapCell inner" href="#house-1"><small>第 1 宮</small><b>本命宮</b></a><a class="mapCell inner" href="#house-2"><small>第 2 宮</small><b>財富宮</b></a><a class="mapCell inner" href="#house-3"><small>第 3 宮</small><b>兄弟宮</b></a><a class="mapCell inner" href="#house-4"><small>第 4 宮</small><b>田宅宮</b></a><a class="mapCell suburb" href="#house-5"><small>第 5 宮</small><b>男女宮</b></a><a class="mapCell suburb" href="#house-6"><small>第 6 宮</small><b>疾厄宮</b></a><a class="mapCell suburb" href="#house-7"><small>第 7 宮</small><b>夫妻宮</b></a><a class="mapCell suburb" href="#house-8"><small>第 8 宮</small><b>死亡宮</b></a><a class="mapCell admin" href="#house-9"><small>第 9 宮</small><b>遷移宮</b></a><a class="mapCell admin" href="#house-10"><small>第 10 宮</small><b>官祿宮</b></a><a class="mapCell admin" href="#house-11"><small>第 11 宮</small><b>福德宮</b></a><a class="mapCell admin" href="#house-12"><small>第 12 宮</small><b>玄秘宮</b></a><a class="mapCell outer" href="#house-13"><small>第 13 宮</small><b>右證人</b></a><a class="mapCell outer" href="#house-14"><small>第 14 宮</small><b>左證人</b></a><a class="mapCell outer" href="#house-15"><small>第 15 宮</small><b>法官</b></a><a class="mapCell outer" href="#house-16"><small>第 16 宮</small><b>最終判決</b></a>
+          <div class="introCard">選一座門、一條街、一處市場或一個宮廷據點，進入它的宮位街景。</div>
+        </header>
+        <section class="mapOnlyLayout" aria-label="十六宮互動城市總圖">
+          <div class="mapStage">
+            <img src="./city-medina-map.png" alt="古伊斯蘭沙盤城市俯視圖">
+            <div id="mapHotspots" class="mapHotspots" aria-label="十六宮互動熱區"></div>
+            <div class="mapCaption"><b>Medina as House Book</b><span>點擊十六個城市地點・進入宮位街景</span></div>
           </div>
-        </div>
-      </section>
-
-      <main>
-
-        <section class="section mapSection" id="city-map">
-          <div class="sectionHead">
-            <div><h2>互動城市地圖</h2><p>以古城圖作為底圖，上方疊加十六個彼此獨立的城市地點；點擊任一宮位，右側會顯示城市身份、傳統宮位義與尋物定位提示。</p></div>
-            <a class="pill" href="#districts">看十六宮卡片</a>
-          </div>
-          <div class="interactiveMapShell">
-            <div class="mapStage" aria-label="古伊斯蘭沙盤城市互動地圖">
-              <img src="./city-medina-map.png" alt="古伊斯蘭沙盤城市俯視圖">
-              <div id="mapHotspots" class="mapHotspots" aria-label="十六宮互動熱區"></div>
-              <div class="mapCaption"><b>Medina as Shield Chart</b><span>滑過發光・點擊讀取宮位地理<br>熱區已分散排列・可點擊讀取宮位。</span></div>
-            </div>
-            <aside id="mapPanel" class="mapPanel" aria-live="polite"></aside>
-          </div>
-          <div class="mapLegend" aria-label="城市分區圖例">
-            <span class="legendItem"><i class="legendDot inner"></i>1–4 內部核心</span>
-            <span class="legendItem"><i class="legendDot suburb"></i>5–8 周邊市郊</span>
-            <span class="legendItem"><i class="legendDot admin"></i>9–12 軍事行政</span>
-            <span class="legendItem"><i class="legendDot outer"></i>13–16 外部補給</span>
-          </div>
-        </section>
-
-        <section class="section" id="structure">
-          <div class="sectionHead">
-            <div><h2>巨觀防禦與統治結構</h2><p>沙盤陣型首先是一座堡壘：有城門、城牆、守衛與最高統治核心。</p></div>
-          </div>
-          <div class="structureGrid">
-            <article class="structureCard"><h3>城門 Bab</h3><div class="houses">第 1 宮為大門；第 4、7、10 宮亦連結四方門位</div><p>沙盤的入口即城市的入口。第一宮尤其代表整座城市的大門與居民。</p></article><article class="structureCard"><h3>城牆 Ha&#x27;it / Sur</h3><div class="houses">第 4、7 宮為內城牆；第 10 宮為外圍護城牆</div><p>城牆定義內外、保護與阻隔，也能用於判斷事物是否被困、被藏或被阻擋。</p></article><article class="structureCard"><h3>守衛 Haras</h3><div class="houses">第 5、9、13 宮</div><p>這三宮代表防衛部隊與駐軍，是保護城市秩序、監看邊界與通道的力量。</p></article><article class="structureCard"><h3>統治核心</h3><div class="houses">第 15 宮為蘇丹；第 16 宮為官員與負責人</div><p>第十五宮裁決全局，第十六宮承接命令與最後執行，形成城市的權力收束。</p></article>
-          </div>
-        </section>
-
-        <section class="section" id="zones">
-          <div class="sectionHead">
-            <div><h2>四大同心分區</h2><p>十六宮由內而外分成四個生活圈，形成城市的功能與權力層級。</p></div>
-          </div>
-          <div class="zoneGrid">
-            <article class="zoneCard inner"><div class="range">第 1–4 宮</div><h3>內部核心區</h3><div class="subtitle">城牆以內的中心腹地與商業樞紐</div><p>城門、居民、金融市場、占星與香料街、城市中心。這一圈是 Medina 的內部生活核心。</p></article><article class="zoneCard suburb"><div class="range">第 5–8 宮</div><h3>周邊市郊區</h3><div class="subtitle">城牆邊緣、郊區與外圍聚落</div><p>布料市集、浴場、服飾市場、墓地與荒野。這一圈呈現城市邊緣的生活與消耗。</p></article><article class="zoneCard admin"><div class="range">第 9–12 宮</div><h3>軍事行政區</h3><div class="subtitle">宗教、法官、官署、高塔與廢墟</div><p>大清真寺、宗教學校、統治者官邸、最高行政部，以及被遺棄或隱蔽的城市角落。</p></article><article class="zoneCard outer"><div class="range">第 13–16 宮</div><h3>外部補給區</h3><div class="subtitle">城牆外圍腹地與聯外道路</div><p>防禦據點、偏門、隱蔽區、蘇丹核心、官員與王國宮殿。這一圈連接城外補給與總大門。</p></article>
-          </div>
-        </section>
-
-        <section class="section" id="districts">
-          <div class="sectionHead">
-            <div><h2>十六宮城市地點</h2><p>每一宮同時有傳統宮位義、城市設施義與尋物定位義。</p></div>
-            <a class="pill" href="#top">回到城市總圖 ↑</a>
-          </div>
-          <div class="toolbar">
-            <div class="searchBox"><input id="houseSearch" placeholder="搜尋：城門、市場、浴場、清真寺、墓地、王宮、失物…"></div>
-            <button class="chip active" data-filter="全部">全部</button>
-            <button class="chip" data-filter="城門">城門</button>
-            <button class="chip" data-filter="市場">市場</button>
-            <button class="chip" data-filter="宗教">宗教</button>
-            <button class="chip" data-filter="行政">行政</button>
-            <button class="chip" data-filter="隱蔽">隱蔽</button>
-            <button class="chip" data-filter="尋物">尋物</button>
-          </div>
-          <div id="districtGrid" class="districtGrid"></div>
-        </section>
-
-        <section class="section" id="method">
-          <div class="sectionHead">
-            <div><h2>如何用城市配置讀盤</h2><p>這套資料特別適合尋物、尋人、逃犯藏匿、圍城突破口與事件位置判斷。</p></div>
-          </div>
-          <div class="readingGrid">
-            <article class="readingCard">
-              <h3>定位判斷流程</h3>
-              <div class="cityPath">
-                <div class="pathItem"><span>1</span><div><b>先找代表卦落宮</b><p>確認失物、人、對方、事件主體或意圖最後落入哪一宮。</p></div></div>
-                <div class="pathItem"><span>2</span><div><b>讀該宮的城市地點</b><p>例如第六宮指浴場、金庫、少數街區、廚師街；第九宮指清真寺、法官、宗教學校。</p></div></div>
-                <div class="pathItem"><span>3</span><div><b>再看四大分區</b><p>1–4 在城內核心，5–8 在市郊邊界，9–12 在軍事行政與陰影區，13–16 在外部道路與王權區。</p></div></div>
-                <div class="pathItem"><span>4</span><div><b>合併傳統宮位義</b><p>城市地點提供物理空間，傳統宮位義提供人物關係與事件性質。</p></div></div>
-              </div>
-            </article>
-            <article class="readingCard">
-              <h3>快速例子</h3>
-              <ul class="ruleList">
-                <li><b>失物在第六宮：</b>往浴場、廚房、服務人員處、金庫或少數宗教街區附近找。</li>
-                <li><b>失物在第九宮：</b>往清真寺、宗教學校、法官、書卷或遠行路線判斷。</li>
-                <li><b>人事在第十二宮：</b>多與隱蔽、廢墟、垃圾場、孤立處或不被看見的角落有關。</li>
-                <li><b>結果落第十六宮：</b>事情收束於總大門、王宮、管理者或最後負責人的位置。</li>
-              </ul>
-            </article>
-          </div>
+          <aside class="mapSide">
+            <section id="mapPreview" class="previewPanel" aria-live="polite"></section>
+            <section class="legendPanel" aria-label="城市分區圖例">
+              <div class="legendItem"><i class="legendDot inner"></i>1–4 內部核心</div>
+              <div class="legendItem"><i class="legendDot suburb"></i>5–8 周邊市郊</div>
+              <div class="legendItem"><i class="legendDot admin"></i>9–12 軍事行政</div>
+              <div class="legendItem"><i class="legendDot outer"></i>13–16 外部補給</div>
+            </section>
+          </aside>
         </section>
       </main>
-      <footer>沙盤城市配置・Taskin al-Mudun｜十六宮即一座可讀取的 Medina</footer>
+
+      <main class="mode streetMode" id="streetMode" aria-live="polite">
+        <header class="streetHeader">
+          <div>
+            <span class="overline">Street View・宮位街景</span>
+            <h1 id="streetTitle">宮位街景</h1>
+            <p id="streetSubtitle">從城市總圖進入某一宮後，才閱讀完整宮位解釋。</p>
+          </div>
+          <button class="pill primary" type="button" id="backToMap">← 返回城市地圖</button>
+        </header>
+        <section class="streetLayout">
+          <div id="streetVista" class="streetVista inner">
+            <div class="arch"></div>
+            <div id="streetNumber" class="streetNumber">1</div>
+            <div class="streetPlaque">
+              <small id="streetKicker">House Street</small>
+              <b id="streetPlace">居民大門</b>
+              <div id="streetTags" class="sceneTags"></div>
+            </div>
+          </div>
+          <aside id="streetPanel" class="streetPanel"></aside>
+        </section>
+      </main>
+
+      <footer>沙盤城市配置・Taskin al-Mudun｜先看城市，點進街景，再讀宮位。</footer>
     </div>
   </div>
 
   <script>
-    const HOUSES = [{"id": 1, "name": "第一宮 本命宮", "short": "本命宮", "zone": "內部核心區", "zoneId": "inner", "cityRole": "城內居民／正東方城門", "structure": "城門・居民・城牆局部", "direction": "正東方城門", "traditional": "問卜者本人、當下狀態、生命、靈魂、意圖與事物開端。", "city": "代表城內居民（أهل البلد），也是城市的大門；部分文獻亦將其視為城牆的一段。", "locating": "尋物或尋人時，若落第一宮，可先看入口、門邊、住民活動核心、東側通道與最接近求問者的位置。", "tags": ["城門", "居民", "防禦"]}, {"id": 2, "name": "第二宮 財富宮", "short": "財富宮", "zone": "內部核心區", "zoneId": "inner", "cityRole": "貨幣兌換市場", "structure": "金融・交易", "direction": "城內商業核心", "traditional": "金錢、資源、所有物、買賣、收入與得失。", "city": "代表貨幣兌換市場（سوق الصرف）與金融交易中心，是城市中財物流通的樞紐。", "locating": "落第二宮時，指向錢櫃、交易場所、帳簿、店鋪、收納財物處，或與金錢交換相關的人事物。", "tags": ["市場", "金融", "尋物"]}, {"id": 3, "name": "第三宮 兄弟宮", "short": "兄弟宮", "zone": "內部核心區", "zoneId": "inner", "cityRole": "占星家、沙占師、香水與玫瑰水商人街區", "structure": "知識・神祕學・商業", "direction": "城內商業街區", "traditional": "消息、兄弟姊妹、親戚、鄰居、短途旅行、信件與夢境。", "city": "代表知識與神祕學街區，是占星家、沙占師、香水與玫瑰水商人的聚集地；也泛指買賣街區。", "locating": "落第三宮時，往消息流動、文書、占卜、香料、香水、短途往來與鄰近商鋪尋找。", "tags": ["市場", "知識", "神祕學"]}, {"id": 4, "name": "第四宮 田宅宮", "short": "田宅宮", "zone": "內部核心區", "zoneId": "inner", "cityRole": "城市中心／正北方城門", "structure": "中心・內城牆・北門", "direction": "正北方城門", "traditional": "家庭、父親、房地產、根基、隱藏之物與事物結局。", "city": "代表城市中心（وسط المدينة），並對應正北方的城門；也是內城牆結構的重要點。", "locating": "落第四宮時，往房屋、地基、中心區、北門、地下或隱藏處尋找，常指向事件的根部。", "tags": ["城門", "城牆", "中心"]}, {"id": 5, "name": "第五宮 男女宮", "short": "男女宮", "zone": "周邊市郊區", "zoneId": "suburb", "cityRole": "布料與紡織商市場", "structure": "市場・守衛部隊", "direction": "城牆邊緣生活區", "traditional": "戀愛、子女、歡樂、宴會、禮物、衣物與懷孕。", "city": "代表布料與紡織商市場（سوق القماش والبزازين），同時屬於城市守衛部隊的配置點之一。", "locating": "落第五宮時，可往布料、衣物、紡織、娛樂場所、孩童或歡樂聚會之處尋找。", "tags": ["市場", "布料", "守衛"]}, {"id": 6, "name": "第六宮 疾厄宮", "short": "疾厄宮", "zone": "周邊市郊區", "zoneId": "suburb", "cityRole": "浴場、金庫、少數宗教街區、廚師街", "structure": "特殊生活區・消耗區", "direction": "市郊生活邊界", "traditional": "疾病、僕人、下屬、小動物、消耗、恐懼與憂慮。", "city": "代表羅馬浴場、金庫、猶太人與基督教徒等少數宗教街區，以及廚師街。", "locating": "若失物落第六宮，可往浴場、廚房、食物處理區、金庫、服務人員或少數族群街區附近尋找。", "tags": ["浴場", "金庫", "少數街區", "尋物"]}, {"id": 7, "name": "第七宮 夫妻宮", "short": "夫妻宮", "zone": "周邊市郊區", "zoneId": "suburb", "cityRole": "婦女布料與服飾市場／正西方城門", "structure": "市場・西門・內城牆", "direction": "正西方城門", "traditional": "伴侶、合夥人、公開敵人、婚姻、爭執與尋物對象。", "city": "代表婦女的布料與服飾市場，並對應正西方的城門；也是內城牆的一部分。", "locating": "落第七宮時，往對方所在處、衣物飾品、女性市場、西門、合夥者或公開關係場域判斷。", "tags": ["城門", "城牆", "市場", "服飾"]}, {"id": 8, "name": "第八宮 死亡宮", "short": "死亡宮", "zone": "周邊市郊區", "zoneId": "suburb", "cityRole": "墓地、荒涼處、城外荒野", "structure": "墓地・荒野・邊界", "direction": "城牆之外", "traditional": "死亡、恐懼、遺產、危險、痛苦、憂慮與毒藥。", "city": "代表城中最荒涼的地方、墓地（المقابر），以及城牆之外的荒野。", "locating": "落第八宮時，指向荒廢、陰暗、危險、埋藏、墓地、廢棄角落或城外無人處。", "tags": ["墓地", "荒野", "隱蔽"]}, {"id": 9, "name": "第九宮 遷移宮", "short": "遷移宮", "zone": "軍事行政區", "zoneId": "admin", "cityRole": "法官所在地、大清真寺、宗教學校", "structure": "宗教・律法・守衛部隊", "direction": "宗教行政軸線", "traditional": "長途旅行、宗教、哲學、學問、信仰、星象與夢兆。", "city": "代表城市的宗教與律法中心，包括法官所在地、大清真寺、宗教學校與一般清真寺。", "locating": "若落第九宮，往清真寺、學校、宗教人士、法官、書卷、遠行道路或高等知識空間尋找。", "tags": ["宗教", "律法", "守衛", "學校"]}, {"id": 10, "name": "第十宮 官祿宮", "short": "官祿宮", "zone": "軍事行政區", "zoneId": "admin", "cityRole": "統治者與官員居所／正南方城門", "structure": "權力・外圍護城牆・南門", "direction": "正南方城門", "traditional": "事業、權威、名聲、政府、母親、職位與外在成就。", "city": "代表統治者與各類官員的居所，並對應正南方的城門；也是環繞城市的外圍護城牆。", "locating": "落第十宮時，往官署、上級、顯眼位置、南門、官方機構、權力中心與高處判斷。", "tags": ["城門", "城牆", "行政", "權力"]}, {"id": 11, "name": "第十一宮 福德宮", "short": "福德宮", "zone": "軍事行政區", "zoneId": "admin", "cityRole": "宰相、宮廷侍衛、地方行政首長宅邸", "structure": "最高行政部・支援者", "direction": "行政住宅區", "traditional": "朋友、希望、願望、幸運、支持者、貴人與喜悅場所。", "city": "代表宰相、宮廷侍衛與地方行政首長的宅邸（بيت الوزارة والنياب للسلطنه），即城市的最高行政部。", "locating": "落第十一宮時，往貴人、官僚支援、行政宅邸、朋友所在處或能提供協助的人事物判斷。", "tags": ["行政", "貴人", "官邸"]}, {"id": 12, "name": "第十二宮 玄秘宮", "short": "玄秘宮", "zone": "軍事行政區", "zoneId": "admin", "cityRole": "廢墟、垃圾場、隱蔽處、教堂", "structure": "隱蔽・廢棄・暗角", "direction": "城市陰影區", "traditional": "隱藏敵人、監獄、秘密、悲傷、孤立與大型動物。", "city": "代表城市陰暗或被遺棄的角落，包括廢墟、垃圾場、隱蔽處以及教堂。", "locating": "落第十二宮時，往廢棄處、垃圾堆、陰暗房間、監禁處、隱蔽角落、教堂或被忽視的位置尋找。", "tags": ["廢墟", "隱蔽", "教堂"]}, {"id": 13, "name": "第十三宮 右證人", "short": "右證人", "zone": "外部補給區", "zoneId": "outer", "cityRole": "偏北方的東城門／城牆防禦據點", "structure": "防禦據點・守衛部隊", "direction": "偏北方東城門", "traditional": "過去影響、求問者背景、已成因素與一側證詞。", "city": "代表偏北方的東城門，或城牆的防禦據點；亦屬守衛部隊配置點。", "locating": "落第十三宮時，回看求問者側、已發生原因、防禦點、偏北東門、道路節點與城牆外圍。", "tags": ["城門", "防禦", "守衛", "外部道路"]}, {"id": 14, "name": "第十四宮 左證人", "short": "左證人", "zone": "外部補給區", "zoneId": "outer", "cityRole": "偏北方的西城門／鹽海之門／城牆後方隱蔽區", "structure": "偏門・隱蔽區", "direction": "偏北方西城門", "traditional": "未來影響、環境、對方、阻隔、牽引與另一側證詞。", "city": "代表偏北方的西城門，或稱鹽海之門，以及城牆後方的隱蔽區域。", "locating": "落第十四宮時，往對方側、環境牽引、偏北西門、背牆後方、鹽海之門或不易看見的位置判斷。", "tags": ["城門", "隱蔽", "外部道路"]}, {"id": 15, "name": "第十五宮 法官", "short": "法官", "zone": "外部補給區", "zoneId": "outer", "cityRole": "蘇丹／偏北方的西大門（西北門）", "structure": "統治核心・裁決門", "direction": "西北門", "traditional": "核心裁決、綜合判斷、整盤定調與中心裁判。", "city": "代表沙盤城市中的蘇丹（最高統治者），也是偏北方的西大門；此處裁決全城秩序。", "locating": "落第十五宮時，指向最核心的權力決定、裁判者、最高門位、西北門或事件最終定調處。", "tags": ["蘇丹", "城門", "裁決", "權力"]}, {"id": 16, "name": "第十六宮 最終判決", "short": "最終判決", "zone": "外部補給區", "zoneId": "outer", "cityRole": "面海城門／王國宮殿／城市總大門", "structure": "王宮・總門・官員負責人", "direction": "面海北門／總大門", "traditional": "最終結果、收束、結果的結果與結局。", "city": "代表面海的城門（北門），也是王國的宮殿（دار المملكة）與城市的總大門；並可視為官員與負責人。", "locating": "落第十六宮時，往總入口、王宮、終點、北門、面海門、管理者辦公處或結果收束點判斷。", "tags": ["王宮", "城門", "總大門", "官員"]}];
+const HOUSES = [{"id": 1, "name": "第一宮 本命宮", "short": "本命宮", "zone": "內部核心區", "zoneId": "inner", "cityRole": "城內居民／正東方城門", "structure": "城門・居民・城牆局部", "direction": "正東方城門", "traditional": "問卜者本人、當下狀態、生命、靈魂、意圖與事物開端。", "city": "代表城內居民（أهل البلد），也是城市的大門；部分文獻亦將其視為城牆的一段。", "locating": "尋物或尋人時，若落第一宮，可先看入口、門邊、住民活動核心、東側通道與最接近求問者的位置。", "tags": ["城門", "居民", "防禦"]}, {"id": 2, "name": "第二宮 財富宮", "short": "財富宮", "zone": "內部核心區", "zoneId": "inner", "cityRole": "貨幣兌換市場", "structure": "金融・交易", "direction": "城內商業核心", "traditional": "金錢、資源、所有物、買賣、收入與得失。", "city": "代表貨幣兌換市場（سوق الصرف）與金融交易中心，是城市中財物流通的樞紐。", "locating": "落第二宮時，指向錢櫃、交易場所、帳簿、店鋪、收納財物處，或與金錢交換相關的人事物。", "tags": ["市場", "金融", "尋物"]}, {"id": 3, "name": "第三宮 兄弟宮", "short": "兄弟宮", "zone": "內部核心區", "zoneId": "inner", "cityRole": "占星家、沙占師、香水與玫瑰水商人街區", "structure": "知識・神祕學・商業", "direction": "城內商業街區", "traditional": "消息、兄弟姊妹、親戚、鄰居、短途旅行、信件與夢境。", "city": "代表知識與神祕學街區，是占星家、沙占師、香水與玫瑰水商人的聚集地；也泛指買賣街區。", "locating": "落第三宮時，往消息流動、文書、占卜、香料、香水、短途往來與鄰近商鋪尋找。", "tags": ["市場", "知識", "神祕學"]}, {"id": 4, "name": "第四宮 田宅宮", "short": "田宅宮", "zone": "內部核心區", "zoneId": "inner", "cityRole": "城市中心／正北方城門", "structure": "中心・內城牆・北門", "direction": "正北方城門", "traditional": "家庭、父親、房地產、根基、隱藏之物與事物結局。", "city": "代表城市中心（وسط المدينة），並對應正北方的城門；也是內城牆結構的重要點。", "locating": "落第四宮時，往房屋、地基、中心區、北門、地下或隱藏處尋找，常指向事件的根部。", "tags": ["城門", "城牆", "中心"]}, {"id": 5, "name": "第五宮 男女宮", "short": "男女宮", "zone": "周邊市郊區", "zoneId": "suburb", "cityRole": "布料與紡織商市場", "structure": "市場・守衛部隊", "direction": "城牆邊緣生活區", "traditional": "戀愛、子女、歡樂、宴會、禮物、衣物與懷孕。", "city": "代表布料與紡織商市場（سوق القماش والبزازين），同時屬於城市守衛部隊的配置點之一。", "locating": "落第五宮時，可往布料、衣物、紡織、娛樂場所、孩童或歡樂聚會之處尋找。", "tags": ["市場", "布料", "守衛"]}, {"id": 6, "name": "第六宮 疾厄宮", "short": "疾厄宮", "zone": "周邊市郊區", "zoneId": "suburb", "cityRole": "浴場、金庫、少數宗教街區、廚師街", "structure": "特殊生活區・消耗區", "direction": "市郊生活邊界", "traditional": "疾病、僕人、下屬、小動物、消耗、恐懼與憂慮。", "city": "代表羅馬浴場、金庫、猶太人與基督教徒等少數宗教街區，以及廚師街。", "locating": "若失物落第六宮，可往浴場、廚房、食物處理區、金庫、服務人員或少數族群街區附近尋找。", "tags": ["浴場", "金庫", "少數街區", "尋物"]}, {"id": 7, "name": "第七宮 夫妻宮", "short": "夫妻宮", "zone": "周邊市郊區", "zoneId": "suburb", "cityRole": "婦女布料與服飾市場／正西方城門", "structure": "市場・西門・內城牆", "direction": "正西方城門", "traditional": "伴侶、合夥人、公開敵人、婚姻、爭執與尋物對象。", "city": "代表婦女的布料與服飾市場，並對應正西方的城門；也是內城牆的一部分。", "locating": "落第七宮時，往對方所在處、衣物飾品、女性市場、西門、合夥者或公開關係場域判斷。", "tags": ["城門", "城牆", "市場", "服飾"]}, {"id": 8, "name": "第八宮 死亡宮", "short": "死亡宮", "zone": "周邊市郊區", "zoneId": "suburb", "cityRole": "墓地、荒涼處、城外荒野", "structure": "墓地・荒野・邊界", "direction": "城牆之外", "traditional": "死亡、恐懼、遺產、危險、痛苦、憂慮與毒藥。", "city": "代表城中最荒涼的地方、墓地（المقابر），以及城牆之外的荒野。", "locating": "落第八宮時，指向荒廢、陰暗、危險、埋藏、墓地、廢棄角落或城外無人處。", "tags": ["墓地", "荒野", "隱蔽"]}, {"id": 9, "name": "第九宮 遷移宮", "short": "遷移宮", "zone": "軍事行政區", "zoneId": "admin", "cityRole": "法官所在地、大清真寺、宗教學校", "structure": "宗教・律法・守衛部隊", "direction": "宗教行政軸線", "traditional": "長途旅行、宗教、哲學、學問、信仰、星象與夢兆。", "city": "代表城市的宗教與律法中心，包括法官所在地、大清真寺、宗教學校與一般清真寺。", "locating": "若落第九宮，往清真寺、學校、宗教人士、法官、書卷、遠行道路或高等知識空間尋找。", "tags": ["宗教", "律法", "守衛", "學校"]}, {"id": 10, "name": "第十宮 官祿宮", "short": "官祿宮", "zone": "軍事行政區", "zoneId": "admin", "cityRole": "統治者與官員居所／正南方城門", "structure": "權力・外圍護城牆・南門", "direction": "正南方城門", "traditional": "事業、權威、名聲、政府、母親、職位與外在成就。", "city": "代表統治者與各類官員的居所，並對應正南方的城門；也是環繞城市的外圍護城牆。", "locating": "落第十宮時，往官署、上級、顯眼位置、南門、官方機構、權力中心與高處判斷。", "tags": ["城門", "城牆", "行政", "權力"]}, {"id": 11, "name": "第十一宮 福德宮", "short": "福德宮", "zone": "軍事行政區", "zoneId": "admin", "cityRole": "宰相、宮廷侍衛、地方行政首長宅邸", "structure": "最高行政部・支援者", "direction": "行政住宅區", "traditional": "朋友、希望、願望、幸運、支持者、貴人與喜悅場所。", "city": "代表宰相、宮廷侍衛與地方行政首長的宅邸（بيت الوزارة والنياب للسلطنه），即城市的最高行政部。", "locating": "落第十一宮時，往貴人、官僚支援、行政宅邸、朋友所在處或能提供協助的人事物判斷。", "tags": ["行政", "貴人", "官邸"]}, {"id": 12, "name": "第十二宮 玄秘宮", "short": "玄秘宮", "zone": "軍事行政區", "zoneId": "admin", "cityRole": "廢墟、垃圾場、隱蔽處、教堂", "structure": "隱蔽・廢棄・暗角", "direction": "城市陰影區", "traditional": "隱藏敵人、監獄、秘密、悲傷、孤立與大型動物。", "city": "代表城市陰暗或被遺棄的角落，包括廢墟、垃圾場、隱蔽處以及教堂。", "locating": "落第十二宮時，往廢棄處、垃圾堆、陰暗房間、監禁處、隱蔽角落、教堂或被忽視的位置尋找。", "tags": ["廢墟", "隱蔽", "教堂"]}, {"id": 13, "name": "第十三宮 右證人", "short": "右證人", "zone": "外部補給區", "zoneId": "outer", "cityRole": "偏北方的東城門／城牆防禦據點", "structure": "防禦據點・守衛部隊", "direction": "偏北方東城門", "traditional": "過去影響、求問者背景、已成因素與一側證詞。", "city": "代表偏北方的東城門，或城牆的防禦據點；亦屬守衛部隊配置點。", "locating": "落第十三宮時，回看求問者側、已發生原因、防禦點、偏北東門、道路節點與城牆外圍。", "tags": ["城門", "防禦", "守衛", "外部道路"]}, {"id": 14, "name": "第十四宮 左證人", "short": "左證人", "zone": "外部補給區", "zoneId": "outer", "cityRole": "偏北方的西城門／鹽海之門／城牆後方隱蔽區", "structure": "偏門・隱蔽區", "direction": "偏北方西城門", "traditional": "未來影響、環境、對方、阻隔、牽引與另一側證詞。", "city": "代表偏北方的西城門，或稱鹽海之門，以及城牆後方的隱蔽區域。", "locating": "落第十四宮時，往對方側、環境牽引、偏北西門、背牆後方、鹽海之門或不易看見的位置判斷。", "tags": ["城門", "隱蔽", "外部道路"]}, {"id": 15, "name": "第十五宮 法官", "short": "法官", "zone": "外部補給區", "zoneId": "outer", "cityRole": "蘇丹／偏北方的西大門（西北門）", "structure": "統治核心・裁決門", "direction": "西北門", "traditional": "核心裁決、綜合判斷、整盤定調與中心裁判。", "city": "代表沙盤城市中的蘇丹（最高統治者），也是偏北方的西大門；此處裁決全城秩序。", "locating": "落第十五宮時，指向最核心的權力決定、裁判者、最高門位、西北門或事件最終定調處。", "tags": ["蘇丹", "城門", "裁決", "權力"]}, {"id": 16, "name": "第十六宮 最終判決", "short": "最終判決", "zone": "外部補給區", "zoneId": "outer", "cityRole": "面海城門／王國宮殿／城市總大門", "structure": "王宮・總門・官員負責人", "direction": "面海北門／總大門", "traditional": "最終結果、收束、結果的結果與結局。", "city": "代表面海的城門（北門），也是王國的宮殿（دار المملكة）與城市的總大門；並可視為官員與負責人。", "locating": "落第十六宮時，往總入口、王宮、終點、北門、面海門、管理者辦公處或結果收束點判斷。", "tags": ["王宮", "城門", "總大門", "官員"]}];
 
     const HOTSPOT_POS = {
-      // 十六宮採「十六個獨立城市地點」：每一宮都有自己的地理位置，不再把 1 / 10 / 16 疊在同一座城門上。
-      // 點位優先考慮可讀性與可點擊性；城市史對應仍保留在右側面板與宮位卡片中說明。
       1:{x:42,y:76,label:'居民大門'},
       2:{x:48,y:56,label:'兌換市集'},
       3:{x:35,y:34,label:'星占香街'},
@@ -268,109 +125,91 @@
       15:{x:68,y:24,label:'蘇丹裁決'},
       16:{x:62,y:14,label:'王宮總門'}
     };
-    let activeFilter = '全部';
+
     const $ = (sel) => document.querySelector(sel);
-    function escapeHTML(s){
-      return String(s).replace(/[&<>'"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
-    }
-    function districtCard(h){
-      return `<article class="districtCard" id="house-${h.id}">
-        <div class="districtTop">
-          <div class="num">${h.id}</div>
-          <div>
-            <h3>${escapeHTML(h.name)}</h3>
-            <div class="cityRole">${escapeHTML(h.cityRole)}</div>
-          </div>
-        </div>
-        <div class="badgeLine">
-          <span class="badge">${escapeHTML(h.zone)}</span>
-          <span class="badge">${escapeHTML(h.structure)}</span>
-          <span class="badge">${escapeHTML(h.direction)}</span>
-          ${h.tags.map(t=>`<span class="badge">${escapeHTML(t)}</span>`).join('')}
-        </div>
-        <div class="contentCols">
-          <div class="infoBox"><b>傳統宮位義</b><p>${escapeHTML(h.traditional)}</p></div>
-          <div class="infoBox"><b>城市配置義</b><p>${escapeHTML(h.city)}</p></div>
-        </div>
-        <div class="locating"><b>尋物／定位提示：</b>${escapeHTML(h.locating)}</div>
-      </article>`;
+    const escapeHTML = (s) => String(s).replace(/[&<>'"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
+    let activeHouseId = 1;
+
+    function houseById(id){ return HOUSES.find(h => h.id === Number(id)) || HOUSES[0]; }
+    function posById(id){ return HOTSPOT_POS[id] || {x:50,y:50,label:'城市地點'}; }
+
+    function previewHTML(h){
+      const p = posById(h.id);
+      return `<span class="kicker">第 ${h.id} 宮・${escapeHTML(h.zone)}</span>
+        <h2>${escapeHTML(p.label)}</h2>
+        <p>${escapeHTML(h.name)}｜${escapeHTML(h.cityRole)}</p>
+        <div class="streetActions"><button class="pill primary" type="button" onclick="openStreet(${h.id})">進入街景</button></div>
+        <div class="hint">滑過地點只顯示入口提示；完整解釋會在街景中展開。</div>`;
     }
 
-    function panelHTML(h){
-      return `<span class="panelKicker">第 ${h.id} 宮・${escapeHTML(h.zone)}</span>
-        <h3>${escapeHTML(h.name)}</h3>
-        <div class="role">${escapeHTML(h.cityRole)}</div>
+    function streetPanelHTML(h){
+      return `<span class="kicker">第 ${h.id} 宮・${escapeHTML(h.zone)}</span>
+        <h2>${escapeHTML(h.name)}</h2>
+        <div class="streetRole">${escapeHTML(h.cityRole)}</div>
         <div class="panelMeta">
           <span class="badge">${escapeHTML(h.structure)}</span>
           <span class="badge">${escapeHTML(h.direction)}</span>
           ${h.tags.map(t=>`<span class="badge">${escapeHTML(t)}</span>`).join('')}
         </div>
-        <div class="panelBlock"><b>傳統宮位義</b><p>${escapeHTML(h.traditional)}</p></div>
-        <div class="panelBlock"><b>城市配置義</b><p>${escapeHTML(h.city)}</p></div>
-        <div class="panelBlock"><b>尋物／定位提示</b><p>${escapeHTML(h.locating)}</p></div>
-        <div class="panelActions"><a class="pill primary" href="#house-${h.id}">查看完整卡片</a><button class="pill" type="button" onclick="setActiveHouse(9)">回到宗教中心</button></div>
-        <div class="panelHint">史料狀態：本頁把你提供的城市配置資料轉成互動模型；逐宮城市對應仍保留「需考證／設計轉譯」的彈性。</div>`;
+        <div class="infoBox"><b>傳統宮位義</b><p>${escapeHTML(h.traditional)}</p></div>
+        <div class="infoBox"><b>城市配置義</b><p>${escapeHTML(h.city)}</p></div>
+        <div class="infoBox"><b>尋物／定位提示</b><p>${escapeHTML(h.locating)}</p></div>
+        <div class="streetActions">
+          <button class="pill" type="button" onclick="openStreet(${h.id === 1 ? 16 : h.id - 1})">上一宮</button>
+          <button class="pill" type="button" onclick="openStreet(${h.id === 16 ? 1 : h.id + 1})">下一宮</button>
+          <button class="pill primary" type="button" onclick="returnToMap()">返回城市地圖</button>
+        </div>
+        <div class="streetNote">史料狀態：本頁把你提供的城市配置資料轉成互動模型；逐宮城市對應仍保留「需考證／設計轉譯」彈性。</div>`;
     }
-    function setActiveHouse(id){
-      const h = HOUSES.find(item => item.id === Number(id));
-      if(!h) return;
-      document.querySelectorAll('.cityHotspot').forEach(btn=>btn.classList.toggle('active', Number(btn.dataset.house) === h.id));
-      document.querySelectorAll('.mapCell').forEach(cell=>cell.classList.toggle('active', cell.getAttribute('href') === `#house-${h.id}`));
-      const panel = $('#mapPanel');
-      if(panel) panel.innerHTML = panelHTML(h);
+
+    function setPreview(id){
+      const h = houseById(id); activeHouseId = h.id;
+      document.querySelectorAll('.cityHotspot').forEach(btn => btn.classList.toggle('active', Number(btn.dataset.house) === h.id));
+      $('#mapPreview').innerHTML = previewHTML(h);
     }
+
     function renderMapHotspots(){
       const host = $('#mapHotspots');
-      if(!host) return;
       host.innerHTML = HOUSES.map(h=>{
-        const p = HOTSPOT_POS[h.id] || {x:50,y:50,label:h.short};
+        const p = posById(h.id);
         return `<button class="cityHotspot ${escapeHTML(h.zoneId)}" style="--x:${p.x};--y:${p.y}" type="button" data-house="${h.id}" aria-label="${escapeHTML(h.name)}：${escapeHTML(p.label)}"><span>${h.id}</span><em>${escapeHTML(p.label)}</em></button>`;
       }).join('');
       host.querySelectorAll('.cityHotspot').forEach(btn=>{
-        btn.addEventListener('mouseenter',()=>setActiveHouse(btn.dataset.house));
-        btn.addEventListener('focus',()=>setActiveHouse(btn.dataset.house));
-        btn.addEventListener('click',()=>setActiveHouse(btn.dataset.house));
+        btn.addEventListener('mouseenter',()=>setPreview(btn.dataset.house));
+        btn.addEventListener('focus',()=>setPreview(btn.dataset.house));
+        btn.addEventListener('click',()=>openStreet(btn.dataset.house));
       });
     }
-    function updateMapHotspots(){
-      const q = ($('#houseSearch')?.value || '').trim().toLowerCase();
-      document.querySelectorAll('.cityHotspot').forEach(btn=>{
-        const h = HOUSES.find(item => item.id === Number(btn.dataset.house));
-        if(!h) return;
-        const hay = [h.id,h.name,h.short,h.zone,h.cityRole,h.structure,h.direction,h.traditional,h.city,h.locating,...h.tags].join(' ').toLowerCase();
-        const visible = matchesFilter(h) && (!q || hay.includes(q));
-        btn.classList.toggle('is-dim', !visible);
-      });
+
+    function openStreet(id){
+      const h = houseById(id); const p = posById(h.id);
+      activeHouseId = h.id;
+      document.body.dataset.mode = 'street';
+      $('#streetTitle').textContent = h.name;
+      $('#streetSubtitle').textContent = `${p.label}｜${h.cityRole}`;
+      const vista = $('#streetVista');
+      vista.className = `streetVista ${h.zoneId}`;
+      $('#streetNumber').textContent = h.id;
+      $('#streetKicker').textContent = `House ${h.id} Street`;
+      $('#streetPlace').textContent = p.label;
+      $('#streetTags').innerHTML = h.tags.map(t=>`<span>${escapeHTML(t)}</span>`).join('');
+      $('#streetPanel').innerHTML = streetPanelHTML(h);
+      history.replaceState(null,'',`#house-${h.id}`);
+      window.scrollTo({top:0,behavior:'smooth'});
     }
-    function matchesFilter(h){
-      if(activeFilter === '全部') return true;
-      const hay = [h.name,h.short,h.zone,h.cityRole,h.structure,h.direction,h.traditional,h.city,h.locating,...h.tags].join(' ');
-      if(activeFilter === '尋物') return hay.includes('尋') || hay.includes('失物') || hay.includes('定位');
-      return hay.includes(activeFilter);
+
+    function returnToMap(){
+      document.body.dataset.mode = 'map';
+      setPreview(activeHouseId);
+      history.replaceState(null,'','#city-map');
+      window.scrollTo({top:0,behavior:'smooth'});
     }
-    function renderDistricts(){
-      const q = ($('#houseSearch')?.value || '').trim().toLowerCase();
-      const rows = HOUSES.filter(h => matchesFilter(h)).filter(h => !q || [h.id,h.name,h.short,h.zone,h.cityRole,h.structure,h.direction,h.traditional,h.city,h.locating,...h.tags].join(' ').toLowerCase().includes(q));
-      $('#districtGrid').innerHTML = rows.length ? rows.map(districtCard).join('') : '<div class="empty">找不到符合條件的城市宮位。</div>';
-      updateMapHotspots();
-    }
-    document.querySelectorAll('.chip').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        document.querySelectorAll('.chip').forEach(b=>b.classList.remove('active'));
-        btn.classList.add('active');
-        activeFilter = btn.dataset.filter || '全部';
-        renderDistricts();
-      });
-    });
-    $('#houseSearch')?.addEventListener('input', renderDistricts);
+
+    $('#backToMap').addEventListener('click', returnToMap);
     renderMapHotspots();
-    setActiveHouse(9);
-    renderDistricts();
+    setPreview(1);
     const hash = (location.hash || '').replace('#','');
-    if(hash.startsWith('house-')) {
-      const hid = Number(hash.replace('house-',''));
-      setTimeout(()=>{ setActiveHouse(hid); document.getElementById(hash)?.scrollIntoView({block:'center'}); }, 120);
-    }
+    if(hash.startsWith('house-')) openStreet(Number(hash.replace('house-','')));
   </script>
 </body>
 </html>
