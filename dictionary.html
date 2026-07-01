@@ -88,7 +88,7 @@
 
 
     /* Entrance transition: Book of Figures — A version / desktop-first */
-    .transitionOverlay{position:fixed;inset:0;z-index:90;display:none;align-items:center;justify-content:center;padding:40px;background:radial-gradient(circle at 50% 18%,#fff7e9cc 0,#5a534d99 48%,#3f3731c8 100%);backdrop-filter:blur(10px);opacity:0;pointer-events:none;overflow:hidden}
+    .transitionOverlay{position:fixed;inset:0;z-index:9000;display:none;align-items:center;justify-content:center;padding:40px;background:radial-gradient(circle at 50% 18%,#fff7e9cc 0,#5a534d99 48%,#3f3731c8 100%);backdrop-filter:blur(10px);opacity:0;pointer-events:none;overflow:hidden}
     .transitionOverlay.open{display:flex;pointer-events:auto;animation:overlayIn .22s ease-out both}
     .transitionOverlay.closing{animation:overlayOut .32s ease-in both}
     .transitionOverlay:before{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at 28% 30%,#f7e8af66 0 1px,transparent 2px),radial-gradient(circle at 70% 60%,#ffffff55 0 1px,transparent 2px);background-size:34px 34px,46px 46px;opacity:.42;animation:sandDrift 1.35s linear both}
@@ -141,7 +141,7 @@
 
     /* Desktop-first refinement: the default layout is the primary desktop experience.
        Tablet and phone rules below only reduce density so the page remains usable. */
-    @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.view.active,.transitionOverlay.open,.transitionOverlay.closing,.transitionStage,.transitionBook,.bookAura,.bookShadow,.bookPage,.bookSpine,.bookTitleBlock,.bookSeal,.transitionGlyphs,.transitionGlyph,.figureMiniCard.entering{animation:none!important;transition:none!important}.transitionOverlay{display:none!important}}
+    @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.view.active{animation:none!important;transition:none!important}}
 
     @media(max-width:1120px){.transitionStage{width:calc(100vw - 44px);height:min(560px,calc(100vh - 78px))}.transitionTitle{font-size:44px}.transitionGlyphs{top:58%}.transitionGlyph{width:56px;height:56px;margin:-28px 0 0 -28px}.bookTitleBlock{width:min(460px,70%)}.transitionBook:before{left:18%;right:18%;height:160px}}
     @media(max-width:760px){.transitionOverlay{padding:18px}.transitionStage{width:calc(100vw - 28px);height:min(430px,calc(100vh - 60px))}.transitionBook{height:100%}.bookPage{top:18px;bottom:18px}.bookTitleBlock{top:38%}.transitionTitle{font-size:30px;letter-spacing:.22em}.transitionSub{font-size:11px;letter-spacing:.18em}.bookSeal{width:54px;height:54px;margin-top:16px}.transitionGlyphs{top:60%}.transitionGlyph{width:38px;height:38px;margin:-19px 0 0 -19px;animation-name:glyphFlyOutSmall;animation-duration:.86s;animation-delay:calc(.52s + var(--i) * 24ms)}.transitionGlyph .line{height:5px;gap:5px}.transitionGlyph .dot{width:4px;height:4px}.bookRule{width:150px;margin-top:16px}.transitionBook:before{left:14%;right:14%;height:130px}.bookEmission{width:210px;height:70px}.transitionGlyph:after{display:none}}
@@ -277,8 +277,17 @@
   
 
     /* Dictionary-page book transitions: all entry animations live here */
+    .transitionOverlay.figureTransition{
+      position:fixed!important;inset:0!important;z-index:2147483647!important;
+      display:none;align-items:center;justify-content:center;padding:40px;
+      background:radial-gradient(circle at 50% 18%,#fff7e9cc 0,#5a534d99 48%,#3f3731c8 100%);
+      backdrop-filter:blur(10px);opacity:0;pointer-events:none;overflow:hidden;
+    }
+    .transitionOverlay.figureTransition.open{display:flex!important;pointer-events:auto!important;animation:overlayIn .22s ease-out both}
+    .transitionOverlay.figureTransition.closing{animation:overlayOut .32s ease-in both}
+    .transitionOverlay.figureTransition:before{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at 28% 30%,#f7e8af66 0 1px,transparent 2px),radial-gradient(circle at 70% 60%,#ffffff55 0 1px,transparent 2px);background-size:34px 34px,46px 46px;opacity:.42;animation:sandDrift 1.35s linear both}
     body.transition-lock{overflow:hidden}
-    .transitionOverlay{z-index:180}
+    .transitionOverlay{z-index:2147483647!important}
     .transitionOverlay.houseTransition{
       display:none;align-items:center;justify-content:center;padding:34px;
       background:radial-gradient(circle at 50% 16%,#fffbf2 0%,#8f7d67aa 34%,#2e2925eb 100%);
@@ -313,7 +322,7 @@
     @keyframes placementStageIn{from{opacity:0;transform:translateY(28px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes placementCorePulse{0%{opacity:0;transform:scale(.7)}42%{opacity:1;transform:scale(1.03)}100%{opacity:.75;transform:scale(1)}}@keyframes ringIn{from{opacity:0;transform:translate(-50%,-50%) rotateX(62deg) scale(.55)}to{opacity:1;transform:translate(-50%,-50%) rotateX(62deg) scale(1)}}@keyframes coreOpen{0%{opacity:0;transform:translate(-50%,-50%) scale(.32)}38%{opacity:1;transform:translate(-50%,-50%) scale(1.12)}100%{opacity:1;transform:translate(-50%,-50%) scale(1)}}
     @keyframes placementGlyphIn{0%{opacity:0;transform:translate3d(calc(var(--sx) * 1px),calc(var(--sy) * 1px),0) scale(.48) rotate(var(--rot))}42%{opacity:1;transform:translate3d(calc(var(--sx) * .62px),calc(var(--sy) * .62px),0) scale(1) rotate(var(--rot))}100%{opacity:0;transform:translate3d(0,0,0) scale(.62) rotate(0)}}@keyframes placementHouseIn{0%{opacity:0;transform:translate3d(calc(var(--hx) * 1px),calc(var(--hy) * 1px),0) scale(.48)}42%{opacity:1;transform:translate3d(calc(var(--hx) * .62px),calc(var(--hy) * .62px),0) scale(1)}100%{opacity:0;transform:translate3d(0,0,0) scale(.62)}}@keyframes connectLine{0%{opacity:0;transform:rotate(0deg) scaleX(.1)}48%{opacity:.8;transform:rotate(0deg) scaleX(1)}100%{opacity:0;transform:rotate(180deg) scaleX(.2)}}
 
-    @media (prefers-reduced-motion: reduce){.transitionOverlay.houseTransition,.transitionOverlay.placementTransition{display:none!important}}
+    @media (prefers-reduced-motion: reduce){.transitionOverlay.houseTransition.open,.transitionOverlay.placementTransition.open{display:flex!important}}
     @media(max-width:980px){.houseEntranceStage{width:calc(100vw - 30px);height:min(640px,calc(100vh - 36px))}.houseTextBlock{max-width:60%}.houseEntranceTitle{font-size:44px}.placementTitle{font-size:40px}.placementStage{width:calc(100vw - 34px);height:min(560px,calc(100vh - 48px))}}
     @media(max-width:760px){.transitionOverlay.houseTransition,.transitionOverlay.placementTransition{padding:12px}.houseEntranceStage{width:calc(100vw - 16px);height:min(520px,calc(100vh - 24px));border-radius:24px}.houseTextBlock{left:7%;right:7%;bottom:7%;max-width:none}.houseEntranceTitle{font-size:30px;letter-spacing:.12em}.houseEntranceSub{font-size:13px;line-height:1.75}.houseEntranceLine{width:150px;margin:16px 0}.houseArchMark{width:min(76vw,320px)}.houseOverline{font-size:10px;letter-spacing:.18em;padding:7px 10px}.houseEntranceHint{font-size:11px;letter-spacing:.12em}.placementStage{width:calc(100vw - 16px);height:min(500px,calc(100vh - 24px));border-radius:26px}.placementTitleBlock{top:18%;width:90%}.placementTitle{font-size:30px;letter-spacing:.14em}.placementSub{font-size:11px}.placementOrbit{width:86vw;height:290px}.placementGlyph,.placementHouse{width:34px;height:34px}.placementHouse{font-size:12px}}
 
@@ -337,25 +346,24 @@
       <div class="homeHero">
         <div class="homeInner">
           <h1>沙占字典</h1>
-          <p class="homeSub">這裡現在只作為字典主頁。三本書各自進入獨立 HTML 空間，之後資料量變大時，不會全部塞在同一頁裡。</p>
+          <p class="homeSub">三本書分別收錄卦象、宮位與落宮合讀。</p>
           <div class="gateGrid">
             <a class="gate bookLink" href="./figures.html" data-book="figures">
               <div class="gateIcon">◈</div><small>FIGURES</small><h2>卦象之書</h2>
-              <p>進入 16 個基本卦象：點陣、中文卦名、拉丁文卦名，以及後續可擴充的卦象本體資料。</p>
+              <p>十六個基本卦象：點陣、中文卦名、拉丁卦名。</p>
               <div class="gateAction">進入卦象之書 →</div>
             </a>
             <a class="gate bookLink" href="./houses.html" data-book="houses">
               <div class="gateIcon">□</div><small>HOUSES</small><h2>宮位之書</h2>
-              <p>進入 16 宮位：命宮、財帛、夫妻、官祿、證人、法官與最終判決等讀盤場域。</p>
+              <p>十六宮位作為沙盤讀盤的場域與城市入口。</p>
               <div class="gateAction">進入宮位之書 →</div>
             </a>
             <a class="gate bookLink" href="./placements.html" data-book="placements">
               <div class="gateIcon">✦</div><small>PLACEMENTS</small><h2>落宮之書</h2>
-              <p>進入卦象 × 宮位的合讀空間。之後可逐步擴充為 256 組落宮解讀。</p>
+              <p>卦象 × 宮位的合讀空間。</p>
               <div class="gateAction">進入落宮之書 →</div>
             </a>
           </div>
-          <div class="pageNote">GitHub Pages 上傳時，字典檔案放同一層：<b>dictionary.html</b>、<b>figures.html</b>、<b>houses.html</b>、<b>placements.html</b>；宮位過場圖片 <b>古老城市的書院入口.png</b> 也與它們同層。</div>
         </div>
       </div>
     </section>
@@ -369,7 +377,7 @@ function dotHTML(code){
   const cls=['fire','air','water','earth'];
   return '<div class="dots">'+code.split('').map((d,i)=>'<div class="line '+cls[i]+'">'+(d==='1'?'<span class="dot"></span>':'<span class="dot"></span><span class="dot"></span>')+'</div>').join('')+'</div>';
 }
-function prefersReducedMotion(){return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;}
+function prefersReducedMotion(){return false;}
 function transitionGlyphHTML(){
   const flights=[[-390,-220,-18,230,-18],[-270,-286,10,238,-10],[-112,-318,-8,250,-4],[112,-312,8,246,4],[276,-282,-12,242,10],[392,-210,16,230,18],[-428,-70,10,218,-2],[-306,-126,-14,246,-8],[306,-122,14,246,8],[428,-62,-10,218,2],[-340,116,-12,232,8],[-184,168,10,248,16],[184,170,-10,248,-16],[340,118,12,232,-8],[-92,224,8,220,24],[92,226,-8,220,-24]];
   return FIGURE_ORDER.map((code,i)=>{const [tx,ty,rz,tz,trail]=flights[i%flights.length];return `<div class="transitionGlyph" style="--i:${i};--tx:${tx}px;--ty:${ty}px;--rz:${rz}deg;--tz:${tz}px;--trail:${trail}deg">${dotHTML(code)}</div>`}).join('');
@@ -382,9 +390,13 @@ function placementItems(){
 function navigateAfter(ms, href){setTimeout(()=>{window.location.href=href}, ms)}
 function playFigureTransition(href){
   const overlay=document.getElementById('dictTransitionOverlay');
-  overlay.className='transitionOverlay open';
+  overlay.className='transitionOverlay figureTransition open';
+  overlay.setAttribute('aria-hidden','false');
+  overlay.style.display='flex';
+  overlay.style.pointerEvents='auto';
+  overlay.style.zIndex='2147483647';
   overlay.innerHTML=`<div class="transitionStage"><div class="transitionBook"><div class="bookAura"></div><div class="bookShadow"></div><div class="bookPage left"></div><div class="bookPage right"></div><div class="bookSpine"></div><div class="bookEmission"></div><div class="bookTitleBlock"><div class="transitionTitle">卦象之書</div><div class="transitionSub">The Book of Figures</div><div class="bookRule"></div><div class="bookSeal">十六</div></div><div class="transitionGlyphs">${transitionGlyphHTML()}</div></div></div>`;
-  navigateAfter(1780, href);
+  navigateAfter(1960, href);
 }
 function playHouseTransition(href){
   const overlay=document.getElementById('dictTransitionOverlay');
