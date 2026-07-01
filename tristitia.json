@@ -1,0 +1,34 @@
+{
+  "id": "tristitia",
+  "dotCode": "2221",
+  "zhName": "悲傷",
+  "latinName": "Tristitia",
+  "arabicName": "Inkīs",
+  "element": "土元素",
+  "coreSymbol": "待整理。",
+  "judgement": "悲傷卦內容待整理。",
+  "basic": {
+    "one": "待整理。",
+    "meaning": "待整理。",
+    "favorable": "待整理。",
+    "unfavorable": "待整理。",
+    "shadow": "待整理。",
+    "tool": "待整理。"
+  },
+  "astro": {
+    "星曜": "待整理",
+    "黃道": "待整理",
+    "元素": "土元素",
+    "吉凶": "大凶"
+  },
+  "houses": {
+    "強宮": "待整理",
+    "弱宮": "待整理"
+  },
+  "advanced": [
+    {
+      "title": "狀態",
+      "text": "內容待整理。"
+    }
+  ]
+}

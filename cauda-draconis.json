@@ -1,0 +1,34 @@
+{
+  "id": "cauda-draconis",
+  "dotCode": "1112",
+  "zhName": "龍尾",
+  "latinName": "Cauda Draconis",
+  "arabicName": "'Atabah Khārijah",
+  "element": "水元素",
+  "coreSymbol": "待整理。",
+  "judgement": "龍尾卦內容待整理。",
+  "basic": {
+    "one": "待整理。",
+    "meaning": "待整理。",
+    "favorable": "待整理。",
+    "unfavorable": "待整理。",
+    "shadow": "待整理。",
+    "tool": "待整理。"
+  },
+  "astro": {
+    "星曜": "待整理",
+    "黃道": "待整理",
+    "元素": "水元素",
+    "吉凶": "凶"
+  },
+  "houses": {
+    "強宮": "待整理",
+    "弱宮": "待整理"
+  },
+  "advanced": [
+    {
+      "title": "狀態",
+      "text": "內容待整理。"
+    }
+  ]
+}
