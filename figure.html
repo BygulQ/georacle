@@ -16,9 +16,22 @@ function esc(s){return String(s ?? '').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'
 function dotHTML(code){return '<div class="dots">'+String(code).split('').map((d,i)=>'<div class="line '+CLS[i]+'">'+(d==='1'?'<span class="dot"></span>':'<span class="dot"></span><span class="dot"></span>')+'</div>').join('')+'</div>';}
 function tableHTML(rows){return '<table><tr><th>項目</th><th>對應</th></tr>'+rows.map(r=>'<tr><td>'+esc(r[0])+'</td><td>'+esc(r[1])+'</td></tr>').join('')+'</table>';}
 function objTable(obj){return tableHTML(Object.entries(obj||{}));}
+function numberValue(v){
+ if(v===undefined || v===null) return '';
+ if(typeof v==='object' && v.value!==undefined && v.value!==null) return v.value;
+ return v;
+}
 function numbersHTML(numbers){
- const labels={triangular:'累加三角數值',abdah:'Abdaḥ 元素開閉值',bazdah:'Bazdaḥ 元素開閉值',physicalDots:'幾何本質點數'};
- const rows=Object.entries(labels).filter(([k])=>numbers && numbers[k]!==undefined && numbers[k]!==null).map(([k,label])=>[label,numbers[k]]);
+ if(!numbers) return '';
+ const rows=[];
+ const triangular=numberValue(numbers.triangular);
+ const abdah=numberValue(numbers.abdah ?? numbers.elemental?.abdah);
+ const bazdah=numberValue(numbers.bazdah ?? numbers.elemental?.bazdah);
+ const physicalDots=numberValue(numbers.physicalDots);
+ if(triangular!=='') rows.push(['累加三角數值',triangular]);
+ if(abdah!=='') rows.push(['Abdaḥ 元素開閉值',abdah]);
+ if(bazdah!=='') rows.push(['Bazdaḥ 元素開閉值',bazdah]);
+ if(physicalDots!=='') rows.push(['幾何本質點數',physicalDots]);
  return rows.length?'<div class="readItem full"><h3>卦象數值</h3>'+tableHTML(rows)+'</div>':'';
 }
 function adv(block){return '<div class="advBlock"><h3>'+esc(block.title)+'</h3>'+(block.table?tableHTML(block.table):'<p>'+esc(block.text||'')+'</p>')+'</div>';}
