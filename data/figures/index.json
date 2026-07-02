@@ -5,7 +5,9 @@
     "zhName": "男子",
     "latinName": "Puer",
     "arabicName": "الجودلة Al-Jawdalah",
-    "element": "火元素"
+    "element": "火元素",
+    "planet": "火星",
+    "zodiac": "白羊座"
   },
   {
     "id": "laetitia",
@@ -13,7 +15,9 @@
     "zhName": "高興",
     "latinName": "Laetitia",
     "arabicName": "الأحيان Al-Ahyān",
-    "element": "火元素"
+    "element": "火元素",
+    "planet": "木星",
+    "zodiac": "射手座"
   },
   {
     "id": "caput-draconis",
@@ -21,7 +25,9 @@
     "zhName": "龍頭",
     "latinName": "Caput Draconis",
     "arabicName": "العتبة الداخلة ʿAtabah Dākhilah",
-    "element": "風元素"
+    "element": "風元素",
+    "planet": "木星",
+    "zodiac": "雙魚座"
   },
   {
     "id": "albus",
@@ -29,7 +35,9 @@
     "zhName": "白色",
     "latinName": "Albus",
     "arabicName": "البياض Al-Bayāḍ",
-    "element": "水元素"
+    "element": "水元素",
+    "planet": "月亮",
+    "zodiac": "巨蟹座"
   },
   {
     "id": "puella",
@@ -37,94 +45,118 @@
     "zhName": "女子",
     "latinName": "Puella",
     "arabicName": "نقي الخد Naqī al-Khad",
-    "element": "土元素"
+    "element": "土元素",
+    "planet": "金星",
+    "zodiac": "天秤座"
   },
   {
     "id": "cauda-draconis",
     "dotCode": "1112",
     "zhName": "龍尾",
     "latinName": "Cauda Draconis",
-    "arabicName": "'Atabah Khārijah",
-    "element": "水元素"
+    "arabicName": "العتبة الخارجة ʿAtabah Khārijah",
+    "element": "水元素",
+    "planet": "南交點／龍尾",
+    "zodiac": "天秤座"
   },
   {
     "id": "rubeus",
     "dotCode": "2122",
     "zhName": "紅色",
     "latinName": "Rubeus",
-    "arabicName": "Ḥumrah",
-    "element": "風元素"
-  },
-  {
-    "id": "tristitia",
-    "dotCode": "2221",
-    "zhName": "悲傷",
-    "latinName": "Tristitia",
-    "arabicName": "Inkīs",
-    "element": "土元素"
+    "arabicName": "الحمرة Ḥumrah",
+    "element": "風元素",
+    "planet": "火星",
+    "zodiac": "天蠍座"
   },
   {
     "id": "fortuna-minor",
     "dotCode": "1122",
     "zhName": "小幸運",
     "latinName": "Fortuna Minor",
-    "arabicName": "Naṣr Khārij",
-    "element": "火元素"
-  },
-  {
-    "id": "carcer",
-    "dotCode": "1221",
-    "zhName": "限制",
-    "latinName": "Carcer",
-    "arabicName": "'Uqlah",
-    "element": "土元素"
+    "arabicName": "النصرة الخارجة Nuṣrah Khārijah",
+    "element": "火元素",
+    "planet": "太陽",
+    "zodiac": "獅子座"
   },
   {
     "id": "conjunctio",
     "dotCode": "2112",
     "zhName": "結合",
     "latinName": "Conjunctio",
-    "arabicName": "Ijtimā'",
-    "element": "風元素"
+    "arabicName": "الاجتماع Ijtimāʿ",
+    "element": "風元素",
+    "planet": "水星",
+    "zodiac": "雙子座"
+  },
+  {
+    "id": "carcer",
+    "dotCode": "1221",
+    "zhName": "限制",
+    "latinName": "Carcer",
+    "arabicName": "العقلة ʿUqlah",
+    "element": "土元素",
+    "planet": "土星",
+    "zodiac": "水瓶座"
   },
   {
     "id": "fortuna-major",
     "dotCode": "2211",
     "zhName": "大幸運",
     "latinName": "Fortuna Major",
-    "arabicName": "Naṣr Dākhil",
-    "element": "土元素"
+    "arabicName": "النصرة الداخلة Nuṣrah Dākhilah",
+    "element": "土元素",
+    "planet": "金星",
+    "zodiac": "金牛座"
   },
   {
     "id": "via",
     "dotCode": "1111",
     "zhName": "道路",
     "latinName": "Via",
-    "arabicName": "Ṭarīq",
-    "element": "水元素"
+    "arabicName": "الطريق Ṭarīq",
+    "element": "水元素",
+    "planet": "月亮",
+    "zodiac": "巨蟹座"
   },
   {
     "id": "amissio",
     "dotCode": "1212",
     "zhName": "失去",
     "latinName": "Amissio",
-    "arabicName": "Qabḍ Khārij",
-    "element": "水元素"
+    "arabicName": "القبض الخارج Qabḍ Khārij",
+    "element": "水元素",
+    "planet": "北交點／龍頭",
+    "zodiac": "雙子座"
   },
   {
     "id": "populus",
     "dotCode": "2222",
     "zhName": "群眾",
     "latinName": "Populus",
-    "arabicName": "Jamā'ah",
-    "element": "火元素"
+    "arabicName": "الجماعة al-Jamāʿah",
+    "element": "火元素",
+    "planet": "水星",
+    "zodiac": "處女座"
   },
   {
     "id": "acquisitio",
     "dotCode": "2121",
     "zhName": "獲得",
     "latinName": "Acquisitio",
-    "arabicName": "Qabḍ Dākhil",
-    "element": "風元素"
+    "arabicName": "القبض الداخل Qabḍ Dākhil",
+    "element": "風元素",
+    "planet": "太陽",
+    "zodiac": "獅子座"
+  },
+  {
+    "id": "tristitia",
+    "dotCode": "2221",
+    "zhName": "悲傷",
+    "latinName": "Tristitia",
+    "arabicName": "الانكيس al-Ankīs",
+    "element": "土元素",
+    "planet": "土星",
+    "zodiac": "摩羯座"
   }
 ]
