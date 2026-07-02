@@ -7,7 +7,14 @@
     "arabicName": "الجودلة Al-Jawdalah",
     "element": "火元素",
     "planet": "火星",
-    "zodiac": "白羊座"
+    "zodiac": "白羊座",
+    "binaryCode": "0010",
+    "numbers": {
+      "triangular": 1,
+      "abdah": 11,
+      "bazdah": 17,
+      "physicalDots": 5
+    }
   },
   {
     "id": "laetitia",
@@ -17,7 +24,14 @@
     "arabicName": "الأحيان Al-Ahyān",
     "element": "火元素",
     "planet": "木星",
-    "zodiac": "射手座"
+    "zodiac": "射手座",
+    "binaryCode": "0111",
+    "numbers": {
+      "triangular": 3,
+      "abdah": 1,
+      "bazdah": 2,
+      "physicalDots": 7
+    }
   },
   {
     "id": "caput-draconis",
@@ -27,7 +41,14 @@
     "arabicName": "العتبة الداخلة ʿAtabah Dākhilah",
     "element": "風元素",
     "planet": "木星",
-    "zodiac": "雙魚座"
+    "zodiac": "雙魚座",
+    "binaryCode": "1000",
+    "numbers": {
+      "triangular": 6,
+      "abdah": 14,
+      "bazdah": 19,
+      "physicalDots": 5
+    }
   },
   {
     "id": "albus",
@@ -37,7 +58,14 @@
     "arabicName": "البياض Al-Bayāḍ",
     "element": "水元素",
     "planet": "月亮",
-    "zodiac": "巨蟹座"
+    "zodiac": "巨蟹座",
+    "binaryCode": "1101",
+    "numbers": {
+      "triangular": 10,
+      "abdah": 4,
+      "bazdah": 4,
+      "physicalDots": 7
+    }
   },
   {
     "id": "puella",
@@ -47,7 +75,14 @@
     "arabicName": "نقي الخد Naqī al-Khad",
     "element": "土元素",
     "planet": "金星",
-    "zodiac": "天秤座"
+    "zodiac": "天秤座",
+    "binaryCode": "0100",
+    "numbers": {
+      "triangular": 15,
+      "abdah": 13,
+      "bazdah": 14,
+      "physicalDots": 5
+    }
   },
   {
     "id": "cauda-draconis",
@@ -57,7 +92,14 @@
     "arabicName": "العتبة الخارجة ʿAtabah Khārijah",
     "element": "水元素",
     "planet": "南交點／龍尾",
-    "zodiac": "天秤座"
+    "zodiac": "天秤座",
+    "binaryCode": "0001",
+    "numbers": {
+      "triangular": 21,
+      "abdah": 7,
+      "bazdah": 13,
+      "physicalDots": 5
+    }
   },
   {
     "id": "rubeus",
@@ -67,7 +109,14 @@
     "arabicName": "الحمرة Ḥumrah",
     "element": "風元素",
     "planet": "火星",
-    "zodiac": "天蠍座"
+    "zodiac": "天蠍座",
+    "binaryCode": "1011",
+    "numbers": {
+      "triangular": 28,
+      "abdah": 2,
+      "bazdah": 7,
+      "physicalDots": 7
+    }
   },
   {
     "id": "fortuna-minor",
@@ -77,7 +126,14 @@
     "arabicName": "النصرة الخارجة Nuṣrah Khārijah",
     "element": "火元素",
     "planet": "太陽",
-    "zodiac": "獅子座"
+    "zodiac": "獅子座",
+    "binaryCode": "0011",
+    "numbers": {
+      "triangular": 136,
+      "abdah": 3,
+      "bazdah": 9,
+      "physicalDots": 6
+    }
   },
   {
     "id": "conjunctio",
@@ -87,7 +143,14 @@
     "arabicName": "الاجتماع Ijtimāʿ",
     "element": "風元素",
     "planet": "水星",
-    "zodiac": "雙子座"
+    "zodiac": "雙子座",
+    "binaryCode": "1001",
+    "numbers": {
+      "triangular": 66,
+      "abdah": 6,
+      "bazdah": 11,
+      "physicalDots": 6
+    }
   },
   {
     "id": "carcer",
@@ -97,7 +160,14 @@
     "arabicName": "العقلة ʿUqlah",
     "element": "土元素",
     "planet": "土星",
-    "zodiac": "水瓶座"
+    "zodiac": "水瓶座",
+    "binaryCode": "0110",
+    "numbers": {
+      "triangular": 55,
+      "abdah": 9,
+      "bazdah": 10,
+      "physicalDots": 6
+    }
   },
   {
     "id": "fortuna-major",
@@ -107,7 +177,14 @@
     "arabicName": "النصرة الداخلة Nuṣrah Dākhilah",
     "element": "土元素",
     "planet": "金星",
-    "zodiac": "金牛座"
+    "zodiac": "金牛座",
+    "binaryCode": "1100",
+    "numbers": {
+      "triangular": 91,
+      "abdah": 12,
+      "bazdah": 12,
+      "physicalDots": 6
+    }
   },
   {
     "id": "via",
@@ -117,7 +194,14 @@
     "arabicName": "الطريق Ṭarīq",
     "element": "水元素",
     "planet": "月亮",
-    "zodiac": "巨蟹座"
+    "zodiac": "巨蟹座",
+    "binaryCode": "0000",
+    "numbers": {
+      "triangular": 78,
+      "abdah": 15,
+      "bazdah": 21,
+      "physicalDots": 4
+    }
   },
   {
     "id": "amissio",
@@ -127,7 +211,14 @@
     "arabicName": "القبض الخارج Qabḍ Khārij",
     "element": "水元素",
     "planet": "北交點／龍頭",
-    "zodiac": "雙子座"
+    "zodiac": "雙子座",
+    "binaryCode": "0101",
+    "numbers": {
+      "triangular": 105,
+      "abdah": 5,
+      "bazdah": 6,
+      "physicalDots": 6
+    }
   },
   {
     "id": "populus",
@@ -137,7 +228,14 @@
     "arabicName": "الجماعة al-Jamāʿah",
     "element": "火元素",
     "planet": "水星",
-    "zodiac": "處女座"
+    "zodiac": "處女座",
+    "binaryCode": "1111",
+    "numbers": {
+      "triangular": 120,
+      "abdah": 0,
+      "bazdah": 0,
+      "physicalDots": 8
+    }
   },
   {
     "id": "acquisitio",
@@ -147,7 +245,14 @@
     "arabicName": "القبض الداخل Qabḍ Dākhil",
     "element": "風元素",
     "planet": "太陽",
-    "zodiac": "獅子座"
+    "zodiac": "獅子座",
+    "binaryCode": "1010",
+    "numbers": {
+      "triangular": 45,
+      "abdah": 10,
+      "bazdah": 15,
+      "physicalDots": 6
+    }
   },
   {
     "id": "tristitia",
@@ -157,6 +262,13 @@
     "arabicName": "الانكيس al-Ankīs",
     "element": "土元素",
     "planet": "土星",
-    "zodiac": "摩羯座"
+    "zodiac": "摩羯座",
+    "binaryCode": "1110",
+    "numbers": {
+      "triangular": 36,
+      "abdah": 8,
+      "bazdah": 8,
+      "physicalDots": 7
+    }
   }
 ]

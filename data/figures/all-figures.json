@@ -122,7 +122,44 @@
         "title": "社會階層與職業",
         "text": "較低階、勞務性、輔助性、跑動性或服務性位置；包含帳篷製造者、縫紉工、毯帽工、漂白工、洗衣工、僕人、侍者、助手、服務生。"
       }
-    ]
+    ],
+    "binaryCode": "0010",
+    "numbers": {
+      "triangular": {
+        "name": "累加三角數值",
+        "value": 1,
+        "use": "時間長短、數量多寡、應期推算"
+      },
+      "elemental": {
+        "name": "元素開閉賦值法",
+        "rule": "只加總開放／單點元素。JSON dotCode 中 1 為單點，2 為雙點；binaryCode 中 0 為開放，1 為封閉。",
+        "abdah": {
+          "name": "Taskin Abdaḥ",
+          "value": 11,
+          "baseValues": {
+            "火": 1,
+            "風": 2,
+            "水": 4,
+            "土": 8
+          }
+        },
+        "bazdah": {
+          "name": "Taskin Bazdaḥ",
+          "value": 17,
+          "baseValues": {
+            "火": 2,
+            "風": 7,
+            "水": 4,
+            "土": 8
+          }
+        }
+      },
+      "physicalDots": {
+        "name": "幾何本質點數",
+        "value": 5,
+        "use": "卦象重量、物理質量、輕重緩急、空間或深淺判斷"
+      }
+    }
   },
   {
     "id": "laetitia",
@@ -251,7 +288,44 @@
         "title": "社會階層與職業",
         "text": "代表受人尊敬的知識、法理、教學與管理階層。常見職業包括法官、學者、法學家、教師、書記官、作家、貴族與掌權管理者。"
       }
-    ]
+    ],
+    "binaryCode": "0111",
+    "numbers": {
+      "triangular": {
+        "name": "累加三角數值",
+        "value": 3,
+        "use": "時間長短、數量多寡、應期推算"
+      },
+      "elemental": {
+        "name": "元素開閉賦值法",
+        "rule": "只加總開放／單點元素。JSON dotCode 中 1 為單點，2 為雙點；binaryCode 中 0 為開放，1 為封閉。",
+        "abdah": {
+          "name": "Taskin Abdaḥ",
+          "value": 1,
+          "baseValues": {
+            "火": 1,
+            "風": 2,
+            "水": 4,
+            "土": 8
+          }
+        },
+        "bazdah": {
+          "name": "Taskin Bazdaḥ",
+          "value": 2,
+          "baseValues": {
+            "火": 2,
+            "風": 7,
+            "水": 4,
+            "土": 8
+          }
+        }
+      },
+      "physicalDots": {
+        "name": "幾何本質點數",
+        "value": 7,
+        "use": "卦象重量、物理質量、輕重緩急、空間或深淺判斷"
+      }
+    }
   },
   {
     "id": "caput-draconis",
@@ -372,7 +446,44 @@
         "title": "社會階層與職業",
         "text": "常見職業包括園丁、菜販、鼓手、樂師與商人。若受吉性強化，也可指受人愛戴的權貴、法官、宗教學者或具高名望的管理階層。"
       }
-    ]
+    ],
+    "binaryCode": "1000",
+    "numbers": {
+      "triangular": {
+        "name": "累加三角數值",
+        "value": 6,
+        "use": "時間長短、數量多寡、應期推算"
+      },
+      "elemental": {
+        "name": "元素開閉賦值法",
+        "rule": "只加總開放／單點元素。JSON dotCode 中 1 為單點，2 為雙點；binaryCode 中 0 為開放，1 為封閉。",
+        "abdah": {
+          "name": "Taskin Abdaḥ",
+          "value": 14,
+          "baseValues": {
+            "火": 1,
+            "風": 2,
+            "水": 4,
+            "土": 8
+          }
+        },
+        "bazdah": {
+          "name": "Taskin Bazdaḥ",
+          "value": 19,
+          "baseValues": {
+            "火": 2,
+            "風": 7,
+            "水": 4,
+            "土": 8
+          }
+        }
+      },
+      "physicalDots": {
+        "name": "幾何本質點數",
+        "value": 5,
+        "use": "卦象重量、物理質量、輕重緩急、空間或深淺判斷"
+      }
+    }
   },
   {
     "id": "albus",
@@ -497,7 +608,44 @@
         "title": "社會階層與職業",
         "text": "常見職業包括造紙匠、抄寫員、裁縫、布商、信差與快遞員。"
       }
-    ]
+    ],
+    "binaryCode": "1101",
+    "numbers": {
+      "triangular": {
+        "name": "累加三角數值",
+        "value": 10,
+        "use": "時間長短、數量多寡、應期推算"
+      },
+      "elemental": {
+        "name": "元素開閉賦值法",
+        "rule": "只加總開放／單點元素。JSON dotCode 中 1 為單點，2 為雙點；binaryCode 中 0 為開放，1 為封閉。",
+        "abdah": {
+          "name": "Taskin Abdaḥ",
+          "value": 4,
+          "baseValues": {
+            "火": 1,
+            "風": 2,
+            "水": 4,
+            "土": 8
+          }
+        },
+        "bazdah": {
+          "name": "Taskin Bazdaḥ",
+          "value": 4,
+          "baseValues": {
+            "火": 2,
+            "風": 7,
+            "水": 4,
+            "土": 8
+          }
+        }
+      },
+      "physicalDots": {
+        "name": "幾何本質點數",
+        "value": 7,
+        "use": "卦象重量、物理質量、輕重緩急、空間或深淺判斷"
+      }
+    }
   },
   {
     "id": "puella",
@@ -618,7 +766,44 @@
         "title": "社會階層與職業",
         "text": "常見職業包括造箭師、鑄劍師、武器製造者、歌手、音樂家、陪伴者與隨從。"
       }
-    ]
+    ],
+    "binaryCode": "0100",
+    "numbers": {
+      "triangular": {
+        "name": "累加三角數值",
+        "value": 15,
+        "use": "時間長短、數量多寡、應期推算"
+      },
+      "elemental": {
+        "name": "元素開閉賦值法",
+        "rule": "只加總開放／單點元素。JSON dotCode 中 1 為單點，2 為雙點；binaryCode 中 0 為開放，1 為封閉。",
+        "abdah": {
+          "name": "Taskin Abdaḥ",
+          "value": 13,
+          "baseValues": {
+            "火": 1,
+            "風": 2,
+            "水": 4,
+            "土": 8
+          }
+        },
+        "bazdah": {
+          "name": "Taskin Bazdaḥ",
+          "value": 14,
+          "baseValues": {
+            "火": 2,
+            "風": 7,
+            "水": 4,
+            "土": 8
+          }
+        }
+      },
+      "physicalDots": {
+        "name": "幾何本質點數",
+        "value": 5,
+        "use": "卦象重量、物理質量、輕重緩急、空間或深淺判斷"
+      }
+    }
   },
   {
     "id": "cauda-draconis",
@@ -739,7 +924,44 @@
         "title": "社會階層與職業",
         "text": "常見職業包括清道夫、垃圾收集者、燒炭工。社會身份上常與奴隸、婢女、逃亡者、被指控犯罪者、小偷、盜竊行為或低層污穢事務相關。"
       }
-    ]
+    ],
+    "binaryCode": "0001",
+    "numbers": {
+      "triangular": {
+        "name": "累加三角數值",
+        "value": 21,
+        "use": "時間長短、數量多寡、應期推算"
+      },
+      "elemental": {
+        "name": "元素開閉賦值法",
+        "rule": "只加總開放／單點元素。JSON dotCode 中 1 為單點，2 為雙點；binaryCode 中 0 為開放，1 為封閉。",
+        "abdah": {
+          "name": "Taskin Abdaḥ",
+          "value": 7,
+          "baseValues": {
+            "火": 1,
+            "風": 2,
+            "水": 4,
+            "土": 8
+          }
+        },
+        "bazdah": {
+          "name": "Taskin Bazdaḥ",
+          "value": 13,
+          "baseValues": {
+            "火": 2,
+            "風": 7,
+            "水": 4,
+            "土": 8
+          }
+        }
+      },
+      "physicalDots": {
+        "name": "幾何本質點數",
+        "value": 5,
+        "use": "卦象重量、物理質量、輕重緩急、空間或深淺判斷"
+      }
+    }
   },
   {
     "id": "rubeus",
@@ -864,7 +1086,44 @@
         "title": "社會階層與職業",
         "text": "常見職業包括屠夫、廚師、理髮師、外科放血者與鐵匠。社會身份上常與軍人、戰士、殺人犯、盜賊與暴力行為相關。"
       }
-    ]
+    ],
+    "binaryCode": "1011",
+    "numbers": {
+      "triangular": {
+        "name": "累加三角數值",
+        "value": 28,
+        "use": "時間長短、數量多寡、應期推算"
+      },
+      "elemental": {
+        "name": "元素開閉賦值法",
+        "rule": "只加總開放／單點元素。JSON dotCode 中 1 為單點，2 為雙點；binaryCode 中 0 為開放，1 為封閉。",
+        "abdah": {
+          "name": "Taskin Abdaḥ",
+          "value": 2,
+          "baseValues": {
+            "火": 1,
+            "風": 2,
+            "水": 4,
+            "土": 8
+          }
+        },
+        "bazdah": {
+          "name": "Taskin Bazdaḥ",
+          "value": 7,
+          "baseValues": {
+            "火": 2,
+            "風": 7,
+            "水": 4,
+            "土": 8
+          }
+        }
+      },
+      "physicalDots": {
+        "name": "幾何本質點數",
+        "value": 7,
+        "use": "卦象重量、物理質量、輕重緩急、空間或深淺判斷"
+      }
+    }
   },
   {
     "id": "fortuna-minor",
@@ -989,7 +1248,44 @@
         "title": "社會階層與職業",
         "text": "常指國王、將軍、指揮官、蘇丹侍從、貴族或掌權者；具體職業包括金匠、珠寶商，以及高尚、神聖、具榮譽感的職業。"
       }
-    ]
+    ],
+    "binaryCode": "0011",
+    "numbers": {
+      "triangular": {
+        "name": "累加三角數值",
+        "value": 136,
+        "use": "時間長短、數量多寡、應期推算"
+      },
+      "elemental": {
+        "name": "元素開閉賦值法",
+        "rule": "只加總開放／單點元素。JSON dotCode 中 1 為單點，2 為雙點；binaryCode 中 0 為開放，1 為封閉。",
+        "abdah": {
+          "name": "Taskin Abdaḥ",
+          "value": 3,
+          "baseValues": {
+            "火": 1,
+            "風": 2,
+            "水": 4,
+            "土": 8
+          }
+        },
+        "bazdah": {
+          "name": "Taskin Bazdaḥ",
+          "value": 9,
+          "baseValues": {
+            "火": 2,
+            "風": 7,
+            "水": 4,
+            "土": 8
+          }
+        }
+      },
+      "physicalDots": {
+        "name": "幾何本質點數",
+        "value": 6,
+        "use": "卦象重量、物理質量、輕重緩急、空間或深淺判斷"
+      }
+    }
   },
   {
     "id": "conjunctio",
@@ -1110,7 +1406,44 @@
         "title": "社會階層與職業",
         "text": "常見職業包括智者、醫生、抄寫員、書商、占星家、會計師、作家、文學家、思想家與受教育的律師；也可能代表善於謀略、散播謠言或耍小聰明的人。"
       }
-    ]
+    ],
+    "binaryCode": "1001",
+    "numbers": {
+      "triangular": {
+        "name": "累加三角數值",
+        "value": 66,
+        "use": "時間長短、數量多寡、應期推算"
+      },
+      "elemental": {
+        "name": "元素開閉賦值法",
+        "rule": "只加總開放／單點元素。JSON dotCode 中 1 為單點，2 為雙點；binaryCode 中 0 為開放，1 為封閉。",
+        "abdah": {
+          "name": "Taskin Abdaḥ",
+          "value": 6,
+          "baseValues": {
+            "火": 1,
+            "風": 2,
+            "水": 4,
+            "土": 8
+          }
+        },
+        "bazdah": {
+          "name": "Taskin Bazdaḥ",
+          "value": 11,
+          "baseValues": {
+            "火": 2,
+            "風": 7,
+            "水": 4,
+            "土": 8
+          }
+        }
+      },
+      "physicalDots": {
+        "name": "幾何本質點數",
+        "value": 6,
+        "use": "卦象重量、物理質量、輕重緩急、空間或深淺判斷"
+      }
+    }
   },
   {
     "id": "carcer",
@@ -1235,7 +1568,44 @@
         "title": "社會階層與職業",
         "text": "常見職業包括修鞋匠、鞋匠、挖掘工、盜墓者，以及卑賤、受人鄙視的勞力工作。社會身份上常與奴隸、被壓迫者、殘疾人士、囚犯與被剝奪自由者相關。"
       }
-    ]
+    ],
+    "binaryCode": "0110",
+    "numbers": {
+      "triangular": {
+        "name": "累加三角數值",
+        "value": 55,
+        "use": "時間長短、數量多寡、應期推算"
+      },
+      "elemental": {
+        "name": "元素開閉賦值法",
+        "rule": "只加總開放／單點元素。JSON dotCode 中 1 為單點，2 為雙點；binaryCode 中 0 為開放，1 為封閉。",
+        "abdah": {
+          "name": "Taskin Abdaḥ",
+          "value": 9,
+          "baseValues": {
+            "火": 1,
+            "風": 2,
+            "水": 4,
+            "土": 8
+          }
+        },
+        "bazdah": {
+          "name": "Taskin Bazdaḥ",
+          "value": 10,
+          "baseValues": {
+            "火": 2,
+            "風": 7,
+            "水": 4,
+            "土": 8
+          }
+        }
+      },
+      "physicalDots": {
+        "name": "幾何本質點數",
+        "value": 6,
+        "use": "卦象重量、物理質量、輕重緩急、空間或深淺判斷"
+      }
+    }
   },
   {
     "id": "fortuna-major",
@@ -1360,7 +1730,44 @@
         "title": "社會階層與職業",
         "text": "常見職業包括法官、法學家、宗教學者、高等學者，也可指音樂家、歌手、受人愛戴且有美好名聲的知識分子。"
       }
-    ]
+    ],
+    "binaryCode": "1100",
+    "numbers": {
+      "triangular": {
+        "name": "累加三角數值",
+        "value": 91,
+        "use": "時間長短、數量多寡、應期推算"
+      },
+      "elemental": {
+        "name": "元素開閉賦值法",
+        "rule": "只加總開放／單點元素。JSON dotCode 中 1 為單點，2 為雙點；binaryCode 中 0 為開放，1 為封閉。",
+        "abdah": {
+          "name": "Taskin Abdaḥ",
+          "value": 12,
+          "baseValues": {
+            "火": 1,
+            "風": 2,
+            "水": 4,
+            "土": 8
+          }
+        },
+        "bazdah": {
+          "name": "Taskin Bazdaḥ",
+          "value": 12,
+          "baseValues": {
+            "火": 2,
+            "風": 7,
+            "水": 4,
+            "土": 8
+          }
+        }
+      },
+      "physicalDots": {
+        "name": "幾何本質點數",
+        "value": 6,
+        "use": "卦象重量、物理質量、輕重緩急、空間或深淺判斷"
+      }
+    }
   },
   {
     "id": "via",
@@ -1485,7 +1892,44 @@
         "title": "社會階層與職業",
         "text": "常見職業包括舞者、表演者、信差、快遞員與郵差。器物上可指細長鐵器與微小精密物品。"
       }
-    ]
+    ],
+    "binaryCode": "0000",
+    "numbers": {
+      "triangular": {
+        "name": "累加三角數值",
+        "value": 78,
+        "use": "時間長短、數量多寡、應期推算"
+      },
+      "elemental": {
+        "name": "元素開閉賦值法",
+        "rule": "只加總開放／單點元素。JSON dotCode 中 1 為單點，2 為雙點；binaryCode 中 0 為開放，1 為封閉。",
+        "abdah": {
+          "name": "Taskin Abdaḥ",
+          "value": 15,
+          "baseValues": {
+            "火": 1,
+            "風": 2,
+            "水": 4,
+            "土": 8
+          }
+        },
+        "bazdah": {
+          "name": "Taskin Bazdaḥ",
+          "value": 21,
+          "baseValues": {
+            "火": 2,
+            "風": 7,
+            "水": 4,
+            "土": 8
+          }
+        }
+      },
+      "physicalDots": {
+        "name": "幾何本質點數",
+        "value": 4,
+        "use": "卦象重量、物理質量、輕重緩急、空間或深淺判斷"
+      }
+    }
   },
   {
     "id": "amissio",
@@ -1603,7 +2047,44 @@
         "title": "社會階層與職業",
         "text": "常見職業包括哲學家、思想家、書法家、抄寫員、油漆工、染布匠、小販與商人。"
       }
-    ]
+    ],
+    "binaryCode": "0101",
+    "numbers": {
+      "triangular": {
+        "name": "累加三角數值",
+        "value": 105,
+        "use": "時間長短、數量多寡、應期推算"
+      },
+      "elemental": {
+        "name": "元素開閉賦值法",
+        "rule": "只加總開放／單點元素。JSON dotCode 中 1 為單點，2 為雙點；binaryCode 中 0 為開放，1 為封閉。",
+        "abdah": {
+          "name": "Taskin Abdaḥ",
+          "value": 5,
+          "baseValues": {
+            "火": 1,
+            "風": 2,
+            "水": 4,
+            "土": 8
+          }
+        },
+        "bazdah": {
+          "name": "Taskin Bazdaḥ",
+          "value": 6,
+          "baseValues": {
+            "火": 2,
+            "風": 7,
+            "水": 4,
+            "土": 8
+          }
+        }
+      },
+      "physicalDots": {
+        "name": "幾何本質點數",
+        "value": 6,
+        "use": "卦象重量、物理質量、輕重緩急、空間或深淺判斷"
+      }
+    }
   },
   {
     "id": "populus",
@@ -1734,7 +2215,44 @@
         "title": "社會階層與職業",
         "text": "代表群眾、軍隊、議會或掌握實權的龐大群體。常見職業包括首領、總裁、工程師、占星家、天文學家、農夫，以及與科學、數學、曆法、書籍和管理相關的行業。"
       }
-    ]
+    ],
+    "binaryCode": "1111",
+    "numbers": {
+      "triangular": {
+        "name": "累加三角數值",
+        "value": 120,
+        "use": "時間長短、數量多寡、應期推算"
+      },
+      "elemental": {
+        "name": "元素開閉賦值法",
+        "rule": "只加總開放／單點元素。JSON dotCode 中 1 為單點，2 為雙點；binaryCode 中 0 為開放，1 為封閉。",
+        "abdah": {
+          "name": "Taskin Abdaḥ",
+          "value": 0,
+          "baseValues": {
+            "火": 1,
+            "風": 2,
+            "水": 4,
+            "土": 8
+          }
+        },
+        "bazdah": {
+          "name": "Taskin Bazdaḥ",
+          "value": 0,
+          "baseValues": {
+            "火": 2,
+            "風": 7,
+            "水": 4,
+            "土": 8
+          }
+        }
+      },
+      "physicalDots": {
+        "name": "幾何本質點數",
+        "value": 8,
+        "use": "卦象重量、物理質量、輕重緩急、空間或深淺判斷"
+      }
+    }
   },
   {
     "id": "acquisitio",
@@ -1854,7 +2372,44 @@
         "title": "社會階層與職業",
         "text": "常見職業包括商人、貨幣兌換商、錢莊老闆，以及替他人進行陸地貿易旅行的人。社會身份上常指富裕階層、掌管收付款項者，或與國王、權貴往來密切的人。"
       }
-    ]
+    ],
+    "binaryCode": "1010",
+    "numbers": {
+      "triangular": {
+        "name": "累加三角數值",
+        "value": 45,
+        "use": "時間長短、數量多寡、應期推算"
+      },
+      "elemental": {
+        "name": "元素開閉賦值法",
+        "rule": "只加總開放／單點元素。JSON dotCode 中 1 為單點，2 為雙點；binaryCode 中 0 為開放，1 為封閉。",
+        "abdah": {
+          "name": "Taskin Abdaḥ",
+          "value": 10,
+          "baseValues": {
+            "火": 1,
+            "風": 2,
+            "水": 4,
+            "土": 8
+          }
+        },
+        "bazdah": {
+          "name": "Taskin Bazdaḥ",
+          "value": 15,
+          "baseValues": {
+            "火": 2,
+            "風": 7,
+            "水": 4,
+            "土": 8
+          }
+        }
+      },
+      "physicalDots": {
+        "name": "幾何本質點數",
+        "value": 6,
+        "use": "卦象重量、物理質量、輕重緩急、空間或深淺判斷"
+      }
+    }
   },
   {
     "id": "tristitia",
@@ -1982,6 +2537,43 @@
         "title": "社會階層與職業",
         "text": "社會身份常指賤民、奴隸、被鄙視的邊緣人。常見職業包括皮革匠、鞣革者、建築泥水工、農夫、佃農、掘墓人與挖掘工。"
       }
-    ]
+    ],
+    "binaryCode": "1110",
+    "numbers": {
+      "triangular": {
+        "name": "累加三角數值",
+        "value": 36,
+        "use": "時間長短、數量多寡、應期推算"
+      },
+      "elemental": {
+        "name": "元素開閉賦值法",
+        "rule": "只加總開放／單點元素。JSON dotCode 中 1 為單點，2 為雙點；binaryCode 中 0 為開放，1 為封閉。",
+        "abdah": {
+          "name": "Taskin Abdaḥ",
+          "value": 8,
+          "baseValues": {
+            "火": 1,
+            "風": 2,
+            "水": 4,
+            "土": 8
+          }
+        },
+        "bazdah": {
+          "name": "Taskin Bazdaḥ",
+          "value": 8,
+          "baseValues": {
+            "火": 2,
+            "風": 7,
+            "水": 4,
+            "土": 8
+          }
+        }
+      },
+      "physicalDots": {
+        "name": "幾何本質點數",
+        "value": 7,
+        "use": "卦象重量、物理質量、輕重緩急、空間或深淺判斷"
+      }
+    }
   }
 ]

@@ -117,5 +117,42 @@
       "title": "社會階層與職業",
       "text": "常見職業包括清道夫、垃圾收集者、燒炭工。社會身份上常與奴隸、婢女、逃亡者、被指控犯罪者、小偷、盜竊行為或低層污穢事務相關。"
     }
-  ]
+  ],
+  "binaryCode": "0001",
+  "numbers": {
+    "triangular": {
+      "name": "累加三角數值",
+      "value": 21,
+      "use": "時間長短、數量多寡、應期推算"
+    },
+    "elemental": {
+      "name": "元素開閉賦值法",
+      "rule": "只加總開放／單點元素。JSON dotCode 中 1 為單點，2 為雙點；binaryCode 中 0 為開放，1 為封閉。",
+      "abdah": {
+        "name": "Taskin Abdaḥ",
+        "value": 7,
+        "baseValues": {
+          "火": 1,
+          "風": 2,
+          "水": 4,
+          "土": 8
+        }
+      },
+      "bazdah": {
+        "name": "Taskin Bazdaḥ",
+        "value": 13,
+        "baseValues": {
+          "火": 2,
+          "風": 7,
+          "水": 4,
+          "土": 8
+        }
+      }
+    },
+    "physicalDots": {
+      "name": "幾何本質點數",
+      "value": 5,
+      "use": "卦象重量、物理質量、輕重緩急、空間或深淺判斷"
+    }
+  }
 }

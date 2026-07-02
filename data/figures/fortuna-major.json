@@ -121,5 +121,42 @@
       "title": "社會階層與職業",
       "text": "常見職業包括法官、法學家、宗教學者、高等學者，也可指音樂家、歌手、受人愛戴且有美好名聲的知識分子。"
     }
-  ]
+  ],
+  "binaryCode": "1100",
+  "numbers": {
+    "triangular": {
+      "name": "累加三角數值",
+      "value": 91,
+      "use": "時間長短、數量多寡、應期推算"
+    },
+    "elemental": {
+      "name": "元素開閉賦值法",
+      "rule": "只加總開放／單點元素。JSON dotCode 中 1 為單點，2 為雙點；binaryCode 中 0 為開放，1 為封閉。",
+      "abdah": {
+        "name": "Taskin Abdaḥ",
+        "value": 12,
+        "baseValues": {
+          "火": 1,
+          "風": 2,
+          "水": 4,
+          "土": 8
+        }
+      },
+      "bazdah": {
+        "name": "Taskin Bazdaḥ",
+        "value": 12,
+        "baseValues": {
+          "火": 2,
+          "風": 7,
+          "水": 4,
+          "土": 8
+        }
+      }
+    },
+    "physicalDots": {
+      "name": "幾何本質點數",
+      "value": 6,
+      "use": "卦象重量、物理質量、輕重緩急、空間或深淺判斷"
+    }
+  }
 }
