@@ -1,0 +1,345 @@
+{
+  "id": "house-08",
+  "number": 8,
+  "roman": "Ⅷ",
+  "zhName": "死亡宮",
+  "latinName": "House of Death and Fear",
+  "houseClass": "daughter",
+  "image": "./assets/houses/house-08-street-web.png",
+  "identity": {
+    "coreTheme": "死亡、恐懼、遺產、債務、毒物與對手的財富。",
+    "oneLine": "第 8 宮處理生命終結、恐懼、債務、遺產與一切消失或地下化之物。",
+    "arabicTitles": [
+      {
+        "text": "بيت الخوف والموت",
+        "romanized": "Bayt al-Khawf wa-l-Mawt",
+        "zh": "恐懼與死亡之宮"
+      },
+      {
+        "text": "ذو القبر",
+        "romanized": "Dhu al-Qabr",
+        "zh": "墳墓之主"
+      }
+    ],
+    "indicTitles": [
+      {
+        "text": "अष्टम गृह",
+        "romanized": "Ashtam Griha",
+        "zh": "第八宮"
+      }
+    ]
+  },
+  "card": {
+    "keywords": [
+      "死亡",
+      "恐懼",
+      "遺產",
+      "債務",
+      "毒物",
+      "失去"
+    ],
+    "element": {
+      "primary": "土",
+      "variants": []
+    },
+    "direction": "西之南／西南",
+    "planet": "火星",
+    "zodiac": "天蠍座",
+    "structure": "第四女兒／續宮",
+    "body": [
+      "排泄與泌尿器官"
+    ],
+    "cityRole": "廢墟、墓地、地下室與荒蕪地帶"
+  },
+  "basic": {
+    "domains": [
+      "死亡與未知恐懼",
+      "悲傷與驚恐",
+      "遺產",
+      "債務",
+      "女性施捨",
+      "致命毒藥",
+      "戰鬥報復與創傷",
+      "分離",
+      "失去理智",
+      "生命最後幾年",
+      "隱藏秘密",
+      "奴隸解放",
+      "一切丟失與消亡之物"
+    ],
+    "roles": [
+      "小偷",
+      "遠方陌生人",
+      "殺人者／報復者",
+      "對手的助手",
+      "債權人／討債者"
+    ],
+    "practical": [
+      {
+        "category": "生死",
+        "title": "死因與危險",
+        "content": "依第 8 宮圖形元素判斷火災、發燒、墜落、中毒、水厄等死亡／危險類型。"
+      },
+      {
+        "category": "債務",
+        "title": "能否還清",
+        "content": "依第 8 宮圖形力量、元素與重複位置判斷債務清償難易。"
+      },
+      {
+        "category": "失物",
+        "title": "能否找回",
+        "content": "進入或固定吉象較有找回機會；出去或變動圖形偏向永久消失。"
+      }
+    ]
+  },
+  "medical": {
+    "bodyParts": [
+      "排泄與泌尿器官"
+    ],
+    "humors": [],
+    "pathology": [
+      "心臟衰弱",
+      "精神錯亂／自言自語",
+      "致命毒物反應",
+      "難治沉痾"
+    ]
+  },
+  "space": {
+    "microLocations": [
+      "廢墟與荒野",
+      "墓地",
+      "地下室／地窖",
+      "穢物之處",
+      "貧瘠土地"
+    ],
+    "direction": {
+      "primary": "西之南／西南",
+      "variants": []
+    },
+    "city": [
+      "荒蕪之地",
+      "精靈與巫術之地",
+      "豬牧場",
+      "恐怖野地"
+    ],
+    "geography": [
+      "鹹水海及其航行"
+    ]
+  },
+  "cosmology": {
+    "element": {
+      "primary": "土",
+      "variants": [
+        {
+          "value": "南方的土",
+          "school": "元素學派"
+        }
+      ],
+      "epithet": "沉重黑暗之土"
+    },
+    "zodiac": "天蠍座",
+    "planet": "火星",
+    "dignities": [
+      "月亮下降 3°",
+      "金星失勢",
+      "無星體擢升"
+    ],
+    "qualities": [
+      "沉重",
+      "黑暗"
+    ],
+    "time": [
+      "秋季第二個月",
+      "36 天",
+      "中等跨度 10 週"
+    ],
+    "mysticLetters": [
+      "B ب",
+      "L ل",
+      "W و",
+      "H ح"
+    ]
+  },
+  "structure": {
+    "lineage": "第四位女兒",
+    "modality": "續宮 Succedent",
+    "temporalRole": "對手力量的延伸與未來恐懼",
+    "generation": null
+  },
+  "relations": [
+    {
+      "with": "house-06",
+      "label": "疾病到死亡",
+      "rule": "第 6 宮疾病圖形移動／重複至第 8 宮時，死亡風險顯著上升。"
+    },
+    {
+      "with": "house-07",
+      "label": "對手的財帛",
+      "rule": "第 8 宮是第 7 宮的第 2 宮，代表對手／小偷的資源。"
+    }
+  ],
+  "rules": [
+    {
+      "type": "medical",
+      "title": "死亡宣判條件",
+      "summary": "疾病圖形由第 6 宮重複至第 8 宮、且凶象缺乏生命性調和時，屬高危訊號。"
+    },
+    {
+      "type": "derived",
+      "title": "小偷的錢財",
+      "summary": "第 8 宮可代表小偷的財物與贓物變現後資源。"
+    }
+  ],
+  "advanced": [],
+  "sourceRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "schemaVersion": "2.1.0",
+  "sourceNote": "依使用者提供之 16 宮深度與地理版圖報告結構化；原稿中的數字引用僅保留為局部編號，待完整書目表對照。",
+  "links": {
+    "backToHouses": "./houses.html",
+    "placements": "./placements.html?house=8",
+    "self": "./house.html?id=house-08",
+    "previous": "./house.html?id=house-07",
+    "next": "./house.html?id=house-09",
+    "street": "./houses.html#house-8"
+  },
+  "imageAlt": "第 8 宮場景圖：死亡宮",
+  "sourceStatus": {
+    "basis": "使用者提供之十六宮深度與地理版圖解析報告",
+    "citationState": "原稿僅保留局部數字引用，尚待完整書目表映射",
+    "editorialPolicy": "保留學派差異；不將變體硬合併為單一結論"
+  },
+  "classMeta": {
+    "zh": "女兒宮",
+    "en": "Daughter",
+    "group": "5–8",
+    "tone": "周邊市郊"
+  },
+  "cityLayer": {
+    "zone": "周邊市郊區",
+    "zoneId": "suburb",
+    "role": "墓地、荒涼處、城外荒野",
+    "structure": "墓地・荒野・邊界",
+    "direction": "城牆之外",
+    "traditionalSummary": "死亡、恐懼、遺產、危險、痛苦、憂慮與毒藥。",
+    "citySummary": "代表城中最荒涼的地方、墓地（المقابر），以及城牆之外的荒野。",
+    "locatingHint": "落第八宮時，指向荒廢、陰暗、危險、埋藏、墓地、廢棄角落或城外無人處。",
+    "tags": [
+      "墓地",
+      "荒野",
+      "隱蔽"
+    ],
+    "hotspot": {
+      "x": 88,
+      "y": 20,
+      "label": "墓地荒野"
+    },
+    "streetImage": "./assets/houses/house-08-street-web.png"
+  },
+  "core": {
+    "theme": "死亡、恐懼、遺產、債務、毒物與對手的財富。",
+    "oneLine": "第 8 宮處理生命終結、恐懼、債務、遺產與一切消失或地下化之物。",
+    "keywords": [
+      "死亡",
+      "恐懼",
+      "遺產",
+      "債務",
+      "毒物",
+      "失去"
+    ]
+  },
+  "mainCard": {
+    "element": "土",
+    "elementVariants": [],
+    "direction": "西之南／西南",
+    "planet": "火星",
+    "zodiac": "天蠍座",
+    "structure": "第四女兒／續宮",
+    "body": [
+      "排泄與泌尿器官"
+    ],
+    "cityRole": "廢墟、墓地、地下室與荒蕪地帶",
+    "oppositeHouse": "第 2 宮"
+  },
+  "queries": [
+    {
+      "id": "house-08-query-01",
+      "category": "生死",
+      "title": "死因與危險",
+      "interpretation": "依第 8 宮圖形元素判斷火災、發燒、墜落、中毒、水厄等死亡／危險類型。",
+      "engineReady": false
+    },
+    {
+      "id": "house-08-query-02",
+      "category": "債務",
+      "title": "能否還清",
+      "interpretation": "依第 8 宮圖形力量、元素與重複位置判斷債務清償難易。",
+      "engineReady": false
+    },
+    {
+      "id": "house-08-query-03",
+      "category": "失物",
+      "title": "能否找回",
+      "interpretation": "進入或固定吉象較有找回機會；出去或變動圖形偏向永久消失。",
+      "engineReady": false
+    }
+  ],
+  "variants": [
+    {
+      "field": "cosmology.element",
+      "label": "宇宙學元素",
+      "value": "南方的土",
+      "school": "元素學派"
+    }
+  ],
+  "display": {
+    "heroImage": "./assets/houses/house-08-street-web.png",
+    "showGenerationFirst": false,
+    "sectionOrder": [
+      "core",
+      "domains",
+      "roles",
+      "queries",
+      "medical",
+      "space",
+      "structure",
+      "relations",
+      "rules",
+      "researchAppendix"
+    ],
+    "editorialMode": "curated",
+    "hiddenByDefault": [
+      "identity.arabicTitles",
+      "identity.indicTitles",
+      "space.geography",
+      "cosmology.qualities",
+      "cosmology.time",
+      "cosmology.mysticLetters",
+      "variants",
+      "advanced",
+      "sourceRefs",
+      "sourceNote",
+      "sourceStatus"
+    ],
+    "researchAppendix": [
+      "traditionalNames",
+      "cosmologyDetails",
+      "geography",
+      "variants",
+      "advanced",
+      "sources"
+    ]
+  },
+  "engineRules": []
+}

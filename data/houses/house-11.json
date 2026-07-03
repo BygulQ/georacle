@@ -1,0 +1,368 @@
+{
+  "id": "house-11",
+  "number": 11,
+  "roman": "Ⅺ",
+  "zhName": "福德宮",
+  "latinName": "House of Hopes and Friends",
+  "houseClass": "niece",
+  "image": "./assets/houses/house-11-street-web.png",
+  "identity": {
+    "coreTheme": "希望、願望、朋友、幸運、未來目標與援助。",
+    "oneLine": "第 11 宮聚焦願望是否實現、朋友是否可靠，以及未來可得到的利益與恩助。",
+    "arabicTitles": [
+      {
+        "text": "بيت الرجا والامال",
+        "romanized": "Bayt al-Raja' wa-l-Amal",
+        "zh": "希望與期盼之宮"
+      },
+      {
+        "text": "بيت السعد والسعادة",
+        "romanized": "Bayt al-Sa'd wa-l-Sa'adah",
+        "zh": "幸運與幸福之宮"
+      },
+      {
+        "text": "بيت الاصدقاء",
+        "romanized": "Bayt al-Asdiqa'",
+        "zh": "朋友之宮"
+      },
+      {
+        "text": "سهم السعادة والغيب",
+        "romanized": "Sahm al-Sa'adah wa-l-Ghayb",
+        "zh": "幸福與未見之箭"
+      }
+    ],
+    "indicTitles": [
+      {
+        "text": "एकादश भाव",
+        "romanized": "Ekadash Bhav",
+        "zh": "第十一宮"
+      },
+      {
+        "text": "आशा भाव",
+        "romanized": "Asha Bhav",
+        "zh": "希望之宮"
+      }
+    ]
+  },
+  "card": {
+    "keywords": [
+      "希望",
+      "願望",
+      "朋友",
+      "幸運",
+      "利益",
+      "援助"
+    ],
+    "element": {
+      "primary": "水",
+      "variants": []
+    },
+    "direction": "北之北／海之海",
+    "planet": "土星",
+    "zodiac": "水瓶座",
+    "structure": "第三外甥女／續宮",
+    "body": [
+      "小腿／脛骨"
+    ],
+    "cityRole": "皇家寶庫、農莊、湧泉、軍事儲備與狩獵場"
+  },
+  "basic": {
+    "domains": [
+      "未來期望",
+      "友誼真偽",
+      "貿易利潤",
+      "官員復職",
+      "恩寵與高升",
+      "華服與裝飾",
+      "音樂娛樂",
+      "秘密婚姻／性關係",
+      "農村與農作物",
+      "失物歸還",
+      "伴侶喜悅",
+      "病後沐浴康復"
+    ],
+    "roles": [
+      "朋友",
+      "同伴／熟人",
+      "追隨者",
+      "部長／維齊爾",
+      "皇家財政官／庫管",
+      "皇家侍衛／內侍",
+      "法官兄弟與姻親",
+      "乳母／保姆",
+      "音樂家"
+    ],
+    "practical": [
+      {
+        "category": "願望",
+        "title": "願望能否實現",
+        "content": "吉利進入主迅速實現；吉利出去主延後實現；凶星主希望落空。"
+      },
+      {
+        "category": "友誼",
+        "title": "朋友是否真心",
+        "content": "第 11 宮吉相主真誠友誼；凶相可指隱藏敵人或偽君子。"
+      },
+      {
+        "category": "官職",
+        "title": "復職與希望",
+        "content": "與第 1、4 宮共同判斷被解職官員是否復職。"
+      }
+    ]
+  },
+  "medical": {
+    "bodyParts": [
+      "小腿／脛骨"
+    ],
+    "humors": [
+      "體液流動"
+    ],
+    "pathology": [
+      "下肢病痛"
+    ]
+  },
+  "space": {
+    "microLocations": [
+      "華麗建築與裝飾之處",
+      "國王寶庫",
+      "農莊",
+      "湧泉",
+      "水資源豐沛之地"
+    ],
+    "direction": {
+      "primary": "北之北／海之海",
+      "variants": []
+    },
+    "city": [
+      "軍事儲備區",
+      "狩獵場",
+      "皇家資金存放處"
+    ],
+    "geography": [
+      "埃及尼羅河",
+      "阿爾及利亞",
+      "安達盧斯",
+      "伊夫起亞／突尼斯",
+      "西馬格里布群島與山脈"
+    ]
+  },
+  "cosmology": {
+    "element": {
+      "primary": "水",
+      "variants": [
+        {
+          "value": "北方的水",
+          "school": "北非元素學派"
+        }
+      ],
+      "epithet": "變動水象"
+    },
+    "zodiac": "水瓶座",
+    "planet": "土星",
+    "dignities": [
+      "木星喜樂",
+      "太陽失勢",
+      "無擢升／下降"
+    ],
+    "qualities": [
+      "變動水象（文獻分類）"
+    ],
+    "time": [
+      "16 天（或一半）",
+      "中等跨度 6 個月"
+    ],
+    "mysticLetters": [
+      "Waw و",
+      "Sin س",
+      "Ha ح",
+      "Lam ل"
+    ]
+  },
+  "structure": {
+    "lineage": "第三位外甥女／孫女",
+    "modality": "續宮 Succedent",
+    "temporalRole": "承接權力結果並轉化為利益與希望",
+    "generation": null
+  },
+  "relations": [
+    {
+      "with": "house-01",
+      "label": "願望共振",
+      "rule": "第 1 宮圖形落第 11 宮，或兩宮形成吉利聯繫，可提示願望達成。"
+    },
+    {
+      "with": "house-12",
+      "label": "對手內外",
+      "rule": "第 11 宮是被問者內在，第 12 宮是其外在表現。"
+    }
+  ],
+  "rules": [
+    {
+      "type": "intent",
+      "title": "被問者的內在心智",
+      "summary": "Damir 提取中，第 11 宮可作被問者／對手內在隱藏心智。"
+    },
+    {
+      "type": "derived",
+      "title": "衍生宮位",
+      "summary": "可代表事業利潤、妻子的喜悅、孩子的對手或伴侶等。"
+    }
+  ],
+  "advanced": [],
+  "sourceRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "schemaVersion": "2.1.0",
+  "sourceNote": "依使用者提供之 16 宮深度與地理版圖報告結構化；原稿中的數字引用僅保留為局部編號，待完整書目表對照。",
+  "links": {
+    "backToHouses": "./houses.html",
+    "placements": "./placements.html?house=11",
+    "self": "./house.html?id=house-11",
+    "previous": "./house.html?id=house-10",
+    "next": "./house.html?id=house-12",
+    "street": "./houses.html#house-11"
+  },
+  "imageAlt": "第 11 宮場景圖：福德宮",
+  "sourceStatus": {
+    "basis": "使用者提供之十六宮深度與地理版圖解析報告",
+    "citationState": "原稿僅保留局部數字引用，尚待完整書目表映射",
+    "editorialPolicy": "保留學派差異；不將變體硬合併為單一結論"
+  },
+  "classMeta": {
+    "zh": "外甥女／孫女宮",
+    "en": "Niece",
+    "group": "9–12",
+    "tone": "軍事行政"
+  },
+  "cityLayer": {
+    "zone": "軍事行政區",
+    "zoneId": "admin",
+    "role": "宰相、宮廷侍衛、地方行政首長宅邸",
+    "structure": "最高行政部・支援者",
+    "direction": "行政住宅區",
+    "traditionalSummary": "朋友、希望、願望、幸運、支持者、貴人與喜悅場所。",
+    "citySummary": "代表宰相、宮廷侍衛與地方行政首長的宅邸（بيت الوزارة والنياب للسلطنه），即城市的最高行政部。",
+    "locatingHint": "落第十一宮時，往貴人、官僚支援、行政宅邸、朋友所在處或能提供協助的人事物判斷。",
+    "tags": [
+      "行政",
+      "貴人",
+      "官邸"
+    ],
+    "hotspot": {
+      "x": 73,
+      "y": 39,
+      "label": "宰相官邸"
+    },
+    "streetImage": "./assets/houses/house-11-street-web.png"
+  },
+  "core": {
+    "theme": "希望、願望、朋友、幸運、未來目標與援助。",
+    "oneLine": "第 11 宮聚焦願望是否實現、朋友是否可靠，以及未來可得到的利益與恩助。",
+    "keywords": [
+      "希望",
+      "願望",
+      "朋友",
+      "幸運",
+      "利益",
+      "援助"
+    ]
+  },
+  "mainCard": {
+    "element": "水",
+    "elementVariants": [],
+    "direction": "北之北／海之海",
+    "planet": "土星",
+    "zodiac": "水瓶座",
+    "structure": "第三外甥女／續宮",
+    "body": [
+      "小腿／脛骨"
+    ],
+    "cityRole": "皇家寶庫、農莊、湧泉、軍事儲備與狩獵場",
+    "oppositeHouse": "第 5 宮"
+  },
+  "queries": [
+    {
+      "id": "house-11-query-01",
+      "category": "願望",
+      "title": "願望能否實現",
+      "interpretation": "吉利進入主迅速實現；吉利出去主延後實現；凶星主希望落空。",
+      "engineReady": false
+    },
+    {
+      "id": "house-11-query-02",
+      "category": "友誼",
+      "title": "朋友是否真心",
+      "interpretation": "第 11 宮吉相主真誠友誼；凶相可指隱藏敵人或偽君子。",
+      "engineReady": false
+    },
+    {
+      "id": "house-11-query-03",
+      "category": "官職",
+      "title": "復職與希望",
+      "interpretation": "與第 1、4 宮共同判斷被解職官員是否復職。",
+      "engineReady": false
+    }
+  ],
+  "variants": [
+    {
+      "field": "cosmology.element",
+      "label": "宇宙學元素",
+      "value": "北方的水",
+      "school": "北非元素學派"
+    }
+  ],
+  "display": {
+    "heroImage": "./assets/houses/house-11-street-web.png",
+    "showGenerationFirst": false,
+    "sectionOrder": [
+      "core",
+      "domains",
+      "roles",
+      "queries",
+      "medical",
+      "space",
+      "structure",
+      "relations",
+      "rules",
+      "researchAppendix"
+    ],
+    "editorialMode": "curated",
+    "hiddenByDefault": [
+      "identity.arabicTitles",
+      "identity.indicTitles",
+      "space.geography",
+      "cosmology.qualities",
+      "cosmology.time",
+      "cosmology.mysticLetters",
+      "variants",
+      "advanced",
+      "sourceRefs",
+      "sourceNote",
+      "sourceStatus"
+    ],
+    "researchAppendix": [
+      "traditionalNames",
+      "cosmologyDetails",
+      "geography",
+      "variants",
+      "advanced",
+      "sources"
+    ]
+  },
+  "engineRules": []
+}

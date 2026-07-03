@@ -1,0 +1,351 @@
+{
+  "id": "house-06",
+  "number": 6,
+  "roman": "Ⅵ",
+  "zhName": "疾厄宮",
+  "latinName": "House of Illness and Servants",
+  "houseClass": "daughter",
+  "image": "./assets/houses/house-06-street-web.png",
+  "identity": {
+    "coreTheme": "疾病、痛苦、僕役、小型動物、失物、巫術與衰退。",
+    "oneLine": "第 6 宮是疾病本身與病因的重要指標，也掌管僕役、失物與隱藏祕密。",
+    "arabicTitles": [
+      {
+        "text": "بيت السقم",
+        "romanized": "Bayt al-Suqm",
+        "zh": "疾病之宮"
+      },
+      {
+        "text": "بيت الامراض",
+        "romanized": "Bayt al-Amrad",
+        "zh": "疾病與苦痛之宮"
+      }
+    ],
+    "indicTitles": [
+      {
+        "text": "षष्ठ गृह",
+        "romanized": "Shashtha Griha",
+        "zh": "第六宮"
+      }
+    ]
+  },
+  "card": {
+    "keywords": [
+      "疾病",
+      "病因",
+      "僕役",
+      "小型動物",
+      "失物",
+      "巫術"
+    ],
+    "element": {
+      "primary": "風",
+      "variants": []
+    },
+    "direction": "西之西",
+    "planet": "水星",
+    "zodiac": "處女座",
+    "structure": "第二女兒／果宮／衰退宮",
+    "body": [
+      "腹部",
+      "心智／心臟",
+      "腸道"
+    ],
+    "cityRole": "公共澡堂、箱匣製造區、猶太與基督徒居住區、廚師／餐飲區"
+  },
+  "basic": {
+    "domains": [
+      "疾病與慢性病痛",
+      "火傷",
+      "監禁與囚犯",
+      "離婚與悲傷",
+      "偷竊與誣告",
+      "謊言與流言",
+      "走失動物與失物",
+      "黑魔術與巫術",
+      "過去已發生之事"
+    ],
+    "roles": [
+      "奴隸",
+      "僕役與隨從",
+      "婢女",
+      "太監",
+      "小偷",
+      "囚犯",
+      "低種姓／底層勞動者",
+      "小型家畜與寵物"
+    ],
+    "practical": [
+      {
+        "category": "疾病",
+        "title": "病人能否康復",
+        "content": "依第 6 宮圖形吉凶、進出、固定與變動性判斷病勢離開、反覆或緩慢康復。"
+      },
+      {
+        "category": "尋物",
+        "title": "逃亡者／失物",
+        "content": "結合第 6 與第 12 宮及基柱宮聯繫判斷仍在城內或已出城。"
+      },
+      {
+        "category": "巫術",
+        "title": "邪靈與惡咒",
+        "content": "可依第 6 宮元素與重複位置判斷邪靈干擾或巫術可能性。"
+      }
+    ]
+  },
+  "medical": {
+    "bodyParts": [
+      "腹部",
+      "心智／心臟",
+      "腸道"
+    ],
+    "humors": [
+      "火→黃膽汁",
+      "風→血液",
+      "水→黏液／痰",
+      "土→黑膽汁"
+    ],
+    "pathology": [
+      "發燒與發炎",
+      "便祕與脹氣",
+      "寒症",
+      "慢性沉滯"
+    ]
+  },
+  "space": {
+    "microLocations": [
+      "家中廚房",
+      "小型監獄",
+      "巫術施展之處",
+      "獸醫或農夫住所"
+    ],
+    "direction": {
+      "primary": "西之西",
+      "variants": []
+    },
+    "city": [
+      "公共澡堂",
+      "製造箱匣區",
+      "猶太與基督徒居住區",
+      "廚師／餐飲區"
+    ],
+    "geography": [
+      "西方領土"
+    ]
+  },
+  "cosmology": {
+    "element": {
+      "primary": "風",
+      "variants": [],
+      "epithet": "西方的風"
+    },
+    "zodiac": "處女座",
+    "planet": "水星",
+    "dignities": [
+      "木星失勢",
+      "火星喜樂",
+      "金星下降",
+      "水星 15° 耀升"
+    ],
+    "qualities": [],
+    "time": [],
+    "mysticLetters": []
+  },
+  "structure": {
+    "lineage": "第二位女兒",
+    "modality": "果宮／衰退宮 Cadent",
+    "temporalRole": "過去與力量流失",
+    "generation": null
+  },
+  "relations": [
+    {
+      "with": "house-01",
+      "label": "命宮的祕密",
+      "rule": "每一個第六宮都是對應宮位的祕密；第 6 宮是第 1 宮的隱藏心思。"
+    },
+    {
+      "with": "house-08",
+      "label": "疾病到死亡",
+      "rule": "第 6 宮圖形移動／重複至第 8 宮，病情危險訊號上升。"
+    }
+  ],
+  "rules": [
+    {
+      "type": "medical",
+      "title": "醫療動態矩陣",
+      "summary": "問病時：1=病人、4=藥物、6=疾病／病因、7=醫生、8=死亡、10=飲食／治療輔助。"
+    },
+    {
+      "type": "theft",
+      "title": "被偷物本身",
+      "summary": "失竊占卜中第 6 宮代表被偷走的東西本身；與第 1、2、7 宮重複可觸發監守自盜／自藏檢查。"
+    }
+  ],
+  "advanced": [
+    {
+      "title": "印度特殊指涉",
+      "content": "黑魔術、殺戮與控制咒語、非法性行為、邪靈附身、被拋棄者等。"
+    }
+  ],
+  "sourceRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25
+  ],
+  "schemaVersion": "2.1.0",
+  "sourceNote": "依使用者提供之 16 宮深度與地理版圖報告結構化；原稿中的數字引用僅保留為局部編號，待完整書目表對照。",
+  "links": {
+    "backToHouses": "./houses.html",
+    "placements": "./placements.html?house=6",
+    "self": "./house.html?id=house-06",
+    "previous": "./house.html?id=house-05",
+    "next": "./house.html?id=house-07",
+    "street": "./houses.html#house-6"
+  },
+  "imageAlt": "第 6 宮場景圖：疾厄宮",
+  "sourceStatus": {
+    "basis": "使用者提供之十六宮深度與地理版圖解析報告",
+    "citationState": "原稿僅保留局部數字引用，尚待完整書目表映射",
+    "editorialPolicy": "保留學派差異；不將變體硬合併為單一結論"
+  },
+  "classMeta": {
+    "zh": "女兒宮",
+    "en": "Daughter",
+    "group": "5–8",
+    "tone": "周邊市郊"
+  },
+  "cityLayer": {
+    "zone": "周邊市郊區",
+    "zoneId": "suburb",
+    "role": "浴場、金庫、少數宗教街區、廚師街",
+    "structure": "特殊生活區・消耗區",
+    "direction": "市郊生活邊界",
+    "traditionalSummary": "疾病、僕人、下屬、小動物、消耗、恐懼與憂慮。",
+    "citySummary": "代表羅馬浴場、金庫、猶太人與基督教徒等少數宗教街區，以及廚師街。",
+    "locatingHint": "若失物落第六宮，可往浴場、廚房、食物處理區、金庫、服務人員或少數族群街區附近尋找。",
+    "tags": [
+      "浴場",
+      "金庫",
+      "少數街區",
+      "尋物"
+    ],
+    "hotspot": {
+      "x": 69,
+      "y": 62,
+      "label": "浴場金庫"
+    },
+    "streetImage": "./assets/houses/house-06-street-web.png"
+  },
+  "core": {
+    "theme": "疾病、痛苦、僕役、小型動物、失物、巫術與衰退。",
+    "oneLine": "第 6 宮是疾病本身與病因的重要指標，也掌管僕役、失物與隱藏祕密。",
+    "keywords": [
+      "疾病",
+      "病因",
+      "僕役",
+      "小型動物",
+      "失物",
+      "巫術"
+    ]
+  },
+  "mainCard": {
+    "element": "風",
+    "elementVariants": [],
+    "direction": "西之西",
+    "planet": "水星",
+    "zodiac": "處女座",
+    "structure": "第二女兒／果宮／衰退宮",
+    "body": [
+      "腹部",
+      "心智／心臟",
+      "腸道"
+    ],
+    "cityRole": "公共澡堂、箱匣製造區、猶太與基督徒居住區、廚師／餐飲區",
+    "oppositeHouse": "第 12 宮"
+  },
+  "queries": [
+    {
+      "id": "house-06-query-01",
+      "category": "疾病",
+      "title": "病人能否康復",
+      "interpretation": "依第 6 宮圖形吉凶、進出、固定與變動性判斷病勢離開、反覆或緩慢康復。",
+      "engineReady": false
+    },
+    {
+      "id": "house-06-query-02",
+      "category": "尋物",
+      "title": "逃亡者／失物",
+      "interpretation": "結合第 6 與第 12 宮及基柱宮聯繫判斷仍在城內或已出城。",
+      "engineReady": false
+    },
+    {
+      "id": "house-06-query-03",
+      "category": "巫術",
+      "title": "邪靈與惡咒",
+      "interpretation": "可依第 6 宮元素與重複位置判斷邪靈干擾或巫術可能性。",
+      "engineReady": false
+    }
+  ],
+  "variants": [],
+  "display": {
+    "heroImage": "./assets/houses/house-06-street-web.png",
+    "showGenerationFirst": false,
+    "sectionOrder": [
+      "core",
+      "domains",
+      "roles",
+      "queries",
+      "medical",
+      "space",
+      "structure",
+      "relations",
+      "rules",
+      "researchAppendix"
+    ],
+    "editorialMode": "curated",
+    "hiddenByDefault": [
+      "identity.arabicTitles",
+      "identity.indicTitles",
+      "space.geography",
+      "cosmology.qualities",
+      "cosmology.time",
+      "cosmology.mysticLetters",
+      "variants",
+      "advanced",
+      "sourceRefs",
+      "sourceNote",
+      "sourceStatus"
+    ],
+    "researchAppendix": [
+      "traditionalNames",
+      "cosmologyDetails",
+      "geography",
+      "variants",
+      "advanced",
+      "sources"
+    ]
+  },
+  "engineRules": []
+}

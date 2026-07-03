@@ -1,0 +1,358 @@
+{
+  "id": "house-05",
+  "number": 5,
+  "roman": "Ⅴ",
+  "zhName": "子女宮",
+  "latinName": "House of Children and Joys",
+  "houseClass": "daughter",
+  "image": "./assets/houses/house-05-street-web.png",
+  "identity": {
+    "coreTheme": "子女、喜悅、禮物、戀愛、使者與創造延續。",
+    "oneLine": "第 5 宮掌管繁衍、戀愛、歡樂、禮物與生命向未來的延續。",
+    "arabicTitles": [
+      {
+        "text": "بيت الأولاد",
+        "romanized": "Bayt al-Awlad",
+        "zh": "子女之宮"
+      },
+      {
+        "text": "بيت الأفراح",
+        "romanized": "Bayt al-Afrah",
+        "zh": "喜悅與歡慶之宮"
+      }
+    ],
+    "indicTitles": [
+      {
+        "text": "पञ्चम गृह",
+        "romanized": "Pancham Griha",
+        "zh": "第五宮"
+      },
+      {
+        "text": "सन्तान भाव",
+        "romanized": "Santan Bhav",
+        "zh": "子女與繁衍宮"
+      }
+    ]
+  },
+  "card": {
+    "keywords": [
+      "子女",
+      "懷孕",
+      "戀愛",
+      "歡樂",
+      "禮物",
+      "使者"
+    ],
+    "element": {
+      "primary": "火",
+      "variants": []
+    },
+    "direction": "西之東",
+    "planet": "太陽",
+    "zodiac": "獅子座",
+    "structure": "第一女兒／續宮／未來延續",
+    "body": [
+      "心臟",
+      "胃部／腹部深處"
+    ],
+    "cityRole": "高塔、軍事堡壘、娛樂與慶典宮殿區"
+  },
+  "basic": {
+    "domains": [
+      "子女與懷孕",
+      "戀愛與激情",
+      "宴會與婚禮",
+      "服飾與裝扮",
+      "音樂舞蹈與娛樂",
+      "禮物與驚喜",
+      "信件與使者",
+      "毒物與麻醉品",
+      "賭博／彩券",
+      "死後名聲"
+    ],
+    "roles": [
+      "子女",
+      "孕婦",
+      "戀人／被愛慕者",
+      "使者／郵差",
+      "軍隊與士兵",
+      "叛亂者"
+    ],
+    "practical": [
+      {
+        "category": "生育",
+        "title": "子嗣與分娩",
+        "content": "判斷是否有子女、胎兒性別、分娩難易與母子安全。"
+      },
+      {
+        "category": "戀愛",
+        "title": "愛慕與消息",
+        "content": "判斷愛人是否思念、使者是否帶回好消息。"
+      },
+      {
+        "category": "毒物",
+        "title": "毒藥與麻醉物",
+        "content": "可依第五宮圖形元素判斷毒物或麻醉品性質。"
+      }
+    ]
+  },
+  "medical": {
+    "bodyParts": [
+      "心臟",
+      "胃部／腹部深處"
+    ],
+    "humors": [],
+    "pathology": [
+      "心臟疾病",
+      "心理／精神異常",
+      "飲食或毒物引起的內臟失調"
+    ]
+  },
+  "space": {
+    "microLocations": [
+      "高山",
+      "高聳堡壘與建築",
+      "宴席歡樂場所",
+      "存放禮物與華服的房間"
+    ],
+    "direction": {
+      "primary": "西之東",
+      "variants": []
+    },
+    "city": [
+      "高聳防禦塔樓",
+      "軍事堡壘",
+      "娛樂／慶典宮殿區"
+    ],
+    "geography": [
+      "西方領土的東部邊境地帶",
+      "乾燥溫暖氣候區"
+    ]
+  },
+  "cosmology": {
+    "element": {
+      "primary": "火",
+      "variants": [],
+      "epithet": "女兒宮中的明亮火性"
+    },
+    "zodiac": "獅子座",
+    "planet": "太陽",
+    "dignities": [
+      "金星喜樂",
+      "土星失勢"
+    ],
+    "qualities": [
+      "明亮",
+      "溫暖",
+      "向外散發",
+      "陽性"
+    ],
+    "time": [],
+    "mysticLetters": [
+      "Waw و",
+      "Kaf ك",
+      "Ta ت"
+    ]
+  },
+  "structure": {
+    "lineage": "第一位女兒",
+    "modality": "續宮 Succedent",
+    "temporalRole": "未來與延續",
+    "generation": null
+  },
+  "relations": [
+    {
+      "with": "house-01",
+      "label": "愛慕者之心",
+      "rule": "戀愛判斷中，第 1 與第 5 宮可代表求問者／愛慕者的心。"
+    },
+    {
+      "with": "house-03",
+      "label": "被愛者之心",
+      "rule": "可與第 3、11 宮代表的被愛者心意對照。"
+    },
+    {
+      "with": "house-11",
+      "label": "被愛者之心",
+      "rule": "與第 3 宮共同觀察被愛者心意。"
+    }
+  ],
+  "rules": [
+    {
+      "type": "pregnancy",
+      "title": "懷孕月數推演",
+      "summary": "可提取第 5、6、11 宮的開啟單點，轉換數值後除以 9 取餘數推算懷孕月數。"
+    },
+    {
+      "type": "message",
+      "title": "使者消息真偽",
+      "summary": "第五宮吉利固定／進入且在基柱宮重複，消息較可信；落凶宮或衰退宮則偏虛假。"
+    }
+  ],
+  "advanced": [
+    {
+      "title": "特殊世俗指涉",
+      "content": "國王的敵人、父親的財產、伴侶財源的阻礙等作進階顯示。"
+    }
+  ],
+  "sourceRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26
+  ],
+  "schemaVersion": "2.1.0",
+  "sourceNote": "依使用者提供之 16 宮深度與地理版圖報告結構化；原稿中的數字引用僅保留為局部編號，待完整書目表對照。",
+  "links": {
+    "backToHouses": "./houses.html",
+    "placements": "./placements.html?house=5",
+    "self": "./house.html?id=house-05",
+    "previous": "./house.html?id=house-04",
+    "next": "./house.html?id=house-06",
+    "street": "./houses.html#house-5"
+  },
+  "imageAlt": "第 5 宮場景圖：子女宮",
+  "sourceStatus": {
+    "basis": "使用者提供之十六宮深度與地理版圖解析報告",
+    "citationState": "原稿僅保留局部數字引用，尚待完整書目表映射",
+    "editorialPolicy": "保留學派差異；不將變體硬合併為單一結論"
+  },
+  "classMeta": {
+    "zh": "女兒宮",
+    "en": "Daughter",
+    "group": "5–8",
+    "tone": "周邊市郊"
+  },
+  "cityLayer": {
+    "zone": "周邊市郊區",
+    "zoneId": "suburb",
+    "role": "布料與紡織商市場",
+    "structure": "市場・守衛部隊",
+    "direction": "城牆邊緣生活區",
+    "traditionalSummary": "戀愛、子女、歡樂、宴會、禮物、衣物與懷孕。",
+    "citySummary": "代表布料與紡織商市場（سوق القماش والبزازين），同時屬於城市守衛部隊的配置點之一。",
+    "locatingHint": "落第五宮時，可往布料、衣物、紡織、娛樂場所、孩童或歡樂聚會之處尋找。",
+    "tags": [
+      "市場",
+      "布料",
+      "守衛"
+    ],
+    "hotspot": {
+      "x": 33,
+      "y": 66,
+      "label": "紡織市場"
+    },
+    "streetImage": "./assets/houses/house-05-street-web.png"
+  },
+  "core": {
+    "theme": "子女、喜悅、禮物、戀愛、使者與創造延續。",
+    "oneLine": "第 5 宮掌管繁衍、戀愛、歡樂、禮物與生命向未來的延續。",
+    "keywords": [
+      "子女",
+      "懷孕",
+      "戀愛",
+      "歡樂",
+      "禮物",
+      "使者"
+    ]
+  },
+  "mainCard": {
+    "element": "火",
+    "elementVariants": [],
+    "direction": "西之東",
+    "planet": "太陽",
+    "zodiac": "獅子座",
+    "structure": "第一女兒／續宮／未來延續",
+    "body": [
+      "心臟",
+      "胃部／腹部深處"
+    ],
+    "cityRole": "高塔、軍事堡壘、娛樂與慶典宮殿區",
+    "oppositeHouse": "第 11 宮"
+  },
+  "queries": [
+    {
+      "id": "house-05-query-01",
+      "category": "生育",
+      "title": "子嗣與分娩",
+      "interpretation": "判斷是否有子女、胎兒性別、分娩難易與母子安全。",
+      "engineReady": false
+    },
+    {
+      "id": "house-05-query-02",
+      "category": "戀愛",
+      "title": "愛慕與消息",
+      "interpretation": "判斷愛人是否思念、使者是否帶回好消息。",
+      "engineReady": false
+    },
+    {
+      "id": "house-05-query-03",
+      "category": "毒物",
+      "title": "毒藥與麻醉物",
+      "interpretation": "可依第五宮圖形元素判斷毒物或麻醉品性質。",
+      "engineReady": false
+    }
+  ],
+  "variants": [],
+  "display": {
+    "heroImage": "./assets/houses/house-05-street-web.png",
+    "showGenerationFirst": false,
+    "sectionOrder": [
+      "core",
+      "domains",
+      "roles",
+      "queries",
+      "medical",
+      "space",
+      "structure",
+      "relations",
+      "rules",
+      "researchAppendix"
+    ],
+    "editorialMode": "curated",
+    "hiddenByDefault": [
+      "identity.arabicTitles",
+      "identity.indicTitles",
+      "space.geography",
+      "cosmology.qualities",
+      "cosmology.time",
+      "cosmology.mysticLetters",
+      "variants",
+      "advanced",
+      "sourceRefs",
+      "sourceNote",
+      "sourceStatus"
+    ],
+    "researchAppendix": [
+      "traditionalNames",
+      "cosmologyDetails",
+      "geography",
+      "variants",
+      "advanced",
+      "sources"
+    ]
+  },
+  "engineRules": []
+}

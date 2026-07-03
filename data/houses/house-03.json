@@ -1,0 +1,353 @@
+{
+  "id": "house-03",
+  "number": 3,
+  "roman": "Ⅲ",
+  "zhName": "兄弟宮",
+  "latinName": "House of Siblings",
+  "houseClass": "mother",
+  "image": "./assets/houses/house-03-street-web.png",
+  "identity": {
+    "coreTheme": "手足、鄰里、交流、短途旅行、消息與理解力。",
+    "oneLine": "第 3 宮描述近距離的人際網絡、消息傳遞與短程移動。",
+    "arabicTitles": [
+      {
+        "text": "بيت الأخوة",
+        "romanized": "Bayt al-Ikhwa",
+        "zh": "兄弟之宮"
+      },
+      {
+        "text": "بيت الأخاء",
+        "romanized": "Bayt al-Ikha'",
+        "zh": "兄弟情誼之宮"
+      }
+    ],
+    "indicTitles": [
+      {
+        "text": "तृतीय गृह",
+        "romanized": "Tritiya Griha",
+        "zh": "第三宮"
+      }
+    ]
+  },
+  "card": {
+    "keywords": [
+      "兄弟姊妹",
+      "鄰里",
+      "短途旅行",
+      "消息",
+      "理解",
+      "交流"
+    ],
+    "element": {
+      "primary": "水",
+      "variants": []
+    },
+    "direction": "東之北／東之海",
+    "planet": "水星",
+    "zodiac": "雙子座",
+    "structure": "第三母親／果宮／衰退宮",
+    "body": [
+      "肩膀",
+      "上臂",
+      "雙手"
+    ],
+    "cityRole": "城市街道、大街與近郊移動路徑"
+  },
+  "basic": {
+    "domains": [
+      "兄弟姊妹與姻親",
+      "朋友與鄰里",
+      "短途旅行",
+      "信件消息與使者",
+      "夢境與解夢",
+      "學習與理解",
+      "房屋變更",
+      "基礎工藝技能"
+    ],
+    "roles": [
+      "兄弟姊妹",
+      "姻親",
+      "親戚",
+      "朋友",
+      "鄰居",
+      "使者",
+      "間諜",
+      "乳母"
+    ],
+    "practical": [
+      {
+        "category": "關係",
+        "title": "手足真心與否",
+        "content": "依第三宮圖形吉凶與進出性判斷兄弟是否真誠。"
+      },
+      {
+        "category": "學習",
+        "title": "技能能否學會",
+        "content": "結合第一宮與第三宮聯繫判斷工藝與基礎技能學習。"
+      },
+      {
+        "category": "夢境",
+        "title": "白日夢境",
+        "content": "第三宮可判斷白日夢境的吉凶。"
+      },
+      {
+        "category": "旅行",
+        "title": "短途移動",
+        "content": "第三宮及其動態吉利，短途旅行較有利；凶則主損失或困難。"
+      }
+    ]
+  },
+  "medical": {
+    "bodyParts": [
+      "肩膀",
+      "上臂",
+      "雙手"
+    ],
+    "humors": [
+      "痰液／黏液"
+    ],
+    "pathology": [
+      "痰液失調",
+      "身體部位抽動"
+    ]
+  },
+  "space": {
+    "microLocations": [
+      "學校／宿舍",
+      "寺廟／神廟",
+      "清真寺",
+      "競技／遊戲場所"
+    ],
+    "direction": {
+      "primary": "東之北／東之海",
+      "variants": []
+    },
+    "city": [
+      "街道",
+      "大街",
+      "城鎮周邊近郊路徑"
+    ],
+    "geography": []
+  },
+  "cosmology": {
+    "element": {
+      "primary": "水",
+      "variants": [
+        {
+          "value": "北方的水／陰性",
+          "school": "元素學派"
+        }
+      ],
+      "epithet": "水中之水"
+    },
+    "zodiac": "雙子座",
+    "planet": "水星",
+    "dignities": [
+      "北交點在雙子座 3° 耀升",
+      "木星失勢",
+      "月亮喜樂",
+      "太陽遠地點"
+    ],
+    "qualities": [],
+    "time": [
+      "春季最後一個月"
+    ],
+    "mysticLetters": [
+      "Kaf ك",
+      "Ra ر",
+      "Kha خ"
+    ]
+  },
+  "structure": {
+    "lineage": "第三位母親",
+    "modality": "果宮／衰退宮 Cadent",
+    "temporalRole": "過去／衰退",
+    "generation": null
+  },
+  "relations": [
+    {
+      "with": "house-01",
+      "label": "命宮見證",
+      "rule": "第三宮被稱為命宮的見證者，提供支持與印證。"
+    },
+    {
+      "with": "house-09",
+      "label": "旅行共振",
+      "rule": "第三宮與第九宮共享旅行、信仰與知識傳播主題。"
+    }
+  ],
+  "rules": [
+    {
+      "type": "absence",
+      "title": "是否在家",
+      "summary": "若代表該人的圖形在第 7、9 或 13 宮重複，可提示該人已外出或離家。"
+    }
+  ],
+  "advanced": [],
+  "sourceRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "schemaVersion": "2.1.0",
+  "sourceNote": "依使用者提供之 16 宮深度與地理版圖報告結構化；原稿中的數字引用僅保留為局部編號，待完整書目表對照。",
+  "links": {
+    "backToHouses": "./houses.html",
+    "placements": "./placements.html?house=3",
+    "self": "./house.html?id=house-03",
+    "previous": "./house.html?id=house-02",
+    "next": "./house.html?id=house-04",
+    "street": "./houses.html#house-3"
+  },
+  "imageAlt": "第 3 宮場景圖：兄弟宮",
+  "sourceStatus": {
+    "basis": "使用者提供之十六宮深度與地理版圖解析報告",
+    "citationState": "原稿僅保留局部數字引用，尚待完整書目表映射",
+    "editorialPolicy": "保留學派差異；不將變體硬合併為單一結論"
+  },
+  "classMeta": {
+    "zh": "母親宮",
+    "en": "Mother",
+    "group": "1–4",
+    "tone": "內部核心"
+  },
+  "cityLayer": {
+    "zone": "內部核心區",
+    "zoneId": "inner",
+    "role": "普通市集與消息街坊",
+    "structure": "街坊・買賣・消息流通",
+    "direction": "城內日常商業街區",
+    "traditionalSummary": "消息、兄弟姊妹、親戚、鄰居、短途旅行、信件與夢境。",
+    "citySummary": "代表城內普通市集與鄰里商販街坊，是消息、短途往來、日常買賣與街邊交流的流通處。",
+    "locatingHint": "落第三宮時，往普通市集、小商鋪、鄰里街巷、日用品攤位、香料與玫瑰水小販、跑腿送信與消息流通處尋找。",
+    "tags": [
+      "市場",
+      "街坊",
+      "消息",
+      "短途往來"
+    ],
+    "hotspot": {
+      "x": 35,
+      "y": 34,
+      "label": "市集街坊"
+    },
+    "streetImage": "./assets/houses/house-03-street-web.png"
+  },
+  "core": {
+    "theme": "手足、鄰里、交流、短途旅行、消息與理解力。",
+    "oneLine": "第 3 宮描述近距離的人際網絡、消息傳遞與短程移動。",
+    "keywords": [
+      "兄弟姊妹",
+      "鄰里",
+      "短途旅行",
+      "消息",
+      "理解",
+      "交流"
+    ]
+  },
+  "mainCard": {
+    "element": "水",
+    "elementVariants": [],
+    "direction": "東之北／東之海",
+    "planet": "水星",
+    "zodiac": "雙子座",
+    "structure": "第三母親／果宮／衰退宮",
+    "body": [
+      "肩膀",
+      "上臂",
+      "雙手"
+    ],
+    "cityRole": "城市街道、大街與近郊移動路徑",
+    "oppositeHouse": "第 9 宮"
+  },
+  "queries": [
+    {
+      "id": "house-03-query-01",
+      "category": "關係",
+      "title": "手足真心與否",
+      "interpretation": "依第三宮圖形吉凶與進出性判斷兄弟是否真誠。",
+      "engineReady": false
+    },
+    {
+      "id": "house-03-query-02",
+      "category": "學習",
+      "title": "技能能否學會",
+      "interpretation": "結合第一宮與第三宮聯繫判斷工藝與基礎技能學習。",
+      "engineReady": false
+    },
+    {
+      "id": "house-03-query-03",
+      "category": "夢境",
+      "title": "白日夢境",
+      "interpretation": "第三宮可判斷白日夢境的吉凶。",
+      "engineReady": false
+    },
+    {
+      "id": "house-03-query-04",
+      "category": "旅行",
+      "title": "短途移動",
+      "interpretation": "第三宮及其動態吉利，短途旅行較有利；凶則主損失或困難。",
+      "engineReady": false
+    }
+  ],
+  "variants": [
+    {
+      "field": "cosmology.element",
+      "label": "宇宙學元素",
+      "value": "北方的水／陰性",
+      "school": "元素學派"
+    }
+  ],
+  "display": {
+    "heroImage": "./assets/houses/house-03-street-web.png",
+    "showGenerationFirst": false,
+    "sectionOrder": [
+      "core",
+      "domains",
+      "roles",
+      "queries",
+      "medical",
+      "space",
+      "structure",
+      "relations",
+      "rules",
+      "researchAppendix"
+    ],
+    "editorialMode": "curated",
+    "hiddenByDefault": [
+      "identity.arabicTitles",
+      "identity.indicTitles",
+      "space.geography",
+      "cosmology.qualities",
+      "cosmology.time",
+      "cosmology.mysticLetters",
+      "variants",
+      "advanced",
+      "sourceRefs",
+      "sourceNote",
+      "sourceStatus"
+    ],
+    "researchAppendix": [
+      "traditionalNames",
+      "cosmologyDetails",
+      "geography",
+      "variants",
+      "advanced",
+      "sources"
+    ]
+  },
+  "engineRules": []
+}

@@ -1,0 +1,348 @@
+{
+  "id": "house-07",
+  "number": 7,
+  "roman": "Ⅶ",
+  "zhName": "伴侶宮",
+  "latinName": "House of Spouses and Opponents",
+  "houseClass": "daughter",
+  "image": "./assets/houses/house-07-street-web.png",
+  "identity": {
+    "coreTheme": "伴侶、合夥、公開敵人、爭端與被問及之客體。",
+    "oneLine": "第 7 宮是命宮的鏡像，代表伴侶、對手、合夥人與所有公開的他者。",
+    "arabicTitles": [
+      {
+        "text": "بيت الفراش والنساء",
+        "romanized": "Bayt al-Firash wa-l-Nisa'",
+        "zh": "床榻與女人之宮"
+      },
+      {
+        "text": "بيت الزواج",
+        "romanized": "Bayt al-Zawaj",
+        "zh": "婚姻之宮"
+      },
+      {
+        "text": "وتد غارب",
+        "romanized": "Watad Gharib",
+        "zh": "西下之柱"
+      }
+    ],
+    "indicTitles": [
+      {
+        "text": "सप्तम गृह",
+        "romanized": "Saptam Griha",
+        "zh": "第七宮"
+      }
+    ]
+  },
+  "card": {
+    "keywords": [
+      "伴侶",
+      "婚姻",
+      "合夥",
+      "對手",
+      "官司",
+      "小偷"
+    ],
+    "element": {
+      "primary": "水",
+      "variants": []
+    },
+    "direction": "西之北／西之海",
+    "planet": "金星",
+    "zodiac": "天秤座",
+    "structure": "第三女兒／本位宮／西方之柱",
+    "body": [
+      "胃部",
+      "肚臍至恥骨／生殖區域"
+    ],
+    "cityRole": "城市西面城牆"
+  },
+  "basic": {
+    "domains": [
+      "婚姻與床榻",
+      "買賣與商業合夥",
+      "擔保與保證",
+      "敵意與訴訟",
+      "合法與非法性關係",
+      "忠誠與背叛",
+      "狩獵追捕",
+      "戰爭",
+      "隱藏意圖",
+      "逃亡者下落",
+      "小偷外貌"
+    ],
+    "roles": [
+      "妻子／伴侶",
+      "女性",
+      "小妾／侍女",
+      "合夥人",
+      "擔保人",
+      "公開敵人",
+      "訴訟對手",
+      "敵軍",
+      "小偷／犯罪者",
+      "祖父"
+    ],
+    "practical": [
+      {
+        "category": "婚姻",
+        "title": "伴侶是否真心",
+        "content": "依第 7 宮圖形的吉凶、進入、變動與固定性判斷忠誠與真心程度。"
+      },
+      {
+        "category": "失竊",
+        "title": "小偷外貌",
+        "content": "第 7 宮圖形可用來描述小偷的外貌、氣質與可能性別。"
+      },
+      {
+        "category": "官司",
+        "title": "1 宮 vs 7 宮",
+        "content": "直接比較問卜者與對手的圖形力量、吉凶與元素生剋。"
+      }
+    ]
+  },
+  "medical": {
+    "bodyParts": [
+      "胃部",
+      "肚臍至恥骨／生殖區域"
+    ],
+    "humors": [],
+    "pathology": [
+      "外部衝突或伴侶傳染帶來的病症"
+    ]
+  },
+  "space": {
+    "microLocations": [
+      "床榻",
+      "座位",
+      "逃亡者或小偷的目的地"
+    ],
+    "direction": {
+      "primary": "西之北／西之海",
+      "variants": []
+    },
+    "city": [
+      "西面城牆"
+    ],
+    "geography": []
+  },
+  "cosmology": {
+    "element": {
+      "primary": "水",
+      "variants": [
+        {
+          "value": "北方的水",
+          "school": "北非／阿拉伯元素學派"
+        }
+      ],
+      "epithet": "水中之水"
+    },
+    "zodiac": "天秤座",
+    "planet": "金星",
+    "dignities": [
+      "土星在天秤座 21° 耀升",
+      "火星失勢"
+    ],
+    "qualities": [],
+    "time": [
+      "秋季第一個月",
+      "28 天",
+      "6 週"
+    ],
+    "mysticLetters": [
+      "L ل",
+      "H ح",
+      "K ك",
+      "R ر"
+    ]
+  },
+  "structure": {
+    "lineage": "第三位女兒",
+    "modality": "本位宮／基柱 Watad",
+    "temporalRole": "公開對立面與外部干預",
+    "generation": null
+  },
+  "relations": [
+    {
+      "with": "house-01",
+      "label": "宿命對決／鏡像",
+      "rule": "第 7 宮是第 1 宮的鏡像；以圖形力量與元素生剋判斷主導權。"
+    },
+    {
+      "with": "house-14",
+      "label": "左見證映射",
+      "rule": "第 14 宮具有第 7 宮的地位，作為被問者／目標的見證。"
+    }
+  ],
+  "rules": [
+    {
+      "type": "theft",
+      "title": "抓賊矩陣",
+      "summary": "第 1 宮圖形重複至第 7 宮可提示問卜者自己是小偷／自藏；第 2、3、4、5、6 宮重複可指向助手、鄰居、家人、孩子或僕人。"
+    },
+    {
+      "type": "intent",
+      "title": "伴侶忠誠窺探",
+      "summary": "結合第 7 宮所落圖形及與火星／金星型圖形的聯繫，分析欲望、越界與背叛風險。"
+    }
+  ],
+  "advanced": [],
+  "sourceRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "schemaVersion": "2.1.0",
+  "sourceNote": "依使用者提供之 16 宮深度與地理版圖報告結構化；原稿中的數字引用僅保留為局部編號，待完整書目表對照。",
+  "links": {
+    "backToHouses": "./houses.html",
+    "placements": "./placements.html?house=7",
+    "self": "./house.html?id=house-07",
+    "previous": "./house.html?id=house-06",
+    "next": "./house.html?id=house-08",
+    "street": "./houses.html#house-7"
+  },
+  "imageAlt": "第 7 宮場景圖：伴侶宮",
+  "sourceStatus": {
+    "basis": "使用者提供之十六宮深度與地理版圖解析報告",
+    "citationState": "原稿僅保留局部數字引用，尚待完整書目表映射",
+    "editorialPolicy": "保留學派差異；不將變體硬合併為單一結論"
+  },
+  "classMeta": {
+    "zh": "女兒宮",
+    "en": "Daughter",
+    "group": "5–8",
+    "tone": "周邊市郊"
+  },
+  "cityLayer": {
+    "zone": "周邊市郊區",
+    "zoneId": "suburb",
+    "role": "婦女布料與服飾市場／正西方城門",
+    "structure": "市場・西門・內城牆",
+    "direction": "正西方城門",
+    "traditionalSummary": "伴侶、合夥人、公開敵人、婚姻、爭執與尋物對象。",
+    "citySummary": "代表婦女的布料與服飾市場，並對應正西方的城門；也是內城牆的一部分。",
+    "locatingHint": "落第七宮時，往對方所在處、衣物飾品、女性市場、西門、合夥者或公開關係場域判斷。",
+    "tags": [
+      "城門",
+      "城牆",
+      "市場",
+      "服飾"
+    ],
+    "hotspot": {
+      "x": 15,
+      "y": 51,
+      "label": "西門衣市"
+    },
+    "streetImage": "./assets/houses/house-07-street-web.png"
+  },
+  "core": {
+    "theme": "伴侶、合夥、公開敵人、爭端與被問及之客體。",
+    "oneLine": "第 7 宮是命宮的鏡像，代表伴侶、對手、合夥人與所有公開的他者。",
+    "keywords": [
+      "伴侶",
+      "婚姻",
+      "合夥",
+      "對手",
+      "官司",
+      "小偷"
+    ]
+  },
+  "mainCard": {
+    "element": "水",
+    "elementVariants": [],
+    "direction": "西之北／西之海",
+    "planet": "金星",
+    "zodiac": "天秤座",
+    "structure": "第三女兒／本位宮／西方之柱",
+    "body": [
+      "胃部",
+      "肚臍至恥骨／生殖區域"
+    ],
+    "cityRole": "城市西面城牆",
+    "oppositeHouse": "第 1 宮"
+  },
+  "queries": [
+    {
+      "id": "house-07-query-01",
+      "category": "婚姻",
+      "title": "伴侶是否真心",
+      "interpretation": "依第 7 宮圖形的吉凶、進入、變動與固定性判斷忠誠與真心程度。",
+      "engineReady": false
+    },
+    {
+      "id": "house-07-query-02",
+      "category": "失竊",
+      "title": "小偷外貌",
+      "interpretation": "第 7 宮圖形可用來描述小偷的外貌、氣質與可能性別。",
+      "engineReady": false
+    },
+    {
+      "id": "house-07-query-03",
+      "category": "官司",
+      "title": "1 宮 vs 7 宮",
+      "interpretation": "直接比較問卜者與對手的圖形力量、吉凶與元素生剋。",
+      "engineReady": false
+    }
+  ],
+  "variants": [
+    {
+      "field": "cosmology.element",
+      "label": "宇宙學元素",
+      "value": "北方的水",
+      "school": "北非／阿拉伯元素學派"
+    }
+  ],
+  "display": {
+    "heroImage": "./assets/houses/house-07-street-web.png",
+    "showGenerationFirst": false,
+    "sectionOrder": [
+      "core",
+      "domains",
+      "roles",
+      "queries",
+      "medical",
+      "space",
+      "structure",
+      "relations",
+      "rules",
+      "researchAppendix"
+    ],
+    "editorialMode": "curated",
+    "hiddenByDefault": [
+      "identity.arabicTitles",
+      "identity.indicTitles",
+      "space.geography",
+      "cosmology.qualities",
+      "cosmology.time",
+      "cosmology.mysticLetters",
+      "variants",
+      "advanced",
+      "sourceRefs",
+      "sourceNote",
+      "sourceStatus"
+    ],
+    "researchAppendix": [
+      "traditionalNames",
+      "cosmologyDetails",
+      "geography",
+      "variants",
+      "advanced",
+      "sources"
+    ]
+  },
+  "engineRules": []
+}

@@ -1,0 +1,347 @@
+{
+  "id": "house-09",
+  "number": 9,
+  "roman": "Ⅸ",
+  "zhName": "遠行宮",
+  "latinName": "House of Far Journeys and Knowledge",
+  "houseClass": "niece",
+  "image": "./assets/houses/house-09-street-web.png",
+  "identity": {
+    "coreTheme": "長途旅行、宗教信仰、高等學問、夢境與徹底遷移。",
+    "oneLine": "第 9 宮將視野推向遠方：長途旅行、信仰、法律、高等知識與夢境。",
+    "arabicTitles": [
+      {
+        "text": "بيت السفر",
+        "romanized": "Bayt al-Safar",
+        "zh": "遠行之宮"
+      },
+      {
+        "text": "بيت الاسفار البعيدة",
+        "romanized": "Bayt al-Asfar al-Ba'idah",
+        "zh": "長途旅行之宮"
+      },
+      {
+        "text": "بيت الدين والعبادة",
+        "romanized": "Bayt al-Din wa-l-Ibadah",
+        "zh": "宗教與崇拜之宮"
+      }
+    ],
+    "indicTitles": [
+      {
+        "text": "नवम गृह",
+        "romanized": "Navam Griha",
+        "zh": "第九宮"
+      }
+    ]
+  },
+  "card": {
+    "keywords": [
+      "遠行",
+      "信仰",
+      "高等學問",
+      "法律",
+      "夢境",
+      "遷移"
+    ],
+    "element": {
+      "primary": "火",
+      "variants": []
+    },
+    "direction": "北之東／海之東",
+    "planet": "木星",
+    "zodiac": "射手座",
+    "structure": "第一外甥女／果宮／衰退宮",
+    "body": [
+      "雙臀",
+      "髖骨",
+      "大腿上部"
+    ],
+    "cityRole": "學校、清真寺、修道院與神聖學習場所"
+  },
+  "basic": {
+    "domains": [
+      "長途與海外旅行",
+      "朝覲與神聖參拜",
+      "徹底搬遷與流放",
+      "宗教與禁慾",
+      "高等科學",
+      "法學與哲學",
+      "占星與沙占",
+      "夢境與異象",
+      "合法法庭審判",
+      "神聖契約與誓言"
+    ],
+    "roles": [
+      "法官",
+      "宗教領袖",
+      "書記官／掌筆之人",
+      "學者與學生",
+      "律師／合法代理人",
+      "占星家",
+      "沙占師",
+      "醫生",
+      "非同父母手足"
+    ],
+    "practical": [
+      {
+        "category": "旅行",
+        "title": "遠行安全與收穫",
+        "content": "結合第 1 與第 9 宮聯繫判斷能否安全到達、是否獲利及旅途風險。"
+      },
+      {
+        "category": "學問",
+        "title": "能否學成",
+        "content": "觀察第 9 宮與第 11 宮等圖形聯繫，判斷高等知識能否達成。"
+      },
+      {
+        "category": "夢境",
+        "title": "夜夢吉凶",
+        "content": "以第 9 宮所落圖形判斷夢境偏神聖預示或虛妄幻象。"
+      }
+    ]
+  },
+  "medical": {
+    "bodyParts": [
+      "雙臀／髖骨／大腿上部"
+    ],
+    "humors": [],
+    "pathology": []
+  },
+  "space": {
+    "microLocations": [
+      "學校",
+      "清真寺",
+      "修道院／隱修室",
+      "誦讀經典與傳授科學之處",
+      "點火或異教祭祀之所"
+    ],
+    "direction": {
+      "primary": "北之東／海之東",
+      "variants": [
+        {
+          "value": "東方的極限",
+          "school": "部分文獻"
+        }
+      ]
+    },
+    "city": [
+      "宗教與學習中心"
+    ],
+    "geography": [
+      "麥加",
+      "大馬士革",
+      "天房／禁寺",
+      "耶路撒冷／聖殿"
+    ]
+  },
+  "cosmology": {
+    "element": {
+      "primary": "火",
+      "variants": [],
+      "epithet": "向上升騰之火"
+    },
+    "zodiac": "射手座",
+    "planet": "木星",
+    "dignities": [
+      "南交點耀升 3°",
+      "北交點下降 3°",
+      "太陽喜樂",
+      "水星失勢"
+    ],
+    "qualities": [
+      "陽性",
+      "上升"
+    ],
+    "time": [
+      "1.5 個月",
+      "中等跨度 45 天（另說 34 天）"
+    ],
+    "mysticLetters": [
+      "Ayn ع",
+      "Ta ط"
+    ]
+  },
+  "structure": {
+    "lineage": "第一位外甥女／孫女",
+    "modality": "果宮／衰退宮 Cadent",
+    "temporalRole": "遠離權力中心、向外擴展、過去",
+    "generation": null
+  },
+  "relations": [
+    {
+      "with": "house-03",
+      "label": "旅行共振",
+      "rule": "短途第 3 宮與遠行第 9 宮需交叉比對。"
+    },
+    {
+      "with": "house-10",
+      "label": "內在 vs 外在",
+      "rule": "第 9 宮是問卜者內在，第 10 宮是外在顯化。"
+    }
+  ],
+  "rules": [
+    {
+      "type": "intent",
+      "title": "求問者內在",
+      "summary": "第 9 宮可作求問者內在隱藏心智（Batin al-Sa'il）的視窗。"
+    },
+    {
+      "type": "derived",
+      "title": "衍生宮位",
+      "summary": "可代表死者遺產／消失之物價值、妻子的行動、孩子帶來的喜悅等。"
+    }
+  ],
+  "advanced": [],
+  "sourceRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "schemaVersion": "2.1.0",
+  "sourceNote": "依使用者提供之 16 宮深度與地理版圖報告結構化；原稿中的數字引用僅保留為局部編號，待完整書目表對照。",
+  "links": {
+    "backToHouses": "./houses.html",
+    "placements": "./placements.html?house=9",
+    "self": "./house.html?id=house-09",
+    "previous": "./house.html?id=house-08",
+    "next": "./house.html?id=house-10",
+    "street": "./houses.html#house-9"
+  },
+  "imageAlt": "第 9 宮場景圖：遠行宮",
+  "sourceStatus": {
+    "basis": "使用者提供之十六宮深度與地理版圖解析報告",
+    "citationState": "原稿僅保留局部數字引用，尚待完整書目表映射",
+    "editorialPolicy": "保留學派差異；不將變體硬合併為單一結論"
+  },
+  "classMeta": {
+    "zh": "外甥女／孫女宮",
+    "en": "Niece",
+    "group": "9–12",
+    "tone": "軍事行政"
+  },
+  "cityLayer": {
+    "zone": "軍事行政區",
+    "zoneId": "admin",
+    "role": "法官所在地、大清真寺、宗教學校與高等知識區",
+    "structure": "宗教・律法・高等知識・守衛部隊",
+    "direction": "宗教行政軸線",
+    "traditionalSummary": "長途旅行、宗教、哲學、學問、信仰、星象、曆法與夢兆。",
+    "citySummary": "代表城市的宗教、律法與高等知識中心，包括法官所在地、大清真寺、宗教學校、講學庭院與典籍研究空間。",
+    "locatingHint": "若落第九宮，往清真寺、宗教學校、講學庭院、法官、書卷、曆法文書、遠行道路或高等知識空間尋找。",
+    "tags": [
+      "宗教",
+      "律法",
+      "學校",
+      "高等知識"
+    ],
+    "hotspot": {
+      "x": 54,
+      "y": 43,
+      "label": "清真律法"
+    },
+    "streetImage": "./assets/houses/house-09-street-web.png"
+  },
+  "core": {
+    "theme": "長途旅行、宗教信仰、高等學問、夢境與徹底遷移。",
+    "oneLine": "第 9 宮將視野推向遠方：長途旅行、信仰、法律、高等知識與夢境。",
+    "keywords": [
+      "遠行",
+      "信仰",
+      "高等學問",
+      "法律",
+      "夢境",
+      "遷移"
+    ]
+  },
+  "mainCard": {
+    "element": "火",
+    "elementVariants": [],
+    "direction": "北之東／海之東",
+    "planet": "木星",
+    "zodiac": "射手座",
+    "structure": "第一外甥女／果宮／衰退宮",
+    "body": [
+      "雙臀",
+      "髖骨",
+      "大腿上部"
+    ],
+    "cityRole": "學校、清真寺、修道院與神聖學習場所",
+    "oppositeHouse": "第 3 宮"
+  },
+  "queries": [
+    {
+      "id": "house-09-query-01",
+      "category": "旅行",
+      "title": "遠行安全與收穫",
+      "interpretation": "結合第 1 與第 9 宮聯繫判斷能否安全到達、是否獲利及旅途風險。",
+      "engineReady": false
+    },
+    {
+      "id": "house-09-query-02",
+      "category": "學問",
+      "title": "能否學成",
+      "interpretation": "觀察第 9 宮與第 11 宮等圖形聯繫，判斷高等知識能否達成。",
+      "engineReady": false
+    },
+    {
+      "id": "house-09-query-03",
+      "category": "夢境",
+      "title": "夜夢吉凶",
+      "interpretation": "以第 9 宮所落圖形判斷夢境偏神聖預示或虛妄幻象。",
+      "engineReady": false
+    }
+  ],
+  "variants": [
+    {
+      "field": "space.direction",
+      "label": "方位",
+      "value": "東方的極限",
+      "school": "部分文獻"
+    }
+  ],
+  "display": {
+    "heroImage": "./assets/houses/house-09-street-web.png",
+    "showGenerationFirst": false,
+    "sectionOrder": [
+      "core",
+      "domains",
+      "roles",
+      "queries",
+      "medical",
+      "space",
+      "structure",
+      "relations",
+      "rules",
+      "researchAppendix"
+    ],
+    "editorialMode": "curated",
+    "hiddenByDefault": [
+      "identity.arabicTitles",
+      "identity.indicTitles",
+      "space.geography",
+      "cosmology.qualities",
+      "cosmology.time",
+      "cosmology.mysticLetters",
+      "variants",
+      "advanced",
+      "sourceRefs",
+      "sourceNote",
+      "sourceStatus"
+    ],
+    "researchAppendix": [
+      "traditionalNames",
+      "cosmologyDetails",
+      "geography",
+      "variants",
+      "advanced",
+      "sources"
+    ]
+  },
+  "engineRules": []
+}

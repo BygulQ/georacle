@@ -1,0 +1,381 @@
+{
+  "id": "house-01",
+  "number": 1,
+  "roman": "Ⅰ",
+  "zhName": "命宮",
+  "latinName": "Ascendant",
+  "houseClass": "mother",
+  "image": "./assets/houses/house-01-street-web.png",
+  "identity": {
+    "coreTheme": "自我、生命、身體、開端與問卜者。",
+    "oneLine": "第 1 宮代表問卜者本人、生命狀態與一切事情的開端。",
+    "arabicTitles": [
+      {
+        "text": "بيت النفس",
+        "romanized": "Bayt al-Nafs",
+        "zh": "靈魂／自我之宮"
+      },
+      {
+        "text": "بيت الحياة",
+        "romanized": "Bayt al-Hayat",
+        "zh": "生命之宮"
+      },
+      {
+        "text": "الطالع",
+        "romanized": "al-Tali'",
+        "zh": "上升宮／命宮"
+      }
+    ],
+    "indicTitles": [
+      {
+        "text": "प्रथम गृह",
+        "romanized": "Pratham Griha",
+        "zh": "第一宮"
+      },
+      {
+        "text": "लग्न भाव",
+        "romanized": "Lagna Bhav",
+        "zh": "上升宮／命宮"
+      }
+    ]
+  },
+  "card": {
+    "keywords": [
+      "自我",
+      "生命",
+      "身體",
+      "開端",
+      "意圖",
+      "問卜者"
+    ],
+    "element": {
+      "primary": "火",
+      "variants": []
+    },
+    "direction": "東之東",
+    "planet": "火星",
+    "zodiac": "白羊座",
+    "structure": "第一母親／本位宮／東方之柱",
+    "body": [
+      "頭部",
+      "臉部",
+      "眼睛",
+      "頸部"
+    ],
+    "cityRole": "城市大門、東門、大臣之門、東方城牆"
+  },
+  "basic": {
+    "domains": [
+      "生命與靈魂",
+      "身體健康與壽命",
+      "心智、理解與言語",
+      "一切事務的開端與意圖",
+      "勇氣、領導與決策",
+      "由困境轉向寬廣與喜悅"
+    ],
+    "roles": [
+      "問卜者本人",
+      "病患本人",
+      "失主／錢財主人"
+    ],
+    "practical": [
+      {
+        "category": "運勢",
+        "title": "整體狀態",
+        "content": "用來判斷當下生命力、整體運勢與事務起點。"
+      },
+      {
+        "category": "疾病",
+        "title": "病患生命力",
+        "content": "問病時直接反映患者本人的生命力與身體狀態；凶險圖形會提高危機訊號。"
+      },
+      {
+        "category": "尋物",
+        "title": "熟悉環境",
+        "content": "失物或逃亡者的代表圖形落此宮，常指向自己家中、已知住處或熟悉環境。"
+      },
+      {
+        "category": "關係",
+        "title": "1 宮對 7 宮",
+        "content": "與第 7 宮形成問卜者與伴侶／對手／被問者的對立軸。"
+      }
+    ]
+  },
+  "medical": {
+    "bodyParts": [
+      "頭部",
+      "臉部",
+      "眼睛",
+      "頸部"
+    ],
+    "humors": [
+      "黃膽汁"
+    ],
+    "pathology": [
+      "熱性病症",
+      "乾燥",
+      "發燒",
+      "頭痛",
+      "暈眩"
+    ]
+  },
+  "space": {
+    "microLocations": [
+      "火源所在地",
+      "礦物與金屬所在地",
+      "溪流或洪流處"
+    ],
+    "direction": {
+      "primary": "東之東",
+      "variants": []
+    },
+    "city": [
+      "城市大門",
+      "東門",
+      "大臣之門",
+      "東方城牆／防禦工事"
+    ],
+    "geography": [
+      "阿爾及利亞／馬格里布群島",
+      "安達盧斯／西班牙",
+      "伊夫起亞／突尼斯及周邊"
+    ]
+  },
+  "cosmology": {
+    "element": {
+      "primary": "火",
+      "variants": [],
+      "epithet": "火中之火"
+    },
+    "zodiac": "白羊座",
+    "planet": "火星",
+    "dignities": [
+      "太陽在白羊座 19° 耀升"
+    ],
+    "qualities": [
+      "日行",
+      "陽性",
+      "變動"
+    ],
+    "time": [],
+    "mysticLetters": [
+      "Waw و",
+      "Ha ح",
+      "Ya ي"
+    ]
+  },
+  "structure": {
+    "lineage": "第一位母親",
+    "modality": "本位宮／基柱 Watad",
+    "temporalRole": "當下",
+    "generation": null
+  },
+  "relations": [
+    {
+      "with": "house-07",
+      "label": "對宮／鏡像",
+      "rule": "第 1 宮代表問卜者，第 7 宮代表伴侶、對手或被問者；比較圖形強弱、吉凶與元素生剋。"
+    },
+    {
+      "with": "house-13",
+      "label": "見證",
+      "rule": "第 13 宮是問卜者見證，可增強或印證第 1 宮。"
+    },
+    {
+      "with": "house-05",
+      "label": "指引",
+      "rule": "第 5 宮可作第 1 宮的指引。"
+    },
+    {
+      "with": "house-06",
+      "label": "秘密",
+      "rule": "第 6 宮是第 1 宮的隱藏秘密。"
+    }
+  ],
+  "rules": [
+    {
+      "type": "movement",
+      "title": "問卜者與對手的移動",
+      "summary": "若第 1 宮圖形前往第 7 宮，表示問卜者主動尋求對方；反之亦然。"
+    },
+    {
+      "type": "intent",
+      "title": "隱藏意圖提取",
+      "summary": "探究 Damir 時，追蹤第 1 宮圖形的移動與重複位置。"
+    }
+  ],
+  "advanced": [
+    {
+      "title": "特殊指涉",
+      "content": "伴侶的床榻、外祖父等枝節可保留於進階閱讀。"
+    }
+  ],
+  "sourceRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25
+  ],
+  "schemaVersion": "2.1.0",
+  "sourceNote": "依使用者提供之 16 宮深度與地理版圖報告結構化；原稿中的數字引用僅保留為局部編號，待完整書目表對照。",
+  "links": {
+    "backToHouses": "./houses.html",
+    "placements": "./placements.html?house=1",
+    "self": "./house.html?id=house-01",
+    "previous": "./house.html?id=house-16",
+    "next": "./house.html?id=house-02",
+    "street": "./houses.html#house-1"
+  },
+  "imageAlt": "第 1 宮場景圖：命宮",
+  "sourceStatus": {
+    "basis": "使用者提供之十六宮深度與地理版圖解析報告",
+    "citationState": "原稿僅保留局部數字引用，尚待完整書目表映射",
+    "editorialPolicy": "保留學派差異；不將變體硬合併為單一結論"
+  },
+  "classMeta": {
+    "zh": "母親宮",
+    "en": "Mother",
+    "group": "1–4",
+    "tone": "內部核心"
+  },
+  "cityLayer": {
+    "zone": "內部核心區",
+    "zoneId": "inner",
+    "role": "城內居民／正東方城門",
+    "structure": "城門・居民・城牆局部",
+    "direction": "正東方城門",
+    "traditionalSummary": "問卜者本人、當下狀態、生命、靈魂、意圖與事物開端。",
+    "citySummary": "代表城內居民（أهل البلد），也是城市的大門；部分文獻亦將其視為城牆的一段。",
+    "locatingHint": "尋物或尋人時，若落第一宮，可先看入口、門邊、住民活動核心、東側通道與最接近求問者的位置。",
+    "tags": [
+      "城門",
+      "居民",
+      "防禦"
+    ],
+    "hotspot": {
+      "x": 42,
+      "y": 76,
+      "label": "居民大門"
+    },
+    "streetImage": "./assets/houses/house-01-street-web.png"
+  },
+  "core": {
+    "theme": "自我、生命、身體、開端與問卜者。",
+    "oneLine": "第 1 宮代表問卜者本人、生命狀態與一切事情的開端。",
+    "keywords": [
+      "自我",
+      "生命",
+      "身體",
+      "開端",
+      "意圖",
+      "問卜者"
+    ]
+  },
+  "mainCard": {
+    "element": "火",
+    "elementVariants": [],
+    "direction": "東之東",
+    "planet": "火星",
+    "zodiac": "白羊座",
+    "structure": "第一母親／本位宮／東方之柱",
+    "body": [
+      "頭部",
+      "臉部",
+      "眼睛",
+      "頸部"
+    ],
+    "cityRole": "城市大門、東門、大臣之門、東方城牆",
+    "oppositeHouse": "第 7 宮"
+  },
+  "queries": [
+    {
+      "id": "house-01-query-01",
+      "category": "運勢",
+      "title": "整體狀態",
+      "interpretation": "用來判斷當下生命力、整體運勢與事務起點。",
+      "engineReady": false
+    },
+    {
+      "id": "house-01-query-02",
+      "category": "疾病",
+      "title": "病患生命力",
+      "interpretation": "問病時直接反映患者本人的生命力與身體狀態；凶險圖形會提高危機訊號。",
+      "engineReady": false
+    },
+    {
+      "id": "house-01-query-03",
+      "category": "尋物",
+      "title": "熟悉環境",
+      "interpretation": "失物或逃亡者的代表圖形落此宮，常指向自己家中、已知住處或熟悉環境。",
+      "engineReady": false
+    },
+    {
+      "id": "house-01-query-04",
+      "category": "關係",
+      "title": "1 宮對 7 宮",
+      "interpretation": "與第 7 宮形成問卜者與伴侶／對手／被問者的對立軸。",
+      "engineReady": false
+    }
+  ],
+  "variants": [],
+  "display": {
+    "heroImage": "./assets/houses/house-01-street-web.png",
+    "showGenerationFirst": false,
+    "sectionOrder": [
+      "core",
+      "domains",
+      "roles",
+      "queries",
+      "medical",
+      "space",
+      "structure",
+      "relations",
+      "rules",
+      "researchAppendix"
+    ],
+    "editorialMode": "curated",
+    "hiddenByDefault": [
+      "identity.arabicTitles",
+      "identity.indicTitles",
+      "space.geography",
+      "cosmology.qualities",
+      "cosmology.time",
+      "cosmology.mysticLetters",
+      "variants",
+      "advanced",
+      "sourceRefs",
+      "sourceNote",
+      "sourceStatus"
+    ],
+    "researchAppendix": [
+      "traditionalNames",
+      "cosmologyDetails",
+      "geography",
+      "variants",
+      "advanced",
+      "sources"
+    ]
+  },
+  "engineRules": []
+}

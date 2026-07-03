@@ -1,0 +1,346 @@
+{
+  "id": "house-02",
+  "number": 2,
+  "roman": "Ⅱ",
+  "zhName": "財帛宮",
+  "latinName": "House of Wealth",
+  "houseClass": "mother",
+  "image": "./assets/houses/house-02-street-web.png",
+  "identity": {
+    "coreTheme": "財富、獲取、生計、飲食、助手與資源的未來發展。",
+    "oneLine": "第 2 宮描述問卜者能掌握、保存、交換與消耗的資源。",
+    "arabicTitles": [
+      {
+        "text": "بيت المال",
+        "romanized": "Bayt al-Mal",
+        "zh": "財富之宮"
+      },
+      {
+        "text": "بيت الكسب",
+        "romanized": "Bayt al-Kasb",
+        "zh": "獲取／賺取之宮"
+      }
+    ],
+    "indicTitles": [
+      {
+        "text": "द्वितीय गृह",
+        "romanized": "Dwitiya Griha",
+        "zh": "第二宮"
+      },
+      {
+        "text": "धन भाव",
+        "romanized": "Dhan Bhav",
+        "zh": "財富宮"
+      }
+    ]
+  },
+  "card": {
+    "keywords": [
+      "財富",
+      "資源",
+      "生計",
+      "飲食",
+      "買賣",
+      "助手"
+    ],
+    "element": {
+      "primary": "風",
+      "variants": []
+    },
+    "direction": "東之西",
+    "planet": "金星",
+    "zodiac": "金牛座",
+    "structure": "第二母親／續宮／未來",
+    "body": [
+      "頸部",
+      "喉嚨",
+      "眼睛"
+    ],
+    "cityRole": "城市起源與根基、貨幣兌換市場／錢莊"
+  },
+  "basic": {
+    "domains": [
+      "財富增減與生計",
+      "飲食",
+      "買賣交易",
+      "借貸與施捨",
+      "寄存物與信託",
+      "寶石與礦物",
+      "言語與沉默",
+      "慷慨與貪婪",
+      "遠行者歸來",
+      "嬰兒哺乳"
+    ],
+    "roles": [
+      "助手",
+      "追隨者",
+      "見證人",
+      "朋友／協助者",
+      "鄰居",
+      "乳母／哺乳者"
+    ],
+    "practical": [
+      {
+        "category": "財富",
+        "title": "資產能否保留",
+        "content": "用於判斷錢財保存、投資增值、買賣盈虧與資源流動。"
+      },
+      {
+        "category": "失竊",
+        "title": "遺失或被盜",
+        "content": "可依第二宮圖形的元素、重複與進出性判斷物品是遺失或遭竊。"
+      },
+      {
+        "category": "健康",
+        "title": "飲食是否違規",
+        "content": "問病時可用來判斷是否因不當飲食加重病情。"
+      }
+    ]
+  },
+  "medical": {
+    "bodyParts": [
+      "頸部",
+      "喉嚨",
+      "眼睛"
+    ],
+    "humors": [
+      "飲食相關體液失調"
+    ],
+    "pathology": [
+      "飲食不當",
+      "消化失調",
+      "體液失衡"
+    ]
+  },
+  "space": {
+    "microLocations": [
+      "保險箱",
+      "櫃子",
+      "上鎖之處",
+      "有鳴禽的地方",
+      "裝飾華麗的樓層",
+      "鄰居的房子"
+    ],
+    "direction": {
+      "primary": "東之西",
+      "variants": []
+    },
+    "city": [
+      "城市起源與根基",
+      "貨幣兌換市場／錢莊"
+    ],
+    "geography": []
+  },
+  "cosmology": {
+    "element": {
+      "primary": "風",
+      "variants": [],
+      "epithet": "風中之風"
+    },
+    "zodiac": "金牛座",
+    "planet": "金星",
+    "dignities": [
+      "月亮在金牛座 3° 耀升",
+      "火星在金牛座失勢"
+    ],
+    "qualities": [],
+    "time": [
+      "3 天",
+      "7.5 天",
+      "中等跨度 20 天"
+    ],
+    "mysticLetters": []
+  },
+  "structure": {
+    "lineage": "第二位母親",
+    "modality": "續宮 Succedent",
+    "temporalRole": "未來",
+    "generation": null
+  },
+  "relations": [
+    {
+      "with": "house-01",
+      "label": "資源支持",
+      "rule": "緊隨命宮之後，代表問卜者可動用的資源與支持。"
+    },
+    {
+      "with": "house-06",
+      "label": "醫療聯繫",
+      "rule": "與第 6 宮共同判斷飲食與病因。"
+    },
+    {
+      "with": "house-08",
+      "label": "醫療聯繫",
+      "rule": "與第 8 宮共同判斷飲食是否加重危機。"
+    }
+  ],
+  "rules": [
+    {
+      "type": "theft",
+      "title": "失主自藏／監守自盜檢查",
+      "summary": "若第 1 宮圖形在第 2 宮重複，且第 2 宮為吉利進入圖形，可提示失主自行藏匿、遺忘或監守自盜。"
+    },
+    {
+      "type": "auspice",
+      "title": "財富進出規則",
+      "summary": "吉利進入主財富輕鬆合法到來；吉利出去主主動花費於有價值之事；凶險固定主錢財難到手或偏向遺產／非法之財。"
+    }
+  ],
+  "advanced": [],
+  "sourceRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "schemaVersion": "2.1.0",
+  "sourceNote": "依使用者提供之 16 宮深度與地理版圖報告結構化；原稿中的數字引用僅保留為局部編號，待完整書目表對照。",
+  "links": {
+    "backToHouses": "./houses.html",
+    "placements": "./placements.html?house=2",
+    "self": "./house.html?id=house-02",
+    "previous": "./house.html?id=house-01",
+    "next": "./house.html?id=house-03",
+    "street": "./houses.html#house-2"
+  },
+  "imageAlt": "第 2 宮場景圖：財帛宮",
+  "sourceStatus": {
+    "basis": "使用者提供之十六宮深度與地理版圖解析報告",
+    "citationState": "原稿僅保留局部數字引用，尚待完整書目表映射",
+    "editorialPolicy": "保留學派差異；不將變體硬合併為單一結論"
+  },
+  "classMeta": {
+    "zh": "母親宮",
+    "en": "Mother",
+    "group": "1–4",
+    "tone": "內部核心"
+  },
+  "cityLayer": {
+    "zone": "內部核心區",
+    "zoneId": "inner",
+    "role": "貨幣兌換市場",
+    "structure": "金融・交易",
+    "direction": "城內商業核心",
+    "traditionalSummary": "金錢、資源、所有物、買賣、收入與得失。",
+    "citySummary": "代表貨幣兌換市場（سوق الصرف）與金融交易中心，是城市中財物流通的樞紐。",
+    "locatingHint": "落第二宮時，指向錢櫃、交易場所、帳簿、店鋪、收納財物處，或與金錢交換相關的人事物。",
+    "tags": [
+      "市場",
+      "金融",
+      "尋物"
+    ],
+    "hotspot": {
+      "x": 48,
+      "y": 56,
+      "label": "兌換市集"
+    },
+    "streetImage": "./assets/houses/house-02-street-web.png"
+  },
+  "core": {
+    "theme": "財富、獲取、生計、飲食、助手與資源的未來發展。",
+    "oneLine": "第 2 宮描述問卜者能掌握、保存、交換與消耗的資源。",
+    "keywords": [
+      "財富",
+      "資源",
+      "生計",
+      "飲食",
+      "買賣",
+      "助手"
+    ]
+  },
+  "mainCard": {
+    "element": "風",
+    "elementVariants": [],
+    "direction": "東之西",
+    "planet": "金星",
+    "zodiac": "金牛座",
+    "structure": "第二母親／續宮／未來",
+    "body": [
+      "頸部",
+      "喉嚨",
+      "眼睛"
+    ],
+    "cityRole": "城市起源與根基、貨幣兌換市場／錢莊",
+    "oppositeHouse": "第 8 宮"
+  },
+  "queries": [
+    {
+      "id": "house-02-query-01",
+      "category": "財富",
+      "title": "資產能否保留",
+      "interpretation": "用於判斷錢財保存、投資增值、買賣盈虧與資源流動。",
+      "engineReady": false
+    },
+    {
+      "id": "house-02-query-02",
+      "category": "失竊",
+      "title": "遺失或被盜",
+      "interpretation": "可依第二宮圖形的元素、重複與進出性判斷物品是遺失或遭竊。",
+      "engineReady": false
+    },
+    {
+      "id": "house-02-query-03",
+      "category": "健康",
+      "title": "飲食是否違規",
+      "interpretation": "問病時可用來判斷是否因不當飲食加重病情。",
+      "engineReady": false
+    }
+  ],
+  "variants": [],
+  "display": {
+    "heroImage": "./assets/houses/house-02-street-web.png",
+    "showGenerationFirst": false,
+    "sectionOrder": [
+      "core",
+      "domains",
+      "roles",
+      "queries",
+      "medical",
+      "space",
+      "structure",
+      "relations",
+      "rules",
+      "researchAppendix"
+    ],
+    "editorialMode": "curated",
+    "hiddenByDefault": [
+      "identity.arabicTitles",
+      "identity.indicTitles",
+      "space.geography",
+      "cosmology.qualities",
+      "cosmology.time",
+      "cosmology.mysticLetters",
+      "variants",
+      "advanced",
+      "sourceRefs",
+      "sourceNote",
+      "sourceStatus"
+    ],
+    "researchAppendix": [
+      "traditionalNames",
+      "cosmologyDetails",
+      "geography",
+      "variants",
+      "advanced",
+      "sources"
+    ]
+  },
+  "engineRules": []
+}

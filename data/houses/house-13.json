@@ -1,0 +1,339 @@
+{
+  "id": "house-13",
+  "number": 13,
+  "roman": "ⅩⅢ",
+  "zhName": "問卜者見證",
+  "latinName": "Right Witness",
+  "houseClass": "witness-right",
+  "image": "./assets/houses/house-13-street-web.png",
+  "identity": {
+    "coreTheme": "問卜者的見證、尋求者、內在秘密與靈魂低語。",
+    "oneLine": "第 13 宮是右見證，反映問卜者的真實力量、隱藏心意與初步結果。",
+    "arabicTitles": [
+      {
+        "text": "بيت السائل",
+        "romanized": "Bayt al-Sa'il",
+        "zh": "問卜者之宮"
+      },
+      {
+        "text": "شاهد السائل",
+        "romanized": "Shahid al-Sa'il",
+        "zh": "問卜者的見證者"
+      },
+      {
+        "text": "سر السائل",
+        "romanized": "Sirr al-Sa'il",
+        "zh": "問卜者的秘密"
+      }
+    ],
+    "indicTitles": [
+      {
+        "text": "خانہ سیزدہم",
+        "romanized": "Khana Sizdahum",
+        "zh": "第十三宮"
+      }
+    ]
+  },
+  "card": {
+    "keywords": [
+      "右見證",
+      "問卜者",
+      "真實意圖",
+      "尋求者",
+      "初步結果",
+      "秘密"
+    ],
+    "element": {
+      "primary": "火",
+      "variants": [
+        {
+          "value": "火與風交融",
+          "school": "神祕學結構解釋"
+        }
+      ]
+    },
+    "direction": "南之東／東偏朝拜方",
+    "planet": "火星（依第一宮法則）",
+    "zodiac": "白羊座類比（依第一宮法則）",
+    "structure": "右見證／裁決矩陣",
+    "body": [
+      "整體健康與生理本質"
+    ],
+    "cityRole": "城市東門"
+  },
+  "basic": {
+    "domains": [
+      "問卜者信仰與貞潔",
+      "健康",
+      "施捨與日常開銷",
+      "伴侶遠行",
+      "秘密工作",
+      "法官／學者／占星家能力測試",
+      "父親與鄰居生計",
+      "敵人的財富",
+      "子女旅行與夢境"
+    ],
+    "roles": [
+      "問卜者／尋求者",
+      "法官",
+      "學者",
+      "占星家／占卜師",
+      "維齊爾",
+      "蘇丹／國王",
+      "奴隸與年輕女孩"
+    ],
+    "practical": [
+      {
+        "category": "財富",
+        "title": "緊急錢財與願望",
+        "content": "吉利進入可主迅速獲得財富或達成所求；凶出主願望落空。"
+      },
+      {
+        "category": "尋人",
+        "title": "失蹤者歸來",
+        "content": "吉相可提示失蹤者迅速歸來、失物尋回，並提升問卜者力量。"
+      }
+    ]
+  },
+  "medical": {
+    "bodyParts": [
+      "整體健康與生理本質"
+    ],
+    "humors": [],
+    "pathology": []
+  },
+  "space": {
+    "microLocations": [
+      "建築物起點",
+      "清真寺修築地"
+    ],
+    "direction": {
+      "primary": "南之東／東偏朝拜方",
+      "variants": []
+    },
+    "city": [
+      "東門"
+    ],
+    "geography": [
+      "從 Al-Kamanin 延伸至波斯 Fars 的土地"
+    ]
+  },
+  "cosmology": {
+    "element": {
+      "primary": "火",
+      "variants": [
+        {
+          "value": "火與風交融",
+          "school": "由第一、第二宮衍生的神祕解釋"
+        }
+      ],
+      "epithet": "本質與第一宮相同"
+    },
+    "zodiac": "無獨立第十三星座；判斷法則類比第一宮／白羊",
+    "planet": "類比第一宮／火星",
+    "dignities": [],
+    "qualities": [
+      "向外擴張",
+      "陽性"
+    ],
+    "time": [],
+    "mysticLetters": []
+  },
+  "structure": {
+    "lineage": "第一位見證者／右見證",
+    "modality": "裁決矩陣",
+    "temporalRole": "問卜者力量與初步結果",
+    "generation": {
+      "from": [
+        "house-01",
+        "house-02"
+      ],
+      "operation": "geomantic-addition"
+    }
+  },
+  "relations": [
+    {
+      "with": "house-14",
+      "label": "尋求者 vs 被尋求者",
+      "rule": "第 13 宮永遠代表尋求者／問卜者，第 14 宮代表目標／對手。"
+    },
+    {
+      "with": "house-15",
+      "label": "生成法官",
+      "rule": "第 13 與第 14 宮相加生成第 15 宮法官。"
+    }
+  ],
+  "rules": [
+    {
+      "type": "intent",
+      "title": "求問者真實意圖",
+      "summary": "第 13 宮圖形被視為問卜者靈魂低語與真實意圖。"
+    },
+    {
+      "type": "repetition",
+      "title": "命宮重複至右見證",
+      "summary": "若第 1 宮圖形在第 13 宮重複，代表問卜者心思高度集中於當下問題、隱瞞較少。"
+    }
+  ],
+  "advanced": [
+    {
+      "title": "波斯／印度十二項指涉",
+      "content": "安慰、訴訟、職業穩定、王權穩固、敵人財富、兄弟地位、子女旅行等。"
+    }
+  ],
+  "sourceRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "schemaVersion": "2.1.0",
+  "sourceNote": "依使用者提供之 16 宮深度與地理版圖報告結構化；原稿中的數字引用僅保留為局部編號，待完整書目表對照。",
+  "links": {
+    "backToHouses": "./houses.html",
+    "placements": "./placements.html?house=13",
+    "self": "./house.html?id=house-13",
+    "previous": "./house.html?id=house-12",
+    "next": "./house.html?id=house-14",
+    "street": "./houses.html#house-13"
+  },
+  "imageAlt": "第 13 宮場景圖：問卜者見證",
+  "sourceStatus": {
+    "basis": "使用者提供之十六宮深度與地理版圖解析報告",
+    "citationState": "原稿僅保留局部數字引用，尚待完整書目表映射",
+    "editorialPolicy": "保留學派差異；不將變體硬合併為單一結論"
+  },
+  "classMeta": {
+    "zh": "右見證",
+    "en": "Right Witness",
+    "group": "13",
+    "tone": "裁決矩陣"
+  },
+  "cityLayer": {
+    "zone": "外部補給區",
+    "zoneId": "outer",
+    "role": "偏北方的東城門／城牆防禦據點",
+    "structure": "防禦據點・守衛部隊",
+    "direction": "偏北方東城門",
+    "traditionalSummary": "過去影響、求問者背景、已成因素與一側證詞。",
+    "citySummary": "代表偏北方的東城門，或城牆的防禦據點；亦屬守衛部隊配置點。",
+    "locatingHint": "落第十三宮時，回看求問者側、已發生原因、防禦點、偏北東門、道路節點與城牆外圍。",
+    "tags": [
+      "城門",
+      "防禦",
+      "守衛",
+      "外部道路"
+    ],
+    "hotspot": {
+      "x": 47,
+      "y": 18,
+      "label": "東北防點"
+    },
+    "streetImage": "./assets/houses/house-13-street-web.png"
+  },
+  "core": {
+    "theme": "問卜者的見證、尋求者、內在秘密與靈魂低語。",
+    "oneLine": "第 13 宮是右見證，反映問卜者的真實力量、隱藏心意與初步結果。",
+    "keywords": [
+      "右見證",
+      "問卜者",
+      "真實意圖",
+      "尋求者",
+      "初步結果",
+      "秘密"
+    ]
+  },
+  "mainCard": {
+    "element": "火",
+    "elementVariants": [
+      {
+        "value": "火與風交融",
+        "school": "神祕學結構解釋"
+      }
+    ],
+    "direction": "南之東／東偏朝拜方",
+    "planet": "火星（依第一宮法則）",
+    "zodiac": "白羊座類比（依第一宮法則）",
+    "structure": "右見證／裁決矩陣",
+    "body": [
+      "整體健康與生理本質"
+    ],
+    "cityRole": "城市東門",
+    "oppositeHouse": ""
+  },
+  "queries": [
+    {
+      "id": "house-13-query-01",
+      "category": "財富",
+      "title": "緊急錢財與願望",
+      "interpretation": "吉利進入可主迅速獲得財富或達成所求；凶出主願望落空。",
+      "engineReady": false
+    },
+    {
+      "id": "house-13-query-02",
+      "category": "尋人",
+      "title": "失蹤者歸來",
+      "interpretation": "吉相可提示失蹤者迅速歸來、失物尋回，並提升問卜者力量。",
+      "engineReady": false
+    }
+  ],
+  "variants": [
+    {
+      "field": "card.element",
+      "label": "主卡元素",
+      "value": "火與風交融",
+      "school": "神祕學結構解釋"
+    },
+    {
+      "field": "cosmology.element",
+      "label": "宇宙學元素",
+      "value": "火與風交融",
+      "school": "由第一、第二宮衍生的神祕解釋"
+    }
+  ],
+  "display": {
+    "heroImage": "./assets/houses/house-13-street-web.png",
+    "showGenerationFirst": true,
+    "sectionOrder": [
+      "core",
+      "domains",
+      "roles",
+      "queries",
+      "medical",
+      "space",
+      "structure",
+      "relations",
+      "rules",
+      "researchAppendix"
+    ],
+    "editorialMode": "curated",
+    "hiddenByDefault": [
+      "identity.arabicTitles",
+      "identity.indicTitles",
+      "space.geography",
+      "cosmology.qualities",
+      "cosmology.time",
+      "cosmology.mysticLetters",
+      "variants",
+      "advanced",
+      "sourceRefs",
+      "sourceNote",
+      "sourceStatus"
+    ],
+    "researchAppendix": [
+      "traditionalNames",
+      "cosmologyDetails",
+      "geography",
+      "variants",
+      "advanced",
+      "sources"
+    ]
+  },
+  "engineRules": []
+}

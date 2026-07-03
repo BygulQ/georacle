@@ -1,0 +1,593 @@
+[
+  {
+    "id": "house-01",
+    "number": 1,
+    "roman": "Ⅰ",
+    "zhName": "命宮",
+    "latinName": "Ascendant",
+    "houseClass": "mother",
+    "classMeta": {
+      "zh": "母親宮",
+      "en": "Mother",
+      "group": "1–4",
+      "tone": "內部核心"
+    },
+    "core": "自我、生命、身體、開端與問卜者。",
+    "oneLine": "第 1 宮代表問卜者本人、生命狀態與一切事情的開端。",
+    "keywords": [
+      "自我",
+      "生命",
+      "身體",
+      "開端",
+      "意圖",
+      "問卜者"
+    ],
+    "element": {
+      "primary": "火",
+      "variants": []
+    },
+    "direction": "東之東",
+    "planet": "火星",
+    "zodiac": "白羊座",
+    "cityRole": "城內居民／正東方城門",
+    "zone": "內部核心區",
+    "zoneId": "inner",
+    "image": "./assets/houses/house-01-street-web.png",
+    "url": "./house.html?id=house-01"
+  },
+  {
+    "id": "house-02",
+    "number": 2,
+    "roman": "Ⅱ",
+    "zhName": "財帛宮",
+    "latinName": "House of Wealth",
+    "houseClass": "mother",
+    "classMeta": {
+      "zh": "母親宮",
+      "en": "Mother",
+      "group": "1–4",
+      "tone": "內部核心"
+    },
+    "core": "財富、獲取、生計、飲食、助手與資源的未來發展。",
+    "oneLine": "第 2 宮描述問卜者能掌握、保存、交換與消耗的資源。",
+    "keywords": [
+      "財富",
+      "資源",
+      "生計",
+      "飲食",
+      "買賣",
+      "助手"
+    ],
+    "element": {
+      "primary": "風",
+      "variants": []
+    },
+    "direction": "東之西",
+    "planet": "金星",
+    "zodiac": "金牛座",
+    "cityRole": "貨幣兌換市場",
+    "zone": "內部核心區",
+    "zoneId": "inner",
+    "image": "./assets/houses/house-02-street-web.png",
+    "url": "./house.html?id=house-02"
+  },
+  {
+    "id": "house-03",
+    "number": 3,
+    "roman": "Ⅲ",
+    "zhName": "兄弟宮",
+    "latinName": "House of Siblings",
+    "houseClass": "mother",
+    "classMeta": {
+      "zh": "母親宮",
+      "en": "Mother",
+      "group": "1–4",
+      "tone": "內部核心"
+    },
+    "core": "手足、鄰里、交流、短途旅行、消息與理解力。",
+    "oneLine": "第 3 宮描述近距離的人際網絡、消息傳遞與短程移動。",
+    "keywords": [
+      "兄弟姊妹",
+      "鄰里",
+      "短途旅行",
+      "消息",
+      "理解",
+      "交流"
+    ],
+    "element": {
+      "primary": "水",
+      "variants": []
+    },
+    "direction": "東之北／東之海",
+    "planet": "水星",
+    "zodiac": "雙子座",
+    "cityRole": "普通市集與消息街坊",
+    "zone": "內部核心區",
+    "zoneId": "inner",
+    "image": "./assets/houses/house-03-street-web.png",
+    "url": "./house.html?id=house-03"
+  },
+  {
+    "id": "house-04",
+    "number": 4,
+    "roman": "Ⅳ",
+    "zhName": "田宅宮",
+    "latinName": "House of Foundations",
+    "houseClass": "mother",
+    "classMeta": {
+      "zh": "母親宮",
+      "en": "Mother",
+      "group": "1–4",
+      "tone": "內部核心"
+    },
+    "core": "家庭根基、父母、房地產、隱藏面與初步結局。",
+    "oneLine": "第 4 宮是地之基柱，掌管家宅、土地、根基、伏藏與事物的底線。",
+    "keywords": [
+      "家宅",
+      "土地",
+      "父母",
+      "根基",
+      "隱藏",
+      "結局"
+    ],
+    "element": {
+      "primary": "土",
+      "variants": []
+    },
+    "direction": "東之南／東之朝拜向",
+    "planet": "月亮",
+    "zodiac": "巨蟹座",
+    "cityRole": "城市中心／正北方城門",
+    "zone": "內部核心區",
+    "zoneId": "inner",
+    "image": "./assets/houses/house-04-street-web.png",
+    "url": "./house.html?id=house-04"
+  },
+  {
+    "id": "house-05",
+    "number": 5,
+    "roman": "Ⅴ",
+    "zhName": "子女宮",
+    "latinName": "House of Children and Joys",
+    "houseClass": "daughter",
+    "classMeta": {
+      "zh": "女兒宮",
+      "en": "Daughter",
+      "group": "5–8",
+      "tone": "周邊市郊"
+    },
+    "core": "子女、喜悅、禮物、戀愛、使者與創造延續。",
+    "oneLine": "第 5 宮掌管繁衍、戀愛、歡樂、禮物與生命向未來的延續。",
+    "keywords": [
+      "子女",
+      "懷孕",
+      "戀愛",
+      "歡樂",
+      "禮物",
+      "使者"
+    ],
+    "element": {
+      "primary": "火",
+      "variants": []
+    },
+    "direction": "西之東",
+    "planet": "太陽",
+    "zodiac": "獅子座",
+    "cityRole": "布料與紡織商市場",
+    "zone": "周邊市郊區",
+    "zoneId": "suburb",
+    "image": "./assets/houses/house-05-street-web.png",
+    "url": "./house.html?id=house-05"
+  },
+  {
+    "id": "house-06",
+    "number": 6,
+    "roman": "Ⅵ",
+    "zhName": "疾厄宮",
+    "latinName": "House of Illness and Servants",
+    "houseClass": "daughter",
+    "classMeta": {
+      "zh": "女兒宮",
+      "en": "Daughter",
+      "group": "5–8",
+      "tone": "周邊市郊"
+    },
+    "core": "疾病、痛苦、僕役、小型動物、失物、巫術與衰退。",
+    "oneLine": "第 6 宮是疾病本身與病因的重要指標，也掌管僕役、失物與隱藏祕密。",
+    "keywords": [
+      "疾病",
+      "病因",
+      "僕役",
+      "小型動物",
+      "失物",
+      "巫術"
+    ],
+    "element": {
+      "primary": "風",
+      "variants": []
+    },
+    "direction": "西之西",
+    "planet": "水星",
+    "zodiac": "處女座",
+    "cityRole": "浴場、金庫、少數宗教街區、廚師街",
+    "zone": "周邊市郊區",
+    "zoneId": "suburb",
+    "image": "./assets/houses/house-06-street-web.png",
+    "url": "./house.html?id=house-06"
+  },
+  {
+    "id": "house-07",
+    "number": 7,
+    "roman": "Ⅶ",
+    "zhName": "伴侶宮",
+    "latinName": "House of Spouses and Opponents",
+    "houseClass": "daughter",
+    "classMeta": {
+      "zh": "女兒宮",
+      "en": "Daughter",
+      "group": "5–8",
+      "tone": "周邊市郊"
+    },
+    "core": "伴侶、合夥、公開敵人、爭端與被問及之客體。",
+    "oneLine": "第 7 宮是命宮的鏡像，代表伴侶、對手、合夥人與所有公開的他者。",
+    "keywords": [
+      "伴侶",
+      "婚姻",
+      "合夥",
+      "對手",
+      "官司",
+      "小偷"
+    ],
+    "element": {
+      "primary": "水",
+      "variants": []
+    },
+    "direction": "西之北／西之海",
+    "planet": "金星",
+    "zodiac": "天秤座",
+    "cityRole": "婦女布料與服飾市場／正西方城門",
+    "zone": "周邊市郊區",
+    "zoneId": "suburb",
+    "image": "./assets/houses/house-07-street-web.png",
+    "url": "./house.html?id=house-07"
+  },
+  {
+    "id": "house-08",
+    "number": 8,
+    "roman": "Ⅷ",
+    "zhName": "死亡宮",
+    "latinName": "House of Death and Fear",
+    "houseClass": "daughter",
+    "classMeta": {
+      "zh": "女兒宮",
+      "en": "Daughter",
+      "group": "5–8",
+      "tone": "周邊市郊"
+    },
+    "core": "死亡、恐懼、遺產、債務、毒物與對手的財富。",
+    "oneLine": "第 8 宮處理生命終結、恐懼、債務、遺產與一切消失或地下化之物。",
+    "keywords": [
+      "死亡",
+      "恐懼",
+      "遺產",
+      "債務",
+      "毒物",
+      "失去"
+    ],
+    "element": {
+      "primary": "土",
+      "variants": []
+    },
+    "direction": "西之南／西南",
+    "planet": "火星",
+    "zodiac": "天蠍座",
+    "cityRole": "墓地、荒涼處、城外荒野",
+    "zone": "周邊市郊區",
+    "zoneId": "suburb",
+    "image": "./assets/houses/house-08-street-web.png",
+    "url": "./house.html?id=house-08"
+  },
+  {
+    "id": "house-09",
+    "number": 9,
+    "roman": "Ⅸ",
+    "zhName": "遠行宮",
+    "latinName": "House of Far Journeys and Knowledge",
+    "houseClass": "niece",
+    "classMeta": {
+      "zh": "外甥女／孫女宮",
+      "en": "Niece",
+      "group": "9–12",
+      "tone": "軍事行政"
+    },
+    "core": "長途旅行、宗教信仰、高等學問、夢境與徹底遷移。",
+    "oneLine": "第 9 宮將視野推向遠方：長途旅行、信仰、法律、高等知識與夢境。",
+    "keywords": [
+      "遠行",
+      "信仰",
+      "高等學問",
+      "法律",
+      "夢境",
+      "遷移"
+    ],
+    "element": {
+      "primary": "火",
+      "variants": []
+    },
+    "direction": "北之東／海之東",
+    "planet": "木星",
+    "zodiac": "射手座",
+    "cityRole": "法官所在地、大清真寺、宗教學校與高等知識區",
+    "zone": "軍事行政區",
+    "zoneId": "admin",
+    "image": "./assets/houses/house-09-street-web.png",
+    "url": "./house.html?id=house-09"
+  },
+  {
+    "id": "house-10",
+    "number": 10,
+    "roman": "Ⅹ",
+    "zhName": "官祿宮",
+    "latinName": "House of Kings and Power",
+    "houseClass": "niece",
+    "classMeta": {
+      "zh": "外甥女／孫女宮",
+      "en": "Niece",
+      "group": "9–12",
+      "tone": "軍事行政"
+    },
+    "core": "權威、國王、事業、名聲、母親與外在顯化。",
+    "oneLine": "第 10 宮是天之柱，代表權力、職位、名聲與事情最公開的世俗結果。",
+    "keywords": [
+      "權力",
+      "事業",
+      "職位",
+      "名聲",
+      "母親",
+      "外在顯化"
+    ],
+    "element": {
+      "primary": "土",
+      "variants": [
+        {
+          "value": "風",
+          "school": "元素學派／印度 Ramal"
+        }
+      ]
+    },
+    "direction": "北之西／海之西",
+    "planet": "土星",
+    "zodiac": "摩羯座",
+    "cityRole": "統治者與官員居所／正南方城門",
+    "zone": "軍事行政區",
+    "zoneId": "admin",
+    "image": "./assets/houses/house-10-street-web.png",
+    "url": "./house.html?id=house-10"
+  },
+  {
+    "id": "house-11",
+    "number": 11,
+    "roman": "Ⅺ",
+    "zhName": "福德宮",
+    "latinName": "House of Hopes and Friends",
+    "houseClass": "niece",
+    "classMeta": {
+      "zh": "外甥女／孫女宮",
+      "en": "Niece",
+      "group": "9–12",
+      "tone": "軍事行政"
+    },
+    "core": "希望、願望、朋友、幸運、未來目標與援助。",
+    "oneLine": "第 11 宮聚焦願望是否實現、朋友是否可靠，以及未來可得到的利益與恩助。",
+    "keywords": [
+      "希望",
+      "願望",
+      "朋友",
+      "幸運",
+      "利益",
+      "援助"
+    ],
+    "element": {
+      "primary": "水",
+      "variants": []
+    },
+    "direction": "北之北／海之海",
+    "planet": "土星",
+    "zodiac": "水瓶座",
+    "cityRole": "宰相、宮廷侍衛、地方行政首長宅邸",
+    "zone": "軍事行政區",
+    "zoneId": "admin",
+    "image": "./assets/houses/house-11-street-web.png",
+    "url": "./house.html?id=house-11"
+  },
+  {
+    "id": "house-12",
+    "number": 12,
+    "roman": "Ⅻ",
+    "zhName": "敵人宮",
+    "latinName": "House of Enemies and Misery",
+    "houseClass": "niece",
+    "classMeta": {
+      "zh": "外甥女／孫女宮",
+      "en": "Niece",
+      "group": "9–12",
+      "tone": "軍事行政"
+    },
+    "core": "隱藏敵人、嫉妒、監獄、債務、慢性病與災厄。",
+    "oneLine": "第 12 宮收納暗處的敵意、監禁、重債、慢性痛苦與事物衰退的力量。",
+    "keywords": [
+      "隱藏敵人",
+      "嫉妒",
+      "監禁",
+      "重債",
+      "慢性病",
+      "大型動物"
+    ],
+    "element": {
+      "primary": "土",
+      "variants": []
+    },
+    "direction": "北之南／海之南",
+    "planet": "木星",
+    "zodiac": "雙魚座",
+    "cityRole": "廢墟、垃圾場、隱蔽處、教堂",
+    "zone": "軍事行政區",
+    "zoneId": "admin",
+    "image": "./assets/houses/house-12-street-web.png",
+    "url": "./house.html?id=house-12"
+  },
+  {
+    "id": "house-13",
+    "number": 13,
+    "roman": "ⅩⅢ",
+    "zhName": "問卜者見證",
+    "latinName": "Right Witness",
+    "houseClass": "witness-right",
+    "classMeta": {
+      "zh": "右見證",
+      "en": "Right Witness",
+      "group": "13",
+      "tone": "裁決矩陣"
+    },
+    "core": "問卜者的見證、尋求者、內在秘密與靈魂低語。",
+    "oneLine": "第 13 宮是右見證，反映問卜者的真實力量、隱藏心意與初步結果。",
+    "keywords": [
+      "右見證",
+      "問卜者",
+      "真實意圖",
+      "尋求者",
+      "初步結果",
+      "秘密"
+    ],
+    "element": {
+      "primary": "火",
+      "variants": [
+        {
+          "value": "火與風交融",
+          "school": "神祕學結構解釋"
+        }
+      ]
+    },
+    "direction": "南之東／東偏朝拜方",
+    "planet": "火星（依第一宮法則）",
+    "zodiac": "白羊座類比（依第一宮法則）",
+    "cityRole": "偏北方的東城門／城牆防禦據點",
+    "zone": "外部補給區",
+    "zoneId": "outer",
+    "image": "./assets/houses/house-13-street-web.png",
+    "url": "./house.html?id=house-13"
+  },
+  {
+    "id": "house-14",
+    "number": 14,
+    "roman": "ⅩⅣ",
+    "zhName": "被問者見證",
+    "latinName": "Left Witness",
+    "houseClass": "witness-left",
+    "classMeta": {
+      "zh": "左見證",
+      "en": "Left Witness",
+      "group": "14",
+      "tone": "裁決矩陣"
+    },
+    "core": "被問及者、被尋求之客體、對手狀態與其深層秘密。",
+    "oneLine": "第 14 宮是左見證，描述目標、對手或被問者的力量、狀態與隱藏意圖。",
+    "keywords": [
+      "左見證",
+      "目標",
+      "被問者",
+      "對手",
+      "秘密",
+      "客體"
+    ],
+    "element": {
+      "primary": "風",
+      "variants": []
+    },
+    "direction": "南之西／西之朝拜向",
+    "planet": "依 Taskin 而異",
+    "zodiac": "依 Taskin 而異",
+    "cityRole": "偏北方的西城門／鹽海之門／城牆後方隱蔽區",
+    "zone": "外部補給區",
+    "zoneId": "outer",
+    "image": "./assets/houses/house-14-street-web.png",
+    "url": "./house.html?id=house-14"
+  },
+  {
+    "id": "house-15",
+    "number": 15,
+    "roman": "ⅩⅤ",
+    "zhName": "法官宮",
+    "latinName": "House of the Judge / The Balance",
+    "houseClass": "judge",
+    "classMeta": {
+      "zh": "法官",
+      "en": "Judge",
+      "group": "15",
+      "tone": "裁決矩陣"
+    },
+    "core": "最高裁決、綜合衡量、共識、天平與神聖判斷。",
+    "oneLine": "第 15 宮由左右見證生成，負責整盤的綜合裁決與合法性校驗。",
+    "keywords": [
+      "法官",
+      "天平",
+      "裁決",
+      "共識",
+      "校驗",
+      "綜合結果"
+    ],
+    "element": {
+      "primary": "綜合四元素",
+      "variants": []
+    },
+    "direction": "南方（學派差異）",
+    "planet": "水星類比（部分 Taskin）",
+    "zodiac": "處女座類比（部分 Taskin）",
+    "cityRole": "蘇丹／法官裁決核心／偏北方的西大門（西北門）",
+    "zone": "外部補給區",
+    "zoneId": "outer",
+    "image": "./assets/houses/house-15-street-web.png",
+    "url": "./house.html?id=house-15"
+  },
+  {
+    "id": "house-16",
+    "number": 16,
+    "roman": "ⅩⅥ",
+    "zhName": "最終結局",
+    "latinName": "House of the Ultimate Outcome",
+    "houseClass": "final-outcome",
+    "classMeta": {
+      "zh": "最終結果",
+      "en": "Ultimate Outcome",
+      "group": "16",
+      "tone": "裁決矩陣"
+    },
+    "core": "結果的結果、最終定論、事物終結、放下與解脫。",
+    "oneLine": "第 16 宮是全盤最後一宮，呈現問卜者經歷裁決後所迎來的最終宿命。",
+    "keywords": [
+      "最終結局",
+      "終結",
+      "勝負",
+      "解脫",
+      "分離",
+      "結果的結果"
+    ],
+    "element": {
+      "primary": "水",
+      "variants": [
+        {
+          "value": "固定風象／水瓶座",
+          "school": "特殊占星映射"
+        }
+      ]
+    },
+    "direction": "學派差異：南方系統／北方之水",
+    "planet": "土星（特殊映射）",
+    "zodiac": "水瓶座（特殊映射）",
+    "cityRole": "面海城門／王國宮殿／城市總大門",
+    "zone": "外部補給區",
+    "zoneId": "outer",
+    "image": "./assets/houses/house-16-street-web.png",
+    "url": "./house.html?id=house-16"
+  }
+]

@@ -1,0 +1,369 @@
+{
+  "id": "house-14",
+  "number": 14,
+  "roman": "ⅩⅣ",
+  "zhName": "被問者見證",
+  "latinName": "Left Witness",
+  "houseClass": "witness-left",
+  "image": "./assets/houses/house-14-street-web.png",
+  "identity": {
+    "coreTheme": "被問及者、被尋求之客體、對手狀態與其深層秘密。",
+    "oneLine": "第 14 宮是左見證，描述目標、對手或被問者的力量、狀態與隱藏意圖。",
+    "arabicTitles": [
+      {
+        "text": "بيت المسئول عنه",
+        "romanized": "Bayt al-Mas'ul Anhu",
+        "zh": "被問及者之宮"
+      },
+      {
+        "text": "بيت المطلوب",
+        "romanized": "Bayt al-Matlub",
+        "zh": "被尋求之物／目標之宮"
+      },
+      {
+        "text": "سر المسئول",
+        "romanized": "Sirr al-Mas'ul",
+        "zh": "被問者的秘密"
+      }
+    ],
+    "indicTitles": [
+      {
+        "text": "خانہ چہاردہم",
+        "romanized": "Khana Chahardahum",
+        "zh": "第十四宮"
+      }
+    ]
+  },
+  "card": {
+    "keywords": [
+      "左見證",
+      "目標",
+      "被問者",
+      "對手",
+      "秘密",
+      "客體"
+    ],
+    "element": {
+      "primary": "風",
+      "variants": []
+    },
+    "direction": "南之西／西之朝拜向",
+    "planet": "依 Taskin 而異",
+    "zodiac": "依 Taskin 而異",
+    "structure": "左見證／裁決矩陣",
+    "body": [
+      "頸部（特定 Taskin）",
+      "臀部中心（特定 Taskin）",
+      "腎臟（特定 Taskin）"
+    ],
+    "cityRole": "城市西門"
+  },
+  "basic": {
+    "domains": [
+      "共享／合夥財富",
+      "敵人行動",
+      "法官與旅行者疾病",
+      "女性遺產",
+      "叔伯死亡",
+      "祖父移動",
+      "伴侶死亡",
+      "父親幸運與期望",
+      "孩童榮耀",
+      "奴隸旅行與信仰",
+      "大臣財產",
+      "新年伊始占斷"
+    ],
+    "roles": [
+      "被問及者／目標對象",
+      "訴訟對手",
+      "大臣",
+      "國王子嗣",
+      "法官",
+      "精神導師",
+      "祖父",
+      "叔伯",
+      "長老／貴族",
+      "奴隸與侍女",
+      "群眾／部落／軍隊／商隊"
+    ],
+    "practical": [
+      {
+        "category": "目標",
+        "title": "客體的絕對特徵",
+        "content": "可描述目標的外貌、形狀、起源、宗教、存在與否、優劣、心智、健康、純潔度與移動。"
+      },
+      {
+        "category": "願望",
+        "title": "能否獲得所求",
+        "content": "吉利進入主獲得所求；出去尤其凶星主目標落空。"
+      },
+      {
+        "category": "解脫",
+        "title": "病人／囚犯離開",
+        "content": "可用於病人、囚犯、俘虜離開困境的判斷。"
+      }
+    ]
+  },
+  "medical": {
+    "bodyParts": [
+      "頸部（特定 Taskin）",
+      "臀部中心（特定 Taskin）",
+      "腎臟（特定 Taskin）"
+    ],
+    "humors": [
+      "黃膽汁（特定配置）"
+    ],
+    "pathology": [
+      "熱濕型病症（特定配置）"
+    ]
+  },
+  "space": {
+    "microLocations": [
+      "知識殿堂",
+      "講堂",
+      "佈道所",
+      "城堡",
+      "婚宴與招待之處"
+    ],
+    "direction": {
+      "primary": "南之西／西之朝拜向",
+      "variants": []
+    },
+    "city": [
+      "西門"
+    ],
+    "geography": []
+  },
+  "cosmology": {
+    "element": {
+      "primary": "風",
+      "variants": [],
+      "epithet": "西方的風"
+    },
+    "zodiac": "依本位盤 Taskin 而異",
+    "planet": "依本位盤 Taskin 而異",
+    "dignities": [],
+    "qualities": [
+      "熱濕",
+      "陰性",
+      "夜間"
+    ],
+    "time": [],
+    "mysticLetters": [],
+    "variants": [
+      {
+        "system": "Jama'ah Taskin",
+        "zodiac": "天秤座",
+        "planet": "土星（凶態）"
+      },
+      {
+        "system": "Atabah Dakhilah Taskin",
+        "planet": "金星"
+      }
+    ]
+  },
+  "structure": {
+    "lineage": "第二位見證者／左見證",
+    "modality": "裁決矩陣",
+    "temporalRole": "被問者力量與客體狀態",
+    "generation": {
+      "from": [
+        "house-11",
+        "house-12"
+      ],
+      "operation": "geomantic-addition"
+    }
+  },
+  "relations": [
+    {
+      "with": "house-13",
+      "label": "終極對立",
+      "rule": "第 13 宮代表尋求者，第 14 宮代表被尋求者／對手。"
+    },
+    {
+      "with": "house-15",
+      "label": "生成法官",
+      "rule": "第 13 與第 14 宮相加生成第 15 宮。"
+    },
+    {
+      "with": "house-07",
+      "label": "地位映射",
+      "rule": "第 14 宮具有第 7 宮對手／伴侶的地位。"
+    },
+    {
+      "with": "house-08",
+      "label": "氣質映射",
+      "rule": "文獻稱其氣質與第 8 宮相同。"
+    }
+  ],
+  "rules": [
+    {
+      "type": "intent",
+      "title": "被問者秘密提取",
+      "summary": "第 14 宮是窺探對手不為人知意圖與真相的重要視窗。"
+    },
+    {
+      "type": "interaction",
+      "title": "與第 5／11 宮互動",
+      "summary": "進階 Damir 法可將第 14 宮與第 5 或 11 宮互動，以分析暗中阻撓或隱藏財富。"
+    }
+  ],
+  "advanced": [
+    {
+      "title": "學派差異",
+      "content": "星體與黃道對應依 Taskin 本位盤而異，不宜硬壓成單一答案。"
+    }
+  ],
+  "sourceRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "schemaVersion": "2.1.0",
+  "sourceNote": "依使用者提供之 16 宮深度與地理版圖報告結構化；原稿中的數字引用僅保留為局部編號，待完整書目表對照。",
+  "links": {
+    "backToHouses": "./houses.html",
+    "placements": "./placements.html?house=14",
+    "self": "./house.html?id=house-14",
+    "previous": "./house.html?id=house-13",
+    "next": "./house.html?id=house-15",
+    "street": "./houses.html#house-14"
+  },
+  "imageAlt": "第 14 宮場景圖：被問者見證",
+  "sourceStatus": {
+    "basis": "使用者提供之十六宮深度與地理版圖解析報告",
+    "citationState": "原稿僅保留局部數字引用，尚待完整書目表映射",
+    "editorialPolicy": "保留學派差異；不將變體硬合併為單一結論"
+  },
+  "classMeta": {
+    "zh": "左見證",
+    "en": "Left Witness",
+    "group": "14",
+    "tone": "裁決矩陣"
+  },
+  "cityLayer": {
+    "zone": "外部補給區",
+    "zoneId": "outer",
+    "role": "偏北方的西城門／鹽海之門／城牆後方隱蔽區",
+    "structure": "偏門・隱蔽區",
+    "direction": "偏北方西城門",
+    "traditionalSummary": "未來影響、環境、對方、阻隔、牽引與另一側證詞。",
+    "citySummary": "代表偏北方的西城門，或稱鹽海之門，以及城牆後方的隱蔽區域。",
+    "locatingHint": "落第十四宮時，往對方側、環境牽引、偏北西門、背牆後方、鹽海之門或不易看見的位置判斷。",
+    "tags": [
+      "城門",
+      "隱蔽",
+      "外部道路"
+    ],
+    "hotspot": {
+      "x": 78,
+      "y": 31,
+      "label": "西北偏門"
+    },
+    "streetImage": "./assets/houses/house-14-street-web.png"
+  },
+  "core": {
+    "theme": "被問及者、被尋求之客體、對手狀態與其深層秘密。",
+    "oneLine": "第 14 宮是左見證，描述目標、對手或被問者的力量、狀態與隱藏意圖。",
+    "keywords": [
+      "左見證",
+      "目標",
+      "被問者",
+      "對手",
+      "秘密",
+      "客體"
+    ]
+  },
+  "mainCard": {
+    "element": "風",
+    "elementVariants": [],
+    "direction": "南之西／西之朝拜向",
+    "planet": "依 Taskin 而異",
+    "zodiac": "依 Taskin 而異",
+    "structure": "左見證／裁決矩陣",
+    "body": [
+      "頸部（特定 Taskin）",
+      "臀部中心（特定 Taskin）",
+      "腎臟（特定 Taskin）"
+    ],
+    "cityRole": "城市西門",
+    "oppositeHouse": ""
+  },
+  "queries": [
+    {
+      "id": "house-14-query-01",
+      "category": "目標",
+      "title": "客體的絕對特徵",
+      "interpretation": "可描述目標的外貌、形狀、起源、宗教、存在與否、優劣、心智、健康、純潔度與移動。",
+      "engineReady": false
+    },
+    {
+      "id": "house-14-query-02",
+      "category": "願望",
+      "title": "能否獲得所求",
+      "interpretation": "吉利進入主獲得所求；出去尤其凶星主目標落空。",
+      "engineReady": false
+    },
+    {
+      "id": "house-14-query-03",
+      "category": "解脫",
+      "title": "病人／囚犯離開",
+      "interpretation": "可用於病人、囚犯、俘虜離開困境的判斷。",
+      "engineReady": false
+    }
+  ],
+  "variants": [
+    {
+      "field": "advanced",
+      "label": "學派差異",
+      "value": "星體與黃道對應依 Taskin 本位盤而異，不宜硬壓成單一答案。"
+    }
+  ],
+  "display": {
+    "heroImage": "./assets/houses/house-14-street-web.png",
+    "showGenerationFirst": true,
+    "sectionOrder": [
+      "core",
+      "domains",
+      "roles",
+      "queries",
+      "medical",
+      "space",
+      "structure",
+      "relations",
+      "rules",
+      "researchAppendix"
+    ],
+    "editorialMode": "curated",
+    "hiddenByDefault": [
+      "identity.arabicTitles",
+      "identity.indicTitles",
+      "space.geography",
+      "cosmology.qualities",
+      "cosmology.time",
+      "cosmology.mysticLetters",
+      "variants",
+      "advanced",
+      "sourceRefs",
+      "sourceNote",
+      "sourceStatus"
+    ],
+    "researchAppendix": [
+      "traditionalNames",
+      "cosmologyDetails",
+      "geography",
+      "variants",
+      "advanced",
+      "sources"
+    ]
+  },
+  "engineRules": []
+}

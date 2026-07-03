@@ -1,0 +1,401 @@
+{
+  "id": "house-16",
+  "number": 16,
+  "roman": "ⅩⅥ",
+  "zhName": "最終結局",
+  "latinName": "House of the Ultimate Outcome",
+  "houseClass": "final-outcome",
+  "image": "./assets/houses/house-16-street-web.png",
+  "identity": {
+    "coreTheme": "結果的結果、最終定論、事物終結、放下與解脫。",
+    "oneLine": "第 16 宮是全盤最後一宮，呈現問卜者經歷裁決後所迎來的最終宿命。",
+    "arabicTitles": [
+      {
+        "text": "عاقبة العاقبة",
+        "romanized": "Aqibat al-Aqibah",
+        "zh": "結果的結果"
+      },
+      {
+        "text": "عاقبة العقبى",
+        "romanized": "Aqibat al-Uqba",
+        "zh": "最終的結局"
+      },
+      {
+        "text": "عاقبة الأمر",
+        "romanized": "Aqibat al-Amr",
+        "zh": "事物的終結"
+      },
+      {
+        "text": "فراغ وانتهاء وعاقبة كبرى",
+        "romanized": "Faragh wa Intiha' wa Aqibah Kubra",
+        "zh": "解脫、結束與大結局"
+      }
+    ],
+    "indicTitles": [
+      {
+        "text": "خانہ شانزدہم",
+        "romanized": "Khana Shanzdahum",
+        "zh": "第十六宮"
+      }
+    ]
+  },
+  "card": {
+    "keywords": [
+      "最終結局",
+      "終結",
+      "勝負",
+      "解脫",
+      "分離",
+      "結果的結果"
+    ],
+    "element": {
+      "primary": "水",
+      "variants": [
+        {
+          "value": "固定風象／水瓶座",
+          "school": "特殊占星映射"
+        }
+      ]
+    },
+    "direction": "學派差異：南方系統／北方之水",
+    "planet": "土星（特殊映射）",
+    "zodiac": "水瓶座（特殊映射）",
+    "structure": "最終結果／裁決後結局",
+    "body": [
+      "雙小腿／脛骨"
+    ],
+    "cityRole": "澡堂、烹飪氣息場所、終局與邊界意象"
+  },
+  "basic": {
+    "domains": [
+      "事物徹底終結",
+      "放下／停止追求",
+      "給予與索取",
+      "最終勝利與被征服",
+      "缺席者最終結局",
+      "妻子喜悅",
+      "奴隸辛勞",
+      "失物最終尋回",
+      "病後入浴康復",
+      "被迫遠行",
+      "殺戮與掠奪",
+      "揮霍於娛樂"
+    ],
+    "roles": [
+      "美髮師／梳妝女",
+      "媒人",
+      "皇家旗幟／徽章象徵",
+      "國王妻子",
+      "敵人的孩子",
+      "孩子的敵人",
+      "奴隸的朋友"
+    ],
+    "practical": [
+      {
+        "category": "勝負",
+        "title": "最終勝負與獲取",
+        "content": "吉相主最終勝利並獲得所求；凶相主失敗、損失與被征服。"
+      },
+      {
+        "category": "疾病",
+        "title": "病人最終如何",
+        "content": "吉相可主康復並進入澡堂沐浴；凶相可暗示生命終結。"
+      },
+      {
+        "category": "分離",
+        "title": "停止追求與徹底分離",
+        "content": "目標對應圖形落入終結／空亡意義時，可主遠行、爭吵、離婚或徹底放下。"
+      }
+    ]
+  },
+  "medical": {
+    "bodyParts": [
+      "雙小腿／脛骨"
+    ],
+    "humors": [],
+    "pathology": []
+  },
+  "space": {
+    "microLocations": [
+      "澡堂",
+      "充滿烹飪氣息的場所"
+    ],
+    "direction": {
+      "primary": "學派差異",
+      "variants": [
+        {
+          "value": "南方",
+          "school": "部分古典 13–16 附加宮系統"
+        },
+        {
+          "value": "北方的水",
+          "school": "阿拉伯元素學派"
+        }
+      ]
+    },
+    "city": [
+      "終局／出離意象"
+    ],
+    "geography": []
+  },
+  "cosmology": {
+    "element": {
+      "primary": "水",
+      "variants": [
+        {
+          "value": "固定風象",
+          "school": "特殊占星映射"
+        }
+      ],
+      "epithet": "北方的水（元素學派）"
+    },
+    "zodiac": "水瓶座（特殊映射）",
+    "planet": "土星（特殊映射）",
+    "dignities": [
+      "木星喜樂",
+      "太陽失勢",
+      "無擢升／下降"
+    ],
+    "qualities": [
+      "固定風象（特殊映射）"
+    ],
+    "time": [
+      "66 天",
+      "中等跨度 6 個月",
+      "長跨度 1 年或數年"
+    ],
+    "mysticLetters": [
+      "Waw و",
+      "Sin س",
+      "Ha ح",
+      "Waw و"
+    ]
+  },
+  "structure": {
+    "lineage": "最終結果／結果的結果",
+    "modality": "裁決後結局",
+    "temporalRole": "最終定讞",
+    "generation": {
+      "from": [
+        "house-01",
+        "house-15"
+      ],
+      "operation": "geomantic-addition"
+    }
+  },
+  "relations": [
+    {
+      "with": "house-01",
+      "label": "問卜者現狀",
+      "rule": "第 1 宮與第 15 宮相加生成第 16 宮。"
+    },
+    {
+      "with": "house-15",
+      "label": "綜合裁決",
+      "rule": "法官與命宮共同決定最後宿命。"
+    }
+  ],
+  "rules": [
+    {
+      "type": "judgment",
+      "title": "終極裁決生成",
+      "summary": "第 1 宮 + 第 15 宮 = 第 16 宮。"
+    },
+    {
+      "type": "judgment",
+      "title": "終極吉凶判定",
+      "summary": "生成圖形吉則最終結局吉；生成圖形凶則最終結局偏凶。"
+    },
+    {
+      "type": "separation",
+      "title": "意圖與分離確認",
+      "summary": "所問對象的代表圖形落入第 16 宮終結意義，可提示與該對象徹底分離或停止追求。"
+    }
+  ],
+  "advanced": [
+    {
+      "title": "學派差異",
+      "content": "元素、方位與水瓶座／土星對應來自不同系統，應保留來源標籤而非硬合併。"
+    }
+  ],
+  "sourceRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "schemaVersion": "2.1.0",
+  "sourceNote": "依使用者提供之 16 宮深度與地理版圖報告結構化；原稿中的數字引用僅保留為局部編號，待完整書目表對照。",
+  "links": {
+    "backToHouses": "./houses.html",
+    "placements": "./placements.html?house=16",
+    "self": "./house.html?id=house-16",
+    "previous": "./house.html?id=house-15",
+    "next": "./house.html?id=house-01",
+    "street": "./houses.html#house-16"
+  },
+  "imageAlt": "第 16 宮場景圖：最終結局",
+  "sourceStatus": {
+    "basis": "使用者提供之十六宮深度與地理版圖解析報告",
+    "citationState": "原稿僅保留局部數字引用，尚待完整書目表映射",
+    "editorialPolicy": "保留學派差異；不將變體硬合併為單一結論"
+  },
+  "classMeta": {
+    "zh": "最終結果",
+    "en": "Ultimate Outcome",
+    "group": "16",
+    "tone": "裁決矩陣"
+  },
+  "cityLayer": {
+    "zone": "外部補給區",
+    "zoneId": "outer",
+    "role": "面海城門／王國宮殿／城市總大門",
+    "structure": "王宮・總門・官員負責人",
+    "direction": "面海北門／總大門",
+    "traditionalSummary": "最終結果、收束、結果的結果與結局。",
+    "citySummary": "代表面海的城門（北門），也是王國的宮殿（دار المملكة）與城市的總大門；並可視為官員與負責人。",
+    "locatingHint": "落第十六宮時，往總入口、王宮、終點、北門、面海門、管理者辦公處或結果收束點判斷。",
+    "tags": [
+      "王宮",
+      "城門",
+      "總大門",
+      "官員"
+    ],
+    "hotspot": {
+      "x": 62,
+      "y": 14,
+      "label": "王宮總門"
+    },
+    "streetImage": "./assets/houses/house-16-street-web.png"
+  },
+  "core": {
+    "theme": "結果的結果、最終定論、事物終結、放下與解脫。",
+    "oneLine": "第 16 宮是全盤最後一宮，呈現問卜者經歷裁決後所迎來的最終宿命。",
+    "keywords": [
+      "最終結局",
+      "終結",
+      "勝負",
+      "解脫",
+      "分離",
+      "結果的結果"
+    ]
+  },
+  "mainCard": {
+    "element": "水",
+    "elementVariants": [
+      {
+        "value": "固定風象／水瓶座",
+        "school": "特殊占星映射"
+      }
+    ],
+    "direction": "學派差異：南方系統／北方之水",
+    "planet": "土星（特殊映射）",
+    "zodiac": "水瓶座（特殊映射）",
+    "structure": "最終結果／裁決後結局",
+    "body": [
+      "雙小腿／脛骨"
+    ],
+    "cityRole": "澡堂、烹飪氣息場所、終局與邊界意象",
+    "oppositeHouse": ""
+  },
+  "queries": [
+    {
+      "id": "house-16-query-01",
+      "category": "勝負",
+      "title": "最終勝負與獲取",
+      "interpretation": "吉相主最終勝利並獲得所求；凶相主失敗、損失與被征服。",
+      "engineReady": false
+    },
+    {
+      "id": "house-16-query-02",
+      "category": "疾病",
+      "title": "病人最終如何",
+      "interpretation": "吉相可主康復並進入澡堂沐浴；凶相可暗示生命終結。",
+      "engineReady": false
+    },
+    {
+      "id": "house-16-query-03",
+      "category": "分離",
+      "title": "停止追求與徹底分離",
+      "interpretation": "目標對應圖形落入終結／空亡意義時，可主遠行、爭吵、離婚或徹底放下。",
+      "engineReady": false
+    }
+  ],
+  "variants": [
+    {
+      "field": "card.element",
+      "label": "主卡元素",
+      "value": "固定風象／水瓶座",
+      "school": "特殊占星映射"
+    },
+    {
+      "field": "space.direction",
+      "label": "方位",
+      "value": "南方",
+      "school": "部分古典 13–16 附加宮系統"
+    },
+    {
+      "field": "space.direction",
+      "label": "方位",
+      "value": "北方的水",
+      "school": "阿拉伯元素學派"
+    },
+    {
+      "field": "cosmology.element",
+      "label": "宇宙學元素",
+      "value": "固定風象",
+      "school": "特殊占星映射"
+    },
+    {
+      "field": "advanced",
+      "label": "學派差異",
+      "value": "元素、方位與水瓶座／土星對應來自不同系統，應保留來源標籤而非硬合併。"
+    }
+  ],
+  "display": {
+    "heroImage": "./assets/houses/house-16-street-web.png",
+    "showGenerationFirst": true,
+    "sectionOrder": [
+      "core",
+      "domains",
+      "roles",
+      "queries",
+      "medical",
+      "space",
+      "structure",
+      "relations",
+      "rules",
+      "researchAppendix"
+    ],
+    "editorialMode": "curated",
+    "hiddenByDefault": [
+      "identity.arabicTitles",
+      "identity.indicTitles",
+      "space.geography",
+      "cosmology.qualities",
+      "cosmology.time",
+      "cosmology.mysticLetters",
+      "variants",
+      "advanced",
+      "sourceRefs",
+      "sourceNote",
+      "sourceStatus"
+    ],
+    "researchAppendix": [
+      "traditionalNames",
+      "cosmologyDetails",
+      "geography",
+      "variants",
+      "advanced",
+      "sources"
+    ]
+  },
+  "engineRules": []
+}

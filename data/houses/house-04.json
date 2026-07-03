@@ -1,0 +1,333 @@
+{
+  "id": "house-04",
+  "number": 4,
+  "roman": "Ⅳ",
+  "zhName": "田宅宮",
+  "latinName": "House of Foundations",
+  "houseClass": "mother",
+  "image": "./assets/houses/house-04-street-web.png",
+  "identity": {
+    "coreTheme": "家庭根基、父母、房地產、隱藏面與初步結局。",
+    "oneLine": "第 4 宮是地之基柱，掌管家宅、土地、根基、伏藏與事物的底線。",
+    "arabicTitles": [
+      {
+        "text": "بيت الآباء والأمهات",
+        "romanized": "Bayt al-Aba' wa-l-Ummahat",
+        "zh": "父母之宮"
+      },
+      {
+        "text": "وتد الأرض",
+        "romanized": "Watad al-Ard",
+        "zh": "地之基柱"
+      }
+    ],
+    "indicTitles": [
+      {
+        "text": "चतुर्थ गृह",
+        "romanized": "Chaturth Griha",
+        "zh": "第四宮"
+      }
+    ]
+  },
+  "card": {
+    "keywords": [
+      "家宅",
+      "土地",
+      "父母",
+      "根基",
+      "隱藏",
+      "結局"
+    ],
+    "element": {
+      "primary": "土",
+      "variants": []
+    },
+    "direction": "東之南／東之朝拜向",
+    "planet": "月亮",
+    "zodiac": "巨蟹座",
+    "structure": "第四母親／本位宮／地之柱",
+    "body": [
+      "胸部",
+      "乳房",
+      "肋骨",
+      "肺部"
+    ],
+    "cityRole": "北方城牆、城市中心、堅固堡壘與防禦工事"
+  },
+  "basic": {
+    "domains": [
+      "不動產與土地",
+      "房屋建築",
+      "農業與耕作",
+      "基礎設施",
+      "初步結局／小結局",
+      "地下寶藏與伏藏",
+      "死後狀態",
+      "遺產與舊物",
+      "土地邊界與秘密進行之事"
+    ],
+    "roles": [
+      "父母",
+      "長輩與祖輩",
+      "繼母",
+      "勞動階級",
+      "死者"
+    ],
+    "practical": [
+      {
+        "category": "房產",
+        "title": "買賣與穩定",
+        "content": "判斷房產、土地與財產是否穩定，買賣是否有利。"
+      },
+      {
+        "category": "尋寶",
+        "title": "伏藏與地下財寶",
+        "content": "與第 15 宮共同檢驗地下寶藏是否存在。"
+      },
+      {
+        "category": "住宅",
+        "title": "住處吉凶",
+        "content": "判斷房屋或地點是否吉利、是否存在安全威脅。"
+      }
+    ]
+  },
+  "medical": {
+    "bodyParts": [
+      "胸部",
+      "乳房",
+      "肋骨",
+      "肺部"
+    ],
+    "humors": [],
+    "pathology": [
+      "隱藏疾病",
+      "內傷"
+    ]
+  },
+  "space": {
+    "microLocations": [
+      "黑暗之處",
+      "水井",
+      "洞穴",
+      "地基",
+      "住家內部"
+    ],
+    "direction": {
+      "primary": "東之南／東之朝拜向",
+      "variants": []
+    },
+    "city": [
+      "北方城牆",
+      "城市中心",
+      "堅固堡壘與防禦工事"
+    ],
+    "geography": []
+  },
+  "cosmology": {
+    "element": {
+      "primary": "土",
+      "variants": [],
+      "epithet": "土中之土"
+    },
+    "zodiac": "巨蟹座",
+    "planet": "月亮",
+    "dignities": [
+      "木星在巨蟹座 15° 耀升",
+      "土星失勢",
+      "火星下降 16°"
+    ],
+    "qualities": [
+      "沉重",
+      "緩慢",
+      "陰暗"
+    ],
+    "time": [],
+    "mysticLetters": []
+  },
+  "structure": {
+    "lineage": "第四位母親",
+    "modality": "本位宮／基柱 Watad",
+    "temporalRole": "根基與最終底線",
+    "generation": null
+  },
+  "relations": [
+    {
+      "with": "house-15",
+      "label": "伏藏判斷",
+      "rule": "尋找地下寶藏時，交叉觀察第 4 與第 15 宮。"
+    },
+    {
+      "with": "house-01",
+      "label": "意圖提取",
+      "rule": "可與命宮圖形結合推演，以刺探隱藏思想與真實意圖。"
+    }
+  ],
+  "rules": [
+    {
+      "type": "medical",
+      "title": "藥物指標",
+      "summary": "問病時第 4 宮代表藥物與病床；吉象主藥物有效，凶象主藥物可能傷害多於幫助。"
+    },
+    {
+      "type": "theft",
+      "title": "失竊地點矩陣",
+      "summary": "失竊占卜中，第 4 宮代表物品被偷走的房子／地點。"
+    }
+  ],
+  "advanced": [],
+  "sourceRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "schemaVersion": "2.1.0",
+  "sourceNote": "依使用者提供之 16 宮深度與地理版圖報告結構化；原稿中的數字引用僅保留為局部編號，待完整書目表對照。",
+  "links": {
+    "backToHouses": "./houses.html",
+    "placements": "./placements.html?house=4",
+    "self": "./house.html?id=house-04",
+    "previous": "./house.html?id=house-03",
+    "next": "./house.html?id=house-05",
+    "street": "./houses.html#house-4"
+  },
+  "imageAlt": "第 4 宮場景圖：田宅宮",
+  "sourceStatus": {
+    "basis": "使用者提供之十六宮深度與地理版圖解析報告",
+    "citationState": "原稿僅保留局部數字引用，尚待完整書目表映射",
+    "editorialPolicy": "保留學派差異；不將變體硬合併為單一結論"
+  },
+  "classMeta": {
+    "zh": "母親宮",
+    "en": "Mother",
+    "group": "1–4",
+    "tone": "內部核心"
+  },
+  "cityLayer": {
+    "zone": "內部核心區",
+    "zoneId": "inner",
+    "role": "城市中心／正北方城門",
+    "structure": "中心・內城牆・北門",
+    "direction": "正北方城門",
+    "traditionalSummary": "家庭、父親、房地產、根基、隱藏之物與事物結局。",
+    "citySummary": "代表城市中心（وسط المدينة），並對應正北方的城門；也是內城牆結構的重要點。",
+    "locatingHint": "落第四宮時，往房屋、地基、中心區、北門、地下或隱藏處尋找，常指向事件的根部。",
+    "tags": [
+      "城門",
+      "城牆",
+      "中心"
+    ],
+    "hotspot": {
+      "x": 50,
+      "y": 47,
+      "label": "城市中庭"
+    },
+    "streetImage": "./assets/houses/house-04-street-web.png"
+  },
+  "core": {
+    "theme": "家庭根基、父母、房地產、隱藏面與初步結局。",
+    "oneLine": "第 4 宮是地之基柱，掌管家宅、土地、根基、伏藏與事物的底線。",
+    "keywords": [
+      "家宅",
+      "土地",
+      "父母",
+      "根基",
+      "隱藏",
+      "結局"
+    ]
+  },
+  "mainCard": {
+    "element": "土",
+    "elementVariants": [],
+    "direction": "東之南／東之朝拜向",
+    "planet": "月亮",
+    "zodiac": "巨蟹座",
+    "structure": "第四母親／本位宮／地之柱",
+    "body": [
+      "胸部",
+      "乳房",
+      "肋骨",
+      "肺部"
+    ],
+    "cityRole": "北方城牆、城市中心、堅固堡壘與防禦工事",
+    "oppositeHouse": "第 10 宮"
+  },
+  "queries": [
+    {
+      "id": "house-04-query-01",
+      "category": "房產",
+      "title": "買賣與穩定",
+      "interpretation": "判斷房產、土地與財產是否穩定，買賣是否有利。",
+      "engineReady": false
+    },
+    {
+      "id": "house-04-query-02",
+      "category": "尋寶",
+      "title": "伏藏與地下財寶",
+      "interpretation": "與第 15 宮共同檢驗地下寶藏是否存在。",
+      "engineReady": false
+    },
+    {
+      "id": "house-04-query-03",
+      "category": "住宅",
+      "title": "住處吉凶",
+      "interpretation": "判斷房屋或地點是否吉利、是否存在安全威脅。",
+      "engineReady": false
+    }
+  ],
+  "variants": [],
+  "display": {
+    "heroImage": "./assets/houses/house-04-street-web.png",
+    "showGenerationFirst": false,
+    "sectionOrder": [
+      "core",
+      "domains",
+      "roles",
+      "queries",
+      "medical",
+      "space",
+      "structure",
+      "relations",
+      "rules",
+      "researchAppendix"
+    ],
+    "editorialMode": "curated",
+    "hiddenByDefault": [
+      "identity.arabicTitles",
+      "identity.indicTitles",
+      "space.geography",
+      "cosmology.qualities",
+      "cosmology.time",
+      "cosmology.mysticLetters",
+      "variants",
+      "advanced",
+      "sourceRefs",
+      "sourceNote",
+      "sourceStatus"
+    ],
+    "researchAppendix": [
+      "traditionalNames",
+      "cosmologyDetails",
+      "geography",
+      "variants",
+      "advanced",
+      "sources"
+    ]
+  },
+  "engineRules": []
+}

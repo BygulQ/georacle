@@ -1,0 +1,402 @@
+{
+  "id": "house-10",
+  "number": 10,
+  "roman": "Ⅹ",
+  "zhName": "官祿宮",
+  "latinName": "House of Kings and Power",
+  "houseClass": "niece",
+  "image": "./assets/houses/house-10-street-web.png",
+  "identity": {
+    "coreTheme": "權威、國王、事業、名聲、母親與外在顯化。",
+    "oneLine": "第 10 宮是天之柱，代表權力、職位、名聲與事情最公開的世俗結果。",
+    "arabicTitles": [
+      {
+        "text": "بيت السلطان",
+        "romanized": "Bayt al-Sultan",
+        "zh": "蘇丹／國王之宮"
+      },
+      {
+        "text": "بيت العز",
+        "romanized": "Bayt al-Izz",
+        "zh": "榮耀之宮"
+      },
+      {
+        "text": "بيت الأمهات",
+        "romanized": "Bayt al-Ummahat",
+        "zh": "母親之宮"
+      },
+      {
+        "text": "بيت الأرزاق",
+        "romanized": "Bayt al-Arzaq",
+        "zh": "生計與資源之宮"
+      },
+      {
+        "text": "وتد السماء",
+        "romanized": "Watad al-Sama'",
+        "zh": "天之柱"
+      }
+    ],
+    "indicTitles": [
+      {
+        "text": "दशम गृह",
+        "romanized": "Dasham Griha",
+        "zh": "第十宮"
+      }
+    ]
+  },
+  "card": {
+    "keywords": [
+      "權力",
+      "事業",
+      "職位",
+      "名聲",
+      "母親",
+      "外在顯化"
+    ],
+    "element": {
+      "primary": "土",
+      "variants": [
+        {
+          "value": "風",
+          "school": "元素學派／印度 Ramal"
+        }
+      ]
+    },
+    "direction": "北之西／海之西",
+    "planet": "土星",
+    "zodiac": "摩羯座",
+    "structure": "第二外甥女／本位宮／天之柱",
+    "body": [
+      "膝蓋"
+    ],
+    "cityRole": "南方城牆、王城堡壘、市場與高聳權威空間"
+  },
+  "basic": {
+    "domains": [
+      "君王與國家領袖",
+      "權力任命與解職",
+      "命令與禁令",
+      "名聲威望",
+      "世俗生計",
+      "法官財富",
+      "母親與繼母",
+      "伴侶住所",
+      "逃亡者移動",
+      "天氣降雨與雲雷",
+      "職位升遷與復職"
+    ],
+    "roles": [
+      "國王／蘇丹",
+      "官員與掌權者",
+      "法官",
+      "部長／維齊爾",
+      "母親",
+      "繼母",
+      "堂兄弟",
+      "導師",
+      "靈性導師"
+    ],
+    "practical": [
+      {
+        "category": "事業",
+        "title": "從何種行業獲利",
+        "content": "可依第 10 宮圖形元素推斷農業、貿易、受僱等職業方向。"
+      },
+      {
+        "category": "求職",
+        "title": "能否得到職位",
+        "content": "結合第 1、2、6、10 宮判斷求職與任命。"
+      },
+      {
+        "category": "復職",
+        "title": "被解職者能否恢復",
+        "content": "第 10 宮進入或固定圖形可提高復職訊號。"
+      },
+      {
+        "category": "天氣",
+        "title": "降雨與氣候",
+        "content": "印度系統特別用於降雨、雲層、雷電與天氣變化。"
+      }
+    ]
+  },
+  "medical": {
+    "bodyParts": [
+      "膝蓋"
+    ],
+    "humors": [],
+    "pathology": [
+      "病患飲食／糧食指標"
+    ]
+  },
+  "space": {
+    "microLocations": [
+      "國王堡壘／城堡",
+      "市場與交易地",
+      "巨大長壽古樹之地",
+      "天空中央與雲層所在"
+    ],
+    "direction": {
+      "primary": "北之西／海之西",
+      "variants": [
+        {
+          "value": "西之北",
+          "school": "部分文獻"
+        }
+      ]
+    },
+    "city": [
+      "南方城牆"
+    ],
+    "geography": [
+      "埃及",
+      "巴爾卡／昔蘭尼加及周邊"
+    ]
+  },
+  "cosmology": {
+    "element": {
+      "primary": "土",
+      "variants": [
+        {
+          "value": "風",
+          "school": "元素學派／印度 Ramal"
+        }
+      ],
+      "epithet": null
+    },
+    "zodiac": "摩羯座",
+    "planet": "土星",
+    "dignities": [
+      "火星耀升 28°",
+      "木星下降 25°",
+      "月亮失勢",
+      "無星體喜樂"
+    ],
+    "qualities": [],
+    "time": [
+      "55 天",
+      "中等跨度 36 天"
+    ],
+    "mysticLetters": [
+      "Waw و",
+      "Lam ل",
+      "Nun ن",
+      "Ya ي"
+    ]
+  },
+  "structure": {
+    "lineage": "第二位外甥女／孫女",
+    "modality": "本位宮／基柱 Watad",
+    "temporalRole": "最高顯化與統治力量",
+    "generation": null
+  },
+  "relations": [
+    {
+      "with": "house-09",
+      "label": "外在顯化",
+      "rule": "第 9 宮為內在，第 10 宮為外在表現與世俗結果。"
+    },
+    {
+      "with": "house-07",
+      "label": "醫療矩陣",
+      "rule": "與第 1、6、7 宮等共同構成疾病判斷。"
+    }
+  ],
+  "rules": [
+    {
+      "type": "theft",
+      "title": "贓物／小偷藏身座標",
+      "summary": "失竊與逃亡占卜中，第 10 宮可代表贓物藏匿的具體空間或小偷藏身處。"
+    },
+    {
+      "type": "medical",
+      "title": "飲食與治療手段",
+      "summary": "問病時第 10 宮可代表病人的日常飲食與治療／處方輔助。"
+    }
+  ],
+  "advanced": [],
+  "sourceRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "schemaVersion": "2.1.0",
+  "sourceNote": "依使用者提供之 16 宮深度與地理版圖報告結構化；原稿中的數字引用僅保留為局部編號，待完整書目表對照。",
+  "links": {
+    "backToHouses": "./houses.html",
+    "placements": "./placements.html?house=10",
+    "self": "./house.html?id=house-10",
+    "previous": "./house.html?id=house-09",
+    "next": "./house.html?id=house-11",
+    "street": "./houses.html#house-10"
+  },
+  "imageAlt": "第 10 宮場景圖：官祿宮",
+  "sourceStatus": {
+    "basis": "使用者提供之十六宮深度與地理版圖解析報告",
+    "citationState": "原稿僅保留局部數字引用，尚待完整書目表映射",
+    "editorialPolicy": "保留學派差異；不將變體硬合併為單一結論"
+  },
+  "classMeta": {
+    "zh": "外甥女／孫女宮",
+    "en": "Niece",
+    "group": "9–12",
+    "tone": "軍事行政"
+  },
+  "cityLayer": {
+    "zone": "軍事行政區",
+    "zoneId": "admin",
+    "role": "統治者與官員居所／正南方城門",
+    "structure": "權力・外圍護城牆・南門",
+    "direction": "正南方城門",
+    "traditionalSummary": "事業、權威、名聲、政府、母親、職位與外在成就。",
+    "citySummary": "代表統治者與各類官員的居所，並對應正南方的城門；也是環繞城市的外圍護城牆。",
+    "locatingHint": "落第十宮時，往官署、上級、顯眼位置、南門、官方機構、權力中心與高處判斷。",
+    "tags": [
+      "城門",
+      "城牆",
+      "行政",
+      "權力"
+    ],
+    "hotspot": {
+      "x": 57,
+      "y": 79,
+      "label": "官署南門"
+    },
+    "streetImage": "./assets/houses/house-10-street-web.png"
+  },
+  "core": {
+    "theme": "權威、國王、事業、名聲、母親與外在顯化。",
+    "oneLine": "第 10 宮是天之柱，代表權力、職位、名聲與事情最公開的世俗結果。",
+    "keywords": [
+      "權力",
+      "事業",
+      "職位",
+      "名聲",
+      "母親",
+      "外在顯化"
+    ]
+  },
+  "mainCard": {
+    "element": "土",
+    "elementVariants": [
+      {
+        "value": "風",
+        "school": "元素學派／印度 Ramal"
+      }
+    ],
+    "direction": "北之西／海之西",
+    "planet": "土星",
+    "zodiac": "摩羯座",
+    "structure": "第二外甥女／本位宮／天之柱",
+    "body": [
+      "膝蓋"
+    ],
+    "cityRole": "南方城牆、王城堡壘、市場與高聳權威空間",
+    "oppositeHouse": "第 4 宮"
+  },
+  "queries": [
+    {
+      "id": "house-10-query-01",
+      "category": "事業",
+      "title": "從何種行業獲利",
+      "interpretation": "可依第 10 宮圖形元素推斷農業、貿易、受僱等職業方向。",
+      "engineReady": false
+    },
+    {
+      "id": "house-10-query-02",
+      "category": "求職",
+      "title": "能否得到職位",
+      "interpretation": "結合第 1、2、6、10 宮判斷求職與任命。",
+      "engineReady": false
+    },
+    {
+      "id": "house-10-query-03",
+      "category": "復職",
+      "title": "被解職者能否恢復",
+      "interpretation": "第 10 宮進入或固定圖形可提高復職訊號。",
+      "engineReady": false
+    },
+    {
+      "id": "house-10-query-04",
+      "category": "天氣",
+      "title": "降雨與氣候",
+      "interpretation": "印度系統特別用於降雨、雲層、雷電與天氣變化。",
+      "engineReady": false
+    }
+  ],
+  "variants": [
+    {
+      "field": "card.element",
+      "label": "主卡元素",
+      "value": "風",
+      "school": "元素學派／印度 Ramal"
+    },
+    {
+      "field": "space.direction",
+      "label": "方位",
+      "value": "西之北",
+      "school": "部分文獻"
+    },
+    {
+      "field": "cosmology.element",
+      "label": "宇宙學元素",
+      "value": "風",
+      "school": "元素學派／印度 Ramal"
+    }
+  ],
+  "display": {
+    "heroImage": "./assets/houses/house-10-street-web.png",
+    "showGenerationFirst": false,
+    "sectionOrder": [
+      "core",
+      "domains",
+      "roles",
+      "queries",
+      "medical",
+      "space",
+      "structure",
+      "relations",
+      "rules",
+      "researchAppendix"
+    ],
+    "editorialMode": "curated",
+    "hiddenByDefault": [
+      "identity.arabicTitles",
+      "identity.indicTitles",
+      "space.geography",
+      "cosmology.qualities",
+      "cosmology.time",
+      "cosmology.mysticLetters",
+      "variants",
+      "advanced",
+      "sourceRefs",
+      "sourceNote",
+      "sourceStatus"
+    ],
+    "researchAppendix": [
+      "traditionalNames",
+      "cosmologyDetails",
+      "geography",
+      "variants",
+      "advanced",
+      "sources"
+    ]
+  },
+  "engineRules": []
+}

@@ -1,0 +1,360 @@
+{
+  "id": "house-12",
+  "number": 12,
+  "roman": "Ⅻ",
+  "zhName": "敵人宮",
+  "latinName": "House of Enemies and Misery",
+  "houseClass": "niece",
+  "image": "./assets/houses/house-12-street-web.png",
+  "identity": {
+    "coreTheme": "隱藏敵人、嫉妒、監獄、債務、慢性病與災厄。",
+    "oneLine": "第 12 宮收納暗處的敵意、監禁、重債、慢性痛苦與事物衰退的力量。",
+    "arabicTitles": [
+      {
+        "text": "بيت الاعداء",
+        "romanized": "Bayt al-A'da'",
+        "zh": "敵人之宮"
+      },
+      {
+        "text": "بيت الحساد",
+        "romanized": "Bayt al-Hussad",
+        "zh": "嫉妒者之宮"
+      },
+      {
+        "text": "بيت السجن",
+        "romanized": "Bayt al-Sijn",
+        "zh": "監獄之宮"
+      },
+      {
+        "text": "بيت الشقاء",
+        "romanized": "Bayt al-Shaqa'",
+        "zh": "悲慘與苦難之宮"
+      }
+    ],
+    "indicTitles": [
+      {
+        "text": "خانہ دوازدہم",
+        "romanized": "Khana Dwazdahum",
+        "zh": "第十二宮"
+      },
+      {
+        "text": "خانہ دشمناں",
+        "romanized": "Khana-e-Dushmanan",
+        "zh": "敵人宮"
+      }
+    ]
+  },
+  "card": {
+    "keywords": [
+      "隱藏敵人",
+      "嫉妒",
+      "監禁",
+      "重債",
+      "慢性病",
+      "大型動物"
+    ],
+    "element": {
+      "primary": "土",
+      "variants": []
+    },
+    "direction": "北之南／海之南",
+    "planet": "木星",
+    "zodiac": "雙魚座",
+    "structure": "第四外甥女／果宮／衰退宮",
+    "body": [
+      "雙腳與腳底"
+    ],
+    "cityRole": "大監獄、黑暗處、武器庫、垃圾與焚燒區"
+  },
+  "basic": {
+    "domains": [
+      "敵意與嫉妒",
+      "戰爭與爭端",
+      "流言與誹謗",
+      "偽善與造謠",
+      "監禁與枷鎖",
+      "沉重債務",
+      "悲傷與憂愁",
+      "貶職",
+      "貧窮與勞苦",
+      "逃亡奴隸",
+      "大型動物",
+      "慢性疾病與舊債"
+    ],
+    "roles": [
+      "隱藏敵人",
+      "嫉妒者",
+      "小偷與攔路強盜",
+      "逃跑奴隸與婢女",
+      "農夫與苦力",
+      "大型四足動物",
+      "母親親戚"
+    ],
+    "practical": [
+      {
+        "category": "敵人",
+        "title": "敵人是否能傷害",
+        "content": "依第 12 宮圖形力量、吉凶與移動判斷敵人數量、傷害力或轉化為朋友。"
+      },
+      {
+        "category": "囚犯",
+        "title": "能否獲釋",
+        "content": "吉利進入可主安好或釋放；凶象主折磨；凶變動可主轉監。"
+      },
+      {
+        "category": "動物",
+        "title": "大型牲畜買賣",
+        "content": "吉利進入主獲利；凶象主生病、死亡或損失。"
+      }
+    ]
+  },
+  "medical": {
+    "bodyParts": [
+      "雙腳",
+      "腳底"
+    ],
+    "humors": [],
+    "pathology": [
+      "慢性病",
+      "敵人／巫術引起的暗疾"
+    ]
+  },
+  "space": {
+    "microLocations": [
+      "大監獄",
+      "黑暗之處",
+      "廁所／排泄處"
+    ],
+    "direction": {
+      "primary": "北之南／海之南",
+      "variants": []
+    },
+    "city": [
+      "投石機與防禦巨石區",
+      "軍事武器庫",
+      "垃圾場與焚燒處"
+    ],
+    "geography": [
+      "猶太與基督徒墓地",
+      "豬牧場",
+      "遙遠海洋",
+      "阿曼及其山脈"
+    ]
+  },
+  "cosmology": {
+    "element": {
+      "primary": "土",
+      "variants": [
+        {
+          "value": "南方的土",
+          "school": "元素學派"
+        }
+      ],
+      "epithet": "沉重向下"
+    },
+    "zodiac": "雙魚座",
+    "planet": "木星",
+    "dignities": [
+      "金星耀升 27°"
+    ],
+    "qualities": [],
+    "time": [
+      "冬季最後一個月",
+      "40 天",
+      "中等跨度 10 個月",
+      "長跨度 78 天"
+    ],
+    "mysticLetters": [
+      "Ayn ع",
+      "Mim م",
+      "Ya ي",
+      "Ba ب"
+    ]
+  },
+  "structure": {
+    "lineage": "第四位外甥女／孫女",
+    "modality": "果宮／衰退宮 Cadent",
+    "temporalRole": "過去、衰退與終結",
+    "generation": null
+  },
+  "relations": [
+    {
+      "with": "house-01",
+      "label": "敵我角力",
+      "rule": "第 1 宮圖形落第 12 宮可主問卜者壓制敵人；第 12 宮圖形落第 1 宮則敵人威脅上升。"
+    },
+    {
+      "with": "house-11",
+      "label": "對手外在",
+      "rule": "第 11 宮是被問者內在，第 12 宮是其外在顯化。"
+    }
+  ],
+  "rules": [
+    {
+      "type": "enemy",
+      "title": "每一個第十二宮都是敵人",
+      "summary": "衍生宮位法中，每個對象的第 12 宮可視為該對象的敵人。"
+    },
+    {
+      "type": "derived",
+      "title": "衍生矩陣",
+      "summary": "可代表妻子的痛苦、君王情報與間諜、死亡／遺產恐懼的延伸等。"
+    }
+  ],
+  "advanced": [],
+  "sourceRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "schemaVersion": "2.1.0",
+  "sourceNote": "依使用者提供之 16 宮深度與地理版圖報告結構化；原稿中的數字引用僅保留為局部編號，待完整書目表對照。",
+  "links": {
+    "backToHouses": "./houses.html",
+    "placements": "./placements.html?house=12",
+    "self": "./house.html?id=house-12",
+    "previous": "./house.html?id=house-11",
+    "next": "./house.html?id=house-13",
+    "street": "./houses.html#house-12"
+  },
+  "imageAlt": "第 12 宮場景圖：敵人宮",
+  "sourceStatus": {
+    "basis": "使用者提供之十六宮深度與地理版圖解析報告",
+    "citationState": "原稿僅保留局部數字引用，尚待完整書目表映射",
+    "editorialPolicy": "保留學派差異；不將變體硬合併為單一結論"
+  },
+  "classMeta": {
+    "zh": "外甥女／孫女宮",
+    "en": "Niece",
+    "group": "9–12",
+    "tone": "軍事行政"
+  },
+  "cityLayer": {
+    "zone": "軍事行政區",
+    "zoneId": "admin",
+    "role": "廢墟、垃圾場、隱蔽處、教堂",
+    "structure": "隱蔽・廢棄・暗角",
+    "direction": "城市陰影區",
+    "traditionalSummary": "隱藏敵人、監獄、秘密、悲傷、孤立與大型動物。",
+    "citySummary": "代表城市陰暗或被遺棄的角落，包括廢墟、垃圾場、隱蔽處以及教堂。",
+    "locatingHint": "落第十二宮時，往廢棄處、垃圾堆、陰暗房間、監禁處、隱蔽角落、教堂或被忽視的位置尋找。",
+    "tags": [
+      "廢墟",
+      "隱蔽",
+      "教堂"
+    ],
+    "hotspot": {
+      "x": 79,
+      "y": 72,
+      "label": "廢墟暗角"
+    },
+    "streetImage": "./assets/houses/house-12-street-web.png"
+  },
+  "core": {
+    "theme": "隱藏敵人、嫉妒、監獄、債務、慢性病與災厄。",
+    "oneLine": "第 12 宮收納暗處的敵意、監禁、重債、慢性痛苦與事物衰退的力量。",
+    "keywords": [
+      "隱藏敵人",
+      "嫉妒",
+      "監禁",
+      "重債",
+      "慢性病",
+      "大型動物"
+    ]
+  },
+  "mainCard": {
+    "element": "土",
+    "elementVariants": [],
+    "direction": "北之南／海之南",
+    "planet": "木星",
+    "zodiac": "雙魚座",
+    "structure": "第四外甥女／果宮／衰退宮",
+    "body": [
+      "雙腳與腳底"
+    ],
+    "cityRole": "大監獄、黑暗處、武器庫、垃圾與焚燒區",
+    "oppositeHouse": "第 6 宮"
+  },
+  "queries": [
+    {
+      "id": "house-12-query-01",
+      "category": "敵人",
+      "title": "敵人是否能傷害",
+      "interpretation": "依第 12 宮圖形力量、吉凶與移動判斷敵人數量、傷害力或轉化為朋友。",
+      "engineReady": false
+    },
+    {
+      "id": "house-12-query-02",
+      "category": "囚犯",
+      "title": "能否獲釋",
+      "interpretation": "吉利進入可主安好或釋放；凶象主折磨；凶變動可主轉監。",
+      "engineReady": false
+    },
+    {
+      "id": "house-12-query-03",
+      "category": "動物",
+      "title": "大型牲畜買賣",
+      "interpretation": "吉利進入主獲利；凶象主生病、死亡或損失。",
+      "engineReady": false
+    }
+  ],
+  "variants": [
+    {
+      "field": "cosmology.element",
+      "label": "宇宙學元素",
+      "value": "南方的土",
+      "school": "元素學派"
+    }
+  ],
+  "display": {
+    "heroImage": "./assets/houses/house-12-street-web.png",
+    "showGenerationFirst": false,
+    "sectionOrder": [
+      "core",
+      "domains",
+      "roles",
+      "queries",
+      "medical",
+      "space",
+      "structure",
+      "relations",
+      "rules",
+      "researchAppendix"
+    ],
+    "editorialMode": "curated",
+    "hiddenByDefault": [
+      "identity.arabicTitles",
+      "identity.indicTitles",
+      "space.geography",
+      "cosmology.qualities",
+      "cosmology.time",
+      "cosmology.mysticLetters",
+      "variants",
+      "advanced",
+      "sourceRefs",
+      "sourceNote",
+      "sourceStatus"
+    ],
+    "researchAppendix": [
+      "traditionalNames",
+      "cosmologyDetails",
+      "geography",
+      "variants",
+      "advanced",
+      "sources"
+    ]
+  },
+  "engineRules": []
+}

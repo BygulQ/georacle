@@ -1,0 +1,404 @@
+{
+  "id": "house-15",
+  "number": 15,
+  "roman": "ⅩⅤ",
+  "zhName": "法官宮",
+  "latinName": "House of the Judge / The Balance",
+  "houseClass": "judge",
+  "image": "./assets/houses/house-15-street-web.png",
+  "identity": {
+    "coreTheme": "最高裁決、綜合衡量、共識、天平與神聖判斷。",
+    "oneLine": "第 15 宮由左右見證生成，負責整盤的綜合裁決與合法性校驗。",
+    "arabicTitles": [
+      {
+        "text": "ميزان الرمل",
+        "romanized": "Mizan al-Raml",
+        "zh": "沙占之天平"
+      },
+      {
+        "text": "بيت القاضي",
+        "romanized": "Bayt al-Qadi",
+        "zh": "法官之宮"
+      },
+      {
+        "text": "الفرح الأكبر",
+        "romanized": "al-Farah al-Akbar",
+        "zh": "大歡喜"
+      },
+      {
+        "text": "لسان الميزان",
+        "romanized": "Lisan al-Mizan",
+        "zh": "天平之舌／判決之口"
+      }
+    ],
+    "indicTitles": [
+      {
+        "text": "خانہ پانزدہم",
+        "romanized": "Khana Panzdahum",
+        "zh": "第十五宮"
+      },
+      {
+        "text": "पञ्चदश गृह",
+        "romanized": "Panchadash Griha",
+        "zh": "第十五宮"
+      }
+    ]
+  },
+  "card": {
+    "keywords": [
+      "法官",
+      "天平",
+      "裁決",
+      "共識",
+      "校驗",
+      "綜合結果"
+    ],
+    "element": {
+      "primary": "綜合四元素",
+      "variants": []
+    },
+    "direction": "南方（學派差異）",
+    "planet": "水星類比（部分 Taskin）",
+    "zodiac": "處女座類比（部分 Taskin）",
+    "structure": "法官／天平／裁決矩陣",
+    "body": [
+      "心臟",
+      "舌頭／天平之舌"
+    ],
+    "cityRole": "城門與周邊、出入城市的邊界、城郊"
+  },
+  "basic": {
+    "domains": [
+      "所有問題的最終裁決",
+      "政治事務",
+      "旅行者出發",
+      "船隻離港",
+      "妻子朝覲",
+      "城市資源進出",
+      "巨大喜悅或悲傷",
+      "靈魂安息",
+      "狀態持久性",
+      "訴訟與和解",
+      "協商與建議"
+    ],
+    "roles": [
+      "法官",
+      "統治者／仲裁者",
+      "智慧之人",
+      "經典掌管者",
+      "工程師"
+    ],
+    "practical": [
+      {
+        "category": "尋人",
+        "title": "失蹤者即將歸來",
+        "content": "代表圖形落第 15 宮，可提示接近城門／家門、迅速歸來。"
+      },
+      {
+        "category": "失竊",
+        "title": "小偷已出城",
+        "content": "小偷圖形落第 15 宮，可提示帶贓物逃至城外或遠行。"
+      },
+      {
+        "category": "法律",
+        "title": "提告或和解",
+        "content": "印度系統可直接觀察第 15 宮吉凶，決定訴訟、協商與和解。"
+      },
+      {
+        "category": "尋寶",
+        "title": "與第 4 宮共判伏藏",
+        "content": "第 4 與第 15 宮出現吉利進入／固定圖形，可提升有寶藏的可能。"
+      }
+    ]
+  },
+  "medical": {
+    "bodyParts": [
+      "心臟",
+      "舌頭／天平之舌"
+    ],
+    "humors": [],
+    "pathology": [
+      "特定火星疾病配置中可指腹部與頭部"
+    ]
+  },
+  "space": {
+    "microLocations": [
+      "城門及周邊",
+      "房屋大門",
+      "城市外圍／城郊"
+    ],
+    "direction": {
+      "primary": "南方",
+      "variants": [
+        {
+          "value": "北方極限",
+          "school": "部分波斯學派"
+        }
+      ]
+    },
+    "city": [
+      "出入城門",
+      "城市外圍／城郊"
+    ],
+    "geography": []
+  },
+  "cosmology": {
+    "element": {
+      "primary": "綜合四元素",
+      "variants": [],
+      "epithet": "匯集所有自然元素／本性"
+    },
+    "zodiac": "處女座類比（部分 Taskin）",
+    "planet": "水星類比（部分 Taskin）",
+    "dignities": [],
+    "qualities": [
+      "智慧",
+      "計算",
+      "精確衡量"
+    ],
+    "time": [],
+    "mysticLetters": []
+  },
+  "structure": {
+    "lineage": "法官／天平",
+    "modality": "裁決矩陣",
+    "temporalRole": "綜合裁決",
+    "generation": {
+      "from": [
+        "house-13",
+        "house-14"
+      ],
+      "operation": "geomantic-addition"
+    }
+  },
+  "relations": [
+    {
+      "with": "house-13",
+      "label": "右見證",
+      "rule": "問卜者／尋求者力量。"
+    },
+    {
+      "with": "house-14",
+      "label": "左見證",
+      "rule": "被問者／目標力量。"
+    },
+    {
+      "with": "house-16",
+      "label": "生成最終結果",
+      "rule": "第 15 宮與第 1 宮相加生成第 16 宮。"
+    }
+  ],
+  "rules": [
+    {
+      "type": "validation",
+      "title": "奇數排斥鐵律",
+      "summary": "第 15 宮絕不應出現奇數圖形；若出現，應視為排盤計算錯誤並檢查整盤。",
+      "engine": {
+        "condition": {
+          "house": 15,
+          "figureParity": "odd"
+        },
+        "result": {
+          "valid": false,
+          "message": "法官宮出現奇數圖形：請檢查第 13、14 宮相加與整盤。"
+        }
+      }
+    },
+    {
+      "type": "judgment",
+      "title": "問卜者與對手的綜合衡量",
+      "summary": "比較第 13 與第 14 宮力量，再以第 15 宮吉凶判斷裁決偏向。"
+    }
+  ],
+  "advanced": [
+    {
+      "title": "方位學派差異",
+      "content": "附加宮系統多指南方；部分波斯學派指北方極限。"
+    }
+  ],
+  "sourceRefs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "schemaVersion": "2.1.0",
+  "sourceNote": "依使用者提供之 16 宮深度與地理版圖報告結構化；原稿中的數字引用僅保留為局部編號，待完整書目表對照。",
+  "links": {
+    "backToHouses": "./houses.html",
+    "placements": "./placements.html?house=15",
+    "self": "./house.html?id=house-15",
+    "previous": "./house.html?id=house-14",
+    "next": "./house.html?id=house-16",
+    "street": "./houses.html#house-15"
+  },
+  "imageAlt": "第 15 宮場景圖：法官宮",
+  "sourceStatus": {
+    "basis": "使用者提供之十六宮深度與地理版圖解析報告",
+    "citationState": "原稿僅保留局部數字引用，尚待完整書目表映射",
+    "editorialPolicy": "保留學派差異；不將變體硬合併為單一結論"
+  },
+  "classMeta": {
+    "zh": "法官",
+    "en": "Judge",
+    "group": "15",
+    "tone": "裁決矩陣"
+  },
+  "cityLayer": {
+    "zone": "外部補給區",
+    "zoneId": "outer",
+    "role": "蘇丹／法官裁決核心／偏北方的西大門（西北門）",
+    "structure": "統治核心・裁決門・判詞",
+    "direction": "西北門",
+    "traditionalSummary": "核心裁決、綜合判斷、整盤定調與中心裁判。",
+    "citySummary": "代表沙盤城市中的蘇丹與法官裁決核心，也是偏北方的西大門；全城證詞、卷宗、沙盤判斷與最終裁決於此歸納。",
+    "locatingHint": "落第十五宮時，指向最核心的權力決定、裁判者、沙盤判詞、證詞歸納、最高門位、西北門或事件最終定調處。",
+    "tags": [
+      "蘇丹",
+      "城門",
+      "裁決",
+      "沙盤判斷"
+    ],
+    "hotspot": {
+      "x": 68,
+      "y": 24,
+      "label": "蘇丹裁決"
+    },
+    "streetImage": "./assets/houses/house-15-street-web.png"
+  },
+  "core": {
+    "theme": "最高裁決、綜合衡量、共識、天平與神聖判斷。",
+    "oneLine": "第 15 宮由左右見證生成，負責整盤的綜合裁決與合法性校驗。",
+    "keywords": [
+      "法官",
+      "天平",
+      "裁決",
+      "共識",
+      "校驗",
+      "綜合結果"
+    ]
+  },
+  "mainCard": {
+    "element": "綜合四元素",
+    "elementVariants": [],
+    "direction": "南方（學派差異）",
+    "planet": "水星類比（部分 Taskin）",
+    "zodiac": "處女座類比（部分 Taskin）",
+    "structure": "法官／天平／裁決矩陣",
+    "body": [
+      "心臟",
+      "舌頭／天平之舌"
+    ],
+    "cityRole": "城門與周邊、出入城市的邊界、城郊",
+    "oppositeHouse": ""
+  },
+  "queries": [
+    {
+      "id": "house-15-query-01",
+      "category": "尋人",
+      "title": "失蹤者即將歸來",
+      "interpretation": "代表圖形落第 15 宮，可提示接近城門／家門、迅速歸來。",
+      "engineReady": false
+    },
+    {
+      "id": "house-15-query-02",
+      "category": "失竊",
+      "title": "小偷已出城",
+      "interpretation": "小偷圖形落第 15 宮，可提示帶贓物逃至城外或遠行。",
+      "engineReady": false
+    },
+    {
+      "id": "house-15-query-03",
+      "category": "法律",
+      "title": "提告或和解",
+      "interpretation": "印度系統可直接觀察第 15 宮吉凶，決定訴訟、協商與和解。",
+      "engineReady": false
+    },
+    {
+      "id": "house-15-query-04",
+      "category": "尋寶",
+      "title": "與第 4 宮共判伏藏",
+      "interpretation": "第 4 與第 15 宮出現吉利進入／固定圖形，可提升有寶藏的可能。",
+      "engineReady": false
+    }
+  ],
+  "variants": [
+    {
+      "field": "space.direction",
+      "label": "方位",
+      "value": "北方極限",
+      "school": "部分波斯學派"
+    },
+    {
+      "field": "advanced",
+      "label": "方位學派差異",
+      "value": "附加宮系統多指南方；部分波斯學派指北方極限。"
+    }
+  ],
+  "display": {
+    "heroImage": "./assets/houses/house-15-street-web.png",
+    "showGenerationFirst": true,
+    "sectionOrder": [
+      "core",
+      "domains",
+      "roles",
+      "queries",
+      "medical",
+      "space",
+      "structure",
+      "relations",
+      "rules",
+      "researchAppendix"
+    ],
+    "editorialMode": "curated",
+    "hiddenByDefault": [
+      "identity.arabicTitles",
+      "identity.indicTitles",
+      "space.geography",
+      "cosmology.qualities",
+      "cosmology.time",
+      "cosmology.mysticLetters",
+      "variants",
+      "advanced",
+      "sourceRefs",
+      "sourceNote",
+      "sourceStatus"
+    ],
+    "researchAppendix": [
+      "traditionalNames",
+      "cosmologyDetails",
+      "geography",
+      "variants",
+      "advanced",
+      "sources"
+    ]
+  },
+  "engineRules": [
+    {
+      "type": "validation",
+      "title": "奇數排斥鐵律",
+      "summary": "第 15 宮絕不應出現奇數圖形；若出現，應視為排盤計算錯誤並檢查整盤。",
+      "engine": {
+        "condition": {
+          "house": 15,
+          "figureParity": "odd"
+        },
+        "result": {
+          "valid": false,
+          "message": "法官宮出現奇數圖形：請檢查第 13、14 宮相加與整盤。"
+        }
+      }
+    }
+  ]
+}
