@@ -9,180 +9,150 @@
       --bg:#EAE8E3; --paper:#FDFBF7; --panel:#F8F3EA; --ink:#4f473f; --muted:#827A73;
       --line:#D0C9C0; --line2:#E6E3DC; --rose:#B4766E; --rose2:#9E6961;
       --gold:#C5A87C; --gold2:#9f7f49; --sand:#eadcc0; --night:#2f2a27;
+      --mother:#b88652; --daughter:#a87866; --niece:#6f8792; --judge:#857055;
       --shadow:0 12px 34px #00000016; --shadow2:0 22px 70px #00000024;
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
     body{margin:0;background:radial-gradient(circle at 50% -15%,#fff7e8 0,#eee8dd 48%,#d9d2c4 100%);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",Segoe UI,sans-serif;line-height:1.75}
-    a{color:inherit;text-decoration:none} button{font:inherit}
-    .wrap{max-width:1240px;margin:0 auto;padding:26px 26px 78px}
-    .app{background:#f7f3eb;border:1px solid var(--line);border-radius:34px;overflow:hidden;box-shadow:0 18px 52px #4a332117}
+    a{color:inherit;text-decoration:none} button{font:inherit}.wrap{max-width:1320px;margin:0 auto;padding:26px 26px 78px}.app{background:#f7f3eb;border:1px solid var(--line);border-radius:34px;overflow:hidden;box-shadow:0 18px 52px #4a332117}
     .topbar{position:sticky;top:0;z-index:80;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px 24px;background:#fdfbf7ed;border-bottom:1px solid var(--line2);backdrop-filter:blur(10px)}
-    .brand{font-weight:1000;letter-spacing:.18em;color:var(--rose2);white-space:nowrap}.nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
-    .pill{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);background:white;border-radius:999px;padding:8px 13px;font-weight:950;font-size:13px;color:var(--muted);cursor:pointer;box-shadow:0 2px 8px #00000008;transition:.18s}.pill.primary{background:var(--rose);border-color:var(--rose);color:white}.pill:hover{transform:translateY(-1px);border-color:var(--gold)}
-    main{padding:42px}.overline{display:inline-flex;align-items:center;gap:10px;border:1px solid #d7c6a5;background:#fff8e8;color:#8f744d;border-radius:999px;padding:7px 13px;font-size:12px;font-weight:1000;letter-spacing:.2em;text-transform:uppercase}
-    .hero{display:grid;grid-template-columns:330px minmax(0,1fr);gap:26px;align-items:stretch;margin-top:24px}.houseCard{min-height:420px;background:linear-gradient(180deg,#fffdf7,#f4ead8);border:1px solid #d2bea0;border-radius:32px;padding:28px;box-shadow:var(--shadow2);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}.houseCard:before{content:"";position:absolute;inset:18px;border:1px solid #e3cfa8;border-radius:24px;pointer-events:none}.roman{font-family:Georgia,serif;font-size:86px;line-height:1;color:#9f7f49;font-weight:900;text-shadow:0 2px 0 #fff}.houseCard h1{margin:22px 0 4px;font-size:38px;letter-spacing:.16em}.houseCard .latin{color:#7d684a;font-weight:950;letter-spacing:.08em}.cardTags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:22px}.tag{display:inline-flex;border:1px solid #d8c6a5;background:#fff8e8;border-radius:999px;padding:5px 9px;color:#7d684a;font-size:12px;font-weight:1000}
-    .summary{background:#fffdf7;border:1px solid var(--line);border-radius:32px;padding:30px;box-shadow:var(--shadow2)}.summary h2{margin:14px 0 12px;font-size:44px;letter-spacing:.12em;line-height:1.2}.summary .lead{font-size:19px;color:#6d5f52;font-weight:900;line-height:1.85;margin:0 0 18px}.keywords{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.quickGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:20px}.quickItem{background:#fffaf0;border:1px solid #e0d1b4;border-radius:18px;padding:12px 14px}.quickItem b{display:block;color:#9E6961;font-size:12px;letter-spacing:.12em}.quickItem span{display:block;margin-top:3px;color:#5e4f3b;font-weight:950}
-    .section{margin-top:24px;background:#fffdf7;border:1px solid var(--line);border-radius:32px;padding:28px;box-shadow:var(--shadow)}.section h2{margin:0 0 16px;font-size:28px;letter-spacing:.12em;color:#5f5248}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.infoBox{background:#fffaf0;border:1px solid #e0d1b4;border-radius:20px;padding:15px 16px}.infoBox b{display:block;color:#9E6961;letter-spacing:.08em;margin-bottom:5px}.infoBox p{margin:0;color:#76664f;font-weight:820;line-height:1.78}
-    details{background:#fffaf0;border:1px solid #e0d1b4;border-radius:20px;margin:10px 0;overflow:hidden}summary{cursor:pointer;list-style:none;padding:15px 17px;font-weight:1000;color:#9E6961;letter-spacing:.08em}summary::-webkit-details-marker{display:none}.detailBody{padding:0 17px 17px;color:#6f655a;font-weight:820}.detailBody p{margin:0}.table{width:100%;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden}.table th,.table td{border:1px solid #eee3d2;padding:10px 12px;text-align:left;vertical-align:top}.table th{background:#fff8e8;color:#7d684a}.list{margin:0;padding-left:1.3em}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.notice{margin-top:16px;padding:12px 14px;border:1px solid #e0d1b4;background:#fff8e8;border-radius:18px;color:#8b7354;font-weight:900}
-    footer{padding:26px 38px 42px;color:#9a9186;font-weight:850;text-align:center;border-top:1px solid var(--line2)}
-    @media(max-width:900px){.hero{grid-template-columns:1fr}.houseCard{min-height:320px}.quickGrid,.cards{grid-template-columns:1fr}.summary h2{font-size:34px}}
-    @media(max-width:560px){.wrap{padding:0}.app{border-radius:0;border-left:0;border-right:0}.topbar{align-items:flex-start;padding:14px}.brand{letter-spacing:.08em}.nav{gap:6px}.pill{font-size:12px;padding:7px 10px}main{padding:18px 14px}.houseCard,.summary,.section{border-radius:24px;padding:20px}.roman{font-size:66px}.houseCard h1{font-size:30px}.summary .lead{font-size:16px}.section h2{font-size:23px}.table th,.table td{padding:8px 9px;font-size:14px}}
+    .brand{font-weight:1000;letter-spacing:.18em;color:var(--rose2);white-space:nowrap}.nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}.pill{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);background:white;border-radius:999px;padding:8px 13px;font-weight:950;font-size:13px;color:var(--muted);cursor:pointer;box-shadow:0 2px 8px #00000008;transition:.18s}.pill.primary{background:var(--rose);border-color:var(--rose);color:white}.pill:hover{transform:translateY(-1px);border-color:var(--gold)}
+    main{padding:42px}.overline{display:inline-flex;align-items:center;gap:10px;border:1px solid #d7c6a5;background:#fff8e8;color:#8f744d;border-radius:999px;padding:7px 13px;font-size:12px;font-weight:1000;letter-spacing:.16em;text-transform:uppercase}
+    .scene{position:relative;min-height:360px;border-radius:32px;overflow:hidden;border:1px solid #ccb58c;box-shadow:var(--shadow2);background:#211710;margin-top:24px}.scene img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.92) contrast(1.02) brightness(.84)}.scene:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#1c130d08 25%,#160e08c9 100%),radial-gradient(circle at 55% 30%,#f1d08b22,transparent 36%)}.sceneText{position:absolute;left:30px;right:30px;bottom:26px;z-index:2;color:#fff8ea;text-shadow:0 2px 16px #000}.sceneText small{font-weight:1000;letter-spacing:.18em;color:#e8d0a5}.sceneText b{display:block;margin-top:5px;font-size:35px;letter-spacing:.1em;line-height:1.2}.sceneText span{display:block;margin-top:6px;color:#eadcc0;font-weight:850;max-width:850px}.sceneNav{position:absolute;right:26px;top:24px;z-index:3;display:flex;gap:8px}.sceneNav .pill{background:#fffaf0e8}
+    .hero{display:grid;grid-template-columns:330px minmax(0,1fr);gap:26px;align-items:stretch;margin-top:24px}.houseCard{min-height:430px;background:linear-gradient(180deg,#fffdf7,#f4ead8);border:1px solid #d2bea0;border-radius:32px;padding:28px;box-shadow:var(--shadow2);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}.houseCard:before{content:"";position:absolute;inset:18px;border:1px solid #e3cfa8;border-radius:24px;pointer-events:none}.roman{font-family:Georgia,serif;font-size:84px;line-height:1;color:#9f7f49;font-weight:900;text-shadow:0 2px 0 #fff}.houseCard h1{margin:22px 0 4px;font-size:36px;letter-spacing:.14em}.houseCard .latin{color:#7d684a;font-weight:950;letter-spacing:.06em}.cardTags,.keywords,.chips{display:flex;flex-wrap:wrap;gap:8px}.cardTags{justify-content:center;margin-top:22px}.tag,.chip{display:inline-flex;border:1px solid #d8c6a5;background:#fff8e8;border-radius:999px;padding:5px 9px;color:#7d684a;font-size:12px;font-weight:1000}.summary{background:#fffdf7;border:1px solid var(--line);border-radius:32px;padding:30px;box-shadow:var(--shadow2)}.summary h2{margin:14px 0 12px;font-size:42px;letter-spacing:.1em;line-height:1.2}.summary .lead{font-size:19px;color:#6d5f52;font-weight:900;line-height:1.85;margin:0 0 18px}.quickGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:20px}.quickItem{background:#fffaf0;border:1px solid #e0d1b4;border-radius:18px;padding:12px 14px}.quickItem b{display:block;color:#9E6961;font-size:12px;letter-spacing:.12em}.quickItem span{display:block;margin-top:3px;color:#5e4f3b;font-weight:950}
+    .generation{margin-top:16px;padding:15px 16px;border-radius:20px;background:linear-gradient(135deg,#2f2a27,#574738);color:#fff6e7;border:1px solid #8c765e}.generation b{display:block;color:#eed19a;letter-spacing:.12em}.generation .formula{font-family:Georgia,serif;font-size:22px;font-weight:900;margin-top:6px}.generation small{display:block;color:#d9cbb8;margin-top:5px}
+    .section{margin-top:24px;background:#fffdf7;border:1px solid var(--line);border-radius:32px;padding:28px;box-shadow:var(--shadow)}.sectionHead{display:flex;align-items:end;justify-content:space-between;gap:14px;margin-bottom:16px}.section h2{margin:0;font-size:27px;letter-spacing:.1em;color:#5f5248}.sectionHint{color:#9a9186;font-size:13px;font-weight:850}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.infoBox{background:#fffaf0;border:1px solid #e0d1b4;border-radius:20px;padding:15px 16px}.infoBox b{display:block;color:#9E6961;letter-spacing:.08em;margin-bottom:5px}.infoBox p{margin:0;color:#76664f;font-weight:820;line-height:1.78}.infoBox ul{margin:5px 0 0;padding-left:1.2em;color:#6f655a;font-weight:820}.infoBox li+li{margin-top:4px}.wide{grid-column:1/-1}
+    .nameGrid,.queryGrid,.ruleGrid,.relationGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.nameItem,.queryCard,.ruleCard,.relationCard{border:1px solid #e0d1b4;background:#fffaf0;border-radius:20px;padding:15px 16px}.nameItem strong{display:block;color:#5d4d39}.nameItem .native{font-size:20px;color:#8a6939;font-weight:900}.nameItem small{color:#8c8278;font-weight:800}.queryCard .cat,.ruleCard .type{display:inline-flex;border:1px solid #dec69d;background:#fff8e8;border-radius:999px;padding:3px 8px;font-size:11px;color:#8a6b43;font-weight:1000;letter-spacing:.08em}.queryCard h3,.ruleCard h3,.relationCard h3{margin:9px 0 5px;font-size:17px;line-height:1.45;color:#5a4c3f}.queryCard p,.ruleCard p,.relationCard p{margin:0;color:#76664f;font-weight:820}.relationCard a{color:#9E6961;font-weight:1000}.engineFlag{margin-top:9px;padding:8px 10px;border-radius:12px;background:#2f2a27;color:#eadcc0;font-size:12px;font-weight:850;overflow-wrap:anywhere}
+    .split{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.metric{background:#fffaf0;border:1px solid #e0d1b4;border-radius:20px;padding:15px}.metric b{display:block;color:#9E6961;font-size:12px;letter-spacing:.1em}.metric div{margin-top:5px;font-weight:900;color:#5e4f3b}
+    details{background:#fffaf0;border:1px solid #e0d1b4;border-radius:20px;margin:10px 0;overflow:hidden}summary{cursor:pointer;list-style:none;padding:15px 17px;font-weight:1000;color:#9E6961;letter-spacing:.06em}summary::-webkit-details-marker{display:none}.detailBody{padding:0 17px 17px;color:#6f655a;font-weight:820}.detailBody p{margin:0}.table{width:100%;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden}.table th,.table td{border:1px solid #eee3d2;padding:10px 12px;text-align:left;vertical-align:top}.table th{background:#fff8e8;color:#7d684a}.list{margin:0;padding-left:1.3em}.notice{margin-top:16px;padding:12px 14px;border:1px solid #e0d1b4;background:#fff8e8;border-radius:18px;color:#8b7354;font-weight:900}.sourceNote{color:#8c8278;font-size:13px;font-weight:820}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.footerNav{display:grid;grid-template-columns:1fr 1fr;gap:12px}.footerNav a{border:1px solid #e0d1b4;background:#fffaf0;border-radius:20px;padding:14px 16px;font-weight:950;color:#6a5946}.footerNav a:last-child{text-align:right}footer{padding:26px 38px 42px;color:#9a9186;font-weight:850;text-align:center;border-top:1px solid var(--line2)}
+    .researchArchive{margin-top:24px;border:1px solid #d9cfbf;background:linear-gradient(180deg,#fbf8f1,#f3eee4);border-radius:32px;box-shadow:var(--shadow);overflow:hidden}
+    .researchArchive>summary{padding:20px 24px;color:#6e5c47;background:#f7f1e7;font-size:17px;letter-spacing:.08em}
+    .researchArchive>summary small{display:block;margin-top:3px;color:#9a9186;font-size:12px;letter-spacing:.02em;font-weight:800}
+    .archiveBody{padding:4px 24px 24px}.archiveGroup{margin-top:16px;padding-top:16px;border-top:1px solid var(--line2)}.archiveGroup:first-child{border-top:0}.archiveGroup h3{margin:0 0 10px;color:#5f5248;font-size:18px;letter-spacing:.06em}.archiveNote{color:#8c8278;font-size:13px;font-weight:820}.rawNames{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.rawName{border:1px solid #e3d9c9;background:#fffaf2;border-radius:16px;padding:12px}.rawName b{display:block;color:#665441}.rawName small{display:block;color:#948779;margin-top:2px}.rawScript{margin-top:7px;padding:7px 9px;border-radius:10px;background:#2f2a27;color:#eadcc0;font-size:15px;overflow-wrap:anywhere}.quietDetails{margin-top:10px}.quietDetails summary{color:#7d684a;background:#fffaf0}.compactMeta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.compactMeta .metric{min-height:100%}
+    @media(max-width:980px){.hero{grid-template-columns:1fr}.houseCard{min-height:320px}.split{grid-template-columns:1fr 1fr}.scene{min-height:320px}.sceneNav{left:18px;right:auto}.sceneText{left:20px;right:20px}.sceneText b{font-size:29px}}
+    @media(max-width:760px){.quickGrid,.cards,.nameGrid,.queryGrid,.ruleGrid,.relationGrid,.split,.footerNav,.rawNames,.compactMeta{grid-template-columns:1fr}.sectionHead{display:block}.sectionHint{margin-top:4px}.wide{grid-column:auto}}
+    @media(max-width:560px){.wrap{padding:0}.app{border-radius:0;border-left:0;border-right:0}.topbar{align-items:flex-start;padding:14px}.brand{letter-spacing:.08em}.nav{gap:6px}.pill{font-size:12px;padding:7px 10px}main{padding:18px 14px}.scene{min-height:300px;border-radius:24px}.sceneText b{font-size:23px}.sceneText span{font-size:13px}.houseCard,.summary,.section{border-radius:24px;padding:20px}.roman{font-size:66px}.houseCard h1{font-size:30px}.summary h2{font-size:31px}.summary .lead{font-size:16px}.section h2{font-size:23px}.table th,.table td{padding:8px 9px;font-size:14px}}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="app">
-      <div class="topbar">
-        <div class="brand">宮位之書</div>
-        <div class="nav">
-          <a class="pill" href="./dictionary.html">字典首頁</a>
-          <a class="pill" href="./figures.html">卦象之書</a>
-          <a class="pill" href="./houses.html">宮位地圖</a>
-          <a class="pill" href="./placements.html">落宮之書</a>
-          <a class="pill primary" href="./index.html">返回主盤</a>
-        </div>
+  <div class="wrap"><div class="app">
+    <div class="topbar">
+      <div class="brand">宮位之書</div>
+      <div class="nav">
+        <a class="pill" href="./dictionary.html">字典首頁</a>
+        <a class="pill" href="./figures.html">卦象之書</a>
+        <a class="pill" href="./houses.html">宮位地圖</a>
+        <a class="pill" href="./placements.html">落宮之書</a>
+        <a class="pill primary" href="./index.html">返回主盤</a>
       </div>
-      <main id="app"><div class="notice">正在讀取宮位資料……</div></main>
-      <footer>沙盤城市配置・Taskin al-Mudun</footer>
     </div>
-  </div>
+    <main id="app"><div class="notice">正在讀取宮位資料……</div></main>
+    <footer>沙盤城市配置・Taskin al-Mudun</footer>
+  </div></div>
 <script>
-const $ = s => document.querySelector(s);
-const escapeHTML = s => String(s ?? '').replace(/[&<>'"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
-const roman = n => ['', 'Ⅰ','Ⅱ','Ⅲ','Ⅳ','Ⅴ','Ⅵ','Ⅶ','Ⅷ','Ⅸ','Ⅹ','Ⅺ','Ⅻ','ⅩⅢ','ⅩⅣ','ⅩⅤ','ⅩⅥ'][Number(n)] || String(n);
-function getHouseId(){
-  const raw = new URLSearchParams(location.search).get('id') || 'house-01';
-  if(/^house-\d{2}$/.test(raw)) return raw;
-  const n = Number(raw);
-  if(Number.isFinite(n) && n >= 1 && n <= 16) return `house-${String(n).padStart(2,'0')}`;
-  return 'house-01';
+const $=s=>document.querySelector(s);
+const escapeHTML=s=>String(s??'').replace(/[&<>'"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
+const roman=n=>['','Ⅰ','Ⅱ','Ⅲ','Ⅳ','Ⅴ','Ⅵ','Ⅶ','Ⅷ','Ⅸ','Ⅹ','Ⅺ','Ⅻ','ⅩⅢ','ⅩⅣ','ⅩⅤ','ⅩⅥ'][Number(n)]||String(n);
+const arr=v=>Array.isArray(v)?v:(v==null||v===''?[]:[v]);
+
+// 精讀模式：主閱讀層隱藏阿拉伯、希伯來與南亞原文字形；資料仍完整保留於 JSON 與研究附錄。
+function stripOriginalScripts(value){
+  let s=String(value??'');
+  s=s.replace(/\s*[（(][^（）()]*[\u0590-\u08FF\u0900-\u0D7F][^（）()]*[）)]/g,'');
+  s=s.replace(/[\u0590-\u08FF\u0900-\u0D7F]+/g,'');
+  s=s.replace(/（\s*）|\(\s*\)/g,'');
+  s=s.replace(/\s{2,}/g,' ').replace(/\s+([，。；：、])/g,'$1');
+  return s.trim();
 }
-async function fetchJSON(url){
-  const res = await fetch(url, {cache:'no-store'});
-  if(!res.ok) throw new Error(url);
-  return res.json();
+const displayText=v=>stripOriginalScripts(Array.isArray(v)?v.join('、'):(typeof v==='object'&&v?JSON.stringify(v):String(v??'')));
+const rawText=v=>Array.isArray(v)?v.join('、'):(typeof v==='object'&&v?JSON.stringify(v):String(v??''));
+const linkHouse=id=>`./house.html?id=${encodeURIComponent(id)}`;
+function getHouseId(){const raw=new URLSearchParams(location.search).get('id')||'house-01';if(/^house-\d{2}$/.test(raw))return raw;const n=Number(raw);return Number.isFinite(n)&&n>=1&&n<=16?`house-${String(n).padStart(2,'0')}`:'house-01'}
+async function fetchJSON(url){const res=await fetch(url,{cache:'no-store'});if(!res.ok)throw new Error(`${res.status} ${url}`);return res.json()}
+function listHTML(items,{raw=false}={}){const xs=arr(items).filter(Boolean);const fn=raw?rawText:displayText;return xs.length?`<ul>${xs.map(x=>`<li>${escapeHTML(fn(typeof x==='string'?x:(x.value||x.title||JSON.stringify(x))))}</li>`).join('')}</ul>`:'<p>—</p>'}
+function valueHTML(v,{raw=false}={}){if(Array.isArray(v))return listHTML(v,{raw});if(v&&typeof v==='object')return `<pre class="engineFlag">${escapeHTML(JSON.stringify(v,null,2))}</pre>`;return `<p>${escapeHTML((raw?rawText(v):displayText(v))||'—')}</p>`}
+function quick(label,value){return `<div class="quickItem"><b>${escapeHTML(label)}</b><span>${escapeHTML(displayText(value)||'—')}</span></div>`}
+function infoBox(label,value,wide=false,opts={}){return `<div class="infoBox ${wide?'wide':''}"><b>${escapeHTML(label)}</b>${valueHTML(value,opts)}</div>`}
+function queryHTML(q){return `<article class="queryCard"><span class="cat">${escapeHTML(displayText(q.category||'其他'))}</span><h3>${escapeHTML(displayText(q.title||''))}</h3><p>${escapeHTML(displayText(q.interpretation||q.content||''))}</p></article>`}
+function ruleHTML(r){return `<article class="ruleCard"><span class="type">${escapeHTML(displayText(r.type||'rule'))}</span><h3>${escapeHTML(displayText(r.title||''))}</h3><p>${escapeHTML(displayText(r.summary||''))}</p>${r.engine?`<div class="engineFlag">ENGINE · ${escapeHTML(JSON.stringify(r.engine))}</div>`:''}</article>`}
+function relationHTML(r){return `<article class="relationCard"><h3>${r.with?`<a href="${linkHouse(r.with)}">${escapeHTML(displayText(r.label||r.with))} ↗</a>`:escapeHTML(displayText(r.label||'宮位關係'))}</h3><p>${escapeHTML(displayText(r.rule||''))}</p></article>`}
+function generationHTML(h){const g=h.structure?.generation;if(!g)return'';const from=(g.from||[]).map(id=>`<a href="${linkHouse(id)}">${escapeHTML(id)}</a>`).join(' + ');return `<div class="generation"><b>生成公式</b><div class="formula">${from} → ${escapeHTML(h.id)}</div><small>${escapeHTML(g.operation||'geomantic-addition')}</small></div>`}
+function variantsHTML(vs){return vs?.length?`<div class="cards">${vs.map(v=>infoBox(v.label||v.field,`${v.value||''}${v.school?`｜${v.school}`:''}`,false,{raw:true})).join('')}</div>`:'<p class="archiveNote">目前沒有另外拆出的學派變體。</p>'}
+function renderAdvanced(items){return (items||[]).map(item=>`<details class="quietDetails"><summary>${escapeHTML(displayText(item.title||'進階註記'))}</summary><div class="detailBody">${item.type==='list'?listHTML(item.items,{raw:true}):item.type==='table'?`<table class="table"><tbody>${(item.rows||[]).map(r=>`<tr><th>${escapeHTML(rawText(r[0]))}</th><td>${escapeHTML(rawText(r[1]))}</td></tr>`).join('')}</tbody></table>`:`<p>${escapeHTML(rawText(item.content||''))}</p>`}</div></details>`).join('')}
+function namesArchiveHTML(h){
+  const rows=[...(h.identity?.arabicTitles||[]),...(h.identity?.indicTitles||[])];
+  if(!rows.length)return '<p class="archiveNote">尚無傳統名稱資料。</p>';
+  return `<div class="rawNames">${rows.map(x=>`<div class="rawName"><b>${escapeHTML(x.zh||'傳統名稱')}</b><small>${escapeHTML(x.romanized||'')}</small><details class="quietDetails"><summary>顯示原文字形</summary><div class="rawScript">${escapeHTML(x.text||'')}</div></details></div>`).join('')}</div>`;
 }
-async function loadHouse(id){
-  try { return await fetchJSON(`./data/houses/${id}.json`); }
-  catch(err){
-    const index = await fetchJSON('./data/houses/index.json');
-    const item = index.find(h => h.id === id) || index[0];
-    return indexFallback(item);
-  }
-}
-function indexFallback(item){
-  return {
-    id:item.id,
-    number:item.number,
-    zhName:item.zhName || item.commonName,
-    commonName:item.commonName,
-    latinName:'',
-    core:{
-      theme:item.core || item.traditional,
-      oneLine:item.traditional || '此宮深度資料尚未整理，先顯示城市入口資料。',
-      keywords:item.tags || []
-    },
-    mainCard:{
-      element:'待整理',
-      direction:item.direction || '待整理',
-      planet:'待整理',
-      zodiac:'待整理',
-      structure:item.structure || '待整理',
-      cityRole:item.cityRole || '待整理',
-      oppositeHouse:'待整理'
-    },
-    basic:{
-      domains:item.traditional,
-      people:'待整理',
-      body:'待整理',
-      health:'待整理',
-      lostObject:item.locating,
-      relationship:'待整理',
-      practice:item.city
-    },
-    advanced:[
-      {title:'目前狀態', type:'text', content:'此宮完整深度資料尚未整理。現在顯示的是 houses.html 入口資料與城市配置摘要。'}
-    ],
-    links:{backToHouses:'./houses.html', placements:`./placements.html?house=${item.number}`},
-    placeholder:true
-  };
-}
-function renderTable(rows){
-  return `<table class="table"><tbody>${(rows || []).map(r=>`<tr><th>${escapeHTML(r[0])}</th><td>${escapeHTML(r[1])}</td></tr>`).join('')}</tbody></table>`;
-}
-function renderAdvanced(item){
-  const body = item.type === 'table'
-    ? renderTable(item.rows)
-    : item.type === 'list'
-      ? `<ul class="list">${(item.items || []).map(x=>`<li>${escapeHTML(x)}</li>`).join('')}</ul>`
-      : `<p>${escapeHTML(item.content || '')}</p>`;
-  return `<details><summary>${escapeHTML(item.title)}</summary><div class="detailBody">${body}</div></details>`;
-}
-function basicBox(label, value){
-  return `<div class="infoBox"><b>${escapeHTML(label)}</b><p>${escapeHTML(value || '待整理')}</p></div>`;
-}
-function quick(label, value){
-  return `<div class="quickItem"><b>${escapeHTML(label)}</b><span>${escapeHTML(value || '待整理')}</span></div>`;
+function researchArchiveHTML(h){
+  const cos=h.cosmology||{};const sp=h.space||{};
+  const refs=(h.sourceRefs||[]).map(x=>`<span class="chip">[${escapeHTML(x)}]</span>`).join('');
+  return `<details class="researchArchive">
+    <summary>研究附錄 <small>多語原文、精細占星、地理版圖、學派差異與來源狀態預設收起</small></summary>
+    <div class="archiveBody">
+      <section class="archiveGroup"><h3>傳統名稱索引</h3>${namesArchiveHTML(h)}</section>
+      <section class="archiveGroup"><h3>精細宇宙學資料</h3>
+        <div class="compactMeta"><div class="metric"><b>元素</b><div>${escapeHTML(displayText(cos.element?.primary||h.card?.element?.primary||h.card?.element||'—'))}</div></div><div class="metric"><b>星座</b><div>${escapeHTML(displayText(cos.zodiac||h.card?.zodiac||'—'))}</div></div><div class="metric"><b>守護星</b><div>${escapeHTML(displayText(cos.planet||h.card?.planet||'—'))}</div></div></div>
+        <div class="cards" style="margin-top:12px">${infoBox('星體尊貴',cos.dignities,false,{raw:true})}${infoBox('性質',cos.qualities,false,{raw:true})}${infoBox('時間度量',cos.time,false,{raw:true})}${infoBox('神祕字母',cos.mysticLetters,false,{raw:true})}</div>
+      </section>
+      <section class="archiveGroup"><h3>地理與氣候版圖</h3>${infoBox('宏觀版圖',sp.geography,true,{raw:true})}</section>
+      <section class="archiveGroup"><h3>學派差異與變體</h3>${variantsHTML(h.variants)}</section>
+      <section class="archiveGroup"><h3>枝節與特殊指涉</h3>${renderAdvanced(h.advanced)||'<p class="archiveNote">目前沒有額外註記。</p>'}</section>
+      <section class="archiveGroup"><h3>來源狀態</h3><p class="archiveNote">${escapeHTML(rawText(h.sourceNote||''))}</p><div class="chips">${refs}</div><div class="notice">${escapeHTML(rawText(h.sourceStatus?.citationState||'原稿引用編號待書目映射。'))}</div></section>
+    </div>
+  </details>`;
 }
 function render(h){
-  const m = h.mainCard || {};
-  const c = h.core || {};
-  const b = h.basic || {};
-  const keywords = c.keywords || [];
-  document.title = `${h.commonName || ''}｜${h.zhName || ''}｜宮位之書`;
-  $('#app').innerHTML = `
-    <span class="overline">House Book・宮位詳解</span>
+  const c=h.core||{};const card=h.card||{};const basic=h.basic||{};const med=h.medical||{};const sp=h.space||{};const cl=h.cityLayer||{};const cls=h.classMeta||{};
+  const elem=typeof card.element==='object'?card.element?.primary:card.element;
+  document.title=`第 ${h.number} 宮｜${h.zhName}｜宮位之書`;
+  $('#app').innerHTML=`
+    <span class="overline">House Book・${escapeHTML(displayText(cls.zh||h.houseClass||'宮位詳解'))}</span>
+    <section class="scene">
+      <img src="${escapeHTML(h.display?.heroImage||h.image||'')}" alt="${escapeHTML(displayText(h.imageAlt||'宮位場景圖'))}">
+      <div class="sceneNav"><a class="pill" href="${escapeHTML(h.links?.previous||'#')}">← 上一宮</a><a class="pill" href="${escapeHTML(h.links?.next||'#')}">下一宮 →</a></div>
+      <div class="sceneText"><small>${escapeHTML(displayText(cl.zone||'Taskin al-Mudun'))} · HOUSE ${h.number}</small><b>${escapeHTML(displayText(cl.role||card.cityRole||h.zhName))}</b><span>${escapeHTML(displayText(cl.citySummary||''))}</span></div>
+    </section>
     <section class="hero">
       <aside class="houseCard">
-        <div class="roman">${roman(h.number)}</div>
-        <h1>${escapeHTML(h.zhName || h.commonName)}</h1>
-        <div class="latin">${escapeHTML(h.latinName || h.commonName || '')}</div>
-        <div class="cardTags">
-          <span class="tag">${escapeHTML(m.element)}</span>
-          <span class="tag">${escapeHTML(m.direction)}</span>
-          <span class="tag">${escapeHTML(m.cityRole)}</span>
-        </div>
+        <div class="roman">${roman(h.number)}</div><h1>${escapeHTML(h.zhName)}</h1><div class="latin">${escapeHTML(h.latinName||'')}</div>
+        <div class="cardTags"><span class="tag">${escapeHTML(displayText(elem||'—'))}</span><span class="tag">${escapeHTML(displayText(card.direction||'—'))}</span><span class="tag">${escapeHTML(displayText(cls.zh||h.houseClass||'—'))}</span></div>
+        ${generationHTML(h)}
       </aside>
       <section class="summary">
-        <span class="overline">第 ${escapeHTML(h.number)} 宮</span>
-        <h2>${escapeHTML(h.commonName)}｜${escapeHTML(h.zhName)}</h2>
-        <p class="lead">${escapeHTML(c.oneLine)}</p>
-        <div class="keywords">${keywords.map(k=>`<span class="tag">${escapeHTML(k)}</span>`).join('')}</div>
+        <span class="overline">第 ${h.number} 宮 · ${escapeHTML(cls.en||'House')}</span>
+        <h2>${escapeHTML(h.zhName)}｜${escapeHTML(h.latinName||'')}</h2>
+        <p class="lead">${escapeHTML(displayText(c.oneLine||h.identity?.oneLine||''))}</p>
+        <div class="keywords">${(c.keywords||card.keywords||[]).map(k=>`<span class="tag">${escapeHTML(displayText(k))}</span>`).join('')}</div>
         <div class="quickGrid">
-          ${quick('核心主題', c.theme)}
-          ${quick('結構地位', m.structure)}
-          ${quick('星體／星座', `${m.planet || '待整理'}／${m.zodiac || '待整理'}`)}
-          ${quick('對宮', m.oppositeHouse)}
+          ${quick('核心主題',c.theme||h.identity?.coreTheme)}${quick('結構地位',card.structure)}${quick('星體／星座',`${card.planet||'—'}／${card.zodiac||'—'}`)}${quick('城市身份',cl.role||card.cityRole)}${quick('方位',sp.direction?.primary||card.direction)}${quick('人體主區',med.bodyParts||card.body)}
         </div>
-        ${h.placeholder ? '<div class="notice">此宮完整 JSON 尚未建立，目前顯示索引資料。</div>' : ''}
-        <div class="actions">
-          <a class="pill" href="${escapeHTML((h.links && h.links.backToHouses) || './houses.html')}">← 返回宮位地圖</a>
-          <a class="pill primary" href="${escapeHTML((h.links && h.links.placements) || `./placements.html?house=${h.number}`)}">查看此宮落宮解釋 →</a>
-        </div>
+        <div class="actions"><a class="pill" href="./houses.html#house-${h.number}">← 返回城市街景</a><a class="pill primary" href="${escapeHTML(h.links?.placements||`./placements.html?house=${h.number}`)}">查看此宮落宮解釋 →</a></div>
       </section>
     </section>
-    <section class="section">
-      <h2>基礎閱讀</h2>
-      <div class="cards">
-        ${basicBox('掌管事務', b.domains)}
-        ${basicBox('人物角色', b.people)}
-        ${basicBox('人體部位', b.body)}
-        ${basicBox('疾病占斷', b.health)}
-        ${basicBox('尋物／定位', b.lostObject)}
-        ${basicBox('關係與對宮', b.relationship)}
-        ${basicBox('實務判讀', b.practice)}
-      </div>
+
+    <section class="section"><div class="sectionHead"><h2>核心掌管</h2><span class="sectionHint">只保留可直接用於解盤的主題、人物與定位</span></div><div class="cards">${infoBox('掌管事務',basic.domains)}${infoBox('人物角色',basic.roles)}${infoBox('城市定位提示',cl.locatingHint,true)}</div></section>
+
+    <section class="section"><div class="sectionHead"><h2>實務占卜情境</h2><span class="sectionHint">問題類型與判讀入口</span></div><div class="queryGrid">${(h.queries||[]).map(queryHTML).join('')||'<div class="notice">尚無獨立占卜情境。</div>'}</div></section>
+
+    <section class="section"><div class="sectionHead"><h2>人體與醫療</h2><span class="sectionHint">身體部位、體液與病理傾向</span></div><div class="cards">${infoBox('人體部位',med.bodyParts)}${infoBox('體液傾向',med.humors)}${infoBox('病理傾向',med.pathology,true)}</div></section>
+
+    <section class="section"><div class="sectionHead"><h2>空間與城市定位</h2><span class="sectionHint">尋物定位與城市配置；宏觀地理移入研究附錄</span></div>
+      <div class="cards">${infoBox('微觀空間',sp.microLocations)}${infoBox('方位',sp.direction?.primary||card.direction)}${infoBox('城市配置',sp.city)}${infoBox('街景層定位',cl.citySummary,true)}</div>
     </section>
-    <section class="section">
-      <h2>進階閱讀</h2>
-      ${(h.advanced || []).map(renderAdvanced).join('')}
+
+    <section class="section"><div class="sectionHead"><h2>盤面結構與宮位互動</h2><span class="sectionHint">從靜態宮義進入動態解盤</span></div>
+      <div class="cards">${infoBox('譜系',h.structure?.lineage)}${infoBox('結構動力',h.structure?.modality)}${infoBox('時間角色',h.structure?.temporalRole)}</div>
+      <div class="relationGrid" style="margin-top:14px">${(h.relations||[]).map(relationHTML).join('')||'<div class="notice">尚無宮位關係資料。</div>'}</div>
     </section>
+
+    <section class="section"><div class="sectionHead"><h2>動態規則</h2><span class="sectionHint">保留真正會影響判讀與引擎的規則</span></div><div class="ruleGrid">${(h.rules||[]).map(ruleHTML).join('')||'<div class="notice">尚無規則。</div>'}</div></section>
+
+    ${researchArchiveHTML(h)}
+
+    <section class="section"><div class="footerNav"><a href="${escapeHTML(h.links?.previous||'#')}">← 上一宮</a><a href="${escapeHTML(h.links?.next||'#')}">下一宮 →</a></div></section>
   `;
 }
-loadHouse(getHouseId()).then(render).catch(err => {
-  $('#app').innerHTML = `<div class="section"><h2>讀取失敗</h2><p>找不到宮位資料。請確認 data/houses/index.json 與對應 house-XX.json 已上傳。</p><div class="actions"><a class="pill primary" href="./houses.html">返回宮位地圖</a></div></div>`;
-});
+fetchJSON(`./data/houses/${getHouseId()}.json`).then(render).catch(err=>{$('#app').innerHTML=`<div class="section"><h2>讀取失敗</h2><p>${escapeHTML(err.message)}</p><div class="actions"><a class="pill primary" href="./houses.html">返回宮位地圖</a></div></div>`});
 </script>
-</body>
-</html>
+</body></html>
