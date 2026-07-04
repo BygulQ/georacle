@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "gating-1.0.0",
+  "principle": "先判系統相容，再判內容；不以資料量或多數票決定專案標準。",
+  "anchorSystem": "zanati-circle",
+  "gates": [
+    {"id":"A1-direct-anchor","admission":"canonical","scope":"本位、序位、六形改位、圓環結構、own-house操作","sources":["沙盤學的全面論述","滿載的星空在受保護的沙盤學中"],"rule":"直接描述扎納提圓環或其改位結構。"},
+    {"id":"A2-anchor-doctrine","admission":"canonical-contextual","scope":"16卦專章人物、元素宮反應、重複效應、特殊操作規則","sources":["滿載的星空在受保護的沙盤學中"],"rule":"與主錨同一主要來源編纂中的16卦專章；保留為同系語境層，不等同固有本質。"},
+    {"id":"B1-anchor-compatible-structured","admission":"canonical-structured","scope":"逐卦結構對應、改後序位數列","sources":["沙盤表格"],"rule":"順序與主錨完全一致，數列按主錨序位閉合；只在表格原有欄位範圍內採用。"},
+    {"id":"B2-anchor-operational","admission":"canonical-operational","scope":"意圖、數與期限、Taksin操作","sources":["揭示被隱藏的秘密，揭露被隱藏的意圖"],"rule":"只在直接明示的操作範圍採用，不反向定義卦象人格。"},
+    {"id":"C-parent-bazdah","admission":"parent-reference","scope":"原位、Bazdah raw number、mod16、改位比較","sources":["沙盤筆記"],"rule":"母體參照，不得覆蓋扎納提改後主位。"},
+    {"id":"D-placement-secondary","admission":"secondary-context","scope":"逐宮判詞與操作規則","sources":["「沙盤學：重要課程」","沙盤筆記"],"rule":"兩者按同一文本家族去重；不得用逐宮判詞反推固有本質。"},
+    {"id":"E-distinct-lineage","admission":"excluded-from-default-canon","scope":"獨立人標/本宅傳承","sources":["認識人類標誌之書"],"rule":"保留研究對照，預設不併入扎納提主欄。"},
+    {"id":"F-alias-index","admission":"nomenclature-only","scope":"名稱、別名、dot code","sources":["0. 總表.md"],"rule":"只做索引，不作語義權威。"}
+  ],
+  "hardRules": [
+    "不同Taksin的「本位」不得合併成同一欄。",
+    "人物性別、結構性別、元素宮人物性別分欄。",
+    "固有本質、元素宮反應、重複效應、逐宮判詞分欄。",
+    "外在星曜、內在星曜、專章主星分欄。",
+    "扎納提位置、Bazdah原位、Bazdah raw number、tada’uf序列值分欄。",
+    "同源重複不得增加證據票數。",
+    "只有同一系統、同一欄位、同一語義層的差異才叫真正衝突。"
+  ]
+}
