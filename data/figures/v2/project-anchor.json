@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "anchor-1.0.0",
+  "id": "zanati-circle",
+  "nameZh": "扎納提圓環本位",
+  "names": [
+    "Taksin al-Zanati",
+    "Taksin al-Da’ira",
+    "al-Falak al-Da’ir wa al-Bahr al-Zakhir"
+  ],
+  "projectRole": "唯一主錨；卦象之書與後續落宮之書的預設本位座標。",
+  "lineage": {
+    "parent": "bazdah-original",
+    "relation": "derived-by-six-figure-rearrangement"
+  },
+  "sequence": [
+    "puer",
+    "laetitia",
+    "caput-draconis",
+    "albus",
+    "puella",
+    "cauda-draconis",
+    "rubeus",
+    "tristitia",
+    "fortuna-minor",
+    "carcer",
+    "conjunctio",
+    "fortuna-major",
+    "via",
+    "amissio",
+    "populus",
+    "acquisitio"
+  ],
+  "sequenceZh": [
+    "男子",
+    "高興",
+    "龍頭",
+    "白色",
+    "女子",
+    "龍尾",
+    "紅色",
+    "悲傷",
+    "小幸運",
+    "限制",
+    "結合",
+    "大幸運",
+    "道路",
+    "失去",
+    "群眾",
+    "獲得"
+  ],
+  "movedFigures": [
+    {"id":"puella","from":14,"to":5},
+    {"id":"cauda-draconis","from":13,"to":6},
+    {"id":"via","from":5,"to":13},
+    {"id":"amissio","from":6,"to":14},
+    {"id":"populus","from":16,"to":15},
+    {"id":"acquisitio","from":15,"to":16}
+  ],
+  "structuralChecks": {
+    "adjacentPairsGenerateAcquisitio": true,
+    "quartersBalancedByLine": true,
+    "upperLowerRelations": ["Nadhar","Nutq","Ittisal","Infisal"],
+    "adjacentPairDetails": [
+      {"pair":["puer","laetitia"],"resultDotCode":"2121","equalsAcquisitio":true},
+      {"pair":["caput-draconis","albus"],"resultDotCode":"2121","equalsAcquisitio":true},
+      {"pair":["puella","cauda-draconis"],"resultDotCode":"2121","equalsAcquisitio":true},
+      {"pair":["rubeus","tristitia"],"resultDotCode":"2121","equalsAcquisitio":true},
+      {"pair":["fortuna-minor","carcer"],"resultDotCode":"2121","equalsAcquisitio":true},
+      {"pair":["conjunctio","fortuna-major"],"resultDotCode":"2121","equalsAcquisitio":true},
+      {"pair":["via","amissio"],"resultDotCode":"2121","equalsAcquisitio":true},
+      {"pair":["populus","acquisitio"],"resultDotCode":"2121","equalsAcquisitio":true}
+    ],
+    "quarterDetails": [
+      {"quarter":1,"figures":["puer","laetitia","caput-draconis","albus"],"balanced":true},
+      {"quarter":2,"figures":["puella","cauda-draconis","rubeus","tristitia"],"balanced":true},
+      {"quarter":3,"figures":["fortuna-minor","carcer","conjunctio","fortuna-major"],"balanced":true},
+      {"quarter":4,"figures":["via","amissio","populus","acquisitio"],"balanced":true}
+    ]
+  },
+  "sourceEvidence": [
+    {"source":"沙盤學的全面論述","lines":[805,810],"supports":["name/lineage","six-figure change","adjacent-pair Acquisitio","mnemonic sequence"]},
+    {"source":"滿載的星空在受保護的沙盤學中","lines":[8997,9053],"supports":["Bazdah-derived change","six moved figures","circle name","pair generation","quarter balance","upper/lower relations"]},
+    {"source":"滿載的星空在受保護的沙盤學中","lines":[7479,7485],"supports":["own-house timing use","choose one Taksin consistently"]},
+    {"source":"滿載的星空在受保護的沙盤學中","lines":[10655,10666],"supports":["multiple Taksin systems","own-house comparison as operational validation"]},
+    {"source":"揭示被隱藏的秘密，揭露被隱藏的意圖","lines":[2663,2667],"supports":["number-duration Taksin","Mothers days/Daughters weeks/Generated months/Balances years"]},
+    {"source":"沙盤筆記","lines":[2653,2694],"supports":["Bazdah parent order","Bazdah weights and modulo placement"]}
+  ],
+  "historicalCaution": "來源中的傳承敘事按文本傳統記錄；不把宗教人物歸屬或歷史敘事升格為獨立歷史事實。"
+}
