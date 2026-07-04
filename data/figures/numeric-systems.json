@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0",
+  "elementOrder": [
+    "fire",
+    "air",
+    "water",
+    "earth"
+  ],
+  "elementLabels": {
+    "fire": "火",
+    "air": "風",
+    "water": "水",
+    "earth": "土"
+  },
+  "dotStates": {
+    "1": {
+      "state": "open",
+      "label": "開放／單點"
+    },
+    "2": {
+      "state": "closed",
+      "label": "關閉／雙點"
+    }
+  },
+  "systems": {
+    "abjad": {
+      "label": "Abjad",
+      "baseValues": {
+        "fire": 1,
+        "air": 2,
+        "water": 3,
+        "earth": 4
+      },
+      "modes": {
+        "openOnly": {
+          "label": "時間／應期模式",
+          "openRule": "count-once",
+          "closedRule": "ignore",
+          "uses": [
+            "timing",
+            "duration",
+            "pregnancyMonths",
+            "eventTiming"
+          ]
+        },
+        "weightedAll": {
+          "label": "物理空間／尺寸模式",
+          "openMultiplier": 1,
+          "closedMultiplier": 2,
+          "uses": [
+            "physicalWidth",
+            "depth",
+            "size",
+            "spatialMeasurement"
+          ]
+        }
+      }
+    },
+    "abdah": {
+      "label": "Abdah",
+      "baseValues": {
+        "fire": 1,
+        "air": 2,
+        "water": 4,
+        "earth": 8
+      },
+      "mode": "openOnly",
+      "openRule": "count-once",
+      "closedRule": "ignore"
+    },
+    "bazdah": {
+      "label": "Bazdah",
+      "baseValues": {
+        "fire": 2,
+        "air": 7,
+        "water": 4,
+        "earth": 8
+      },
+      "mode": "openOnly",
+      "openRule": "count-once",
+      "closedRule": "ignore"
+    },
+    "physicalDots": {
+      "label": "實點數",
+      "rule": "sum-dot-counts"
+    }
+  },
+  "notes": [
+    "Abjad 的基數固定為 1、2、3、4，但取點法依問題領域切換。",
+    "Abdah 與 Bazdah 只計算開放單點，關閉雙點不入值。",
+    "落宮頁只呈現公開判讀所需數值；內部編碼不顯示。"
+  ]
+}
