@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0",
+  "figure": "puer",
+  "house": "house-01",
+  "summary": "直接、衝動與突破的力量落入第一宮，求問者本人呈現強烈行動性、競爭性與立即反應。",
+  "resonance": {
+    "level": "高度共振",
+    "score": 92,
+    "reason": "男子卦帶火星式主動與突破；第一宮掌管本人、生命狀態、意圖與開端，兩者共同強調『我先行動』。"
+  },
+  "expression": {
+    "direct": ["主動出擊", "立刻表態", "自我驅動", "競爭"],
+    "favorable": ["突破僵局", "開局", "短期衝刺", "勇敢決斷"],
+    "neutral": ["速度快", "年輕化", "先做後想", "自我中心"],
+    "shadow": ["魯莽", "攻擊性", "急躁", "缺乏計畫"]
+  },
+  "synthesis": {
+    "figureNature": "衝動、行動、突破、競爭。",
+    "houseField": "求問者本人、生命狀態、意圖與一切開端。",
+    "result": "求問者自身成為事件的主動推力，成敗高度取決於能否把爆發力轉成有效行動。"
+  },
+  "questions": {
+    "intention": {"label": "意圖", "judgement": "意圖直接而急迫，通常不是觀望，而是想立刻推進、突破或爭取。", "tone": "good"},
+    "conflict": {"label": "衝突", "judgement": "容易由本人率先升高張力，需分辨勇敢與魯莽。", "tone": "caution"},
+    "health": {"label": "健康", "judgement": "可見急性、發炎、過熱或過度消耗傾向；醫療判讀仍需與第六、第八、第十宮合看。", "tone": "caution"}
+  },
+  "notes": ["第一宮是全盤承載點；此組合應優先觀察求問者是否因急迫而扭曲其他宮位判讀。"],
+  "sourceStatus": {"state": "curated-sample", "note": "第一階段代表性專屬落宮條目；供資料結構與顯示驗證。"}
+}
