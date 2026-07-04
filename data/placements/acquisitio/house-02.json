@@ -1,31 +1,13 @@
 {
-  "schemaVersion": "1.0",
-  "figure": "acquisitio",
-  "house": "house-02",
-  "summary": "取得、聚集與掌握的力量進入第二宮，財物、收入、資源保存與交換能力被明顯放大。",
-  "resonance": {
-    "level": "高度共振",
-    "score": 94,
-    "reason": "獲得卦本質是收入、聚集與掌握；第二宮正掌管財富、資源、持有、買賣與生計，兩者方向高度同向。"
-  },
-  "expression": {
-    "direct": ["收入增加", "資源聚集", "取得成果", "掌握所有權"],
-    "favorable": ["收款", "成交", "保存資產", "投資回收", "累積資源"],
-    "neutral": ["資源集中", "交換條件變重", "所有權轉移", "囤積"],
-    "shadow": ["貪求", "過度佔有", "把價值只看成金錢", "資源壓力"]
-  },
-  "synthesis": {
-    "figureNature": "向內聚集、取得、收入、抓住成果。",
-    "houseField": "財富、資源、生計、買賣、持有與交換。",
-    "result": "取得性被放大；事情傾向朝『拿到、留住、增加、掌握』發展。"
-  },
-  "questions": {
-    "wealth": {"label": "財務", "judgement": "強。利收款、成交、資產回收與資源累積；仍需防止因貪多而承擔過重成本。", "tone": "good"},
-    "lostObject": {"label": "失物", "judgement": "偏向重新掌握、追回或找到可控制的線索；需再看第六宮、第七宮與第十五宮。", "tone": "good"},
-    "career": {"label": "工作與權力", "judgement": "利取得職位、資源權限、預算或可支配權。", "tone": "good"},
-    "love": {"label": "感情", "judgement": "關係容易轉向佔有、價值交換或安全感議題，不能只把『得到』等同於感情品質。", "tone": "caution"}
-  },
-  "numbers": {"note": "數值層先保留卦象本身的四套數值；尚未定義『第二宮』對這些數值的統一加權公式。"},
-  "notes": ["此組合與第二宮主題高度同向，因此共振高，但仍必須由主盤實際問題與法官宮校正。"],
-  "sourceStatus": {"state": "curated-sample", "note": "第一階段代表性專屬落宮條目；供資料結構與顯示驗證。"}
+  "schemaVersion":"1.0",
+  "figure":"acquisitio",
+  "house":"house-02",
+  "summary":"取得、聚集與掌握的力量進入第二宮，財物、收入、資源保存與交換能力被明顯放大。",
+  "resonance":{"level":"高度共振","score":94,"reason":"獲得卦本質是收入、聚集與掌握；第二宮正掌管財富、資源、持有、買賣與生計，兩者方向高度同向。"},
+  "expression":{"direct":["收入增加","資源聚集","取得成果","掌握所有權"],"favorable":["收款","成交","保存資產","投資回收","累積資源"],"neutral":["資源集中","交換條件變重","所有權轉移","囤積"],"shadow":["貪求","過度佔有","把價值只看成金錢","資源壓力"]},
+  "synthesis":{"figureNature":"向內聚集、取得、收入、抓住成果。","houseField":"財富、資源、生計、買賣、持有與交換。","result":"取得性被放大；事情傾向朝『拿到、留住、增加、掌握』發展。"},
+  "questions":{"wealth":{"label":"財務","judgement":"強。利收款、成交、資產回收與資源累積；仍需防止因貪多而承擔過重成本。","tone":"good"},"lostObject":{"label":"失物","judgement":"偏向重新掌握、追回或找到可控制的線索；需再看第六宮、第七宮與第十五宮。","tone":"good"},"career":{"label":"工作與權力","judgement":"利取得職位、資源權限、預算或可支配權。","tone":"good"},"love":{"label":"感情","judgement":"關係容易轉向佔有、價值交換或安全感議題，不能只把『得到』等同於感情品質。","tone":"caution"}},
+  "numbers":{"applications":[{"domain":"timing","method":"abjad.openOnly","note":"時間與應期問題只取開放單點。"},{"domain":"physicalMeasurement","method":"abjad.weightedAll","note":"物體大小、寬度或深度使用單點×1、雙點×2。"}],"note":"數值用途由問題領域決定；第二宮本身不另行改寫卦象固有數值。"},
+  "notes":["此組合與第二宮主題高度同向，因此共振高，但仍必須由主盤實際問題與法官宮校正。"],
+  "sourceStatus":{"state":"curated-sample","note":"第一階段代表性專屬落宮條目；供資料結構與顯示驗證。"}
 }
