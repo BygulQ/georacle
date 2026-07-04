@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0",
+  "figure": "carcer",
+  "house": "house-12",
+  "summary": "封閉、限制與邊界的力量進入第十二宮，隱藏敵人、孤立、監禁與長期困局被加重。",
+  "resonance": {
+    "level": "高度共振",
+    "score": 95,
+    "reason": "限制卦主封閉、停滯與監禁；第十二宮本就掌管隱敵、監獄、孤立、秘密與長期困住的背景。"
+  },
+  "expression": {
+    "direct": ["封閉", "孤立", "長期卡住", "秘密被鎖住"],
+    "favorable": ["保密", "設界線", "隔離風險", "停止外洩", "閉關整理"],
+    "neutral": ["等待", "限制接觸", "制度約束", "慢性停滯"],
+    "shadow": ["監禁", "恐懼", "自我封鎖", "隱性阻力", "無法脫身"]
+  },
+  "synthesis": {
+    "figureNature": "封閉、限制、邊界、延遲與停滯。",
+    "houseField": "隱藏敵人、監禁、秘密、孤立與長期困局。",
+    "result": "看不見的限制被固定化；最需要分辨這是必要保護，還是使人無法脫離的牢籠。"
+  },
+  "questions": {
+    "hiddenEnemy": {"label": "隱藏阻力", "judgement": "強。阻力可能不是一次事件，而是制度、恐懼、秘密或長期結構。", "tone": "shadow"},
+    "privacy": {"label": "保密", "judgement": "有利於封存、隔離與限制外洩。", "tone": "good"},
+    "health": {"label": "慢性問題", "judgement": "較像長期、反覆、受限與不易快速解除的狀態；醫療仍需看第六、第八、第十宮。", "tone": "caution"}
+  },
+  "notes": ["此組合是高共振但偏沉重；若問題本身要求封存、隔離或止損，限制也可能成為保護。"],
+  "sourceStatus": {"state": "curated-sample", "note": "第一階段代表性專屬落宮條目；供資料結構與顯示驗證。"}
+}
