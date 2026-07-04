@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "total": 9,
+  "entries": [
+    {"figure": "acquisitio", "house": "house-02", "path": "./data/placements/acquisitio/house-02.json", "status": "curated-sample"},
+    {"figure": "amissio", "house": "house-02", "path": "./data/placements/amissio/house-02.json", "status": "curated-sample"},
+    {"figure": "puer", "house": "house-01", "path": "./data/placements/puer/house-01.json", "status": "curated-sample"},
+    {"figure": "puella", "house": "house-07", "path": "./data/placements/puella/house-07.json", "status": "curated-sample"},
+    {"figure": "rubeus", "house": "house-07", "path": "./data/placements/rubeus/house-07.json", "status": "curated-sample"},
+    {"figure": "albus", "house": "house-09", "path": "./data/placements/albus/house-09.json", "status": "curated-sample"},
+    {"figure": "fortuna-major", "house": "house-10", "path": "./data/placements/fortuna-major/house-10.json", "status": "curated-sample"},
+    {"figure": "carcer", "house": "house-12", "path": "./data/placements/carcer/house-12.json", "status": "curated-sample"},
+    {"figure": "cauda-draconis", "house": "house-16", "path": "./data/placements/cauda-draconis/house-16.json", "status": "curated-sample"}
+  ]
+}
