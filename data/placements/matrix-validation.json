@@ -1,0 +1,1 @@
+{"schemaVersion":"1.0","matrixTotal":256,"expected":256,"figures":16,"houses":16,"duplicateKeys":0,"missingPairs":0,"curatedPriority":9,"generatedFirstPass":247,"binaryDisplayed":false,"numericRules":{"abjadOpenOnly":"timing","abjadWeightedAll":"physicalMeasurement","abdahClosed":"ignore","bazdahClosed":"ignore"},"status":"pass"}
