@@ -1,30 +1,13 @@
 {
-  "schemaVersion": "1.0",
-  "figure": "amissio",
-  "house": "house-02",
-  "summary": "失去、釋放與資源離手的力量進入第二宮，最直接作用在金錢、持有、交易與可支配資源。",
-  "resonance": {
-    "level": "強烈逆向",
-    "score": 86,
-    "reason": "失去卦推動流出與離手；第二宮要求保存、持有與累積，因此形成直接而強烈的逆向作用。"
-  },
-  "expression": {
-    "direct": ["支出", "資產離手", "所有權改變", "資源流失"],
-    "favorable": ["出售不需要的資產", "清理負債", "主動止損", "用支出換取價值"],
-    "neutral": ["付款", "交換", "資源重分配", "減少持有"],
-    "shadow": ["破財", "漏財", "留不住", "錯誤支出", "價值感低落"]
-  },
-  "synthesis": {
-    "figureNature": "離手、花費、失去、釋放。",
-    "houseField": "財富、資源、持有、買賣與生計。",
-    "result": "第二宮中的『擁有』被削弱，事情朝支出、轉移、出售或資源流出發展。"
-  },
-  "questions": {
-    "wealth": {"label": "財務", "judgement": "偏弱。常見支出、破財、資源外流；若問題是出售、清債或減負，反而可成為有利。", "tone": "shadow"},
-    "sale": {"label": "出售與清理", "judgement": "有利。適合讓資產離手、換現、清空庫存或結束不良持有。", "tone": "good"},
-    "lostObject": {"label": "失物", "judgement": "較不利於留在原處，可能已離開持有範圍；仍需以第七宮、第六宮與第十六宮追蹤。", "tone": "caution"}
-  },
-  "numbers": {"note": "此組合的數值不直接等同損失金額；需另有數量與應期規則才可運算。"},
-  "notes": ["『失去』不必然等於壞事；當問題本身要求出售、放下或減負時，方向可能正合所求。"],
-  "sourceStatus": {"state": "curated-sample", "note": "第一階段代表性專屬落宮條目；供資料結構與顯示驗證。"}
+  "schemaVersion":"1.0",
+  "figure":"amissio",
+  "house":"house-02",
+  "summary":"失去、釋放與資源離手的力量進入第二宮，最直接作用在金錢、持有、交易與可支配資源。",
+  "resonance":{"level":"強烈逆向","score":86,"reason":"失去卦推動流出與離手；第二宮要求保存、持有與累積，因此形成直接而強烈的逆向作用。"},
+  "expression":{"direct":["支出","資產離手","所有權改變","資源流失"],"favorable":["出售不需要的資產","清理負債","主動止損","用支出換取價值"],"neutral":["付款","交換","資源重分配","減少持有"],"shadow":["破財","漏財","留不住","錯誤支出","價值感低落"]},
+  "synthesis":{"figureNature":"離手、花費、失去、釋放。","houseField":"財富、資源、持有、買賣與生計。","result":"第二宮中的『擁有』被削弱，事情朝支出、轉移、出售或資源流出發展。"},
+  "questions":{"wealth":{"label":"財務","judgement":"偏弱。常見支出、破財、資源外流；若問題是出售、清債或減負，反而可成為有利。","tone":"shadow"},"sale":{"label":"出售與清理","judgement":"有利。適合讓資產離手、換現、清空庫存或結束不良持有。","tone":"good"},"lostObject":{"label":"失物","judgement":"較不利於留在原處，可能已離開持有範圍；仍需以第七宮、第六宮與第十六宮追蹤。","tone":"caution"}},
+  "numbers":{"applications":[{"domain":"timing","method":"abjad.openOnly","note":"推算時間與應期時只取開放單點。"},{"domain":"physicalMeasurement","method":"abjad.weightedAll","note":"測量失物或實體空間時單點×1、雙點×2。"}],"note":"此組合的數值不直接等同損失金額；需由具體問題選擇數值方法。"},
+  "notes":["『失去』不必然等於壞事；當問題本身要求出售、放下或減負時，方向可能正合所求。"],
+  "sourceStatus":{"state":"curated-sample","note":"第一階段代表性專屬落宮條目；供資料結構與顯示驗證。"}
 }
