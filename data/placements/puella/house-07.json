@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0",
+  "figure": "puella",
+  "house": "house-07",
+  "summary": "柔和、吸引與關係修補的力量進入第七宮，伴侶、合作、談判與公開互動更重視和諧與美感。",
+  "resonance": {
+    "level": "高度共振",
+    "score": 91,
+    "reason": "女子卦主和諧、吸引與社交；第七宮正掌管伴侶、合作方、對手與公開互動。"
+  },
+  "expression": {
+    "direct": ["吸引", "和解", "協調", "關係潤滑"],
+    "favorable": ["談判", "修補關係", "建立合作", "婚戀互動", "降低敵意"],
+    "neutral": ["禮貌", "表面和諧", "重視外觀", "互相取悅"],
+    "shadow": ["討好", "粉飾衝突", "逃避真相", "只求表面和平"]
+  },
+  "synthesis": {
+    "figureNature": "柔和、吸引、社交、美感與和諧。",
+    "houseField": "伴侶、合夥、公開敵人、爭端與被問及的他者。",
+    "result": "公開關係傾向靠柔化、吸引與協商運作，但也可能把真正矛盾藏在好看表面下。"
+  },
+  "questions": {
+    "love": {"label": "感情", "judgement": "偏有利，尤其利吸引、約會、和解與恢復互動；但需確認是否只有表面和好。", "tone": "good"},
+    "partnership": {"label": "合作", "judgement": "利協商、禮貌互動與共同呈現，適合需要人際潤滑的合作。", "tone": "good"},
+    "litigation": {"label": "爭端", "judgement": "適合調解而非硬碰硬；若對方只做表面讓步，需看第十四宮與法官。", "tone": "caution"}
+  },
+  "notes": ["第七宮同時代表伴侶與公開對手；和諧表現不能自動等同真心。"],
+  "sourceStatus": {"state": "curated-sample", "note": "第一階段代表性專屬落宮條目；供資料結構與顯示驗證。"}
+}
