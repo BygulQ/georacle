@@ -10,14 +10,14 @@
     {"id":"puella","dotCode":"1211","triangular":15,"abjad":{"openOnly":8,"weightedAll":12},"abdah":13,"bazdah":14,"physicalDots":5},
     {"id":"cauda-draconis","dotCode":"1112","triangular":21,"abjad":{"openOnly":6,"weightedAll":14},"abdah":7,"bazdah":13,"physicalDots":5},
     {"id":"rubeus","dotCode":"2122","triangular":28,"abjad":{"openOnly":2,"weightedAll":18},"abdah":2,"bazdah":7,"physicalDots":7},
-    {"id":"fortuna-minor","dotCode":"1122","triangular":136,"abjad":{"openOnly":3,"weightedAll":17},"abdah":3,"bazdah":9,"physicalDots":6},
+    {"id":"fortuna-minor","dotCode":"1122","triangular":45,"abjad":{"openOnly":3,"weightedAll":17},"abdah":3,"bazdah":9,"physicalDots":6},
     {"id":"conjunctio","dotCode":"2112","triangular":66,"abjad":{"openOnly":5,"weightedAll":15},"abdah":6,"bazdah":11,"physicalDots":6},
     {"id":"carcer","dotCode":"1221","triangular":55,"abjad":{"openOnly":5,"weightedAll":15},"abdah":9,"bazdah":10,"physicalDots":6},
     {"id":"fortuna-major","dotCode":"2211","triangular":91,"abjad":{"openOnly":7,"weightedAll":13},"abdah":12,"bazdah":12,"physicalDots":6},
     {"id":"via","dotCode":"1111","triangular":78,"abjad":{"openOnly":10,"weightedAll":10},"abdah":15,"bazdah":21,"physicalDots":4},
     {"id":"amissio","dotCode":"1212","triangular":105,"abjad":{"openOnly":4,"weightedAll":16},"abdah":5,"bazdah":6,"physicalDots":6},
     {"id":"populus","dotCode":"2222","triangular":120,"abjad":{"openOnly":0,"weightedAll":20},"abdah":0,"bazdah":0,"physicalDots":8},
-    {"id":"acquisitio","dotCode":"2121","triangular":45,"abjad":{"openOnly":6,"weightedAll":14},"abdah":10,"bazdah":15,"physicalDots":6},
+    {"id":"acquisitio","dotCode":"2121","triangular":136,"abjad":{"openOnly":6,"weightedAll":14},"abdah":10,"bazdah":15,"physicalDots":6},
     {"id":"tristitia","dotCode":"2221","triangular":36,"abjad":{"openOnly":4,"weightedAll":16},"abdah":8,"bazdah":8,"physicalDots":7}
   ]
 }
