@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./data/placements/schema.json",
+  "title": "沙占落宮專屬條目",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "figure",
+    "house",
+    "summary",
+    "resonance",
+    "expression",
+    "synthesis"
+  ],
+  "properties": {
+    "schemaVersion": {"type": "string"},
+    "figure": {"type": "string", "pattern": "^[a-z0-9-]+$"},
+    "house": {"type": "string", "pattern": "^house-(0[1-9]|1[0-6])$"},
+    "summary": {"type": "string", "minLength": 1},
+    "resonance": {
+      "type": "object",
+      "required": ["level", "score", "reason"],
+      "properties": {
+        "level": {"type": "string"},
+        "score": {"type": "number", "minimum": 0, "maximum": 100},
+        "reason": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "expression": {
+      "type": "object",
+      "required": ["direct", "favorable", "neutral", "shadow"],
+      "properties": {
+        "direct": {"type": "array", "items": {"type": "string"}},
+        "favorable": {"type": "array", "items": {"type": "string"}},
+        "neutral": {"type": "array", "items": {"type": "string"}},
+        "shadow": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "synthesis": {
+      "type": "object",
+      "required": ["figureNature", "houseField", "result"],
+      "properties": {
+        "figureNature": {"type": "string"},
+        "houseField": {"type": "string"},
+        "result": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "questions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["label", "judgement"],
+        "properties": {
+          "label": {"type": "string"},
+          "judgement": {"type": "string"},
+          "tone": {"enum": ["good", "caution", "shadow", ""]}
+        },
+        "additionalProperties": true
+      }
+    },
+    "numbers": {
+      "type": "object",
+      "properties": {"note": {"type": "string"}},
+      "additionalProperties": true
+    },
+    "specialRole": {"type": "string"},
+    "relations": {"type": "array", "items": {"type": "string"}},
+    "notes": {"type": "array", "items": {"type": "string"}},
+    "sourceStatus": {"type": "object"}
+  },
+  "additionalProperties": true
+}
