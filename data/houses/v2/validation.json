@@ -1,0 +1,1 @@
+{"schemaVersion":"house-book-v2-validation-1.0.0","recordCount":16,"uniqueIds":16,"positions":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],"missingPositions":[],"specialElements":{"13":"火","14":"風","15":"水","16":"土"},"checks":{"h13Fire":true,"h14Air":true,"h15Water":true,"h16Earth":true,"researchFieldsInRecords":false},"status":"pass"}
