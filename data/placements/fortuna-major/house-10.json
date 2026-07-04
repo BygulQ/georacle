@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0",
+  "figure": "fortuna-major",
+  "house": "house-10",
+  "summary": "持久成功、內在根基與權威的力量進入第十宮，事業、地位、名聲與統治位置得到強力支持。",
+  "resonance": {
+    "level": "極高共振",
+    "score": 97,
+    "reason": "大幸運卦主持久勝利、中心力量與權威；第十宮主事業、地位、名聲、政府與外在成就。"
+  },
+  "expression": {
+    "direct": ["地位提升", "長期成功", "權威穩固", "名聲建立"],
+    "favorable": ["升遷", "重大成果", "領導位置", "長期事業", "官方認可"],
+    "neutral": ["中心化", "責任加重", "被看見", "主導權集中"],
+    "shadow": ["自負", "權威壓迫", "固守位置", "把成功等同控制"]
+  },
+  "synthesis": {
+    "figureNature": "持久成功、穩固中心、權威與長期勝利。",
+    "houseField": "事業、權力、名聲、政府、母親與外在成就。",
+    "result": "外在位置與長期根基互相強化，最適合讀為穩定的成就、權威與可持續成功。"
+  },
+  "questions": {
+    "career": {"label": "事業", "judgement": "非常有利，尤其是長期職位、升遷、權威與被正式承認。", "tone": "good"},
+    "reputation": {"label": "名聲", "judgement": "有建立持久名望的條件，但需防止中心化與自負。", "tone": "good"},
+    "authority": {"label": "權力", "judgement": "主導權增強；若問題涉及制度壓迫，也可能顯示強勢權威。", "tone": "caution"}
+  },
+  "notes": ["高共振不代表沒有代價；第十宮的成功通常伴隨責任、曝光與制度要求。"],
+  "sourceStatus": {"state": "curated-sample", "note": "第一階段代表性專屬落宮條目；供資料結構與顯示驗證。"}
+}
