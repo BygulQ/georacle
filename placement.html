@@ -5,151 +5,32 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>落宮結果｜沙占起來</title>
 <style>
-:root{
-  --bg:#EAE8E3;--panel:#F7F6F2;--paper:#FDFBF7;--white:#fff;
-  --ink:#5A534D;--muted:#827A73;--soft:#99928A;--line:#D0C9C0;--line2:#E6E3DC;
-  --rose:#B4766E;--rose2:#9E6961;--gold:#C5A87C;--green:#8A9A86;
-  --good:#6F9477;--warn:#B88956;--bad:#A65F5F;--shadow:0 14px 44px #3d2d1e16;
-}
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",Segoe UI,sans-serif;line-height:1.75}
-a{color:inherit;text-decoration:none}button,select{font:inherit}
-.wrap{max-width:1260px;margin:0 auto;padding:24px}.app{min-height:calc(100vh - 48px);background:var(--panel);border:1px solid var(--line);border-radius:30px;overflow:hidden;box-shadow:0 10px 30px #00000010}
-.topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 22px;background:#fdfbf7ee;border-bottom:1px solid var(--line2);backdrop-filter:blur(10px)}
-.brand{font-weight:1000;letter-spacing:.18em;color:var(--rose2);white-space:nowrap}.nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.pill{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 12px;font-size:13px;font-weight:900;color:var(--muted)}.pill.primary{background:var(--rose);border-color:var(--rose);color:#fff}
-main{padding:34px}.miniSearch{display:grid;grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr) auto;gap:10px;align-items:center;margin:0 auto 22px;padding:12px;border:1px solid var(--line2);border-radius:22px;background:#ffffffb8;box-shadow:0 5px 18px #00000008}
-.miniSearch select{width:100%;min-width:0;border:1px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 12px;color:var(--ink);font-weight:850;outline:none}.miniSearch select:focus{border-color:var(--gold);box-shadow:0 0 0 3px #c5a87c20}.miniTimes{text-align:center;color:var(--gold);font:700 28px Georgia,serif}.miniGo{border:1px solid var(--rose);background:var(--rose);color:#fff;border-radius:14px;padding:10px 16px;font-weight:1000;cursor:pointer}
-.hero{position:relative;overflow:hidden;border:1px solid #d9cbb8;border-radius:32px;background:radial-gradient(circle at 50% 0,#fff8e8 0,#fffdf7 52%,#f1ece3 100%);box-shadow:var(--shadow)}
-.hero:before{content:"";position:absolute;inset:0;opacity:.46;background-image:repeating-linear-gradient(45deg,var(--line2) 0,var(--line2) 1px,transparent 1px,transparent 42px),repeating-linear-gradient(-45deg,var(--line2) 0,var(--line2) 1px,transparent 1px,transparent 42px);-webkit-mask-image:radial-gradient(ellipse at 50% 18%,#000 0 20%,transparent 72%);mask-image:radial-gradient(ellipse at 50% 18%,#000 0 20%,transparent 72%);pointer-events:none}
-.heroInner{position:relative;display:grid;grid-template-columns:170px 1fr 170px;gap:26px;align-items:center;padding:46px 42px}.glyphCard,.houseSeal{min-height:170px;display:grid;place-items:center;border:1px solid #d9cbb8;background:#fffaf0d9;border-radius:28px;box-shadow:inset 0 1px 0 #fff,0 10px 26px #0000000b}.houseSeal{font-family:Georgia,"Times New Roman",serif;font-size:64px;color:#8d7655}.heroCopy{text-align:center}.eyebrow{font-size:12px;font-weight:1000;letter-spacing:.24em;color:var(--rose2);text-transform:uppercase}.hero h1{margin:12px 0 0;font-size:clamp(34px,5.6vw,64px);line-height:1.18;letter-spacing:.08em}.heroSub{margin-top:10px;color:var(--muted);font-weight:850;letter-spacing:.06em}.heroSummary{max-width:760px;margin:18px auto 0;color:#6d5f54;font-size:18px;font-weight:850;line-height:1.9}.sourceBadge{display:inline-flex;margin-top:18px;border:1px solid #d6c5aa;background:#fff8e8;border-radius:999px;padding:6px 11px;color:#8b714e;font-size:12px;font-weight:1000;letter-spacing:.08em}
-.dots{display:flex;flex-direction:column;gap:10px;align-items:center}.dotLine{height:17px;display:flex;align-items:center;justify-content:center;gap:16px}.dot{width:12px;height:12px;transform:rotate(45deg);border-radius:2px;background:#B8955F;box-shadow:0 0 0 1px #fff7,0 0 10px #f0dca080}
-.section{margin-top:24px}.sectionHead{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:12px}.sectionHead h2{margin:0;font-size:28px;letter-spacing:.08em}.sectionHint{color:var(--soft);font-size:13px;font-weight:800}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:#fff;border:1px solid var(--line2);border-radius:26px;padding:20px;box-shadow:0 7px 22px #0000000a}.card h3{margin:0 0 9px;font-size:18px;letter-spacing:.06em}.card p{margin:0;color:var(--muted);font-weight:760}.resonanceCard{display:grid;grid-template-columns:150px 1fr;gap:22px;align-items:center}.scoreRing{width:130px;height:130px;margin:auto;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--gold) calc(var(--score)*1%),#eee8dd 0);position:relative}.scoreRing:before{content:"";position:absolute;inset:11px;border-radius:50%;background:#fff}.scoreRing strong{position:relative;font-size:32px}.scoreRing small{position:absolute;bottom:28px;font-size:11px;color:var(--soft);font-weight:900}.resonanceLevel{display:inline-flex;border-radius:999px;padding:5px 10px;background:#fff7e8;border:1px solid #decba7;color:#8a6f47;font-weight:1000;font-size:12px}.resonanceReason{margin-top:10px;color:var(--muted);font-weight:800;line-height:1.85}
-.expr{border-top:4px solid var(--line)}.expr.good{border-top-color:var(--good)}.expr.neutral{border-top-color:var(--gold)}.expr.shadow{border-top-color:var(--bad)}.list{display:flex;gap:8px;flex-wrap:wrap}.tag{display:inline-flex;border:1px solid #ded3c4;background:#fffaf0;border-radius:999px;padding:5px 9px;color:#806b50;font-size:12px;font-weight:900}.tag.good{background:#eff7f0;border-color:#c9dbcD;color:#5f7f66}.tag.bad{background:#fff1f1;border-color:#e4caca;color:#995c5c}.tag.neutral{background:#fff8e8;border-color:#dfcfaf;color:#8d7249}
-.formula{display:grid;grid-template-columns:1fr 46px 1fr 46px 1fr;gap:10px;align-items:stretch}.formulaBox{min-height:150px;display:flex;flex-direction:column;justify-content:center;background:#fff;border:1px solid var(--line2);border-radius:24px;padding:18px}.formulaBox b{font-size:18px}.formulaBox span{margin-top:7px;color:var(--muted);font-weight:760}.op{display:grid;place-items:center;color:var(--gold);font:700 32px Georgia,serif}
-.questionGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.questionCard{background:#fff;border:1px solid var(--line2);border-radius:24px;padding:18px}.questionCard.good{box-shadow:inset 4px 0 0 var(--good)}.questionCard.caution{box-shadow:inset 4px 0 0 var(--warn)}.questionCard.shadow{box-shadow:inset 4px 0 0 var(--bad)}.questionCard h3{margin:0 0 7px}.questionCard p{margin:0;color:var(--muted);font-weight:760}
-.numberGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.numberCell{background:#fff;border:1px solid var(--line2);border-radius:20px;padding:16px;text-align:center}.numberCell b{display:block;font-size:24px;color:#775f43}.numberCell span{display:block;margin-top:3px;color:var(--soft);font-size:12px;font-weight:900}.note{margin-top:12px;padding:14px 16px;background:#fff8e8;border:1px solid #d9cbb8;border-radius:18px;color:#7d6849;font-weight:800}
-.exploreGrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.exploreList{display:grid;gap:8px}.exploreLink{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 13px;border:1px solid var(--line2);background:var(--paper);border-radius:16px;font-weight:900}.exploreLink:hover{border-color:var(--gold);background:#fff8e8}.empty{padding:20px;border:1px dashed var(--line);border-radius:18px;color:var(--muted);font-weight:800;text-align:center}.loading{padding:70px 24px;text-align:center;color:var(--muted);font-weight:900}
-.special{background:linear-gradient(135deg,#fffdf7,#f7efdf);border-color:#d8c6a7}.special strong{color:#876b43}
-@media(max-width:900px){.heroInner{grid-template-columns:130px 1fr 130px;padding:34px 26px}.glyphCard,.houseSeal{min-height:140px}.houseSeal{font-size:50px}.grid3{grid-template-columns:1fr}.numberGrid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:720px){.wrap{padding:0}.app{border-radius:0;border-left:0;border-right:0;min-height:100vh}.topbar{align-items:flex-start;padding:14px}.brand{letter-spacing:.08em}.nav{gap:5px}.pill{font-size:12px;padding:7px 9px}main{padding:18px 14px 42px}.miniSearch{grid-template-columns:1fr}.miniTimes{height:32px}.heroInner{grid-template-columns:1fr;padding:32px 18px}.glyphCard,.houseSeal{width:150px;min-height:130px;margin:auto}.heroCopy{order:-1}.grid2,.questionGrid,.exploreGrid{grid-template-columns:1fr}.resonanceCard{grid-template-columns:1fr}.formula{grid-template-columns:1fr}.op{height:36px}.numberGrid{grid-template-columns:repeat(2,1fr)}.sectionHead{display:block}.sectionHint{display:block;margin-top:4px}}
+:root{--bg:#EAE8E3;--panel:#F7F6F2;--paper:#FDFBF7;--ink:#5A534D;--muted:#827A73;--line:#D0C9C0;--line2:#E6E3DC;--rose:#B4766E;--rose2:#9E6961;--gold:#C5A87C;--good:#6F9477;--bad:#A65F5F}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.75}a{color:inherit;text-decoration:none}button,select{font:inherit}.wrap{max-width:1240px;margin:auto;padding:24px}.app{min-height:calc(100vh - 48px);background:var(--panel);border:1px solid var(--line);border-radius:30px;overflow:hidden}.topbar{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:15px 22px;background:#fdfbf7e8;border-bottom:1px solid var(--line2)}.brand{font-weight:1000;letter-spacing:.18em;color:var(--rose2)}.nav{display:flex;gap:8px;flex-wrap:wrap}.pill{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 12px;font-size:13px;font-weight:900;color:var(--muted)}.pill.primary{background:var(--rose);border-color:var(--rose);color:#fff}main{padding:32px}.searchbar{display:grid;grid-template-columns:1fr 42px 1fr auto;gap:10px;align-items:center;margin-bottom:22px;padding:12px;background:#fff;border:1px solid var(--line2);border-radius:22px}.searchbar select{width:100%;border:1px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 12px;color:var(--ink);font-weight:850}.times{text-align:center;color:var(--gold);font:700 28px Georgia,serif}.go{border:1px solid var(--rose);background:var(--rose);color:#fff;border-radius:14px;padding:10px 16px;font-weight:1000}.hero{position:relative;overflow:hidden;border:1px solid #d9cbb8;border-radius:32px;background:radial-gradient(circle at 50% 0,#fff8e8 0,#fffdf7 55%,#f1ece3 100%);padding:44px 28px;text-align:center}.hero:before{content:"";position:absolute;inset:0;opacity:.45;background-image:repeating-linear-gradient(45deg,var(--line2) 0,var(--line2) 1px,transparent 1px,transparent 42px),repeating-linear-gradient(-45deg,var(--line2) 0,var(--line2) 1px,transparent 1px,transparent 42px)}.hero>*{position:relative}.eyebrow{font-size:12px;font-weight:1000;letter-spacing:.24em;color:var(--rose2)}h1{margin:10px 0 0;font-size:clamp(34px,6vw,64px);letter-spacing:.08em}.sub{margin-top:8px;color:var(--muted);font-weight:850}.summary{max-width:780px;margin:18px auto 0;font-size:18px;font-weight:850;color:#6d5f54}.badge{display:inline-flex;margin-top:16px;border:1px solid #d6c5aa;background:#fff8e8;border-radius:999px;padding:6px 11px;color:#8b714e;font-size:12px;font-weight:1000}.section{margin-top:24px}.section h2{margin:0 0 12px;font-size:28px;letter-spacing:.08em}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:#fff;border:1px solid var(--line2);border-radius:24px;padding:19px}.card h3{margin:0 0 8px}.card p{margin:0;color:var(--muted);font-weight:760}.tags{display:flex;gap:8px;flex-wrap:wrap}.tag{border:1px solid #dfd4c5;background:#fffaf0;border-radius:999px;padding:5px 9px;font-size:12px;font-weight:900;color:#806b50}.good{border-top:4px solid var(--good)}.shadow{border-top:4px solid var(--bad)}.formula{display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr;gap:10px}.box{background:#fff;border:1px solid var(--line2);border-radius:22px;padding:18px;min-height:130px}.box b{display:block}.box span{display:block;margin-top:8px;color:var(--muted);font-weight:760}.op{display:grid;place-items:center;color:var(--gold);font:700 30px Georgia,serif}.numbers{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.num{background:#fff;border:1px solid var(--line2);border-radius:20px;padding:15px;text-align:center}.num b{display:block;font-size:24px;color:#775f43}.num span{display:block;margin-top:4px;color:var(--muted);font-size:12px;font-weight:900}.abjad b{font-size:16px}.modes{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:9px}.mode{padding:8px 5px;border:1px solid #e4d8c5;border-radius:13px;background:#fffaf0}.mode strong{display:block;font-size:21px}.mode small{display:block;font-size:10px;line-height:1.35;color:var(--muted);font-weight:900}.method{margin-top:12px;padding:14px 16px;background:#fff;border:1px solid var(--line2);border-radius:18px;color:var(--muted);font-size:13px;font-weight:800}.loading,.empty{padding:50px;text-align:center;color:var(--muted);font-weight:900}.special{background:linear-gradient(135deg,#fffdf7,#f7efdf)}
+@media(max-width:760px){.wrap{padding:0}.app{border-radius:0;min-height:100vh}main{padding:18px 14px 42px}.topbar{align-items:flex-start;padding:14px}.nav{gap:5px}.pill{font-size:12px;padding:7px 9px}.searchbar,.grid2,.grid3,.formula{grid-template-columns:1fr}.times,.op{height:32px}.numbers{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
 <div class="wrap"><div class="app">
-<header class="topbar">
-  <div class="brand">落宮之書</div>
-  <nav class="nav">
-    <a class="pill" href="./placements.html">← 重新搜尋</a>
-    <a class="pill" href="./figures.html">卦象之書</a>
-    <a class="pill" href="./houses.html">宮位之書</a>
-    <a class="pill primary" href="./index.html">返回主盤</a>
-  </nav>
-</header>
+<header class="topbar"><div class="brand">落宮之書</div><nav class="nav"><a class="pill" href="./placements.html">← 重新搜尋</a><a class="pill" href="./figures.html">卦象之書</a><a class="pill" href="./houses.html">宮位之書</a><a class="pill primary" href="./index.html">返回主盤</a></nav></header>
 <main id="app"><div class="loading">正在讀取落宮組合……</div></main>
 </div></div>
 <script>
 const ORDINAL={1:'第一宮',2:'第二宮',3:'第三宮',4:'第四宮',5:'第五宮',6:'第六宮',7:'第七宮',8:'第八宮',9:'第九宮',10:'第十宮',11:'第十一宮',12:'第十二宮'};
 const SPECIAL={13:'第十三宮 · 右證人',14:'第十四宮 · 左證人',15:'第十五宮 · 法官',16:'第十六宮 · 最終結局'};
-const SPECIAL_ROLE={13:'此宮是求問者一側的見證與內在背景，用來看「尋求者」的證詞。',14:'此宮是對方、客體或環境一側的見證，用來看「被尋求者」的證詞。',15:'此宮是全盤裁決核心，落宮意義會上升為整件事的定調。',16:'此宮是結果的結果，落宮意義會上升為最終收束、解脫或終局。'};
-const $=s=>document.querySelector(s);
-const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const clean=v=>String(v??'').replace(/\s*[（(][^（）()]*[\u0590-\u08FF\u0900-\u0D7F][^（）()]*[）)]/g,'').replace(/[\u0590-\u08FF\u0900-\u0D7F]+/g,'').replace(/（\s*）|\(\s*\)/g,'').replace(/\s{2,}/g,' ').trim();
-const arr=v=>Array.isArray(v)?v:(v==null||v===''?[]:[v]);
-const houseLabel=h=>ORDINAL[h.number]||SPECIAL[h.number]||`第${h.number}宮`;
-const roman=n=>['','Ⅰ','Ⅱ','Ⅲ','Ⅳ','Ⅴ','Ⅵ','Ⅶ','Ⅷ','Ⅸ','Ⅹ','Ⅺ','Ⅻ','ⅩⅢ','ⅩⅣ','ⅩⅤ','ⅩⅥ'][+n]||String(n);
-function splitText(v){return String(v??'').split(/[、，,；;。]/).map(s=>s.trim()).filter(Boolean).slice(0,8)}
-function dotHTML(code){return `<div class="dots">${String(code||'1111').split('').map(d=>`<div class="dotLine">${d==='1'?'<span class="dot"></span>':'<span class="dot"></span><span class="dot"></span>'}</div>`).join('')}</div>`}
-function figureSummary(f){return clean(f.basic?.one||f.basic?.oneLine||f.coreSymbol||f.judgement?.summary||f.judgement||'')}
-function houseSummary(h){return clean(h.identity?.oneLine||h.core?.oneLine||h.oneLine||h.core||'')}
-function houseTheme(h){return clean(h.identity?.coreTheme||h.core?.theme||h.card?.keywords?.join('、')||h.core||'')}
-function detailList(f,key){const v=f.basic?.[key];return arr(v).flatMap(splitText).slice(0,8)}
-function numOf(indexFigure,key){const v=indexFigure?.numbers?.[key];if(v&&typeof v==='object')return v.value??'—';return v??'—'}
-function fallbackPlacement(f,h){
-  const fav=detailList(f,'favorable');
-  const shadow=detailList(f,'shadow');
-  return {
-    schemaVersion:'1.0',figure:f.id,house:h.id,
-    summary:`${figureSummary(f)||f.zhName} 進入「${houseTheme(h)||houseLabel(h)}」的場域。`,
-    resonance:{level:'待專屬條目',score:50,reason:'目前以卦象本體與宮位場域做基礎合讀；此組合尚未建立專屬 256 條目。'},
-    expression:{direct:[figureSummary(f)||f.zhName],favorable:fav,neutral:splitText(houseTheme(h)).slice(0,6),shadow},
-    synthesis:{figureNature:figureSummary(f)||f.zhName,houseField:houseTheme(h)||houseLabel(h),result:'先以卦象方向進入宮位主題，再由主盤角色、證人、法官與最終結果校正。'},
-    questions:{},notes:['此為基礎合讀，不等同專屬落宮條目。']
-  }
-}
-function sourceText(hasSpecific){return hasSpecific?'專屬落宮條目':'基礎合讀'}
-function levelText(r){return r?.level||'未評級'}
-function renderTags(items,cls=''){const a=arr(items).filter(Boolean);return a.length?`<div class="list">${a.map(x=>`<span class="tag ${cls}">${esc(clean(x))}</span>`).join('')}</div>`:'<div class="empty">目前沒有獨立標註</div>'}
-function renderQuestions(q){const entries=Object.entries(q||{});if(!entries.length)return '<div class="empty">此組合尚未建立專屬問題入口。</div>';return `<div class="questionGrid">${entries.map(([k,v])=>`<article class="questionCard ${esc(v.tone||'')}"><h3>${esc(clean(v.label||k))}</h3><p>${esc(clean(v.judgement||v.text||''))}</p></article>`).join('')}</div>`}
-function placementPath(fid,hid){return `./data/placements/${encodeURIComponent(fid)}/${encodeURIComponent(hid)}.json`}
-async function fetchOptional(url){const r=await fetch(url,{cache:'no-store'});if(r.status===404)return null;if(!r.ok)throw new Error(`${url}：HTTP ${r.status}`);return r.json()}
-function miniSearch(figures,houses,fid,hid){return `<form class="miniSearch" id="miniSearch"><select id="miniFigure" aria-label="選擇卦象">${figures.map(f=>`<option value="${esc(f.id)}" ${f.id===fid?'selected':''}>${esc(clean(f.zhName))} · ${esc(f.latinName||'')} · ${esc(f.dotCode||'')}</option>`).join('')}</select><div class="miniTimes">×</div><select id="miniHouse" aria-label="選擇宮位">${houses.map(h=>`<option value="${esc(h.id)}" ${h.id===hid?'selected':''}>${esc(houseLabel(h))}</option>`).join('')}</select><button class="miniGo" type="submit">搜尋</button></form>`}
-function explore(figures,houses,f,h){
-  const hi=houses.findIndex(x=>x.id===h.id),fi=figures.findIndex(x=>x.id===f.id);
-  const houseTargets=[houses[(hi-1+houses.length)%houses.length],houses[(hi+1)%houses.length],houses[(hi+2)%houses.length]].filter(Boolean);
-  const figureTargets=[figures[(fi-1+figures.length)%figures.length],figures[(fi+1)%figures.length],figures[(fi+2)%figures.length]].filter(Boolean);
-  return `<div class="exploreGrid"><article class="card"><h3>同卦象，不同宮位</h3><div class="exploreList">${houseTargets.map(x=>`<a class="exploreLink" href="./placement.html?figure=${encodeURIComponent(f.id)}&house=${encodeURIComponent(x.id)}"><span>${esc(clean(f.zhName))} × ${esc(houseLabel(x))}</span><span>→</span></a>`).join('')}</div></article><article class="card"><h3>同宮位，不同卦象</h3><div class="exploreList">${figureTargets.map(x=>`<a class="exploreLink" href="./placement.html?figure=${encodeURIComponent(x.id)}&house=${encodeURIComponent(h.id)}"><span>${esc(clean(x.zhName))} × ${esc(houseLabel(h))}</span><span>→</span></a>`).join('')}</div></article></div>`
-}
-function render(data){
-  const {f,h,indexFigure,figures,houses,p,hasSpecific}=data,hl=houseLabel(h),r=p.resonance||{},e=p.expression||{},s=p.synthesis||{};
-  document.title=`${clean(f.zhName)} × ${hl}｜落宮之書`;
-  $('#app').innerHTML=`
-  ${miniSearch(figures,houses,f.id,h.id)}
-  <section class="hero"><div class="heroInner">
-    <div class="glyphCard">${dotHTML(f.dotCode||indexFigure?.dotCode)}</div>
-    <div class="heroCopy"><div class="eyebrow">PLACEMENT RESULT</div><h1>${esc(clean(f.zhName))} × ${esc(hl)}</h1><div class="heroSub">${esc(f.latinName||'')} · ${esc(f.dotCode||indexFigure?.dotCode||'')} × ${esc(h.id)}</div><p class="heroSummary">${esc(clean(p.summary||''))}</p><span class="sourceBadge">${sourceText(hasSpecific)}</span></div>
-    <div class="houseSeal">${esc(h.roman||roman(h.number))}</div>
-  </div></section>
-
-  <section class="section"><div class="sectionHead"><h2>核心判讀</h2><span class="sectionHint">先看方向，再看理由</span></div><div class="grid2">
-    <article class="card resonanceCard"><div class="scoreRing" style="--score:${Math.max(0,Math.min(100,Number(r.score)||0))}"><strong>${esc(String(r.score??'—'))}</strong><small>共振值</small></div><div><span class="resonanceLevel">${esc(levelText(r))}</span><div class="resonanceReason">${esc(clean(r.reason||''))}</div></div></article>
-    <article class="card"><h3>直接表現</h3>${renderTags(e.direct,'neutral')}</article>
-  </div></section>
-
-  <section class="section"><div class="sectionHead"><h2>表現方向</h2><span class="sectionHint">有利、中性與陰影</span></div><div class="grid3">
-    <article class="card expr good"><h3>有利表現</h3>${renderTags(e.favorable,'good')}</article>
-    <article class="card expr neutral"><h3>中性表現</h3>${renderTags(e.neutral,'neutral')}</article>
-    <article class="card expr shadow"><h3>陰影表現</h3>${renderTags(e.shadow,'bad')}</article>
-  </div></section>
-
-  <section class="section"><div class="sectionHead"><h2>為什麼這樣讀</h2><span class="sectionHint">卦象本質 × 宮位場域 = 落宮表現</span></div><div class="formula">
-    <div class="formulaBox"><b>${esc(clean(f.zhName))}</b><span>${esc(clean(s.figureNature||figureSummary(f)))}</span></div><div class="op">×</div>
-    <div class="formulaBox"><b>${esc(hl)}</b><span>${esc(clean(s.houseField||houseTheme(h)))}</span></div><div class="op">=</div>
-    <div class="formulaBox"><b>落宮表現</b><span>${esc(clean(s.result||p.summary||''))}</span></div>
-  </div></section>
-
-  <section class="section"><div class="sectionHead"><h2>實務問題入口</h2><span class="sectionHint">只顯示此組合真正有意義的問題類型</span></div>${renderQuestions(p.questions)}</section>
-
-  <section class="section"><div class="sectionHead"><h2>數值層</h2><span class="sectionHint">先呈現卦象數值，不強行推導未定義的落宮公式</span></div><div class="numberGrid">
-    <div class="numberCell"><b>${esc(String(numOf(indexFigure,'triangular')))}</b><span>三角數</span></div>
-    <div class="numberCell"><b>${esc(String(numOf(indexFigure,'abdah')))}</b><span>Abdah</span></div>
-    <div class="numberCell"><b>${esc(String(numOf(indexFigure,'bazdah')))}</b><span>Bazdah</span></div>
-    <div class="numberCell"><b>${esc(String(numOf(indexFigure,'physicalDots')))}</b><span>實點數</span></div>
-    <div class="numberCell"><b>${esc(String(f.binaryCode||indexFigure?.binaryCode||'—'))}</b><span>Binary</span></div>
-  </div>${p.numbers?.note?`<div class="note">${esc(clean(p.numbers.note))}</div>`:''}</section>
-
-  ${h.number>=13?`<section class="section"><article class="card special"><h3>裁決結構角色</h3><p><strong>${esc(hl)}</strong>：${esc(SPECIAL_ROLE[h.number]||'')}</p>${p.specialRole?`<div class="note">${esc(clean(p.specialRole))}</div>`:''}</article></section>`:''}
-
-  ${arr(p.notes).length?`<section class="section"><div class="sectionHead"><h2>判讀註記</h2></div><article class="card">${arr(p.notes).map(n=>`<p>${esc(clean(n))}</p>`).join('')}</article></section>`:''}
-
-  <section class="section"><div class="sectionHead"><h2>鄰近探索</h2><span class="sectionHint">沿同卦象或同宮位繼續查找</span></div>${explore(figures,houses,f,h)}</section>`;
-
-  $('#miniSearch').addEventListener('submit',ev=>{ev.preventDefault();const fid=$('#miniFigure').value,hid=$('#miniHouse').value;location.href=`./placement.html?figure=${encodeURIComponent(fid)}&house=${encodeURIComponent(hid)}`});
-}
-async function load(){
-  try{
-    const q=new URLSearchParams(location.search),fid=q.get('figure'),hid=q.get('house');if(!fid||!hid)throw new Error('缺少卦象或宮位參數');
-    const [fi,hi,fr,hr,placement]=await Promise.all([
-      fetch('./data/figures/index.json',{cache:'no-store'}),fetch('./data/houses/index.json',{cache:'no-store'}),
-      fetch(`./data/figures/${encodeURIComponent(fid)}.json`,{cache:'no-store'}),fetch(`./data/houses/${encodeURIComponent(hid)}.json`,{cache:'no-store'}),
-      fetchOptional(placementPath(fid,hid))
-    ]);
-    if(!fi.ok||!hi.ok||!fr.ok||!hr.ok)throw new Error(`資料讀取失敗 ${fi.status}/${hi.status}/${fr.status}/${hr.status}`);
-    const [figures,houses,f,h]=await Promise.all([fi.json(),hi.json(),fr.json(),hr.json()]);
-    const indexFigure=figures.find(x=>x.id===fid)||{};const p=placement||fallbackPlacement(f,h);
-    render({f,h,indexFigure,figures,houses,p,hasSpecific:!!placement});
-  }catch(err){$('#app').innerHTML=`<div class="loading">讀取失敗：${esc(err.message||err)}</div>`}
-}
-load();
+const ROLE={13:'求問者一側的見證與內在背景。',14:'對方、客體或環境一側的見證。',15:'全盤裁決核心，落宮意義上升為整件事的定調。',16:'結果的結果，落宮意義上升為最終收束。'};
+const DEF={elementOrder:['fire','air','water','earth'],systems:{abjad:{baseValues:{fire:1,air:2,water:3,earth:4}},abdah:{baseValues:{fire:1,air:2,water:4,earth:8}},bazdah:{baseValues:{fire:2,air:7,water:4,earth:8}}}};
+const $=s=>document.querySelector(s),esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),arr=v=>Array.isArray(v)?v:(v==null?[]:[v]),label=h=>ORDINAL[h.number]||SPECIAL[h.number]||`第${h.number}宮`;
+function clean(v){return String(v??'').replace(/[\u0590-\u08FF\u0900-\u0D7F]+/g,'').replace(/\s{2,}/g,' ').trim()}
+function split(v){return String(v??'').split(/[、，,；;。]/).map(x=>x.trim()).filter(Boolean).slice(0,8)}
+function figureSummary(f){return clean(f.basic?.one||f.coreSymbol||f.judgement||'')}
+function houseTheme(h){return clean(h.identity?.coreTheme||h.card?.keywords?.join('、')||h.core||'')}
+function value(f,k){const v=f?.numbers?.[k];return v&&typeof v==='object'?(v.value??'—'):(v??'—')}
+function calc(code,cfg=DEF){const d=String(code||'').split('').map(Number);if(d.length!==4)return{};const o=cfg.elementOrder||DEF.elementOrder,s=cfg.systems||DEF.systems,b=n=>s[n]?.baseValues||DEF.systems[n].baseValues,open=n=>o.reduce((a,e,i)=>a+(d[i]===1?Number(b(n)[e]||0):0),0),weighted=n=>o.reduce((a,e,i)=>a+Number(b(n)[e]||0)*(d[i]===2?2:1),0);return{abjadOpen:open('abjad'),abjadWeighted:weighted('abjad'),abdah:open('abdah'),bazdah:open('bazdah'),physical:d.reduce((a,x)=>a+x,0)}}
+function tags(v){const a=arr(v).filter(Boolean);return a.length?`<div class="tags">${a.map(x=>`<span class="tag">${esc(clean(x))}</span>`).join('')}</div>`:'<div class="empty">目前沒有獨立標註</div>'}
+function fallback(f,h){return{summary:`${figureSummary(f)||f.zhName}進入「${houseTheme(h)||label(h)}」的場域。`,resonance:{level:'待專屬條目',score:50,reason:'目前以卦象本體與宮位場域做基礎合讀。'},expression:{direct:[figureSummary(f)||f.zhName],favorable:split(f.basic?.favorable),neutral:split(houseTheme(h)),shadow:split(f.basic?.shadow)},synthesis:{figureNature:figureSummary(f),houseField:houseTheme(h),result:'由卦象方向進入宮位主題，再由主盤角色與裁決結構校正。'},questions:{},notes:['此為基礎合讀，不等同專屬落宮條目。']}}
+async function optional(u){const r=await fetch(u,{cache:'no-store'});if(r.status===404)return null;if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.json()}
+function render({f,h,fi,figures,houses,p,specific,cfg}){const hl=label(h),n=calc(f.dotCode||fi.dotCode,cfg),r=p.resonance||{},e=p.expression||{},s=p.synthesis||{};document.title=`${clean(f.zhName)} × ${hl}｜落宮之書`;const qs=Object.entries(p.questions||{}).map(([k,v])=>`<article class="card"><h3>${esc(v.label||k)}</h3><p>${esc(v.judgement||'')}</p></article>`).join('')||'<div class="empty">此組合尚未建立專屬問題入口。</div>';$('#app').innerHTML=`<form class="searchbar" id="search"><select id="sf">${figures.map(x=>`<option value="${esc(x.id)}" ${x.id===f.id?'selected':''}>${esc(x.zhName)} · ${esc(x.latinName||'')} · ${esc(x.dotCode||'')}</option>`).join('')}</select><div class="times">×</div><select id="sh">${houses.map(x=>`<option value="${esc(x.id)}" ${x.id===h.id?'selected':''}>${esc(label(x))}</option>`).join('')}</select><button class="go">搜尋</button></form><section class="hero"><div class="eyebrow">PLACEMENT RESULT</div><h1>${esc(clean(f.zhName))} × ${esc(hl)}</h1><div class="sub">${esc(f.latinName||'')} · ${esc(f.dotCode||fi.dotCode||'')} × ${esc(h.id)}</div><p class="summary">${esc(clean(p.summary||''))}</p><span class="badge">${specific?'專屬落宮條目':'基礎合讀'}</span></section><section class="section"><h2>核心判讀</h2><div class="grid2"><article class="card"><h3>${esc(r.level||'未評級')} · ${esc(String(r.score??'—'))}</h3><p>${esc(r.reason||'')}</p></article><article class="card"><h3>直接表現</h3>${tags(e.direct)}</article></div></section><section class="section"><h2>表現方向</h2><div class="grid3"><article class="card good"><h3>有利表現</h3>${tags(e.favorable)}</article><article class="card"><h3>中性表現</h3>${tags(e.neutral)}</article><article class="card shadow"><h3>陰影表現</h3>${tags(e.shadow)}</article></div></section><section class="section"><h2>為什麼這樣讀</h2><div class="formula"><div class="box"><b>${esc(f.zhName)}</b><span>${esc(clean(s.figureNature||figureSummary(f)))}</span></div><div class="op">×</div><div class="box"><b>${esc(hl)}</b><span>${esc(clean(s.houseField||houseTheme(h)))}</span></div><div class="op">=</div><div class="box"><b>落宮表現</b><span>${esc(clean(s.result||p.summary||''))}</span></div></div></section><section class="section"><h2>實務問題入口</h2><div class="grid2">${qs}</div></section><section class="section"><h2>數值層</h2><div class="numbers"><div class="num"><b>${esc(String(value(fi,'triangular')))}</b><span>三角數</span></div><div class="num abjad"><b>Abjad</b><div class="modes"><div class="mode"><strong>${esc(String(n.abjadOpen))}</strong><small>時間／應期<br>只算單點</small></div><div class="mode"><strong>${esc(String(n.abjadWeighted))}</strong><small>空間／尺寸<br>雙點×2</small></div></div></div><div class="num"><b>${esc(String(n.abdah))}</b><span>Abdah<br>只算單點</span></div><div class="num"><b>${esc(String(n.bazdah))}</b><span>Bazdah<br>只算單點</span></div><div class="num"><b>${esc(String(n.physical))}</b><span>實點數</span></div></div><div class="method"><b>運算分流：</b>Abjad 基數固定為 1、2、3、4；時間／應期只取開放單點，物理空間／尺寸則單點×1、雙點×2。Abdah 與 Bazdah 永遠忽略關閉雙點。內部編碼不公開顯示。</div></section>${h.number>=13?`<section class="section"><article class="card special"><h3>裁決結構角色</h3><p>${esc(ROLE[h.number]||'')}</p></article></section>`:''}`;$('#search').addEventListener('submit',ev=>{ev.preventDefault();location.href=`./placement.html?figure=${encodeURIComponent($('#sf').value)}&house=${encodeURIComponent($('#sh').value)}`})}
+async function load(){try{const q=new URLSearchParams(location.search),fid=q.get('figure'),hid=q.get('house');if(!fid||!hid)throw new Error('缺少卦象或宮位參數');const [ir,hr,fr,hdr,p,cfg]=await Promise.all([fetch('./data/figures/index.json',{cache:'no-store'}),fetch('./data/houses/index.json',{cache:'no-store'}),fetch(`./data/figures/${encodeURIComponent(fid)}.json`,{cache:'no-store'}),fetch(`./data/houses/${encodeURIComponent(hid)}.json`,{cache:'no-store'}),optional(`./data/placements/${encodeURIComponent(fid)}/${encodeURIComponent(hid)}.json`),optional('./data/figures/numeric-systems.json')]);if(!ir.ok||!hr.ok||!fr.ok||!hdr.ok)throw new Error('資料讀取失敗');const [figures,houses,f,h]=await Promise.all([ir.json(),hr.json(),fr.json(),hdr.json()]);render({f,h,fi:figures.find(x=>x.id===fid)||{},figures,houses,p:p||fallback(f,h),specific:!!p,cfg:cfg||DEF})}catch(e){$('#app').innerHTML=`<div class="loading">讀取失敗：${esc(e.message||e)}</div>`}}load();
 </script>
-</body>
-</html>
+</body></html>
