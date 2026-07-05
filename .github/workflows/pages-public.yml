@@ -49,9 +49,18 @@ jobs:
           q.write_text(q.read_text(encoding='utf-8').replace('${numbersHTML(data,cfg)}',''),encoding='utf-8')
           PY
 
+      - name: Package public site
+        run: |
+          mkdir -p _site
+          rsync -a --exclude '_site' ./ _site/
+          rm -rf _site/data/placements/v2
+          rm -rf _site/data/sources
+          rm -f _site/data/figures/numeric-systems.json
+          rm -f _site/data/figures/numeric-values.json
+
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: ./_site
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
