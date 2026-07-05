@@ -1,0 +1,39 @@
+name: Sync Public Placement Data
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: public-placement-data
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build reader-only placement data
+        run: |
+          python scripts/build_public_placements.py
+          jq '{houses:[.houses[]|{id,number,publicLabel,element,shard:("./data/placements/public/h" + ((.number|tostring) as $n | if ($n|length)==1 then "0"+$n else $n end) + "-content-v1.json")}]}' data/placements/v2/canonical-256-v1.json > data/placements/public/manifest.json
+
+      - name: Commit public projection
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/placements/public
+          if git diff --cached --quiet; then
+            echo "No public placement changes"
+            exit 0
+          fi
+          git commit -m "Sync public placement projection"
+          git push origin HEAD:main
