@@ -101,6 +101,7 @@
       ['負責呈現背景、對方、環境與未來牽引，訊號具有裁決前的證詞重量。','負責呈現問卜者側與被問者／客體側的見證訊號，具有裁決前的證詞重量。']
     ];
     publicRoleFixes.forEach(([from,to])=>{html=html.split(from).join(to);});
+    html=html.split('平衡宮宮').join('平衡宮');
 
     // Public H1–H12 identity: keep only numbered houses; scrub legacy Chinese house aliases.
     const publicAliasFixes=[
