@@ -23,6 +23,107 @@
 
     html = html.replace(/\s*<img class="brandLogo"[\s\S]*?\/>\n/, '\n');
 
+    // Phase 0 main-board micro-hotfix: semantic/data corrections only.
+    // No scorer weights, thresholds, figure data, 256 matrix, layout, or lighting logic are changed here.
+    const replaceRequired=(source,from,to,label)=>{
+      if(!source.includes(from)) throw new Error(`Phase 0 hotfix target missing: ${label}`);
+      return source.replace(from,to);
+    };
+    const replaceRequiredRegex=(source,pattern,to,label)=>{
+      pattern.lastIndex=0;
+      if(!pattern.test(source)) throw new Error(`Phase 0 hotfix target missing: ${label}`);
+      pattern.lastIndex=0;
+      return source.replace(pattern,to);
+    };
+
+    const phase0HouseData=`const HOUSE_DATA = [
+  { name: "第1宮", meaning: "代表問卜者本人、當下狀態、生命、靈魂、意圖與事物開端。" },
+  { name: "第2宮", meaning: "代表金錢、財富、流動資產、助手、得與失、買賣。" },
+  { name: "第3宮", meaning: "代表兄弟姊妹、親戚、鄰居、短途旅行、消息、信件與夢境。" },
+  { name: "第4宮", meaning: "代表父親、家庭、房地產、隱藏之物、事物根基與結局。" },
+  { name: "第5宮", meaning: "代表子女、愛情、歡樂、宴會、禮物、衣物與懷孕。" },
+  { name: "第6宮", meaning: "代表疾病、僕人、下屬、小動物、消耗、恐懼與憂慮。" },
+  { name: "第7宮", meaning: "代表伴侶、合夥人、公開敵人、爭執、婚姻、尋物。" },
+  { name: "第8宮", meaning: "代表死亡、恐懼、遺產、危險、痛苦、憂慮與毒藥。" },
+  { name: "第9宮", meaning: "代表長途旅行、宗教、哲學、學問、信仰、星象。" },
+  { name: "第10宮", meaning: "代表母親、國王、權威、職業、地位、榮譽與政府。" },
+  { name: "第11宮", meaning: "代表朋友、希望、願望、幸運、支持者與喜悅的場所。" },
+  { name: "第12宮", meaning: "代表隱藏敵人、監獄、秘密、悲傷、孤立與大型動物。" },
+  { name: "第13宮｜問卜者見證", meaning: "代表問卜者、目的、當前情勢、內在祕密與問卜者側的見證。" },
+  { name: "第14宮｜被問者見證", meaning: "代表被問者、所問之事、目標對象、另一方狀態與客體側見證。" },
+  { name: "第15宮｜平衡宮", meaning: "代表裁決、衡量、鏡照與判斷，綜合第13宮與第14宮兩側見證。" },
+  { name: "第16宮｜最終終局", meaning: "代表結果的結果、裁決後落地與最終結論。" }
+];`;
+    html=replaceRequiredRegex(html,/const HOUSE_DATA = \[[\s\S]*?\n\];/,phase0HouseData,'HOUSE_DATA');
+
+    html=replaceRequired(
+      html,
+      'const HOUSE_ELEMENTS=["火","土","風","水","火","土","風","水","火","土","風","水",null,null,null,null];',
+      'const HOUSE_ELEMENTS=["火","風","水","土","火","風","水","土","火","風","水","土","火","風","水","土"];',
+      'HOUSE_ELEMENTS'
+    );
+
+    const phase0CoreFocus=`function coreFocusInfo(idx){
+  if(idx===0) return {label:"第1宮求問者",impact:.25,note:"第1宮代表問卜者當下，對整盤有基礎權重。"};
+  if(idx===12) return {label:"問卜者見證",impact:.30,note:"第13宮代表問卜者、目的、當前情勢、內在祕密與問卜者側見證。"};
+  if(idx===13) return {label:"被問者見證",impact:.30,note:"第14宮代表被問者、所問之事、目標對象、另一方狀態與客體側見證。"};
+  if(idx===14) return {label:"平衡宮",impact:.55,note:"第15宮負責衡量第13宮與第14宮兩側見證並形成核心裁決。"};
+  if(idx===15) return {label:"最終終局",impact:.55,note:"第16宮代表結果的結果、裁決後落地與最終結論。"};
+  return {label:"一般宮",impact:0,note:"此宮不屬於第1宮與第13至16宮核心裁決軸。"};
+}`;
+    html=replaceRequiredRegex(html,/function coreFocusInfo\(idx\)\{[\s\S]*?\n\}/,phase0CoreFocus,'coreFocusInfo');
+
+    const phase0CorePrompt=`function coreLinesForPrompt(){
+  const items=[
+    [0,'第1宮／求問者當下'],
+    [12,'第13宮／問卜者見證／問卜者、目的、當前情勢與內在祕密'],
+    [13,'第14宮／被問者見證／被問者、所問之事、目標對象與另一方狀態'],
+    [14,'第15宮／平衡宮／衡量兩側見證並形成核心裁決'],
+    [15,'第16宮／最終終局／結果的結果與裁決後落地']
+  ];
+  return items.map(([idx,label])=>{
+    const fig=state.chart[idx], d=FIGURE_DATA[fig];
+    const status=(ensurePromptLayers().fortune||state.fortuneLightMode)?\`｜力道：\${statusEvaluation(idx).band.label}\`:'';
+    return \`\${label}：\${d.nameZh}｜\${d.nature}｜\${d.element}\${status}\`;
+  }).join("\\n");
+}`;
+    html=replaceRequiredRegex(html,/function coreLinesForPrompt\(\)\{[\s\S]*?\n\}/,phase0CorePrompt,'coreLinesForPrompt');
+
+    // Remove stale public role wording without changing algorithms.
+    const publicRoleFixes=[
+      ['右證人','問卜者見證'],
+      ['左證人','被問者見證'],
+      ['法官','平衡宮'],
+      ['最終判決','最終終局'],
+      ['求問者背景與已成因素','問卜者、目的、當前情勢與內在祕密'],
+      ['背景與已成因素','問卜者、目的、當前情勢與內在祕密'],
+      ['對方、環境與未來牽引','被問者、所問之事、目標對象與另一方狀態'],
+      ['負責呈現背景、對方、環境與未來牽引，訊號具有裁決前的證詞重量。','負責呈現問卜者側與被問者／客體側的見證訊號，具有裁決前的證詞重量。']
+    ];
+    publicRoleFixes.forEach(([from,to])=>{html=html.split(from).join(to);});
+
+    // Public H1–H12 identity: keep only numbered houses; scrub legacy Chinese house aliases.
+    const publicAliasFixes=[
+      ['命宮','第1宮'],['財帛宮','第2宮'],['兄弟宮','第3宮'],['田宅宮','第4宮'],
+      ['男女宮','第5宮'],['子女宮','第5宮'],['奴僕宮','第6宮'],['夫妻宮','第7宮'],
+      ['伴侶宮','第7宮'],['疾厄宮','第8宮'],['死亡宮','第8宮'],['遷移宮','第9宮'],
+      ['遠行宮','第9宮'],['官祿宮','第10宮'],['福德宮','第11宮'],['相貌宮','第12宮'],['敵人宮','第12宮']
+    ];
+    publicAliasFixes.forEach(([from,to])=>{html=html.split(from).join(to);});
+
+    // Standardize visible house identities to 第N宮 without changing layout or house indices.
+    const houseNumberFixes=[
+      ['第十六宮','第16宮'],['十六宮','第16宮'],['第十五宮','第15宮'],['十五宮','第15宮'],
+      ['第十四宮','第14宮'],['十四宮','第14宮'],['第十三宮','第13宮'],['十三宮','第13宮'],
+      ['第十二宮','第12宮'],['十二宮','第12宮'],['第十一宮','第11宮'],['十一宮','第11宮'],
+      ['第十宮','第10宮'],['十宮','第10宮'],['第九宮','第9宮'],['九宮','第9宮'],
+      ['第八宮','第8宮'],['八宮','第8宮'],['第七宮','第7宮'],['七宮','第7宮'],
+      ['第六宮','第6宮'],['六宮','第6宮'],['第五宮','第5宮'],['五宮','第5宮'],
+      ['第四宮','第4宮'],['四宮','第4宮'],['第三宮','第3宮'],['三宮','第3宮'],
+      ['第二宮','第2宮'],['二宮','第2宮'],['第一宮','第1宮'],['一宮','第1宮']
+    ];
+    houseNumberFixes.forEach(([from,to])=>{html=html.split(from).join(to);});
+
     document.open();
     document.write(html);
     document.close();
