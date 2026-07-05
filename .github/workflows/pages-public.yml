@@ -38,6 +38,7 @@ jobs:
           rm -f _site/data/figures/numeric-systems.json _site/data/figures/numeric-values.json
           rm -f _site/placement-final-core.html _site/placement-public.html _site/placement-public.css
           sed -i 's#./data/placements/v2/canonical-256-v1.json#./data/placements/public/manifest.json#g' _site/placements.html
+          sed -i 's#./data/figures/index.json#./data/figures/public-index.json#g' _site/placements.html
           sed -i 's/讀取正式 256 格落宮內容。/查看落宮判讀。/g' _site/placements.html
           sed -i 's/正在讀取正式落宮索引……/正在讀取落宮索引……/g' _site/placements.html
           sed -i "s/if(!c?.canonical||c?.coverage?.total!==256)/if(!Array.isArray(c?.houses)||c.houses.length!==16)/g" _site/placements.html
