@@ -1,0 +1,57 @@
+name: Deploy Public GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages-public
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+
+      - name: Build public placement projection
+        run: |
+          python scripts/build_public_placements.py
+          jq '{canonical:true,coverage:{total:256},houses:[.houses[]|{id,number,publicLabel,element,shard:("./data/placements/public/h" + ((.number|tostring) as $n | if ($n|length)==1 then "0"+$n else $n end) + "-content-v1.json")}]}' data/placements/v2/canonical-256-v1.json > data/placements/public/manifest.json
+
+      - name: Remove internal UI from deployed pages
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          p=Path('placement-final-core.html')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace('./data/placements/v2/canonical-256-v1.json','./data/placements/public/manifest.json')
+          s=s.replace('<span class="badge">正式 256 格 · ${esc(ev.label)}</span>','')
+          s=re.sub(r'<article class="card"><div class="scorecard">.*?</article>(?=<article class="card"><h3>直接表現)','',s,flags=re.S)
+          s=re.sub(r'<article class="card conditional">.*?</article>','',s,flags=re.S)
+          s=re.sub(r'<section class="section"><h2>數值層</h2>.*?</section>(?=\$\{h\.number>=13\?)','',s,flags=re.S)
+          s=re.sub(r'<section class="section"><h2>實務問題入口</h2>.*?</section>','',s,flags=re.S)
+          s=re.sub(r'<section class="section"><article class="card"><h3>判讀註記</h3>.*?</section>','',s,flags=re.S)
+          s=s.replace("${esc(h.interactionType||'情境轉化')}",'落宮表現')
+          p.write_text(s,encoding='utf-8')
+          q=Path('figure.html')
+          q.write_text(q.read_text(encoding='utf-8').replace('${numbersHTML(data,cfg)}',''),encoding='utf-8')
+          PY
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
