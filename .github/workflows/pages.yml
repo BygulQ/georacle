@@ -40,6 +40,8 @@ jobs:
           s = re.sub(r'<article class="card"><div class="scorecard">.*?</article>(?=<article class="card"><h3>直接表現)', '', s, flags=re.S)
           s = re.sub(r'<article class="card conditional">.*?</article>', '', s, flags=re.S)
           s = re.sub(r'<section class="section"><h2>數值層</h2>.*?</section>(?=\$\{h\.number>=13\?)', '', s, flags=re.S)
+          s = re.sub(r'<section class="section"><h2>實務問題入口</h2>.*?</section>', '', s, flags=re.S)
+          s = re.sub(r'<section class="section"><article class="card"><h3>判讀註記</h3>.*?</section>', '', s, flags=re.S)
           s = s.replace("${esc(h.interactionType||'情境轉化')}", '落宮表現')
           p.write_text(s, encoding='utf-8')
 
