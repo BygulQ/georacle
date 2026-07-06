@@ -13,18 +13,21 @@ function roman(n){return ROMAN[Number(n)]||String(n)}
 function ordinal(n){return ORDINAL[Number(n)]||`第${n}宮`}
 function elementLabel(v){return ELEMENT[String(v??'').toLowerCase()]||v||'—'}
 function dotFigure(code){const rows=String(code||'').split('');return `<div class="dot-figure" aria-label="卦象點圖">${rows.map(x=>`<div class="dot-row">${Array.from({length:Number(x)||1},()=>'<i></i>').join('')}</div>`).join('')}</div>`}
+function meshSvg(){return `<svg class="network-svg" viewBox="0 0 720 420" preserveAspectRatio="none" aria-hidden="true"><path class="mesh" d="M40 90L180 30L360 80L540 30L680 90M40 210L180 150L360 210L540 150L680 210M40 330L180 270L360 340L540 270L680 330M180 30L180 270M360 80L360 340M540 30L540 270M40 90L40 330M680 90L680 330"/><path class="route-soft" d="M40 330L180 150L360 80L540 150L680 330M40 90L180 270L360 210L540 270L680 90"/><path class="route" d="M86 210L260 210L360 168L460 210L634 210M360 80L360 340"/><circle class="node-soft" cx="86" cy="210" r="5"/><circle class="node-soft" cx="634" cy="210" r="5"/><circle class="node-soft" cx="360" cy="80" r="5"/><circle class="node" cx="360" cy="168" r="7"/><circle class="node" cx="360" cy="340" r="7"/></svg>`}
+function sectionHead(index,title){return `<div class="section-heading"><span class="section-index">${esc(index)}</span><h2>${esc(title)}</h2></div>`}
 function render({f,h,figures,houses,p}){
   const label=ordinal(h.number),houseRoman=roman(h.number),field=FIELD[h.number]||label,nature=arr(f.minimalCore).join('、')||f.zhName,q=Q[h.number]||['目前如何發展','應優先注意什麼'],focus=arr(p.fav)[0]||arr(p.unfav)[0]||'整體發展',risk=arr(p.unfav)[0]||'目前沒有獨立風險標註',t=trend(p),conds=conditionItems(p),note=noteText(p),el=elementLabel(h.element);
   document.title=`${f.zhName} × ${label}｜落宮之書`;
   $('#app').innerHTML=`
   <form class="search" id="search">
-    <select id="sf">${figures.map(x=>`<option value="${esc(x.id)}" ${x.id===f.id?'selected':''}>${esc(x.zhName)} · ${esc(x.latinName||'')} · ${esc(x.dotCode||'')}</option>`).join('')}</select>
+    <label class="search-slot"><span class="slot-label">卦象</span><select id="sf">${figures.map(x=>`<option value="${esc(x.id)}" ${x.id===f.id?'selected':''}>${esc(x.zhName)} · ${esc(x.latinName||'')} · ${esc(x.dotCode||'')}</option>`).join('')}</select></label>
     <div class="times">×</div>
-    <select id="sh">${houses.map(x=>`<option value="${esc(x.id)}" ${x.id===h.id?'selected':''}>${esc(roman(x.number))} · ${esc(ordinal(x.number))}</option>`).join('')}</select>
+    <label class="search-slot"><span class="slot-label">宮位</span><select id="sh">${houses.map(x=>`<option value="${esc(x.id)}" ${x.id===h.id?'selected':''}>${esc(roman(x.number))} · ${esc(ordinal(x.number))}</option>`).join('')}</select></label>
     <button class="go">重新判讀</button>
   </form>
 
   <section class="hero placement-hero">
+    <div class="hero-topline"><span>PLACEMENT ATLAS</span><span class="hero-pair">${esc(f.zhName)} × ${esc(houseRoman)}</span><span>${esc(label)}</span></div>
     <div class="hero-shell">
       <div class="hero-wing figure-wing">
         <div class="hero-kicker">FIGURE</div>
@@ -32,15 +35,13 @@ function render({f,h,figures,houses,p}){
         <div class="hero-latin">${esc(f.latinName||'')} · ${esc(f.dotCode||'')}</div>
         ${dotFigure(f.dotCode)}
       </div>
-      <div class="hero-network" aria-hidden="true">
-        <div class="network-stage">
-          <div class="net-line-v"></div><div class="net-line-h"></div>
-          <div class="net-node top">${esc(f.zhName)}</div>
-          <div class="net-node left">${esc(el)}</div>
-          <div class="net-node right">${esc(houseRoman)}</div>
-          <div class="net-core"></div>
-          <div class="net-node result">落宮<br>結果</div>
-        </div>
+      <div class="hero-network">
+        ${meshSvg()}
+        <span class="network-label top">${esc(f.zhName)}</span>
+        <span class="network-label left">${esc(el)}</span>
+        <span class="network-label right">${esc(houseRoman)}</span>
+        <span class="network-label bottom">落宮結果</span>
+        <div class="network-cross">×</div>
       </div>
       <div class="hero-wing house-wing">
         <div class="hero-kicker">POSITION</div>
@@ -50,37 +51,53 @@ function render({f,h,figures,houses,p}){
       </div>
     </div>
     <div class="hero-result">
-      <div class="eyebrow">PLACEMENT READING</div>
+      <div class="result-label">PLACEMENT READING</div>
       <p class="summary">${esc(p.core||'')}</p>
     </div>
   </section>
 
-  <section class="section"><h2>核心判讀</h2><div class="grid2">
-    <article class="card"><h3>${esc(t.title)}</h3><p>${esc(t.text)}</p></article>
-    <article class="card"><h3>直接表現</h3>${tags(f.minimalCore,'目前沒有獨立標註')}</article>
-  </div></section>
+  <section class="section">
+    ${sectionHead('01','核心判讀')}
+    <div class="core-grid">
+      <article class="card reading-primary"><h3>${esc(t.title)}</h3><p>${esc(t.text)}</p></article>
+      <article class="card nature-card"><h3>直接表現</h3>${tags(f.minimalCore,'目前沒有獨立標註')}</article>
+    </div>
+  </section>
 
-  <section class="section"><h2>表現方向</h2><div class="grid3">
-    <article class="card good"><h3>有利表現</h3>${tags(p.fav,'本格沒有獨立有利標註')}</article>
-    <article class="card mid"><h3>條件表現</h3>${tags(conds,'需結合全盤')}</article>
-    <article class="card bad"><h3>陰影表現</h3>${tags(p.unfav,'本格沒有獨立風險標註')}</article>
-  </div></section>
+  <section class="section">
+    ${sectionHead('02','表現方向')}
+    <div class="direction-grid">
+      <article class="card direction-card good"><h3>有利表現</h3>${tags(p.fav,'本格沒有獨立有利標註')}</article>
+      <article class="card direction-card mid"><h3>條件表現</h3>${tags(conds,'需結合全盤')}</article>
+      <article class="card direction-card bad"><h3>陰影表現</h3>${tags(p.unfav,'本格沒有獨立風險標註')}</article>
+    </div>
+  </section>
 
-  <section class="section"><h2>為什麼這樣讀</h2><div class="formula">
-    <div class="box"><b>${esc(f.zhName)}</b><span>${esc(nature)}</span></div>
-    <div class="op">×</div>
-    <div class="box"><b>${esc(houseRoman)} · ${esc(label)}</b><span>${esc(field)}</span></div>
-    <div class="op">=</div>
-    <div class="box"><b>落宮表現</b><span>${esc(p.core||'')}</span></div>
-  </div></section>
+  <section class="section">
+    ${sectionHead('03','為什麼這樣讀')}
+    <div class="formula">
+      <div class="box"><div class="step-label">FIGURE</div><b>${esc(f.zhName)}</b><span>${esc(nature)}</span></div>
+      <div class="op">×</div>
+      <div class="box"><div class="step-label">POSITION</div><b>${esc(houseRoman)} · ${esc(label)}</b><span>${esc(field)}</span></div>
+      <div class="op">=</div>
+      <div class="box result-box"><div class="step-label">PLACEMENT</div><b>落宮表現</b><span>${esc(p.core||'')}</span></div>
+    </div>
+  </section>
 
-  <section class="section"><h2>實務問題入口</h2><div class="grid2">
-    <article class="card"><h3>${esc(q[0])}</h3><p>${esc(p.core||'')}</p><p>優先觀察：${esc(focus)}</p></article>
-    <article class="card"><h3>${esc(q[1])}</h3><p>${esc(risk)}</p><p>請與全盤其他位置交叉確認。</p></article>
-  </div></section>
+  <section class="section">
+    ${sectionHead('04','實務問題入口')}
+    <div class="questions-grid">
+      <article class="card question-card" data-index="01"><h3>${esc(q[0])}</h3><p>${esc(p.core||'')}</p><p>優先觀察：${esc(focus)}</p></article>
+      <article class="card question-card" data-index="02"><h3>${esc(q[1])}</h3><p>${esc(risk)}</p><p>請與全盤其他位置交叉確認。</p></article>
+    </div>
+  </section>
 
-  <section class="section"><article class="card"><h3>判讀註記</h3><p>${esc(note)}</p></article></section>
-  ${h.number>=13?`<section class="section"><article class="card special"><h3>裁決結構角色</h3><p>${esc(ROLE[h.number]||'')}</p></article></section>`:''}`;
+  <section class="section">
+    ${sectionHead('05','判讀註記')}
+    <article class="card note-card"><h3>READING NOTE</h3><p>${esc(note)}</p></article>
+  </section>
+
+  ${h.number>=13?`<section class="section">${sectionHead('06','裁決結構角色')}<article class="card special"><h3>${esc(houseRoman)} · ${esc(label)}</h3><p>${esc(ROLE[h.number]||'')}</p></article></section>`:''}`;
   $('#search').addEventListener('submit',e=>{e.preventDefault();location.href=`./placement.html?figure=${encodeURIComponent($('#sf').value)}&house=${encodeURIComponent($('#sh').value)}`})
 }
 async function load(){try{const q=new URLSearchParams(location.search),fid=q.get('figure'),hid=q.get('house');if(!fid||!hid)throw new Error('缺少卦象或宮位參數');const[fr,mr]=await Promise.all([fetch('./data/figures/public-index.json',{cache:'no-store'}),fetch('./data/placements/public/manifest.json',{cache:'no-store'})]);if(!fr.ok||!mr.ok)throw new Error('公開資料讀取失敗');const[figures,m]=await Promise.all([fr.json(),mr.json()]);if(!Array.isArray(m.houses)||m.houses.length!==16)throw new Error('宮位資料不完整');const f=figures.find(x=>x.id===fid),h=m.houses.find(x=>x.id===hid||String(x.number)===String(hid).replace(/\D/g,''));if(!f||!h)throw new Error('找不到卦象或宮位');const sr=await fetch(h.shard,{cache:'no-store'});if(!sr.ok)throw new Error('落宮內容讀取失敗');const shard=await sr.json(),p=arr(shard.records).find(x=>x.f===fid&&Number(x.h)===Number(h.number));if(!p)throw new Error('找不到此落宮組合');render({f,h,figures,houses:m.houses,p})}catch(e){$('#app').innerHTML=`<div class="loading">讀取失敗：${esc(e.message||e)}</div>`}}load();
