@@ -1,1 +1,50 @@
-(()=>{const TRI={puer:1,laetitia:3,'caput-draconis':6,albus:10,puella:15,'cauda-draconis':21,rubeus:28,tristitia:36,'fortuna-minor':45,carcer:55,conjunctio:66,'fortuna-major':78,via:91,amissio:105,populus:120,acquisitio:136},ORD=['fire','air','water','earth'],AB={fire:1,air:2,water:3,earth:4},AD={fire:1,air:2,water:4,earth:8},BZ={fire:2,air:7,water:4,earth:8},esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));function level(n){return n<=4?'個位／日層':n<=8?'十位／週層':n<=12?'百位／月層':'千位／年層'}function nums(f){const d=String(f.dotCode||'').split('').map(Number),open=b=>ORD.reduce((s,e,i)=>s+(d[i]===1?b[e]:0),0),weighted=b=>ORD.reduce((s,e,i)=>s+b[e]*(d[i]===2?2:1),0);return{tri:TRI[f.id]??'—',ao:open(AB),aw:weighted(AB),ad:open(AD),bz:open(BZ),pd:d.reduce((s,x)=>s+x,0)}}function tile(k,v,sub=''){return`<div class="num"><b>${esc(v)}</b><span>${esc(k)}</span>${sub?`<small>${esc(sub)}</small>`:''}</div>`}async function mount(){if(document.getElementById('placement-numeric-layer'))return true;const heads=[...document.querySelectorAll('.section h2')],anchor=heads.find(x=>x.textContent.trim()==='為什麼這樣讀')?.closest('.section');if(!anchor)return false;const q=new URLSearchParams(location.search),fid=q.get('figure'),raw=q.get('house')||'',n=Number((raw.match(/\d+/)||[])[0]);if(!fid||!n)return true;const[fr,hr,mr]=await Promise.all([fetch('./data/figures/public-index.json',{cache:'no-store'}),fetch(`./data/houses/v2/public-${Math.ceil(n/4)}.json`,{cache:'no-store'}),fetch('./data/placements/public/manifest.json',{cache:'no-store'})]);if(!fr.ok||!hr.ok||!mr.ok)return true;const[fs,hd,m]=await Promise.all([fr.json(),hr.json(),mr.json()]),f=fs.find(x=>x.id===fid),h=(hd.records||[]).find(x=>x.id===`house-${String(n).padStart(2,'0')}`),mh=(m.houses||[]).find(x=>Number(x.number)===n);if(!f||!h)return true;const a=nums(f),measure=h.measure||{},timing=measure.timing||{},label=mh?.publicLabel||`第${n}宮`,sec=document.createElement('section');sec.id='placement-numeric-layer';sec.className='section';sec.innerHTML=`<h2>數值層</h2><div class="numeric-groups"><article class="card numeric-card"><h3>卦象數值｜${esc(f.zhName)}</h3><div class="numbers">${tile('三角數',a.tri)}${tile('Abjad',`${a.ao} / ${a.aw}`,'開點／加權')}${tile('Abdah',a.ad)}${tile('Bazdah',a.bz)}${tile('實點數',a.pd)}</div></article><article class="card numeric-card"><h3>宮位數值｜${esc(label)}</h3><div class="house-numbers">${tile('宮位數值',measure.cumulative?.value??'—')}${tile('時間尺度',timing.display||'—')}${tile('數值層級',level(n))}</div></article></div>`;anchor.after(sec);return true}const ob=new MutationObserver(()=>{mount().then(done=>{if(done)ob.disconnect()})});ob.observe(document.getElementById('app'),{childList:true,subtree:true});mount()})();
+(()=>{
+  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const ORDINAL=['','第一宮','第二宮','第三宮','第四宮','第五宮','第六宮','第七宮','第八宮','第九宮','第十宮','第十一宮','第十二宮','第十三宮','第十四宮','第十五宮','第十六宮'];
+  const ordinal=n=>ORDINAL[Number(n)]||`第${n}宮`;
+  const level=n=>n<=4?'個位／日層':n<=8?'十位／週層':n<=12?'百位／月層':'千位／年層';
+  const tile=(k,v,sub='')=>`<div class="num"><b>${esc(v)}</b><span>${esc(k)}</span>${sub?`<small>${esc(sub)}</small>`:''}</div>`;
+
+  async function mount(){
+    if(document.getElementById('placement-numeric-layer')) return true;
+    const headings=[...document.querySelectorAll('.section h2')];
+    const anchor=headings.find(x=>x.textContent.trim()==='為什麼這樣讀')?.closest('.section');
+    if(!anchor) return false;
+
+    const q=new URLSearchParams(location.search);
+    const fid=q.get('figure');
+    const raw=q.get('house')||'';
+    const n=Number((raw.match(/\d+/)||[])[0]);
+    if(!fid||!n) return true;
+
+    const [fr,hr,nr]=await Promise.all([
+      fetch('./data/figures/public-index.json',{cache:'no-store'}),
+      fetch(`./data/houses/v2/public-${Math.ceil(n/4)}.json`,{cache:'no-store'}),
+      fetch('./data/placements/public/figure-numeric-v1.json',{cache:'no-store'})
+    ]);
+    if(!fr.ok||!hr.ok||!nr.ok) return true;
+
+    const [figures,houseData,numericData]=await Promise.all([fr.json(),hr.json(),nr.json()]);
+    const f=figures.find(x=>x.id===fid);
+    const h=(houseData.records||[]).find(x=>x.id===`house-${String(n).padStart(2,'0')}`);
+    const numeric=(numericData.figures||[]).find(x=>x.id===fid);
+    if(!f||!h||!numeric) return true;
+
+    const measure=h.measure||{};
+    const timing=measure.timing||{};
+    const abjad=numeric.abjad||{};
+    const sec=document.createElement('section');
+    sec.id='placement-numeric-layer';
+    sec.className='section';
+    sec.innerHTML=`<h2>數值層</h2><div class="numeric-groups"><article class="card numeric-card"><h3>卦象數值｜${esc(f.zhName)}</h3><div class="numbers">${tile('三角數',numeric.triangular??'—')}${tile('Abjad',`${abjad.openOnly??'—'} / ${abjad.weightedAll??'—'}`,'開點／加權')}${tile('Abdah',numeric.abdah??'—')}${tile('Bazdah',numeric.bazdah??'—')}${tile('實點數',numeric.physicalDots??'—')}</div></article><article class="card numeric-card"><h3>宮位數值｜${esc(ordinal(n))}</h3><div class="house-numbers">${tile('宮位數值',measure.cumulative?.value??'—')}${tile('時間尺度',timing.display||'—')}${tile('數值層級',level(n))}</div></article></div>`;
+    anchor.after(sec);
+    return true;
+  }
+
+  const root=document.getElementById('app');
+  const observer=new MutationObserver(()=>{
+    mount().then(done=>{if(done) observer.disconnect()});
+  });
+  if(root) observer.observe(root,{childList:true,subtree:true});
+  mount();
+})();
