@@ -1,116 +1,20 @@
 {
   "houses": [
-    {
-      "id": "house-01",
-      "number": 1,
-      "publicLabel": "第1宮",
-      "element": "火",
-      "shard": "./data/placements/public/h01-content-v1.json"
-    },
-    {
-      "id": "house-02",
-      "number": 2,
-      "publicLabel": "第2宮",
-      "element": "風",
-      "shard": "./data/placements/public/h02-content-v1.json"
-    },
-    {
-      "id": "house-03",
-      "number": 3,
-      "publicLabel": "第3宮",
-      "element": "水",
-      "shard": "./data/placements/public/h03-content-v1.json"
-    },
-    {
-      "id": "house-04",
-      "number": 4,
-      "publicLabel": "第4宮",
-      "element": "土",
-      "shard": "./data/placements/public/h04-content-v1.json"
-    },
-    {
-      "id": "house-05",
-      "number": 5,
-      "publicLabel": "第5宮",
-      "element": "火",
-      "shard": "./data/placements/public/h05-content-v1.json"
-    },
-    {
-      "id": "house-06",
-      "number": 6,
-      "publicLabel": "第6宮",
-      "element": "風",
-      "shard": "./data/placements/public/h06-content-v1.json"
-    },
-    {
-      "id": "house-07",
-      "number": 7,
-      "publicLabel": "第7宮",
-      "element": "水",
-      "shard": "./data/placements/public/h07-content-v1.json"
-    },
-    {
-      "id": "house-08",
-      "number": 8,
-      "publicLabel": "第8宮",
-      "element": "土",
-      "shard": "./data/placements/public/h08-content-v1.json"
-    },
-    {
-      "id": "house-09",
-      "number": 9,
-      "publicLabel": "第9宮",
-      "element": "火",
-      "shard": "./data/placements/public/h09-content-v1.json"
-    },
-    {
-      "id": "house-10",
-      "number": 10,
-      "publicLabel": "第10宮",
-      "element": "風",
-      "shard": "./data/placements/public/h10-content-v1.json"
-    },
-    {
-      "id": "house-11",
-      "number": 11,
-      "publicLabel": "第11宮",
-      "element": "水",
-      "shard": "./data/placements/public/h11-content-v1.json"
-    },
-    {
-      "id": "house-12",
-      "number": 12,
-      "publicLabel": "第12宮",
-      "element": "土",
-      "shard": "./data/placements/public/h12-content-v1.json"
-    },
-    {
-      "id": "house-13",
-      "number": 13,
-      "publicLabel": "第13宮｜問卜者見證",
-      "element": "火",
-      "shard": "./data/placements/public/h13-content-v1.json"
-    },
-    {
-      "id": "house-14",
-      "number": 14,
-      "publicLabel": "第14宮｜被問者見證",
-      "element": "風",
-      "shard": "./data/placements/public/h14-content-v1.json"
-    },
-    {
-      "id": "house-15",
-      "number": 15,
-      "publicLabel": "第15宮｜平衡宮",
-      "element": "水",
-      "shard": "./data/placements/public/h15-content-v1.json"
-    },
-    {
-      "id": "house-16",
-      "number": 16,
-      "publicLabel": "第16宮｜最終終局",
-      "element": "土",
-      "shard": "./data/placements/public/h16-content-v1.json"
-    }
+    {"id":"house-01","number":1,"publicLabel":"第1宮","element":"火","shard":"./data/placements/public/h01-content-v1.json"},
+    {"id":"house-02","number":2,"publicLabel":"第2宮","element":"風","shard":"./data/placements/public/h02-content-v1.json"},
+    {"id":"house-03","number":3,"publicLabel":"第3宮","element":"水","shard":"./data/placements/public/h03-content-v1.json"},
+    {"id":"house-04","number":4,"publicLabel":"第4宮","element":"土","shard":"./data/placements/public/h04-content-v1.json"},
+    {"id":"house-05","number":5,"publicLabel":"第5宮","element":"火","shard":"./data/placements/public/h05-content-v1.json"},
+    {"id":"house-06","number":6,"publicLabel":"第6宮","element":"風","shard":"./data/placements/public/h06-content-v1.json"},
+    {"id":"house-07","number":7,"publicLabel":"第7宮","element":"水","shard":"./data/placements/public/h07-content-v1.json"},
+    {"id":"house-08","number":8,"publicLabel":"第8宮","element":"土","shard":"./data/placements/public/h08-content-v1.json"},
+    {"id":"house-09","number":9,"publicLabel":"第9宮","element":"火","shard":"./data/placements/public/h09-content-v1.json"},
+    {"id":"house-10","number":10,"publicLabel":"第10宮","element":"風","shard":"./data/placements/public/h10-content-v1.json"},
+    {"id":"house-11","number":11,"publicLabel":"第11宮","element":"水","shard":"./data/placements/public/h11-content-v1.json"},
+    {"id":"house-12","number":12,"publicLabel":"第12宮","element":"土","shard":"./data/placements/public/h12-content-v1.json"},
+    {"id":"house-13","number":13,"publicLabel":"第13宮","element":"火","shard":"./data/placements/public/h13-content-v1.json"},
+    {"id":"house-14","number":14,"publicLabel":"第14宮","element":"風","shard":"./data/placements/public/h14-content-v1.json"},
+    {"id":"house-15","number":15,"publicLabel":"第15宮","element":"水","shard":"./data/placements/public/h15-content-v1.json"},
+    {"id":"house-16","number":16,"publicLabel":"第16宮","element":"土","shard":"./data/placements/public/h16-content-v1.json"}
   ]
 }
