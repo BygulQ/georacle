@@ -1,12 +1,9 @@
-const FIELD={1:'本人狀態、身體、意圖與事情開端',2:'資源、財物、持有與交易',3:'消息、近人、交流與短程移動',4:'家宅、土地、父母與根基',5:'子女、懷孕、情愛、喜悅與延續',6:'疾病、受困、服務與失物',7:'伴侶、合作、對手與他者',8:'危機、遺產與他人資源',9:'遠行、信仰、學習與夢境',10:'權威、職位、事業與名聲',11:'希望、朋友、盟友與援助',12:'長期壓力、受限與隱性困局',13:'問卜者一側的見證、目的與現況',14:'被問者、目標或他方一側的見證',15:'兩側見證的衡量、平衡與裁決',16:'裁決之後的最終落點'};
-const ROLE={13:'第十三宮：讀問卜者一側的狀態、目的與現況。',14:'第十四宮：讀目標、客體或他方一側的狀態。',15:'第十五宮：衡量兩側見證並形成裁決。',16:'第十六宮：讀裁決之後的最終落點。'};
-const Q={1:['本人狀態','事情開端'],2:['財務與交易','資源是否留得住'],3:['消息與溝通','近人互動'],4:['家宅與土地','根基是否穩定'],5:['情愛與喜悅','子女／懷孕'],6:['健康與受困','工作服務／失物'],7:['伴侶與合作','對手與爭端'],8:['危機與風險','遺產／他人資源'],9:['遠行與遷移','學習／信仰／夢境'],10:['事業與職位','名聲／權威'],11:['希望能否實現','朋友／盟友援助'],12:['隱藏敵對','長期壓力與受限'],13:['問卜者真正狀態','問卜者內在目的'],14:['被問者／目標狀態','他方傾向'],15:['兩側如何定調','裁決傾向'],16:['最後會落在哪裡','結果之結果']};
 const ROMAN=['','Ⅰ','Ⅱ','Ⅲ','Ⅳ','Ⅴ','Ⅵ','Ⅶ','Ⅷ','Ⅸ','Ⅹ','Ⅺ','Ⅻ','ⅩⅢ','ⅩⅣ','ⅩⅤ','ⅩⅥ'];
 const ORDINAL=['','第一宮','第二宮','第三宮','第四宮','第五宮','第六宮','第七宮','第八宮','第九宮','第十宮','第十一宮','第十二宮','第十三宮','第十四宮','第十五宮','第十六宮'];
 const ELEMENT={fire:'火',air:'風',water:'水',earth:'土',火:'火',風:'風',水:'水',土:'土'};
 const $=s=>document.querySelector(s);
 const arr=v=>Array.isArray(v)?v:(v==null?[]:[v]);
-const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
 function list(v){return arr(v).map(x=>String(x??'').trim()).filter(Boolean)}
 function tags(v,empty){const a=list(v);return a.length?`<div class="tags">${a.map(x=>`<span class="tag">${esc(x)}</span>`).join('')}</div>`:`<p class="empty">${esc(empty)}</p>`}
@@ -15,13 +12,21 @@ function ordinal(n){return ORDINAL[Number(n)]||`第${n}宮`}
 function elementLabel(v){return ELEMENT[String(v??'').toLowerCase()]||v||'—'}
 function dotFigure(code){const rows=String(code||'').split('');return `<div class="dot-figure" aria-label="卦象點圖">${rows.map(x=>`<div class="dot-row">${Array.from({length:Number(x)||1},()=>'<i></i>').join('')}</div>`).join('')}</div>`}
 function sectionHead(index,title){return `<div class="section-heading"><span class="section-index">${esc(index)}</span><h2>${esc(title)}</h2></div>`}
+function houseField(houseRecord,label){return houseRecord?.core?.oneLine||houseRecord?.identity?.oneLine||label}
+function houseQuestions(houseRecord){
+  const qs=arr(houseRecord?.queries).filter(x=>x&&typeof x==='object');
+  return [
+    qs[0]||{title:'宮位主題',interpretation:houseRecord?.core?.theme||''},
+    qs[1]||qs[0]||{title:'宮位取用',interpretation:houseRecord?.core?.oneLine||''}
+  ];
+}
 
-function render({f,h,figures,houses,p}){
+function render({f,h,houseRecord,figures,houses,p}){
   const label=ordinal(h.number);
   const houseRoman=roman(h.number);
-  const field=FIELD[h.number]||label;
+  const field=houseField(houseRecord,label);
   const nature=list(f.minimalCore).join('、')||f.zhName;
-  const questions=Q[h.number]||['目前如何發展','應優先注意什麼'];
+  const questions=houseQuestions(houseRecord);
   const conditions=list(p.conditions);
   const el=elementLabel(h.element);
 
@@ -88,8 +93,8 @@ function render({f,h,figures,houses,p}){
   <section class="section">
     ${sectionHead('04','實務問題入口')}
     <div class="questions-grid">
-      <article class="card question-card" data-index="01"><h3>${esc(questions[0])}</h3><p>${esc(p.core||'')}</p></article>
-      <article class="card question-card" data-index="02"><h3>${esc(questions[1])}</h3><div class="question-evidence"><b>有利記載</b>${tags(p.fav,'沒有獨立有利標註')}<b>不利記載</b>${tags(p.unfav,'沒有獨立不利標註')}</div></article>
+      <article class="card question-card" data-index="01"><h3>${esc(questions[0].title||questions[0].category||'宮位主題')}</h3><p class="question-focus">${esc(questions[0].interpretation||'')}</p><p>${esc(p.core||'')}</p></article>
+      <article class="card question-card" data-index="02"><h3>${esc(questions[1].title||questions[1].category||'宮位取用')}</h3><p class="question-focus">${esc(questions[1].interpretation||'')}</p><div class="question-evidence"><b>有利記載</b>${tags(p.fav,'沒有獨立有利標註')}<b>不利記載</b>${tags(p.unfav,'沒有獨立不利標註')}</div></article>
     </div>
   </section>
 
@@ -98,7 +103,7 @@ function render({f,h,figures,houses,p}){
     <article class="card note-card"><h3>READING NOTE</h3><div>${conditions.length?tags(conditions,''): '<p class="empty">本格沒有額外公開條件註記。</p>'}</div></article>
   </section>
 
-  ${h.number>=13?`<section class="section">${sectionHead('06','裁決結構角色')}<article class="card special"><h3>${esc(houseRoman)} · ${esc(label)}</h3><p>${esc(ROLE[h.number]||'')}</p></article></section>`:''}`;
+  ${h.number>=13?`<section class="section">${sectionHead('06','裁決結構角色')}<article class="card special"><h3>${esc(houseRoman)} · ${esc(label)}</h3><p>${esc(houseRecord?.core?.oneLine||houseRecord?.identity?.oneLine||'')}</p></article></section>`:''}`;
 
   $('#search').addEventListener('submit',e=>{
     e.preventDefault();
@@ -126,13 +131,18 @@ async function load(){
     const h=manifest.houses.find(x=>x.id===hid||String(x.number)===String(hid).replace(/\D/g,''));
     if(!f||!h) throw new Error('找不到卦象或宮位');
 
-    const shardResponse=await fetch(h.shard,{cache:'no-store'});
-    if(!shardResponse.ok) throw new Error('落宮內容讀取失敗');
-    const shard=await shardResponse.json();
-    const p=arr(shard.records).find(x=>x.f===fid&&Number(x.h)===Number(h.number));
-    if(!p) throw new Error('找不到此落宮組合');
+    const [shardResponse,houseResponse]=await Promise.all([
+      fetch(h.shard,{cache:'no-store'}),
+      fetch(`./data/houses/v2/public-${Math.ceil(Number(h.number)/4)}.json`,{cache:'no-store'})
+    ]);
+    if(!shardResponse.ok||!houseResponse.ok) throw new Error('落宮內容讀取失敗');
 
-    render({f,h,figures,houses:manifest.houses,p});
+    const [shard,houseData]=await Promise.all([shardResponse.json(),houseResponse.json()]);
+    const p=arr(shard.records).find(x=>x.f===fid&&Number(x.h)===Number(h.number));
+    const houseRecord=arr(houseData.records).find(x=>x.id===h.id||Number(x.number)===Number(h.number));
+    if(!p||!houseRecord) throw new Error('找不到此落宮組合');
+
+    render({f,h,houseRecord,figures,houses:manifest.houses,p});
   }catch(error){
     $('#app').innerHTML=`<div class="loading">讀取失敗：${esc(error.message||error)}</div>`;
   }
