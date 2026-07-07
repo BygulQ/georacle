@@ -165,11 +165,10 @@ function contextualBookLinksHTML(idx,fig){
 function quantitativeFocusIndices(){
   const rule=selectedDomainRule();
   const layers=ensurePromptLayers();
-  const raw=[];
+  const raw=[14,15];
   if(layers.intent && Number.isInteger(layers.intent.sourceIndex)) raw.push(layers.intent.sourceIndex);
   raw.push(state.selected);
   (rule.focusHouses||[]).forEach(n=>raw.push(Number(n)-1));
-  raw.push(14,15);
   return [...new Set(raw.filter(i=>Number.isInteger(i)&&i>=0&&i<16))].slice(0,5);
 }
 function quantitativeFigureValues(fig){
