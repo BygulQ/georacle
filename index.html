@@ -126,6 +126,27 @@
     ];
     houseNumberFixes.forEach(([from,to])=>{html=html.split(from).join(to);});
 
+    // Main-board contextual navigation only: add three precise book links for the current selection.
+    const contextualBookLinks=`const FIGURE_BOOK_ID_BY_CODE={
+  "1121":"puer","1222":"laetitia","2111":"caput-draconis","2212":"albus",
+  "1211":"puella","1112":"cauda-draconis","2122":"rubeus","2221":"tristitia",
+  "1122":"fortuna-minor","1221":"carcer","2112":"conjunctio","2211":"fortuna-major",
+  "1111":"via","1212":"amissio","2222":"populus","2121":"acquisitio"
+};
+function contextualBookLinksHTML(idx,fig){
+  const figureId=FIGURE_BOOK_ID_BY_CODE[fig];
+  const houseId=\`house-\${String(idx+1).padStart(2,'0')}\`;
+  if(!figureId) return '';
+  return \`<div class="infoBox"><b style="color:var(--rose)">延伸閱讀</b><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px"><a class="navButton" href="./figure.html?id=\${encodeURIComponent(figureId)}">📘 卦象之書</a><a class="navButton" href="./house.html?id=\${encodeURIComponent(houseId)}">🏛️ 宮位之書</a><a class="navButton" href="./placement.html?figure=\${encodeURIComponent(figureId)}&house=\${encodeURIComponent(houseId)}">📖 此落宮</a></div></div>\`;
+}`;
+    html=replaceRequiredRegex(html,/function renderSide\(\)\{/,contextualBookLinks+'\nfunction renderSide(){','contextualBookLinks');
+    html=replaceRequired(
+      html,
+      '    <div class="infoBox"><b style="color:var(--rose)">卦象補充</b><p>${figureProfileBodyHTML(f)}</p></div>`;',
+      '    <div class="infoBox"><b style="color:var(--rose)">卦象補充</b><p>${figureProfileBodyHTML(f)}</p></div>\n    ${contextualBookLinksHTML(state.selected,f)}`;',
+      'renderSide contextual book links'
+    );
+
     document.open();
     document.write(html);
     document.close();
