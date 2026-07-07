@@ -147,6 +147,69 @@ function contextualBookLinksHTML(idx,fig){
       'renderSide contextual book links'
     );
 
+    // Split timing and quantity out of the domain selector into optional prompt modes.
+    html=replaceRequired(
+      html,
+      '            <option value="time_quantity">⏳ 應期與數量</option>\n',
+      '',
+      'remove time_quantity domain option'
+    );
+    html=replaceRequired(
+      html,
+      '        <div class="result" id="reading" style="display:none"></div>',
+      '        <div id="quantModes" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:12px;padding:10px 12px;background:var(--panel);border:1px solid var(--line2);border-radius:16px"><b style="font-size:12px;color:var(--soft);letter-spacing:.1em">附加判讀</b><label style="display:inline-flex;align-items:center;gap:6px;font-weight:900"><input id="timingMode" type="checkbox" style="width:auto">⏳ 應期</label><label style="display:inline-flex;align-items:center;gap:6px;font-weight:900"><input id="quantityMode" type="checkbox" style="width:auto"># 數量</label></div>\n        <div class="result" id="reading" style="display:none"></div>',
+      'optional timing quantity controls'
+    );
+
+    const quantitativePromptPatch=`const QUANT_PROMPT_MODE={timing:false,quantity:false};
+function quantitativeFocusIndices(){
+  const rule=selectedDomainRule();
+  const layers=ensurePromptLayers();
+  const raw=[];
+  if(layers.intent && Number.isInteger(layers.intent.sourceIndex)) raw.push(layers.intent.sourceIndex);
+  raw.push(state.selected);
+  (rule.focusHouses||[]).forEach(n=>raw.push(Number(n)-1));
+  raw.push(14,15);
+  return [...new Set(raw.filter(i=>Number.isInteger(i)&&i>=0&&i<16))].slice(0,5);
+}
+function quantitativeFigureValues(fig){
+  const digits=String(fig||'').split('').map(Number);
+  const abjad=[1,2,3,4], abdah=[1,2,4,8], bazdah=[2,7,4,8];
+  const open=b=>digits.reduce((s,d,i)=>s+(d===1?b[i]:0),0);
+  const weighted=b=>digits.reduce((s,d,i)=>s+b[i]*(d===2?2:1),0);
+  return 'Abjad開'+open(abjad)+'/加權'+weighted(abjad)+'/Abdah'+open(abdah)+'/Bazdah'+open(bazdah)+'/點數'+digits.reduce((a,b)=>a+b,0);
+}
+function quantitativeFocusLines(){
+  return quantitativeFocusIndices().map(i=>'H'+(i+1)+' '+figName(state.chart[i])+'｜'+quantitativeFigureValues(state.chart[i])).join('\\n');
+}
+function quantitativePromptSections(){
+  const parts=[];
+  if(QUANT_PROMPT_MODE.timing) parts.push('【應期判讀】\\n先以本題取用宮與H15、H16確認事件是否可成，再以焦點卦／結果卦的數值與盤中入局位置估計時間。不得直接把單一數字當日期；須依問題尺度轉成日、週、月或年，並給區間與成立條件。盤面矛盾時標示應期不穩。');
+  if(QUANT_PROMPT_MODE.quantity) parts.push('【數量判讀】\\n先確認本題真正計數對象，再以取用宮、結果宮及相關焦點卦的數值估算。數值只作候選量級，不可直接照抄；須結合問題現實範圍、單複數傾向與盤面支持程度，輸出最可能值或合理區間。證據衝突時給範圍，不給假精確值。');
+  if(parts.length) parts.push('【數值焦點】\\n'+quantitativeFocusLines()+'\\n說明：僅列本題相關焦點，數值是候選尺度，不是直接答案。');
+  return parts.length?parts.join('\\n\\n')+'\\n\\n':'';
+}
+`;
+    html=replaceRequiredRegex(html,/function buildOraclePrompt\(question\)\{/,quantitativePromptPatch+'function buildOraclePrompt(question){','quantitative prompt helpers');
+    html=replaceRequired(
+      html,
+      '\\n\\n【解讀要求】',
+      '\\n\\n${quantitativePromptSections()}【解讀要求】',
+      'inject quantitative prompt sections'
+    );
+    html=replaceRequired(
+      html,
+      '$('+'"domain"'+').onchange=()=>{resetReading(); render(); refreshOraclePromptPreview()};',
+      '$('+'"domain"'+').onchange=()=>{resetReading(); render(); refreshOraclePromptPreview()};\nif($("timingMode")) $("timingMode").onchange=e=>{QUANT_PROMPT_MODE.timing=!!e.target.checked; resetReading(); renderBadges(); refreshOraclePromptPreview()};\nif($("quantityMode")) $("quantityMode").onchange=e=>{QUANT_PROMPT_MODE.quantity=!!e.target.checked; resetReading(); renderBadges(); refreshOraclePromptPreview()};',
+      'bind quantitative mode controls'
+    );
+    html=replaceRequired(
+      html,
+      '  $("modeBadges").innerHTML=html;',
+      '  if(QUANT_PROMPT_MODE.timing) html+=`<span class="badge">⏳ 應期判讀</span>`;\n  if(QUANT_PROMPT_MODE.quantity) html+=`<span class="badge"># 數量判讀</span>`;\n  $("modeBadges").innerHTML=html;',
+      'quantitative mode badges'
+    );
+
     document.open();
     document.write(html);
     document.close();
