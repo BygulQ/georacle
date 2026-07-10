@@ -207,7 +207,10 @@ const HOUSES = [{"id": 1,"name": "第一宮","short": "第一宮","zone": "內�
       host.querySelectorAll('.cityHotspot').forEach(btn=>{
         btn.addEventListener('mouseenter',()=>setPreview(btn.dataset.house));
         btn.addEventListener('focus',()=>setPreview(btn.dataset.house));
-        btn.addEventListener('click',()=>openStreet(btn.dataset.house));
+        btn.addEventListener('click',()=>{
+          const id=String(btn.dataset.house).padStart(2,'0');
+          location.href=`./house.html?id=house-${id}`;
+        });
       });
     }
 
