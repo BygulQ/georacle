@@ -128,6 +128,7 @@ function quantitativePromptSections(){const parts=[];if(QUANT_PROMPT_MODE.timing
     html=html.replace(',.diaryList','');
     html=html.replace('AI prompt, diary, manual casting, board image export','AI prompt, manual casting, board image export');
     html=html.replace('four elements, four states, AI prompt, diary','four elements, four states, AI prompt');
+    html=html.replace(/\$\("saveRow"\)\.style\.display\s*=\s*["'](?:none|block)["'];/g,'');
 
     document.open();
     document.write(html);
