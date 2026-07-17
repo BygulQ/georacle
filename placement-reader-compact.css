@@ -1,0 +1,92 @@
+/* 全部落宮頁共用：保留極簡風格，縮減「卦象 × 宮位」主視覺的無效留白。 */
+.hero-shell{
+  min-height:320px;
+  grid-template-columns:minmax(300px,1fr) 84px minmax(300px,1fr);
+}
+.hero-wing{padding:30px 48px}
+.hero-name{
+  margin-top:8px;
+  font-size:clamp(48px,5vw,74px);
+}
+.hero-latin{margin-top:6px}
+.dot-figure{
+  width:144px;
+  margin-top:20px;
+  gap:10px;
+}
+.dot-row{
+  width:144px;
+  height:16px;
+  gap:34px;
+}
+.dot-row i{
+  flex-basis:14px;
+  width:14px;
+  height:14px;
+}
+.hero-network{min-height:320px}
+.network-cross{font-size:64px}
+.house-roman{font-size:clamp(124px,12vw,188px)}
+.house-ordinal{margin-top:14px}
+.house-element{margin-top:6px}
+.hero-result{
+  grid-template-columns:130px minmax(0,1fr);
+  gap:20px;
+  padding:22px 30px 26px;
+}
+.hero-result .summary{
+  font-size:clamp(18px,1.8vw,26px);
+  line-height:1.65;
+}
+
+@media(max-width:1120px){
+  .hero-shell{
+    min-height:290px;
+    grid-template-columns:minmax(230px,1fr) 70px minmax(230px,1fr);
+  }
+  .hero-wing{padding:26px 30px}
+  .hero-network{min-height:290px}
+  .network-cross{font-size:56px}
+  .dot-figure{margin-top:17px}
+}
+
+@media(max-width:900px){
+  .hero-shell{
+    min-height:270px;
+    grid-template-columns:minmax(0,1fr) 58px minmax(0,1fr);
+  }
+  .hero-wing{padding:24px 20px}
+  .hero-network{min-height:270px}
+  .hero-name{font-size:clamp(40px,7vw,58px)}
+  .house-roman{font-size:clamp(100px,15vw,146px)}
+  .dot-figure{margin-top:16px}
+  .hero-result{
+    grid-template-columns:110px minmax(0,1fr);
+    gap:16px;
+    padding:20px 24px 23px;
+  }
+}
+
+@media(max-width:680px){
+  .hero-shell{
+    min-height:0;
+    grid-template-columns:1fr;
+  }
+  .hero-wing{padding:24px 20px}
+  .hero-network{min-height:44px}
+  .network-cross{font-size:42px}
+  .hero-name{font-size:52px}
+  .dot-figure{margin-top:16px}
+  .house-roman{font-size:96px}
+  .house-ordinal{margin-top:10px}
+  .house-element{margin-top:4px}
+  .hero-result{
+    grid-template-columns:1fr;
+    gap:6px;
+    padding:19px 20px 21px;
+  }
+  .hero-result .summary{
+    font-size:18px;
+    line-height:1.65;
+  }
+}
