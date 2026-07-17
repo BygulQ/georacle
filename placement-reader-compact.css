@@ -1,9 +1,19 @@
 /* 全部落宮頁共用：保留極簡風格，縮減「卦象 × 宮位」主視覺的無效留白。 */
 .hero-shell{
+  width:min(100%,1080px);
+  margin:0 auto;
   min-height:320px;
   grid-template-columns:minmax(300px,1fr) 84px minmax(300px,1fr);
 }
-.hero-wing{padding:30px 48px}
+.hero-wing{
+  align-items:center;
+  text-align:center;
+  padding:30px 48px;
+}
+.figure-wing,.house-wing{
+  align-items:center;
+  text-align:center;
+}
 .hero-name{
   margin-top:8px;
   font-size:clamp(48px,5vw,74px);
@@ -41,6 +51,7 @@
 
 @media(max-width:1120px){
   .hero-shell{
+    width:min(100%,900px);
     min-height:290px;
     grid-template-columns:minmax(230px,1fr) 70px minmax(230px,1fr);
   }
@@ -52,6 +63,7 @@
 
 @media(max-width:900px){
   .hero-shell{
+    width:100%;
     min-height:270px;
     grid-template-columns:minmax(0,1fr) 58px minmax(0,1fr);
   }
@@ -69,6 +81,7 @@
 
 @media(max-width:680px){
   .hero-shell{
+    width:100%;
     min-height:0;
     grid-template-columns:1fr;
   }
