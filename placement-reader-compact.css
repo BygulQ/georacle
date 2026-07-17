@@ -1,37 +1,170 @@
-/* 全部落宮頁共用：香檳金主色、緊湊置中的「卦象 × 宮位」主視覺。 */
+/* 全部落宮頁共用：統一香檳金色系，並保留緊湊置中的「卦象 × 宮位」主視覺。 */
 :root{
-  --rose:#C6A15F;
-  --rose-deep:#80663D;
-  --gold:#D5B879;
+  --bg:#EDE6D9;
+  --paper:#FBF8F2;
+  --paper-soft:#F3EBDD;
+  --ink:#3D3834;
+  --muted:#776D62;
+  --line:#E5DAC7;
+  --line-soft:#F0E8DC;
+  --rose:#B99658;
+  --rose-deep:#806A43;
+  --gold:#C8A866;
   --gold-soft:#E9D9B8;
-  --line:#D9CDB9;
-  --line-soft:#EEE5D8;
+  --good:#7D8978;
+  --mid:#A88652;
+  --bad:#936763;
+  --shadow:0 24px 70px rgba(92,70,38,.10);
 }
-.brand,.hero-kicker,.hero-pair,.house-ordinal,.result-label,.slot-label{
+
+html{background:var(--bg)}
+body{
+  color:var(--ink);
+  background:radial-gradient(circle at 50% -12%,#FFFDF8 0,#F5EFE4 40%,#EDE6D9 100%);
+}
+body:before{
+  opacity:.34;
+  background-image:linear-gradient(rgba(128,106,67,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(128,106,67,.035) 1px,transparent 1px);
+}
+.app{
+  border-color:#DCCFB9;
+  background:rgba(250,247,241,.95);
+  box-shadow:var(--shadow);
+}
+.top{
+  border-bottom-color:var(--line-soft);
+  background:rgba(251,248,242,.94);
+}
+.brand,.hero-kicker,.hero-pair,.house-ordinal,.result-label,.slot-label,
+.section-heading h2,.section>h2,.card h3,.box h3,.step-label,.question-evidence b{
   color:var(--rose-deep);
 }
-.pill.primary,.go{
-  background:linear-gradient(135deg,#D7BB7E,#B99352);
-  border-color:#B99352;
-  color:#fff;
+
+.pill{
+  border-color:var(--line);
+  background:rgba(255,252,246,.88);
+  color:#746857;
 }
-.pill.primary:hover,.go:hover{background:#A98143}
+.pill:hover{
+  border-color:var(--gold);
+  color:var(--rose-deep);
+  background:#FFF9EC;
+}
+.pill.primary,.go{
+  background:linear-gradient(135deg,#D8BD82,#B99658);
+  border-color:#B38D4D;
+  color:#fff;
+  box-shadow:0 8px 18px rgba(128,96,43,.15);
+}
+.pill.primary:hover,.go:hover{background:#9F793D}
+
+.search{
+  border-color:#DDCFB6;
+  background:rgba(251,248,242,.94);
+  box-shadow:0 12px 30px rgba(92,70,38,.055);
+}
+.search-slot{
+  border-color:var(--line-soft);
+  background:#FFFDF8;
+}
+.search select{color:var(--ink)}
+.times{color:var(--gold)}
+
 .hero{
-  border-color:rgba(185,147,82,.34);
+  border-color:#DCC9A8;
+  background:var(--paper);
   box-shadow:0 22px 58px rgba(111,83,39,.09);
 }
+.hero:before{
+  opacity:.40;
+  background-image:linear-gradient(rgba(128,106,67,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(128,106,67,.04) 1px,transparent 1px);
+}
 .hero:after{background:linear-gradient(transparent,var(--gold-soft),transparent)}
-.network-cross{color:#C7A35F}
+.hero-topline{
+  border-bottom-color:var(--line-soft);
+  color:#827665;
+  background:rgba(252,249,243,.60);
+}
+.hero-name{color:var(--ink)}
+.hero-latin,.house-element{color:var(--muted)}
+.network-cross{color:#C19A50}
 .dot-row i{
   background:#D2B574;
   box-shadow:0 0 0 1px rgba(210,181,116,.24),0 6px 16px rgba(173,132,61,.18);
 }
 .house-roman{color:#8A7041}
-.hero-result{background:rgba(255,251,243,.78)}
+.hero-result{
+  border-top-color:var(--line);
+  background:var(--paper-soft);
+}
+.hero-result .summary{color:#51483F}
+
+.section-index{color:var(--gold)}
+.section-heading:after,.section>h2:after{
+  background:linear-gradient(90deg,var(--gold-soft),transparent);
+}
+.card,.box{
+  border-color:var(--line);
+  background:rgba(255,252,246,.94);
+  box-shadow:0 12px 32px rgba(92,70,38,.05);
+}
+.card p,.formula .box span,.note-card p{color:var(--muted)}
 .tag{
   border-color:#E1D2B7;
   background:#FFF9EC;
+  color:#675B4A;
 }
+.reading-primary{
+  background:linear-gradient(135deg,#FFFDF8,#F3E8D5);
+  border-color:#DAC8A9;
+}
+.reading-primary h3{color:#554630}
+.nature-card{
+  background:#F4EBDD;
+  border-color:#DECFB7;
+}
+.direction-grid:before{
+  background:linear-gradient(90deg,transparent,var(--gold-soft),var(--gold-soft),transparent);
+}
+.formula{
+  border-color:#DCCBAE;
+  background:linear-gradient(rgba(128,106,67,.032) 1px,transparent 1px),linear-gradient(90deg,rgba(128,106,67,.032) 1px,transparent 1px),rgba(251,248,242,.86);
+  background-size:64px 64px,64px 64px,auto;
+}
+.formula:before{
+  background:linear-gradient(90deg,transparent,var(--gold-soft),var(--gold),var(--gold-soft),transparent);
+}
+.formula .box{
+  background:#FFFDF8;
+  border-color:#E0D4C1;
+}
+.formula .result-box{
+  background:#F1E5D1;
+  border-color:#D7C29D;
+  color:var(--ink);
+}
+.formula .result-box .step-label{color:#806A43}
+.formula .result-box span{color:#6F6355}
+.op{color:var(--gold)}
+.note-card{
+  border-color:#DCCAAE;
+  background:#F3E8D7;
+  color:var(--ink);
+}
+.special{
+  background:linear-gradient(135deg,#FFFDF8,#F0E3CC);
+  border-color:#D6BE91;
+}
+
+#placement-numeric-layer .numeric-card{
+  border-color:var(--line)!important;
+  background:rgba(255,252,246,.94)!important;
+}
+#placement-numeric-layer .num{
+  background:#F7EEDC!important;
+  border-color:#E4D5BA!important;
+}
+#placement-numeric-layer .num b{color:#806A43!important}
 
 .hero-shell{
   width:min(100%,1080px);
