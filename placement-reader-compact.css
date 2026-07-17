@@ -1,4 +1,38 @@
-/* 全部落宮頁共用：保留極簡風格，縮減「卦象 × 宮位」主視覺的無效留白。 */
+/* 全部落宮頁共用：香檳金主色、緊湊置中的「卦象 × 宮位」主視覺。 */
+:root{
+  --rose:#C6A15F;
+  --rose-deep:#80663D;
+  --gold:#D5B879;
+  --gold-soft:#E9D9B8;
+  --line:#D9CDB9;
+  --line-soft:#EEE5D8;
+}
+.brand,.hero-kicker,.hero-pair,.house-ordinal,.result-label,.slot-label{
+  color:var(--rose-deep);
+}
+.pill.primary,.go{
+  background:linear-gradient(135deg,#D7BB7E,#B99352);
+  border-color:#B99352;
+  color:#fff;
+}
+.pill.primary:hover,.go:hover{background:#A98143}
+.hero{
+  border-color:rgba(185,147,82,.34);
+  box-shadow:0 22px 58px rgba(111,83,39,.09);
+}
+.hero:after{background:linear-gradient(transparent,var(--gold-soft),transparent)}
+.network-cross{color:#C7A35F}
+.dot-row i{
+  background:#D2B574;
+  box-shadow:0 0 0 1px rgba(210,181,116,.24),0 6px 16px rgba(173,132,61,.18);
+}
+.house-roman{color:#8A7041}
+.hero-result{background:rgba(255,251,243,.78)}
+.tag{
+  border-color:#E1D2B7;
+  background:#FFF9EC;
+}
+
 .hero-shell{
   width:min(100%,1080px);
   margin:0 auto;
