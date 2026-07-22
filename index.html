@@ -116,6 +116,8 @@ function quantitativePromptSections(){const parts=[];if(QUANT_PROMPT_MODE.timing
     html=replaceRequired(html,'$("domain").onchange=()=>{resetReading(); render(); refreshOraclePromptPreview()};','$("domain").onchange=()=>{resetReading(); render(); refreshOraclePromptPreview()};\nif($("timingMode")) $("timingMode").onchange=e=>{QUANT_PROMPT_MODE.timing=!!e.target.checked; resetReading(); renderBadges(); refreshOraclePromptPreview()};\nif($("quantityMode")) $("quantityMode").onchange=e=>{QUANT_PROMPT_MODE.quantity=!!e.target.checked; resetReading(); renderBadges(); refreshOraclePromptPreview()};','bind quantitative mode controls');
     html=replaceRequired(html,'  $("modeBadges").innerHTML=html;','  if(QUANT_PROMPT_MODE.timing) html+=`<span class="badge">⏳ 應期判讀</span>`;\n  if(QUANT_PROMPT_MODE.quantity) html+=`<span class="badge"># 數量判讀</span>`;\n  $("modeBadges").innerHTML=html;','quantitative mode badges');
 
+    html=html.replace('  const q=$("question").value.trim();\n  if(!q){alert("先輸入問題。");return}\n','  const q=$("question").value.trim()||"未提供（請依盤面進行一般性判讀）";\n');
+
     html=replaceRequiredRegex(html,/\s*<div style="margin-top:12px;display:none" id="saveRow">[\s\S]*?<div class="diaryList" id="diaryList"><\/div>/,'','diary output UI');
     html=replaceRequired(html,'      <button id="diaryBtn">☁️ 占卜日記</button>\n','','diary drawer button');
     html=html.replace('保存盤面圖片或本次 AI 提示詞紀錄。','下載保存本次盤面圖片。');
