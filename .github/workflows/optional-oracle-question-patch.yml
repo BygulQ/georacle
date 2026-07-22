@@ -1,18 +1,21 @@
 name: Optional oracle question one-time patch
 
 on:
-  push:
-    paths:
-      - .github/workflows/optional-oracle-question-patch.yml
+  pull_request:
+    types: [opened, synchronize]
+    branches: [main]
 
 permissions:
   contents: write
 
 jobs:
   patch:
+    if: github.head_ref == 'patch/optional-oracle-question'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
       - name: Allow prompt generation without a question
         run: |
           python - <<'PY'
@@ -28,11 +31,13 @@ jobs:
           if old not in text:
               raise SystemExit('oracle question validation target not found')
           path.write_text(text.replace(old, new, 1), encoding='utf-8')
+          Path('.optional-oracle-question-trigger').unlink(missing_ok=True)
+          Path('.github/workflows/optional-oracle-question-patch.yml').unlink(missing_ok=True)
           PY
       - name: Commit patch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index-core.html
+          git add -A
           git commit -m "允許無問題生成 AI 神諭提示詞"
           git push
