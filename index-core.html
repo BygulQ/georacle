@@ -2084,7 +2084,6 @@ function closeCastQuestionModal(restore=false){
 function confirmCastQuestionModal(){
   const input=$("castQuestionInput");
   const q=(input?.value||'').trim();
-  if(!q){alert("請先輸入問題。"); input?.focus(); return;}
   if($("question")) $("question").value=q;
   const mode=pendingCastMode;
   closeCastQuestionModal(false);
